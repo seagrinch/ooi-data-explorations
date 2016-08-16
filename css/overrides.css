@@ -1,0 +1,106 @@
+/* Move down content because we have a fixed navbar that is 50px tall */
+@media only screen {
+  body {
+    padding-top: 60px;
+    padding-bottom: 20px;
+    font-size: 16px;
+  }
+}
+
+.container {
+  max-width: 800px;
+}
+
+.thumbnail img {
+  max-height: 300px;
+}
+
+
+.dygraph-title {
+  font-size: 18px;
+}
+.dygraph-ylabel, .dygraph-y2label {
+  font-size: 14px;
+}
+
+
+/* Focus+Context Chart */
+svg {
+  font: 10px sans-serif;
+}
+
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.brush .extent {
+  stroke: #fff;
+  fill-opacity: .125;
+  shape-rendering: crispEdges;
+}
+
+/* Line Chart */
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+  clip-path: url(#clip);
+}
+
+/* Bar Chart */
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis line,
+.axis path {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.axis--x path {
+  display: none;
+}
+
+
+/* Horizontal Bar Chart */
+.bar rect {
+    stroke: #fff;
+    shape-rendering: crispEdges;
+}
+
+.bar rect.background {
+    fill: #eee;
+}
+
+.bar rect.percent {
+    fill: #74c476;
+}
+
+.bar:hover rect.percent {
+    fill: #a1d99b;
+}
+
+.bar text {
+    font-size: 12px;
+    fill: #333;
+}
+
+.axis line {
+    stroke: #ccc;
+    stroke-width: 1;
+}
+
+line.median {
+    stroke: #777;
+    stroke-width: 1;
+}
