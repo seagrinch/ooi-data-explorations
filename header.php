@@ -9,7 +9,7 @@ date_default_timezone_set('America/New_York');
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title><?php 
-    $default_title = "Exploring Primary Productivity with Data";
+    $default_title = "Data Explorations";
     if($page_title) {
       echo $page_title . " | " . $default_title;
     } else {
@@ -43,12 +43,12 @@ date_default_timezone_set('America/New_York');
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a href="/" class="navbar-brand"></a> <a href="index.php" class="navbar-brand">Exploring Primary Productivity with Data</a>
+          <a href="/" class="navbar-brand"></a> <a href="index.php" class="navbar-brand">Data Explorations</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li <?php echo ($page=='activities' ? 'class="active"' : '') ?> ><a href="index.php">Activities</a></li>
-            <li <?php echo ($page=='workshop' ? 'class="active"' : '') ?> ><a href="workshop.php">Workshop</a></li>
+            <li <?php echo ($page=='workshops' ? 'class="active"' : '') ?> ><a href="workshops.php">Workshops</a></li>
             <li <?php echo ($page=='about' ? 'class="active"' : '') ?> ><a href="about.php">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->

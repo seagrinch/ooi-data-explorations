@@ -1,0 +1,188 @@
+<?php 
+  $lesson_title = 'Chlorophyll-a Across the Globe ';
+  $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
+  $level_title = ucwords(str_replace('_', ' ', $level));
+  $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  
+  include_once('header.php'); 
+?>
+
+<ol class="breadcrumb">
+  <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity3.php"><?= $lesson_title ?></a></li>
+  <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
+</ol>
+
+<!-- INDIVIDUAL ACTIVITY -->
+<?php if (in_array($level, array('exploration','concept_invention','application'))): ?>
+
+<div class="page-header">
+<h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
+</div>
+
+<h3>Challenge Question</h3>
+<?php if ($level=='exploration'): ?>
+<p>What can we observe about chlorophyll in the fall around the world? </p>
+<?php elseif ($level=='concept_invention'): ?>
+<p>What are global patterns in primary production? </p>
+<?php elseif ($level=='application'): ?>
+<p>How does primary production vary around the world? How does that relate to what you know about primary production?</p>
+<?php endif; ?>
+
+
+<!-- DATA 
+  
+  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
+a.	Have the range on the y-axis be from 0-5 on all of the graphs?
+b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
+c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
+d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
+e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
+f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
+g.	Change the labels in the third one to ÒArgentine Basin (Temperate)Ó and ÒSouthern Ocean (Near Polar)Ó?
+
+1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
+a.	Have the range on the y-axis be from 0-5 on all of the graphs?
+b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
+c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
+d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
+e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
+f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
+g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó and ÒGlobal Southern Ocean (Near Polar)Ó?
+
+
+1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
+a.	Have the range on the y-axis be from 0-5 on all of the graphs?
+b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
+c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
+d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
+e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
+f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
+g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó and ÒGlobal Southern Ocean (Near Polar)Ó?
+
+-->
+<div id="chart1" style="width:800px; height: 250px;"></div>
+<br>
+<div id="chart2" style="width:800px; height: 250px;"></div>
+<br>
+<div id="chart3" style="width:800px; height: 250px;"></div>
+
+<?php 
+  $scripts[] = "js/dygraph-combined-dev.js";
+  $scripts[] = "js/activity4c.js";
+?> 
+
+
+<h3>Your Objective</h3>
+
+<?php if ($level=='exploration'): ?>
+
+<p>Explore the "Chlorophyll-a Concentration" data to see what you can observe among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+
+<p><strong>Data Hint:</strong> Select different locations in the ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+
+<?php elseif ($level=='concept_invention'): ?>
+
+<p>Look for patterns in the "Chlorophyll-a Concentration" data among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+
+<p><strong>Data Hint:</strong> Select each location to explore the data from around the globe. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+
+<?php elseif ($level=='application'): ?>
+
+<p>Investigate the "Chlorophyll-a Concentration" data to determine if there is an regional relationship to primary production during the Fall season and how the data vary among the six stations: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+
+<p><strong>Data Hint:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across the Fall to see if it changes the relationships or patterns you observe.</p>
+
+<?php endif; ?>
+
+
+<h3>Interpretation and Analysis Questions</h3>
+
+<?php if ($level=='exploration'): ?>
+
+<ol>
+  <li>What did you find interesting about what you observed in the data about chlorophyll-a concentration around the world?</li>
+  <li>Did you observe any patterns? If so, what were the patterns and for which variables?</li>
+  <li>What questions do you still have about chlorophyll-a concentration around the world?</li>
+</ol>
+
+<?php elseif ($level=='concept_invention'): ?>
+
+<ol>
+  <li>How did the chlorophyll-a concentration vary around the world? </li>
+  <li>What is your evidence for the pattern, which you observed, in the data from around the world?</li>
+  <li>What questions do you still have about patterns in chlorophyll-a concentration from around the world?</li>
+</ol>
+
+<?php elseif ($level=='application'): ?>
+
+<ol>
+  <li> Is there a relationship to primary production and geography?
+    <ol type="a">
+      <li>If so, explain what kind of relationship is it? Why do you think that relationship exists for chlorophyll-a concentration around the world?</li>
+      <li>If not, why do you think there is no relationship of chlorophyll-a concentration around the world?</li>
+    </ol>
+  </li>
+  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about primary production?</li>
+  <li>What questions do you still have about primary production?</li>
+</ol>
+
+<?php endif; ?>
+
+
+<h3>Background Information</h3>
+<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<?php
+  $json_file = file_get_contents('productivity/images_json/productivity3.json');
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="productivity/images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="productivity/images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
+
+<p style="text-align: right;">Finished the activity?  Please take our quick <a href="index.php" class="btn btn-sm btn-warning">Student Survey</a></p>
+
+<!-- ACTIVITY INTRODUCTION -->
+<?php else: ?>
+
+<div class="page-header">
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations throughout the globe.</small></h2>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <p>Select the question your instructor has assigned:</p>
+    <div class="list-group">
+      <a href="productivity3.php?level=exploration" class="list-group-item">
+        <h4 class="list-group-item-heading">Exploration</h4>
+        <p class="list-group-item-text">What can we observe about chlorophyll in the fall around the world? </p>
+      </a>
+      <a href="productivity3.php?level=concept_invention" class="list-group-item">
+        <h4 class="list-group-item-heading">Concept Invention</h4>
+        <p class="list-group-item-text">What are global patterns in primary production? </p>
+      </a>
+      <a href="productivity3.php?level=application" class="list-group-item">
+        <h4 class="list-group-item-heading">Application</h4>
+        <p class="list-group-item-text">How does primary production vary around the world? How does that relate to what you know about primary production? 
+</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img src="Learning%20Cycle.png" alt="Learning%20Cycle" />
+  </div>
+</div>
+
+<?php endif; ?>
+
+
+<?php 
+  include_once('footer.php'); 
+?>

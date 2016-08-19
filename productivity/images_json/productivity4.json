@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_HighlightedEndurancePioneerArgentineBasin.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from three locations: northern Pacific Ocean (<a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance Array</a>, highlighted in red), northern Atlantic Ocean (<a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer Array</a>, highlighted in purple), and southern Atlantic Ocean (<a href=\"http://oceanobservatories.org/array/global-argentine-basin/\">Argentine Basin Array</a>; highlighted in yellow)."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_WAOffshoreHighlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Washington Offshore station (highlighted in red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water ",
+    "file": "Endurance_WA_2015-10-07_ver_3-00_highlighted.jpg",
+    "caption": "Below the ocean surface off of Oregon and Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent the where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Shelf Surface Mooring (D, highlighted in red) in the center of the drawing."
+  },
+  {
+    "title": "Ocean Off of New England",
+    "file": "Pioneer_NEObsMap_110914_states_highlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> location is located in the ocean off of Massachusetts, Rhode Island, and Connecticut states. Data in this activity were collected from the Central Surface Mooring station (included within the highlighted purple area). "
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "PioneerArray_2015-10-07_ver_3-00_highlighted.jpg",
+    "caption": "Below the ocean surface off of off of southern New England are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Pioneer location. This is a drawing to represent the where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Central Surface Mooring (E, highlighted in purple) in the center of the drawing. "
+  },
+  {
+    "title": "Ocean Off of Argentina & What is Looks Like Under Water",
+    "file": "Global_Argentine_2015-10-07_ver_5-00_highlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-argentine-basin/\">Global Argentine Basin</a> location is located in the ocean off of central Argentina. Below the ocean surface off of Oregon and Washington there are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Global Argentine Basin location. This is a drawing to represent the where the different instruments are located in the ocean. Data in this activity were collected from the Subsurface Flanking Mooring A (C, highlighted in yellow) in the left of the drawing."
+  },
+  {
+    "title": "What is on a Mooring?",
+    "file": "CE_WA_Shelf_Surface_Mooring_IPHighlighted.jpg",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument that collected data in this activity is included in the Instrument Package (highlighted in red), which is attached to the cable 7m below the water surface (Washington Offshore Shelf Surface Mooring as example)."
+  },
+  {
+    "title": "Inside the Instrument Package",
+    "file": "InstrumentPackage_Mooring.jpg",
+    "caption": "Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Instrument Package. Data for this activity were collected using the Wetlabs ECO Triplet 3-wavelength flourometer instrument that is one of those instruments."
+  },
+  {
+    "title": "How does a fluorometer work?",
+    "file": "3WavelengthFluorometer_Image_Diagram.jpg",
+    "caption": "A fluorometer measures how much light is emitted by things in the water that previously absorbed light. In other words, by looking at how much light is given off in the water scientists can determine who is in the water and how much of it there is. They are looking for the presence and amount of microscope plants (phytoplankton)."
+  }
+]

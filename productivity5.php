@@ -1,0 +1,187 @@
+<?php 
+  $lesson_title = 'Chlorophyll-a in near the Polar Oceans ';
+  $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
+  $level_title = ucwords(str_replace('_', ' ', $level));
+  $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  
+  include_once('header.php'); 
+?>
+
+<ol class="breadcrumb">
+  <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity5.php"><?= $lesson_title ?></a></li>
+  <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
+</ol>
+
+<!-- INDIVIDUAL ACTIVITY -->
+<?php if (in_array($level, array('exploration','concept_invention','application'))): ?>
+
+<div class="page-header">
+<h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
+</div>
+
+<h3>Challenge Question</h3>
+<?php if ($level=='exploration'): ?>
+<p>What can we observe in chlorophyll data from near the Polar Zones of the Ocean? </p>
+<?php elseif ($level=='concept_invention'): ?>
+<p>What happens to primary production from near the Polar Zones of the Ocean over time?</p>
+<?php elseif ($level=='application'): ?>
+<p>What similarities and differences exist between patterns in chlorophyll-a concentrations from the three locations over time? How does that relate to what you know about primary production?</p>
+<?php endif; ?>
+
+
+<!-- DATA 
+  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
+a.	Remove Argentine Basin from the widget, as it is a temperate location?
+b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
+c.	Make it so only the Southern Ocean data are visible when they first come to the page?
+d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
+e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
+
+1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
+a.	Remove Argentine Basin from the widget, as it is a temperate location?
+b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
+c.	Make it so only the Southern Ocean data are visible when they first come to the page?
+d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
+e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
+
+1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
+a.	Remove Argentine Basin from the widget, as it is a temperate location?
+b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
+c.	Make it so only the Southern Ocean data are visible when they first come to the page?
+d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
+e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
+
+-->
+
+<div id="chart" style="width:800px; height: 400px;"></div>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
+    <p class="text-right">Include datasets:</p>
+  </div>
+  <div class="col-xs-9">
+  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+    Polar Pacific Ocean (Southern Ocean)</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" checked> 
+    Polar Atlantic Ocean (Argentine Basin)</label>
+  </div>
+</div>
+
+<?php 
+  $scripts[] = "js/dygraph-combined-dev.js";
+  $scripts[] = "js/activity3.js";
+?>  
+
+<h3>Your Objective</h3>
+
+<?php if ($level=='exploration'): ?>
+
+<p>Explore the "Chlorophyll-a Concentration" data among the stations near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>) to see what you can observe. </p>
+
+<p><strong>Data Hint:</strong> Select different locations near the Polar Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+
+<?php elseif ($level=='concept_invention'): ?>
+
+<p>Look for patterns in the "Chlorophyll-a Concentration" data at each of the stations near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>).</p>
+
+<p><strong>Data Hint:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+
+<?php elseif ($level=='application'): ?>
+
+<p>Investigate the "Chlorophyll-a Concentration" data to determine how the data vary over time among areas near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>).</p>
+
+<p><strong>Data Hint:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+
+<?php endif; ?>
+
+
+<h3>Interpretation and Analysis Questions</h3>
+
+<?php if ($level=='exploration'): ?>
+
+<ol>
+  <li>What did you find interesting about what you observed in the data about chlorophyll-a concentration from near the Polar Zones in the Ocean?</li>
+  <li>Did you observe any patterns? If so, what were the patterns and for which variables?</li>
+  <li>What questions do you still have about chlorophyll-a concentration from near the Polar Zones in the Ocean?</li>
+</ol>
+
+<?php elseif ($level=='concept_invention'): ?>
+
+<ol>
+  <li>How did the chlorophyll-a concentration vary over time near the Polar Zones of the Ocean? </li>
+  <li>What is your evidence for the pattern, which you observed, in the data over time near the Polar Zones of the Ocean?</li>
+  <li>What questions do you still have about patterns in chlorophyll-a concentration over time near the Polar Zones of the Ocean?</li>
+</ol>
+
+<?php elseif ($level=='application'): ?>
+
+<ol>
+  <li> Is there a relationship in primary production over time near the Polar Zones of the Ocean?
+    <ol type="a">
+      <li>If so, explain what kind of relationship is it? Why do you think that relationship exists for chlorophyll-a concentration over time near the Polar Zones of the Ocean?</li>
+      <li>If not, why do you think there is no relationship for chlorophyll-a concentration over time near the Polar Zones of the Ocean?</li>
+    </ol>
+  </li>
+  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about primary production?</li>
+  <li>What questions do you still have about primary production?</li>
+</ol>
+
+<?php endif; ?>
+
+
+<h3>Background Information</h3>
+<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<?php
+  $json_file = file_get_contents('productivity/images_json/productivity5.json');
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="productivity/images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="productivity/images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
+
+<p style="text-align: right;">Finished the activity?  Please take our quick <a href="index.php" class="btn btn-sm btn-warning">Student Survey</a></p>
+
+<!-- ACTIVITY INTRODUCTION -->
+<?php else: ?>
+
+<div class="page-header">
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentration data from locations near the Polar Oceans.</small></h2>
+</div>
+
+<p>&nbsp;</p>
+
+<div class="row">
+  <div class="col-md-6">
+    <p>Select the question your instructor has assigned:</p>
+    <div class="list-group">
+      <a href="productivity5.php?level=exploration" class="list-group-item">
+        <h4 class="list-group-item-heading">Exploration</h4>
+        <p class="list-group-item-text">What can we observe in chlorophyll data from near the Polar Zones of the Ocean? </p>
+      </a>
+      <a href="productivity5.php?level=concept_invention" class="list-group-item">
+        <h4 class="list-group-item-heading">Concept Invention</h4>
+        <p class="list-group-item-text">What happens to primary production from near the Polar Zones of the Ocean over time?</p>
+      </a>
+      <a href="productivity5.php?level=application" class="list-group-item">
+        <h4 class="list-group-item-heading">Application</h4>
+        <p class="list-group-item-text">What similarities and differences exist between patterns in chlorophyll-a concentrations from the three locations over time? How does that relate to what you know about primary production?</p>
+      </a>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <img src="Learning%20Cycle.png" alt="Learning%20Cycle" />
+  </div>
+</div>
+
+<?php endif; ?>
+
+
+<?php 
+  include_once('footer.php'); 
+?>

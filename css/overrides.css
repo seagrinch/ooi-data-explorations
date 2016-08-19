@@ -104,3 +104,27 @@ line.median {
     stroke: #777;
     stroke-width: 1;
 }
+
+
+/* OTHER TWEAKS */
+.carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    color: #000;
+    text-shadow: none;
+}
+
+.page-header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.breadcrumb {
+  padding: 2px 15px;
+}
+
+.breadcrumb>li {
+  font-size: 14px;
+}
