@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Chlorophyll-a in Temperate Oceans ';
+  $lesson_title = 'Chlorophyll-a in Temperate Zones of the Ocean';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity4.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,26 +31,7 @@
 <?php endif; ?>
 
 
-<!-- DATA 
-  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity2.php), except can we:
-a.	Add Argentine Basin to the widget (remove from the Polar Oceans widget), as it is a temperate location (maybe in light teal color you have it as in the global graphs above (old 4c))?
-b.	Make it so only the Pioneer data are visible when they first come to the page?
-c.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Endurance), Northern Hemisphere Atlantic Ocean (Pioneer), Southern Hemisphere Atlantic Ocean (Argentine Basin)?
-d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity2.php), except can we:
-a.	Add Argentine Basin to the widget (remove from the Polar Oceans widget), as it is a temperate location (maybe in light teal color you have it as in the global graphs above (old 4c))?
-b.	Make it so only the Pioneer data are visible when they first come to the page?
-c.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Endurance), Northern Hemisphere Atlantic Ocean (Pioneer), Southern Hemisphere Atlantic Ocean (Argentine Basin)?
-d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity2.php), except can we:
-a.	Add Argentine Basin to the widget (remove from the Polar Oceans widget), as it is a temperate location (maybe in light teal color you have it as in the global graphs above (old 4c))?
-b.	Make it so only the Pioneer data are visible when they first come to the page?
-c.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Endurance), Northern Hemisphere Atlantic Ocean (Pioneer), Southern Hemisphere Atlantic Ocean (Argentine Basin)?
-d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
--->
+<!-- DATA CHART -->
 <div id="chart" style="width:800px; height: 400px;"></div>
 
 <div class="row" style="margin-top:10px;">
@@ -59,15 +40,17 @@ d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
   </div>
   <div class="col-xs-9">
   <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
-    Temperate Pacific Ocean (Endurance)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" checked> 
-    Temperate Atlantic Ocean (Pioneer)</label>
+    Northern Hemisphere Pacific Ocean (Endurance)</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" > 
+    Northern Hemisphere Atlantic Ocean (Pioneer)</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" > 
+    Southern Hemisphere Atlantic Ocean (Argentine Basin)</label>
   </div>
 </div>
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity2.js";
+  $scripts[] = "productivity/javascript/productivity4.js";
 ?>  
 
 
@@ -77,19 +60,19 @@ d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
 
 <p>Explore the "Chlorophyll-a Concentration" data among the stations in the Temperate Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>; <a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>) to see what you can observe.</p>
 
-<p><strong>Data Hint:</strong> Select different locations in the Temperate Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different locations in the Temperate Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data at each of the stations in the Temperate Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>; <a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select each location to explore the data from around the Temperate Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each location to explore the data from around the Temperate Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Investigate the "Chlorophyll-a Concentration" data to determine how the data vary over time among areas in the Temperate Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>; <a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across time to see if it changes the relationships or patterns you observe.</p>
+<p><strong>Data Tip:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across time to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
 
@@ -148,7 +131,7 @@ d.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentration data from Temperate Oceans.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentration data from temperate zones of the ocean</small></h2>
 </div>
 
 <p>&nbsp;</p>

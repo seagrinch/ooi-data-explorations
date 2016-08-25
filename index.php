@@ -15,8 +15,8 @@
     <a href="productivity_index.php"><img src="images/thumbnails/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
   </div>
   <div class="col-md-8">
-    <h3><a href="productivity_index.php">Exploring Primary Productivity with Data</a></h3>
-    <p>Through these activities, we will explore primary productivity in greater detail. Primary productivity is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</p>
+    <h3><a href="productivity_index.php">Exploring Primary Production with Data</a></h3>
+    <p>Through these activities, we will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</p>
   </div>
 </div>
 

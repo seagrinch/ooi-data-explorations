@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity3.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,37 +31,7 @@
 <?php endif; ?>
 
 
-<!-- DATA 
-  
-  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
-a.	Have the range on the y-axis be from 0-5 on all of the graphs?
-b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
-c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
-d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
-e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
-f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
-g.	Change the labels in the third one to ÒArgentine Basin (Temperate)Ó and ÒSouthern Ocean (Near Polar)Ó?
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
-a.	Have the range on the y-axis be from 0-5 on all of the graphs?
-b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
-c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
-d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
-e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
-f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
-g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó and ÒGlobal Southern Ocean (Near Polar)Ó?
-
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4c.php), except can we:
-a.	Have the range on the y-axis be from 0-5 on all of the graphs?
-b.	Have these be three stacked widgets with a time slider? (NOTE Ð If this is not a simple thing to accomplish this is a very low priority at the moment.)
-c.	Change the title of the first one from ÒNorthern Hemisphere Temperate OceansÓ to ÒNorthern Hemisphere Temperate Coastal OceansÓ?
-d.	Change the title of the second one from ÒNorthern Hemisphere Polar OceansÓ to ÒNorthern Hemisphere Near Polar Open OceansÓ?
-e.	Change the color in the second one to have more contrast, maybe keep the blue and have a burnt orange rather than the green?
-f.	Change the title of the third one from ÒSouthern Hemisphere Polar OceansÓ to ÒSouthern Hemisphere Open OceansÓ?
-g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó and ÒGlobal Southern Ocean (Near Polar)Ó?
-
--->
+<!-- DATA CHART -->
 <div id="chart1" style="width:800px; height: 250px;"></div>
 <br>
 <div id="chart2" style="width:800px; height: 250px;"></div>
@@ -70,7 +40,7 @@ g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó an
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity4c.js";
+  $scripts[] = "productivity/javascript/productivity3.js";
 ?> 
 
 
@@ -80,19 +50,19 @@ g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó an
 
 <p>Explore the "Chlorophyll-a Concentration" data to see what you can observe among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select different locations in the ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different locations in the ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select each location to explore the data from around the globe. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each location to explore the data from around the globe. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Investigate the "Chlorophyll-a Concentration" data to determine if there is an regional relationship to primary production during the Fall season and how the data vary among the six stations: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across the Fall to see if it changes the relationships or patterns you observe.</p>
+<p><strong>Data Tip:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across the Fall to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
 
@@ -151,7 +121,7 @@ g.	Change the labels in the third one to ÒGlobal Argentine Basin (Temperate)Ó an
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations throughout the globe.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations throughout the globe</small></h2>
 </div>
 
 <p>&nbsp;</p>

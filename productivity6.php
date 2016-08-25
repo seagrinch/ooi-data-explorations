@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity6.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,23 +31,7 @@
 <?php endif; ?>
 
 
-<!-- DATA 
-  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4b.php), except can we:
-a.	Make it so only the inshore and offshore data from Endurance are visible when the user first comes to the page?
-b.	Change the offshore Endurance data to the burnt orange (used in the revised global widget)?
-c.	Can all of the legend labels be on the same line, rather than the Offshore Atlantic dropping to the line below?
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4b.php), except can we:
-a.	Make it so only the inshore and offshore data from Endurance are visible when the user first comes to the page?
-b.	Change the offshore Endurance data to the burnt orange (used in the revised global widget)?
-c.	Can all of the legend labels be on the same line, rather than the Offshore Atlantic dropping to the line below?
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4b.php), except can we:
-a.	Make it so only the inshore and offshore data from Endurance are visible when the user first comes to the page?
-b.	Change the offshore Endurance data to the burnt orange (used in the revised global widget)?
-c.	Can all of the legend labels be on the same line, rather than the Offshore Atlantic dropping to the line below?
-
--->
+<!-- DATA CHART -->
 
 <div id="chart" style="width:800px; height: 400px;"></div>
 
@@ -60,16 +44,16 @@ c.	Can all of the legend labels be on the same line, rather than the Offshore At
     Inshore Pacific Ocean (Endurance)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" checked> 
     Offshore Pacific Ocean (Endurance)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
+  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" > 
     Inshore Atlantic Ocean (Pioneer)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="3" onclick="toggle_visibility(this)" checked> 
+  <label style="font-weight: normal;"><input type="checkbox" id="3" onclick="toggle_visibility(this)" > 
     Offshore Atlantic Ocean (Pioneer)</label>
   </div>
 </div>
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity4b.js";
+  $scripts[] = "productivity/javascript/productivity6.js";
 ?> 
 
 <h3>Your Objective</h3>
@@ -78,19 +62,19 @@ c.	Can all of the legend labels be on the same line, rather than the Offshore At
 
 <p>Explore the "Chlorophyll-a Concentration" data among the inshore and offshore locations at each station in the Temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>) to see what you can observe.</p>
 
-<p><strong>Data Hint:</strong> Select different inshore and offshore locations to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different inshore and offshore locations to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data from the inshore and offshore locations at each station in the Temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select the inshore and offshore locations for each Ocean to explore the data. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select the inshore and offshore locations for each Ocean to explore the data. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Investigate the "Chlorophyll-a Concentration" data to determine how the data vary from the inshore and offshore locations at each station in the Temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>). </p>
 
-<p><strong>Data Hint:</strong> Select each inshore and offshore location to explore the data from the Temperate Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each inshore and offshore location to explore the data from the Temperate Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php endif; ?>
 
@@ -149,7 +133,7 @@ c.	Can all of the legend labels be on the same line, rather than the Offshore At
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations from inshore and offshore locations. </small></h2>
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations from inshore and offshore locations</small></h2>
 </div>
 
 <p>&nbsp;</p>

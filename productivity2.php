@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity2.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,12 +31,7 @@
 <?php endif; ?>
 
 
-<!-- DATA 
-  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4a.php), except can we add an ÒAll YearÓ toggle button so they can easily get back to the full year?
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4a.php), except can we add an ÒAll YearÓ toggle button so they can easily get back to the full year?
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity4a.php), except can we add an ÒAll YearÓ toggle button so they can easily get back to the full year?
-
--->
+<!-- DATA CHART -->
 
 <div id="chart" style="width:800px; height: 400px;"></div>
 
@@ -46,17 +41,18 @@
   </div>
   <div class="col-xs-9">
   <p>
-    <button class="btn btn-primary btn-sm" onclick="date_button('spring');">Spring</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('year')">Full Year</button>
     <button class="btn btn-primary btn-sm" onclick="date_button('summer')">Summer</button>
     <button class="btn btn-primary btn-sm" onclick="date_button('fall')">Fall</button>
     <button class="btn btn-primary btn-sm" onclick="date_button('winter')">Winter</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('spring');">Spring</button>
   </p>
   </div>
 </div>
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity4a.js";
+  $scripts[] = "productivity/javascript/productivity2.js";
 ?>  
 
 
@@ -66,19 +62,19 @@
 
 <p>Chlorophyll-a Concentration" data among the seasons in the Temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) to see what you can observe.</p>
 
-<p><strong>Data Hint:</strong> Select different seasons to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different seasons to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data during each season in the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select each season to explore the seasonal data. Zoom in and out of the data to look at different time scales to investigate patterns across the seasons.</p>
+<p><strong>Data Tip:</strong> Select each season to explore the seasonal data. Zoom in and out of the data to look at different time scales to investigate patterns across the seasons.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Investigate the "Chlorophyll-a Concentration" data to determine if there is an annual relationship to primary production over time and how the data vary in the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select different seasons to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
+<p><strong>Data Tip:</strong> Select different seasons to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
 
@@ -137,7 +133,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations throughout a year.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentrations throughout a year</small></h2>
 </div>
 
 <p>&nbsp;</p>

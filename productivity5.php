@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Chlorophyll-a in near the Polar Oceans ';
+  $lesson_title = 'Chlorophyll-a Near the Polar Zones of the Ocean ';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity5.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,29 +31,7 @@
 <?php endif; ?>
 
 
-<!-- DATA 
-  1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
-a.	Remove Argentine Basin from the widget, as it is a temperate location?
-b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
-c.	Make it so only the Southern Ocean data are visible when they first come to the page?
-d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
-e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
-a.	Remove Argentine Basin from the widget, as it is a temperate location?
-b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
-c.	Make it so only the Southern Ocean data are visible when they first come to the page?
-d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
-e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity3.php), except can we:
-a.	Remove Argentine Basin from the widget, as it is a temperate location?
-b.	Add Station Papa (maybe the burnt orange color you find to use in new global widgets) and Irminger Sea (maybe the dark green color as you have it in the old 4c)? (NOTE Ð For the moment letÕs add the timeframe for these stations that we use in the global comparison (old 4c), I will check on additional data for these stations on August 15th)?
-c.	Make it so only the Southern Ocean data are visible when they first come to the page?
-d.	Change the button labels to be: Northern Hemisphere Pacific Ocean (Station Papa), Northern Hemisphere Atlantic Ocean (Irminger Sea), Southern Hemisphere Pacific Ocean (Southern Ocean)?
-e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð What do you think is best here, I donÕt want them to get too long but do you think the students will intuitively get that N. is northern and S. is southern, I would hope so but donÕt want to make an inaccurate presumption)
-
--->
+<!-- DATA CHART -->
 
 <div id="chart" style="width:800px; height: 400px;"></div>
 
@@ -62,16 +40,18 @@ e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
     <p class="text-right">Include datasets:</p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
-    Polar Pacific Ocean (Southern Ocean)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" checked> 
-    Polar Atlantic Ocean (Argentine Basin)</label>
+  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" > 
+    Northern Hemisphere Atlantic Ocean (Irminger Sea)</label>
+  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" > 
+    Northern Hemisphere Pacific Ocean (Station Papa)</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
+    Southern Hemisphere Pacific Ocean (Southern Ocean)</label>
   </div>
 </div>
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity3.js";
+  $scripts[] = "productivity/javascript/productivity5.js";
 ?>  
 
 <h3>Your Objective</h3>
@@ -80,19 +60,19 @@ e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
 
 <p>Explore the "Chlorophyll-a Concentration" data among the stations near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>) to see what you can observe. </p>
 
-<p><strong>Data Hint:</strong> Select different locations near the Polar Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different locations near the Polar Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data at each of the stations near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Investigate the "Chlorophyll-a Concentration" data to determine how the data vary over time among areas near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php endif; ?>
 
@@ -151,7 +131,7 @@ e.	Change the legend labels to be: N. Pacific, N. Atlantic, S. Atlantic? (NOTE Ð
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentration data from locations near the Polar Oceans.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore chlorophyll-a concentration data from locations near the polar zones of the ocean</small></h2>
 </div>
 
 <p>&nbsp;</p>

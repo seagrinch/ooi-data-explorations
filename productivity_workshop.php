@@ -1,16 +1,16 @@
 <?php 
   $page = 'workshops';
-  $page_title = 'Exploring Primary Productivity with Data Workshop';
+  $page_title = 'Exploring Primary Production with Data Workshop';
   include_once('header.php'); 
 ?>
 
-<h2>Exploring Primary Productivity with Data<br>
+<h2>Exploring Primary Production with Data<br>
   <small>Ocean Observing Initiative (OOI) Workshop (May 20-22, 2016)</small>
 </h2>
 
 <p>During the Spring 2016 workshop (May 20-22), eleven undergraduate professors convened at Rutgers University to focus on the integration of data into undergraduate teaching of introductory oceanography themes and concepts using data from the Ocean Observing Initiative (OOI). Professors who were interested in using online data and who do exemplary work in undergraduate teaching were invited to attend. Workshop participants explored ways to effectively teach with data, shared their personal effective practices, expanded their understanding of effective pedagogy, and brainstormed ideas for how to integrate OOI data into Introduction to Oceanography courses.</p>
 
-<p>For this workshop we chose to focus on Primary Productivity, as the overarching topic area. Al Trujillo, co-author of Essentials of Oceanography (Trujillo & Thurman, 2017), assisted and participated in the workshop. During the workshop, participants were asked to provide detailed feedback on the activities, including their perceived utility and effectiveness of the activities in the classroom. It is the hope, that each participant will utilize the activities in their class and implement a short student assessment to help us collect some initial information on the students' impression of the OOI activities.</p>
+<p>For this workshop we chose to focus on Primary Production, as the overarching topic area. Al Trujillo, co-author of Essentials of Oceanography (Trujillo & Thurman, 2017), assisted and participated in the workshop. During the workshop, participants were asked to provide detailed feedback on the activities, including their perceived utility and effectiveness of the activities in the classroom. It is the hope, that each participant will utilize the activities in their class and implement a short student assessment to help us collect some initial information on the students' impression of the OOI activities.</p>
 
 <h3>Presentations</h3>
 <ul>
@@ -35,7 +35,7 @@
 <ul>
   <li><a href="http://education.oceanobservatories.org/cm">Concept Map Builder</a></li>
   <li><a href="http://education.oceanobservatories.org/vocab">Vocabulary Navigator</a></li>
-  <li><a href="https://drive.google.com/drive/folders/0B53yDSDFWmzScHRSQTBtdWhQdUk">Primary Productivity Resources</a></li>
+  <li><a href="https://drive.google.com/drive/folders/0B53yDSDFWmzScHRSQTBtdWhQdUk">Primary Production Resources</a></li>
   <li>OOI History & Context</li>
   <li>OOI Data</li>
 </ul>

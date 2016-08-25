@@ -1,10 +1,10 @@
 <?php 
   $page = 'activities';
-  $page_title = 'Exploring Primary Productivity with Data';
+  $page_title = 'Exploring Primary Production with Data';
   include_once('header.php'); 
 ?>
 
-<h2>Exploring Primary Productivity with Data</h2>
+<h2>Exploring Primary Production with Data</h2>
 
   <div class="row">
     <div class="col-md-8">Through these data activities, you will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</div>
@@ -21,7 +21,8 @@
 
 <hr>
 
-<h3>Primary Productivity Activities</h3>
+<h3>Primary Production Activities</h3>
+<p>Select the activity your instructor has assigned:</p>
 
 <div class="media">
   <div class="media-left">
@@ -30,8 +31,8 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="productivity0.php">Primary Production Concepts</a></h4>
-    <p>Explore your knowledge of primary production</p>
+    <h4 class="media-heading"><a href="productivity0.php">Primary Production in General</a></h4>
+    <p>Think and reflect on your knowledge about primary production</p>
   </div>
 </div>
 <div class="media">
@@ -74,8 +75,8 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="productivity4.php">Chlorophyll-a in Temperate Oceans</a></h4>
-    <p>Explore chlorophyll-a concentration data from Temperate Oceans</p>
+    <h4 class="media-heading"><a href="productivity4.php">Chlorophyll-a in Temperate Zones of the Ocean</a></h4>
+    <p>Explore chlorophyll-a concentration data from temperate zones of the ocean</p>
   </div>  
 </div>
 <div class="media">
@@ -85,8 +86,8 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="productivity5.php">Chlorophyll-a in near the Polar Oceans</a></h4>
-    <p>Explore chlorophyll-a concentration data from locations near the Polar Oceans</p>
+    <h4 class="media-heading"><a href="productivity5.php">Chlorophyll-a Near the Polar Zones of the Ocean</a></h4>
+    <p>Explore chlorophyll-a concentration data from locations near the polar zones of the ocean</p>
   </div>  
 </div>
 <div class="media">

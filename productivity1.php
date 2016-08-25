@@ -9,7 +9,7 @@
 
 <ol class="breadcrumb">
   <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Productivity with Data</a></li>
+  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
   <li><a href="productivity1.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -31,37 +31,60 @@
 <?php endif; ?>
 
 
-<!--
-1.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity1.php), except remove Total Volume Scattering Coefficient as a variable and make it so you can turn CDOM off. Can we make it so that the chlorophyll is the data that automatically populates, but that they could turn it off if they wanted?
-
-2. Similar layout to original (http://education.oceanobservatories.org/productivity/activity1.php), except remove Total Volume Scattering Coefficient as a variable and make it so you can turn CDOM off. Can we make it so that the chlorophyll is the data that automatically populates, but that they could turn it off if they wanted?
-
-3.	Similar layout to original (http://education.oceanobservatories.org/productivity/activity1.php, but the only variables should be chlorophyll-a concentration and CDOM which will automatically be populated in the figure. The user can select between the two variables to plot either independently or them both together.
--->
+<!-- DATA CHART -->
 
 <div id="chart" style="width:800px; height: 400px;"></div>
 <style>
   #chart .dygraph-ylabel {color:#00457C;}
   #chart .dygraph-y2label {color:#DBA53A;}
 </style>
-  
+
+<?php if ($level=='application'): ?>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
+    <p class="text-right">Include:</p>
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+      Chlorophyll-a</label><br>
+    <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" checked> 
+      Colored Dissolved Organic Matter (CDOM)</label><br>      
+  </div>
+</div>
+
+<?php else: ?>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
+    <p class="text-right">Include Chlorophyll?</p>
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+      Chlorophyll-a</label>
+  </div>
+</div>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
     <p class="text-right">Select the second parameter:</p>
   </div>
   <div class="col-xs-9">
-    <select class="form-control" onchange="change_var2(this)">
-      <option value="1">Colored Dissolved Organic Matter (CDOM)</option>
-      <option value="2">Total Volume Scattering Coefficient (TVSC)</option>
-      <option value="3">Optical Backscatter (OBS)</option>
-      <option value="4">Total Scattering Coefficient of Pure Seawater (TSCPS)</option>
-    </select>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" checked> 
+      Colored Dissolved Organic Matter (CDOM)</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
+      Optical Backscatter (OBS)</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+      Total Scattering Coefficient of Pure Seawater (TSCPS)</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" > 
+      None</label>
   </div>
 </div>
 
+<?php endif; ?>
+
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity1.js";
+  $scripts[] = "productivity/javascript/productivity1.js";
 ?>  
 
 
@@ -71,19 +94,19 @@
 
 <p>Explore different data variables collected for primary production measurements by looking at 3-wavelength fluorometer data from the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) to see what you can observe.</p>
 
-<p><strong>Data Hint:</strong> Select another variable (in addition to the blue plotted Chlorophyll-a Concentration data) to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select another variable (in addition to the blue plotted Chlorophyll-a Concentration data) to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
 <p>Look for patterns in how the chlorophyll-a concentration, colored dissolved organic matter (<a href="http://www.serc.si.edu/labs/phytoplankton/primer/components_cdom.aspx">CDOM</a>), and/or <a href="http://www.interactiveoceans.washington.edu/story/Optical_Backscatter_Sensor_V14">optical backscatter</a> data varies over a year in the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select another variable (in addition to the blue plotted Chlorophyll-a Concentration data) to explore the data in ways to investigate the different variables of primary production. Zoom in and out of the data to look at different time scales to investigate patterns across the year.</p>
+<p><strong>Data Tip:</strong> Select another variable (in addition to the blue plotted Chlorophyll-a Concentration data) to explore the data in ways to investigate the different variables of primary production. Zoom in and out of the data to look at different time scales to investigate patterns across the year.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p >Explore the chlorophyll-a concentration and CDOM data to determine if there is a relationship over time in the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>).</p>
 
-<p><strong>Data Hint:</strong> Select CDOM (in addition to the blue plotted Chlorophyll-a Concentration data) to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
+<p><strong>Data Tip:</strong> Select CDOM (in addition to the blue plotted Chlorophyll-a Concentration data) to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
 
@@ -142,7 +165,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure primary production.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure primary production</small></h2>
 </div>
 
 <p>&nbsp;</p>

@@ -15,16 +15,32 @@
   max-height: 300px;
 }
 
+.page-header {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+}
+
+.breadcrumb {
+  padding: 2px 15px;
+}
+
+.breadcrumb>li {
+  font-size: 14px;
+}
 
 .dygraph-title {
   font-size: 18px;
 }
+
 .dygraph-ylabel, .dygraph-y2label {
   font-size: 14px;
 }
 
 
+
 /* Focus+Context Chart */
+/*
 svg {
   font: 10px sans-serif;
 }
@@ -46,16 +62,20 @@ svg {
   fill-opacity: .125;
   shape-rendering: crispEdges;
 }
+*/
 
 /* Line Chart */
+/*
 .line {
   fill: none;
   stroke: steelblue;
   stroke-width: 1.5px;
   clip-path: url(#clip);
 }
+*/
 
 /* Bar Chart */
+/*
 .axis text {
   font: 10px sans-serif;
 }
@@ -70,9 +90,11 @@ svg {
 .axis--x path {
   display: none;
 }
+*/
 
 
 /* Horizontal Bar Chart */
+/*
 .bar rect {
     stroke: #fff;
     shape-rendering: crispEdges;
@@ -104,9 +126,11 @@ line.median {
     stroke: #777;
     stroke-width: 1;
 }
+*/
 
 
 /* OTHER TWEAKS */
+/*
 .carousel-caption {
     position: relative;
     left: auto;
@@ -114,17 +138,5 @@ line.median {
     color: #000;
     text-shadow: none;
 }
+*/
 
-.page-header {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  padding-bottom: 0px;
-}
-
-.breadcrumb {
-  padding: 2px 15px;
-}
-
-.breadcrumb>li {
-  font-size: 14px;
-}
