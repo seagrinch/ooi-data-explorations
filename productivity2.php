@@ -127,7 +127,14 @@
   <?php endforeach; ?>
 </div>
 
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="index.php" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php if ($level=='exploration'): ?>
+<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_3vZq1Lwr7AB2b5j" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='concept_invention'): ?>
+<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_eLkIbMej5xD6YDP" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application'): ?>
+<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_9yIXuxfLaJFVNat" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
