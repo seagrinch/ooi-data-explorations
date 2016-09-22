@@ -24,8 +24,8 @@
 
 <h3>Workshop Resources</h3>
 <ul>
-  <li><a href="documents/OOIDIBSupplementWorkshop_ParticipantAgenda_v9.pdf">Agenda</a></li>
-  <li><a href="documents/Trujillo_EssentialsofOceanography_TableContents_v6.xlsx">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
+  <li><a href="productivity/documents/OOIDIBSupplementWorkshop_ParticipantAgenda_v9.pdf">Agenda</a></li>
+  <li><a href="productivity/documents/Trujillo_EssentialsofOceanography_TableContents_v6.xlsx">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
   <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
   <li><a href="productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
   <li>Final Report</li>
