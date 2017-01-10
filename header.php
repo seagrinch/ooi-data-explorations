@@ -36,7 +36,7 @@ date_default_timezone_set('America/New_York');
     <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <a class="navbar-brand" href="http://oceanobservatories.org"><img alt="Brand" src="logo.png"></a>
+          <a class="navbar-brand" href="http://education.oceanobservatories.org"><img alt="Brand" src="logo.png"></a>
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -47,9 +47,9 @@ date_default_timezone_set('America/New_York');
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li <?php echo ($page=='activities' ? 'class="active"' : '') ?> ><a href="index.php">Activities</a></li>
             <li <?php echo ($page=='workshops' ? 'class="active"' : '') ?> ><a href="workshops.php">Workshops</a></li>
-            <li <?php echo ($page=='about' ? 'class="active"' : '') ?> ><a href="about.php">About</a></li>
+            <li <?php echo ($page=='instructors' ? 'class="active"' : '') ?> ><a href="instructors.php">Instructor's Guide</a></li>
+            <li <?php echo ($page=='about' ? 'class="active"' : '') ?> ><a href="about.php">Project Info</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

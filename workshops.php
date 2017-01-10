@@ -23,8 +23,19 @@
 <p>
   <a href="productivity_workshop.php" class="btn btn-primary">Workshop Resources</a>
   <a href="productivity_index.php" class="btn btn-primary">Activities</a>
+  <a href="productivity_guide.php" class="btn btn-primary">Instructor's Guide</a>
 </p>
 
+<h4>Exploring Ocean Chemistry with OOI Data, OOI Workshop<br>
+  <small>May 19-21, 2017</small>
+</h4>
+<p>Information coming soon.</p>
+
+
+<h4>Exploring Geology in the Ocean with OOI Data, OOI Workshop<br>
+  <small>June 2-4, 2017</small>
+</h4>
+<p>Information coming soon.</p>
 
 <?php 
   include_once('footer.php'); 

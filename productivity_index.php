@@ -7,11 +7,11 @@
 <h2>Exploring Primary Production with Data</h2>
 
   <div class="row">
-    <div class="col-md-8">Through these data activities, you will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</div>
+    <div class="col-md-8">Through these Data Explorations, you will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</div>
     <div class="col-md-4">
       <h4>Resources</h4>
       <ul>
-        <li><a href="http://oceanobservatories.org/instrument-class/flort/">What is a fluorometer?</a></li>
+        <li><a href="http://oceanobservatories.org/instrument-class/fluor/">What is a fluorometer?</a></li>
         <li><a href="http://oceanobservatories.org/research-arrays/">What are OOI Arrays?</a></li>
         <li><a href="http://oceanobservatories.org/instruments/">What are OOI Instruments?</a></li>
         <li><a href="http://oceanobservatories.org/about/">What is the OOI?</a></li>
@@ -21,7 +21,7 @@
 
 <hr>
 
-<h3>Primary Production Activities</h3>
+<h3>Primary Production Explorations</h3>
 <p>Select the activity your instructor has assigned:</p>
 
 <div class="media">
@@ -103,6 +103,9 @@
 </div>
 
 <hr>
+
+<p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the <a href="productivity_guide.php">Instructor's Guide</a> for these activities.</p>
+
 <p>If you're interested in the original version of these activities, please check out the <a href="activity_index.php">old version</a>.</p>
 
 <?php 
