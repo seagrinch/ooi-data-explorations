@@ -74,7 +74,9 @@
     <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
       Optical Backscatter (OBS)</label><br>
     <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
-      Total Scattering Coefficient of Pure Seawater (TSCPS)</label><br>
+      Temperature</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="4" onclick="toggle_radio(this)" > 
+      Salinity</label><br>
     <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" > 
       None</label>
   </div>
@@ -86,6 +88,8 @@
   $scripts[] = "js/dygraph-combined-dev.js";
   $scripts[] = "productivity/javascript/productivity1.js";
 ?>  
+
+<p style="text-align: right;"><a href="productivity/data/productivity1.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Your Objective</h3>

@@ -1,7 +1,7 @@
 g = new Dygraph(document.getElementById("chart"), "productivity/data/productivity6.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   // y2label
   //labels : ["Date","Endurance","Pioneer"],
   legend: 'always',

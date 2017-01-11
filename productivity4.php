@@ -36,15 +36,17 @@
 
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
-    <p class="text-right">Include datasets:</p>
+    <p class="text-right">Choose a dataset:<br><small>Note, the graph will automatically zoom to the fall season.</small></p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)"> 
     Northern Hemisphere Pacific Ocean (Endurance)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" > 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)"> 
     Northern Hemisphere Atlantic Ocean (Pioneer)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" > 
-    Southern Hemisphere Atlantic Ocean (Argentine Basin)</label>
+  <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)"> 
+    Southern Hemisphere Atlantic Ocean (Argentine Basin)</label><br>
+  <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked > 
+    Show All</label>
   </div>
 </div>
 
@@ -53,6 +55,8 @@
   $scripts[] = "productivity/javascript/productivity4.js";
 ?>  
 
+<p style="text-align: right;"><a href="productivity/data/productivity4.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 
 <h3>Your Objective</h3>
 
@@ -60,7 +64,7 @@
 
 <p>Explore the "Chlorophyll-a Concentration" data among the stations in the Temperate Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>; <a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>) to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> Select different locations in the Temperate Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Select different locations in the Temperate Zones of the Ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.  Note that when you select a specific station, it will zoom into the Fall season appropriate for the hemisphere the station is in.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
@@ -132,7 +136,6 @@
 <?php elseif ($level=='application'): ?>
 <p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_exSBs4pVfAoBBnT" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php endif; ?>
-
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>

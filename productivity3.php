@@ -37,11 +37,14 @@
 <div id="chart2" style="width:800px; height: 250px;"></div>
 <br>
 <div id="chart3" style="width:800px; height: 250px;"></div>
+<br>
 
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
   $scripts[] = "productivity/javascript/productivity3.js";
-?> 
+?>  
+
+<p style="text-align: right;"><a href="productivity/data/productivity3.zip" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Your Objective</h3>

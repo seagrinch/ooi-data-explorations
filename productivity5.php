@@ -37,15 +37,17 @@
 
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
-    <p class="text-right">Include datasets:</p>
+    <p class="text-right">Choose a dataset: <br><small>Note, the graph will automatically zoom to the late summer season.</small></p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" > 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)">
     Northern Hemisphere Atlantic Ocean (Irminger Sea)</label>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" > 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)"> 
     Northern Hemisphere Pacific Ocean (Station Papa)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
-    Southern Hemisphere Pacific Ocean (Southern Ocean)</label>
+  <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)"> 
+    Southern Hemisphere Pacific Ocean (Southern Ocean)</label><br>
+  <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
+    Show All</label>
   </div>
 </div>
 
@@ -53,6 +55,9 @@
   $scripts[] = "js/dygraph-combined-dev.js";
   $scripts[] = "productivity/javascript/productivity5.js";
 ?>  
+
+<p style="text-align: right;"><a href="productivity/data/productivity5.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 
 <h3>Your Objective</h3>
 
@@ -66,7 +71,7 @@
 
 <p>Look for patterns in the "Chlorophyll-a Concentration" data at each of the stations near the Polar Zones of the Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>; <a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) and Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>).</p>
 
-<p><strong>Data Tip:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
+<p><strong>Data Tip:</strong> Select each location to explore the data from near the Polar Zones of the Ocean. Zoom in and out of the data to look at different time scales to investigate patterns across time. Note that when you select a specific station, it will zoom into the late Summer to early Fall season appropriate for the hemisphere the station is in.</p>
 
 <?php elseif ($level=='application'): ?>
 

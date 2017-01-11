@@ -38,7 +38,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity1.php"><img class="media-object" src="images/thumbnails/DataActivity1_screenshot_sm.jpg" alt="Graph of data from the Endurance Array" width="250" height="150"></a>
+      <a href="productivity1.php"><img class="media-object" src="productivity/screenshots/Activity1_sm.jpg" alt="Graph of data from the Endurance Array" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -49,7 +49,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity2.php"><img class="media-object" src="images/thumbnails/DataActivity4_Seawifs_global_biosphere_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
+      <a href="productivity2.php"><img class="media-object" src="productivity/screenshots/Activity2_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -60,7 +60,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity3.php"><img class="media-object" src="images/thumbnails/DataActivity4_Seawifs_global_biosphere_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
+      <a href="productivity3.php"><img class="media-object" src="productivity/screenshots/Activity3_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -71,7 +71,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity4.php"><img class="media-object" src="images/thumbnails/DataActivity2_screenshot_sm.jpg" alt="Graph of chlorophyll data from the temperate ocean" width="250" height="150"></a>
+      <a href="productivity4.php"><img class="media-object" src="productivity/screenshots/Activity4_sm.jpg" alt="Graph of chlorophyll data from the temperate ocean" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -82,7 +82,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity5.php"><img class="media-object" src="images/thumbnails/DataActivity3_screenshot_sm.jpg" alt="Graph of chlorophyll data from the polar ocean" width="250" height="150"></a>
+      <a href="productivity5.php"><img class="media-object" src="productivity/screenshots/Activity5_sm.jpg" alt="Graph of chlorophyll data from the polar ocean" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -93,7 +93,7 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="productivity6.php"><img class="media-object" src="images/thumbnails/DataActivity4_Seawifs_global_biosphere_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
+      <a href="productivity6.php"><img class="media-object" src="productivity/screenshots/Activity6_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
@@ -104,7 +104,14 @@
 
 <hr>
 
-<p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the <a href="productivity_guide.php">Instructor's Guide</a> for these activities.</p>
+<div class="row">
+  <div class="col-md-9">
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
+  </div>
+  <div class="col-md-3">
+    <a href="productivity_guide.php" class="btn btn-primary">Instructor's Guide</a>
+  </div>
+</div>
 
 <p>If you're interested in the original version of these activities, please check out the <a href="activity_index.php">old version</a>.</p>
 

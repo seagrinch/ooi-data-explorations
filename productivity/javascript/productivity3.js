@@ -1,6 +1,6 @@
 new Dygraph(document.getElementById("chart1"), "productivity/data/productivity3a.csv", {
   title: "Fall Chlorophyll-a Concentrations in Northern Hemisphere Temperate Coastal Oceans",
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   legend: 'always',
   labelsDivStyles: { 'textAlign': 'right' },
   labelsDivWidth : 600,
@@ -23,7 +23,7 @@ new Dygraph(document.getElementById("chart1"), "productivity/data/productivity3a
 
 new Dygraph(document.getElementById("chart2"), "productivity/data/productivity3a.csv", {
   title: "Fall Chlorophyll-a Concentrations in Northern Hemisphere Near Polar Open Oceans",
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   legend: 'always',
   labelsDivStyles: { 'textAlign': 'right' },
   labelsDivWidth : 600,
@@ -46,7 +46,7 @@ new Dygraph(document.getElementById("chart2"), "productivity/data/productivity3a
 
 new Dygraph(document.getElementById("chart3"), "productivity/data/productivity3b.csv", {
   title: "Fall Chlorophyll-a Concentrations in Southern Hemisphere Open Oceans",
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   legend: 'always',
   labelsDivStyles: { 'textAlign': 'right' },
   labelsDivWidth : 600,

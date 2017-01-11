@@ -1,7 +1,7 @@
 g = new Dygraph(document.getElementById("chart"), "productivity/data/productivity5.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   // y2label
   //labels : ["Date","Endurance","Pioneer"],
   legend: 'always',
@@ -21,11 +21,32 @@ g = new Dygraph(document.getElementById("chart"), "productivity/data/productivit
   axes: {
     y: {valueRange: [0, null]}
   },
-  visibility: [0,0,1],
+  visibility: [1,1,1],
 });
 
 // independentTicks
 
-function toggle_visibility(el) {
-  g.setVisibility(parseInt(el.id), el.checked);
+function toggle_radio(el) {
+  g.setVisibility(0, false);
+  g.setVisibility(1, false);
+  g.setVisibility(2, false);
+  if (el.value) {
+    g.setVisibility(parseInt(el.value)-1, el.checked);
+  } else {
+    g.setVisibility(0, true);
+    g.setVisibility(1, true);
+    g.setVisibility(2, true);
+  }
+  // Remember, months must be specified between 0 and 11
+  if (el.value==1) {
+    new_range = [new Date(2015,7,1).valueOf(), new Date(2015,10,1).valueOf()];
+  } else if (el.value==2) {
+    new_range = [new Date(2015,7,1).valueOf(), new Date(2015,10,1).valueOf()];    
+  } else if (el.value==3) {
+    new_range = [new Date(2015,1,1).valueOf(), new Date(2015,4,1).valueOf()];
+  } else {
+    new_range = [new Date(2015,1,1).valueOf(), new Date(2016,1,1).valueOf()];
+  }    
+  console.log(new_range);
+  g.updateOptions({dateWindow: new_range});
 }

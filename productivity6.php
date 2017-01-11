@@ -54,7 +54,10 @@
 <?php 
   $scripts[] = "js/dygraph-combined-dev.js";
   $scripts[] = "productivity/javascript/productivity6.js";
-?> 
+?>  
+
+<p style="text-align: right;"><a href="productivity/data/productivity6.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 
 <h3>Your Objective</h3>
 

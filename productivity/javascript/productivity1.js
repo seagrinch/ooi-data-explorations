@@ -1,8 +1,9 @@
 var parameters = [
-  {id:'fluorometric_chlorophyll_a', title:"Chlorophyll-a Concentration", units:"µg/L"},
+  {id:'fluorometric_chlorophyll_a', title:"Chlorophyll-a Concentration", units:"&micro;g/L"},
   {id:'fluorometric_cdom', title:"Colored Dissolved Organic Matter Concentration", units:"ppb"},
   {id:'flort_dj_dcl_bback_total', title:"Optical Backscatter", units:"1/m"},
-  {id: 'flort_d_dcl_ctdbp_scat_seawater', title:"Total Scattering Coefficient of Pure Seawater", units:"1/m"}
+  {id: 'temp', title:"Temperature", units:"&deg;C"},
+  {id: 'temp', title:"Salinity", units:"ppt"}
 ];
 
 var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
@@ -10,7 +11,7 @@ var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
 g = new Dygraph(document.getElementById("chart"), "productivity/data/productivity1.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
-  ylabel: 'Chlorophyll-a Concentration (µg/L)',
+  ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
   y2label: 'CDOM Concentration (ppb)',
   //labels : ["Date","Endurance","Pioneer"],
   legend: 'always',
@@ -35,9 +36,10 @@ g = new Dygraph(document.getElementById("chart"), "productivity/data/productivit
     'Chlorophyll-a': {axis: 'y', showInRangeSelector: true},
     'CDOM': {axis: 'y2'},
     'OBS': {axis: 'y2'},
-    'TSCPS': {axis: 'y2'},
+    'Temperature': {axis: 'y2'},
+    'Salinity': {axis: 'y2'},
   },
-  visibility: [1,1,0,0],
+  visibility: [1,1,0,0,0],
 });
 
 function toggle_visibility(el) {
@@ -48,6 +50,7 @@ function toggle_radio(el) {
   g.setVisibility(1, false);
   g.setVisibility(2, false);
   g.setVisibility(3, false);
+  g.setVisibility(4, false);
   if (el.value) {
     g.setVisibility(parseInt(el.value), el.checked);
     g.updateOptions({
