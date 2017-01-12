@@ -1,7 +1,8 @@
 <?php 
   $page = 'home';
   $page_title = 'Activity 1';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2><small>Data Activity 1</small><br> Primary Productivity Exploration</h2>
@@ -68,8 +69,8 @@
 </div>
 
 <?php 
-  $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity1.js";
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "javascript/activity1.js";
 ?>  
 
 <h3>Explanation</h3>
@@ -81,5 +82,5 @@
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

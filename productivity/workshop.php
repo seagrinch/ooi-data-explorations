@@ -1,7 +1,8 @@
 <?php 
   $page = 'workshops';
   $page_title = 'Exploring Primary Production with Data Workshop';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2>Exploring Primary Production with Data<br>
@@ -14,31 +15,31 @@
 
 <h3>Presentations</h3>
 <ul>
-  <li><a href="productivity/documents/OOI%20Education%20Workshop%20Friday%202016.pptx">Welcome and Introduction to the OOI</a> (Janice McDonnell & Sage Lichtenwalner)</li>
-  <li><a href="productivity/documents/OOI_WhyTeachWithData_opt.pdf">What are our motivations for teaching with data?</a> (Erin Bardar)</li>
-  <li><a href="productivity/documents/Chapter%2013%20Productivity%20for%20OOI.pptm">Teaching about Productivity</a> (Al Trujillo)</li>
-  <li><a href="productivity/documents/CatherineHalversen_HowPeopleLearn.pptx">Designing Instruction Based on How People Learn</a> (Catherine Halversen)</li>
-  <li><a href="productivity/documents/ooi_conceptmap_instructions.pdf">Demonstration of OOI Vocabulary Navigator</a> (Annette deCharon)</li>
-  <li><a href="productivity/documents/Designing%20Educational%20Visualizatios.pptx">Designing Educational Visualizations</a> (Sage Lichtenwalner)</li>
+  <li><a href="documents/OOI%20Education%20Workshop%20Friday%202016.pptx">Welcome and Introduction to the OOI</a> (Janice McDonnell & Sage Lichtenwalner)</li>
+  <li><a href="documents/OOI_WhyTeachWithData_opt.pdf">What are our motivations for teaching with data?</a> (Erin Bardar)</li>
+  <li><a href="documents/Chapter%2013%20Productivity%20for%20OOI.pptm">Teaching about Productivity</a> (Al Trujillo)</li>
+  <li><a href="documents/CatherineHalversen_HowPeopleLearn.pptx">Designing Instruction Based on How People Learn</a> (Catherine Halversen)</li>
+  <li><a href="documents/ooi_conceptmap_instructions.pdf">Demonstration of OOI Vocabulary Navigator</a> (Annette deCharon)</li>
+  <li><a href="documents/Designing%20Educational%20Visualizatios.pptx">Designing Educational Visualizations</a> (Sage Lichtenwalner)</li>
 </ul>
 
 
 <h3>Workshop Resources</h3>
 <ul>
-  <li><a href="productivity/documents/OOIDIBSupplementWorkshop_ParticipantAgenda_v9.pdf">Agenda</a>
+  <li><a href="documents/OOIDIBSupplementWorkshop_ParticipantAgenda_v9.pdf">Agenda</a>
     <ul>
-      <li><a href="productivity/documents/agendaslides_friday_final.pptx">Friday slide deck</a> </li>
-      <li><a href="productivity/documents/OOITeachingwithDataWorkshop_Saturdayslides.pptx">Saturday slide deck</a> </li>
-      <li><a href="productivity/documents/OOITeachingwithDataWorkshop_Sundayslides.pptx">Sunday slide deck</a> </li>
+      <li><a href="documents/agendaslides_friday_final.pptx">Friday slide deck</a> </li>
+      <li><a href="documents/OOITeachingwithDataWorkshop_Saturdayslides.pptx">Saturday slide deck</a> </li>
+      <li><a href="documents/OOITeachingwithDataWorkshop_Sundayslides.pptx">Sunday slide deck</a> </li>
     </ul>
   </li>
-  <li><a href="productivity/documents/Trujillo_EssentialsofOceanography_TableContents_v6.xlsx">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
-  <li><a href="productivity/documents/RD_Learning_2014.pdf">Redefining the College Lecture: Learning Research</a></li>
-  <li><a href="productivity/documents/The%20Learning%20Cycle_revised.docx">The Learning Cycle</a></li>
-  <li><a href="productivity/documents/ooi_conceptmap_instructions.pdf">OOI Concept Map Instructions</a></li>
-  <li><a href="productivity/documents/OOIDIBSupplementWorkshop_ProfessorInvitationLetter_final.pdf">May 2016 OOI Teaching with Data: Exploring Primary Production Workshop Invitation Letter</a></li>
+  <li><a href="documents/Trujillo_EssentialsofOceanography_TableContents_v6.xlsx">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
+  <li><a href="documents/RD_Learning_2014.pdf">Redefining the College Lecture: Learning Research</a></li>
+  <li><a href="documents/The%20Learning%20Cycle_revised.docx">The Learning Cycle</a></li>
+  <li><a href="documents/ooi_conceptmap_instructions.pdf">OOI Concept Map Instructions</a></li>
+  <li><a href="documents/OOIDIBSupplementWorkshop_ProfessorInvitationLetter_final.pdf">May 2016 OOI Teaching with Data: Exploring Primary Production Workshop Invitation Letter</a></li>
   <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
-  <li><a href="productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
+  <li><a href="documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
 </ul>
 
 
@@ -85,5 +86,5 @@
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

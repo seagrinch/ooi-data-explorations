@@ -8,7 +8,7 @@ var parameters = [
 
 var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
 
-g = new Dygraph(document.getElementById("chart"), "productivity/data/productivity1.csv", {
+g = new Dygraph(document.getElementById("chart"), "data/productivity1.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
   ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',

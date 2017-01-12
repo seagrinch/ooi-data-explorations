@@ -1,7 +1,8 @@
 <?php 
   $page = 'home';
   $page_title = 'Activity 4';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2><small>Data Activity 4</small><br> Comparing Regional Chlorophyll Patterns Application Data Activity</h2>
@@ -32,5 +33,5 @@
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

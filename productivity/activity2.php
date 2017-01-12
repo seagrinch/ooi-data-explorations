@@ -4,13 +4,14 @@
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
   
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <ol class="breadcrumb">
-  <li><a href="index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="productivity_index.php">Exploring Primary Production with Data</a></li>
-  <li><a href="productivity2.php"><?= $lesson_title ?></a></li>
+  <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li><a href="index.php">Exploring Primary Production with Data</a></li>
+  <li><a href="activity2.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
@@ -51,11 +52,11 @@
 </div>
 
 <?php 
-  $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "productivity/javascript/productivity2.js";
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "javascript/productivity2.js";
 ?>  
 
-<p class="text-right"><a href="productivity/data/productivity2.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<p class="text-right"><a href="data/productivity2.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Your Objective</h3>
@@ -118,13 +119,13 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
-  $json_file = file_get_contents('productivity/images_json/productivity2.json');
+  $json_file = file_get_contents('images_json/productivity2.json');
   $images = json_decode($json_file);
 ?>
 <div class="row">
   <?php foreach ($images as $image): ?>
   <div class="col-xs-6 col-md-3">
-    <a href="productivity/images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="productivity/images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
   </div>
   <?php endforeach; ?>
 </div>
@@ -151,22 +152,22 @@
   <div class="col-md-6">
     <p>Select the question your instructor has assigned:</p>
     <div class="list-group">
-      <a href="productivity2.php?level=exploration" class="list-group-item">
+      <a href="activity2.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
         <p class="list-group-item-text">What can we observe about chlorophyll over a year?</p>
       </a>
-      <a href="productivity2.php?level=concept_invention" class="list-group-item">
+      <a href="activity2.php?level=concept_invention" class="list-group-item">
         <h4 class="list-group-item-heading">Concept Invention</h4>
         <p class="list-group-item-text">What are the seasonal patterns in primary production? </p>
       </a>
-      <a href="productivity2.php?level=application" class="list-group-item">
+      <a href="activity2.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
         <p class="list-group-item-text">How does seasonal primary production vary? How does that relate to what you know about primary production?</p>
       </a>
     </div>
   </div>
   <div class="col-md-6">
-    <img src="Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 
@@ -174,5 +175,5 @@
 
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

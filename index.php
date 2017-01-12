@@ -20,13 +20,13 @@
 <h3>Current Explorations</h3>
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity_index.php"><img src="images/thumbnails/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="productivity_index.php">Exploring Primary Production with Data</a></h4>
+    <h4><a href="productivity/index.php">Exploring Primary Production with Data</a></h4>
     <p>Through these activities, we will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</p>
-    <a href="productivity_index.php" class="btn btn-primary">Activities</a>
-    <a href="productivity_guide.php" class="btn btn-primary">Instructor's Guide</a>
+    <a href="productivity/index.php" class="btn btn-primary">Activities</a>
+    <a href="productivity/guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
 </div>
 <hr>

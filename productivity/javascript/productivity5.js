@@ -1,4 +1,4 @@
-g = new Dygraph(document.getElementById("chart"), "productivity/data/productivity5.csv", {
+g = new Dygraph(document.getElementById("chart"), "data/productivity5.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
   ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',

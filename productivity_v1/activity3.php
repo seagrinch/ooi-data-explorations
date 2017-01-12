@@ -1,7 +1,8 @@
 <?php 
   $page = 'home';
   $page_title = 'Activity 3';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2><small>Data Activity 3</small><br> Chlorophyll Patterns in Polar Oceans Concept Invention</h2>
@@ -73,8 +74,8 @@
 </div>
 
 <?php 
-  $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity3.js";
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "javascript/activity3.js";
 ?>  
 
 <h3>Explanation</h3>
@@ -86,5 +87,5 @@
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

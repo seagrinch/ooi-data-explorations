@@ -1,10 +1,11 @@
 <?php 
   $page = 'home';
   $page_title = 'OOI Activities';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
-<h2>OLD VERSION - Exploring Primary Productivity with Data</h2>
+<h2><span style="color:red;">OLD VERSION</span> <br> Exploring Primary Productivity with Data</h2>
 
   <div class="row">
     <div class="col-md-8">Through these activities, we will explore primary productivity in greater detail. Primary productivity is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</div>
@@ -81,5 +82,5 @@
 </div>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

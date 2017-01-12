@@ -16,7 +16,7 @@
 <p>Another way the Data Explorations are built with flexibility in mind is that they are each designed to take 15-20 minutes. They are intended to augment your current teaching on a topic, not fully teach the topic. Therefore, you can add them into your teaching whenever and wherever you think it would be best as data can be used at many different phases of The Learning Cycle.</p>
 
 <h3>What is The Learning Cycle?</h3>
-<img src="Learning_Cycle.png" alt="Learning Cycle Diagram" class="pull-right"/>
+<img src="images/Learning_Cycle.png" alt="Learning Cycle Diagram" class="pull-right"/>
 <p>The Learning Cycle is an approach to designing learning experiences that capture best the knowledge and theory of how people learn, which was developed by the University of California, Lawrence Hall of Science. There are five phase of The Learning Cycle:</p>
 <ol>
   <li>Invitation </li>
@@ -48,10 +48,10 @@
 
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity_index.php"><img src="images/thumbnails/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="productivity_guide.php">Exploring Primary Production with Data</a></h4>
+    <h4><a href="productivity/guide.php">Exploring Primary Production with Data</a></h4>
     <p>Through these activities, we will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</p>
   </div>
 </div>

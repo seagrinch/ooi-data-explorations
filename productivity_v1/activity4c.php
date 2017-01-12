@@ -1,7 +1,8 @@
 <?php 
   $page = 'home';
   $page_title = 'Activity 4C';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2><small>Data Activity 4C</small><br> Comparing Regional Chlorophyll Patterns Around the World Application Data Activity</h2>
@@ -122,10 +123,9 @@ Northern Polar Pacific Ocean (<a href="http://oceanobservatories.org/array/globa
 <div id="chart3" style="width:800px; height: 250px;"></div>
 
 <?php 
-  $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity4c.js";
-?> 
-
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "javascript/activity4c.js";
+?>
 
 
 <h3>Explanation</h3>
@@ -136,5 +136,5 @@ Northern Polar Pacific Ocean (<a href="http://oceanobservatories.org/array/globa
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>

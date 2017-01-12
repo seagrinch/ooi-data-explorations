@@ -1,7 +1,8 @@
 <?php 
   $page = 'home';
   $page_title = 'Activity 4A';
-  include_once('header.php'); 
+  $base_url = '../';
+  include_once('../header.php'); 
 ?>
 
 <h2><small>Data Activity 4A</small><br> Comparing Regional Chlorophyll Patterns Over a Year Application Data Activity</h2>
@@ -61,8 +62,8 @@
 </div>
 
 <?php 
-  $scripts[] = "js/dygraph-combined-dev.js";
-  $scripts[] = "js/activity4a.js";
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "javascript/activity4a.js";
 ?>  
 
 <h3>Explanation</h3>
@@ -73,5 +74,5 @@
 </ul>
 
 <?php 
-  include_once('footer.php'); 
+  include_once('../footer.php'); 
 ?>
