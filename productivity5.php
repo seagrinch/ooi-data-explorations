@@ -56,7 +56,7 @@
   $scripts[] = "productivity/javascript/productivity5.js";
 ?>  
 
-<p style="text-align: right;"><a href="productivity/data/productivity5.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<p class="text-right"><a href="productivity/data/productivity5.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Your Objective</h3>
@@ -131,11 +131,11 @@
 </div>
 
 <?php if ($level=='exploration'): ?>
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_cw2bOpyONWUaW1v" class="btn btn-sm btn-warning">Student Survey</a></p>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_cw2bOpyONWUaW1v" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php elseif ($level=='concept_invention'): ?>
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_0UjIvS7bPKsxYdD" class="btn btn-sm btn-warning">Student Survey</a></p>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_0UjIvS7bPKsxYdD" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php elseif ($level=='application'): ?>
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_77eiqJ3YFkHXbb7" class="btn btn-sm btn-warning">Student Survey</a></p>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_77eiqJ3YFkHXbb7" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php endif; ?>
 
 
@@ -167,7 +167,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <img src="Learning%20Cycle.png" alt="Learning%20Cycle" />
+    <img src="Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 

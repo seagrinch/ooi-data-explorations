@@ -16,14 +16,15 @@
 <p>Another way the Data Explorations are built with flexibility in mind is that they are each designed to take 15-20 minutes. They are intended to augment your current teaching on a topic, not fully teach the topic. Therefore, you can add them into your teaching whenever and wherever you think it would be best as data can be used at many different phases of The Learning Cycle.</p>
 
 <h3>What is The Learning Cycle?</h3>
+<img src="Learning_Cycle.png" alt="Learning Cycle Diagram" class="pull-right"/>
 <p>The Learning Cycle is an approach to designing learning experiences that capture best the knowledge and theory of how people learn, which was developed by the University of California, Lawrence Hall of Science. There are five phase of The Learning Cycle:</p>
-<ul>
+<ol>
   <li>Invitation </li>
   <li>Exploration</li>
   <li>Concept Invention</li>
   <li>Application</li>
   <li>Reflection</li>
-</ul>
+</ol>
 
 <p>Each phase offers an important step in assisting students in their learning and understanding of the concepts being covered. To facilitate students learning in at each phase we use different approaches, experiences, and prompting questions for the students.  Therefore, the Challenge Question, Your Objective, and Interpretation & Analysis Questions among the different Data Explorations for the same data set vary.</p>
 

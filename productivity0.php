@@ -56,9 +56,9 @@
 
 
 <?php if ($level=='invitation'): ?>
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_9SGC6nHGhvpdrHn" class="btn btn-sm btn-warning">Student Survey</a></p>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_9SGC6nHGhvpdrHn" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php elseif ($level=='reflection'): ?>
-<p style="text-align: right;">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_5dqd9j2oDcPpEG1" class="btn btn-sm btn-warning">Student Survey</a></p>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_5dqd9j2oDcPpEG1" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php endif; ?>
 
 
@@ -86,7 +86,7 @@
     </div>
   </div>
   <div class="col-md-6">
-    <img src="Learning%20Cycle.png" alt="Learning%20Cycle" />
+    <img src="Learning_Cycle_IR.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 

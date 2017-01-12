@@ -19,7 +19,7 @@
   <li><a href="productivity/documents/Chapter%2013%20Productivity%20for%20OOI.pptm">Teaching about Productivity</a> (Al Trujillo)</li>
   <li><a href="productivity/documents/CatherineHalversen_HowPeopleLearn.pptx">Designing Instruction Based on How People Learn</a> (Catherine Halversen)</li>
   <li><a href="productivity/documents/ooi_conceptmap_instructions.pdf">Demonstration of OOI Vocabulary Navigator</a> (Annette deCharon)</li>
-  <li>Designing Educational Visualizations (Sage Lichtenwalner)</li>
+  <li><a href="productivity/documents/Designing%20Educational%20Visualizatios.pptx">Designing Educational Visualizations</a> (Sage Lichtenwalner)</li>
 </ul>
 
 
