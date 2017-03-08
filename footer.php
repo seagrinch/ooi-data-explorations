@@ -2,7 +2,7 @@
       <hr>
 
       <footer>
-        <p><small>This site was developed with the support of the National Science Foundation under Grant No. OCE-1550207. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.</small></p>
+        <p><small>This site was developed with the support of the National Science Foundation under Grants OCE-1550207 and OCE-1649637. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.</small></p>
         <p align="center">&copy; <?php echo date("Y")?> Rutgers University</p
       </footer>
 

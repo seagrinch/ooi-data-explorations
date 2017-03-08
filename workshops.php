@@ -22,7 +22,7 @@
 <h4>Exploring Primary Production with Data, Ocean Observing Initiative (OOI) Workshop<br>
   <small>May 20-22, 2016</small>
 </h4>
-<p>
+<p class="text-center">
   <a href="productivity/workshop.php" class="btn btn-primary">Workshop Resources</a>
   <a href="productivity/index.php" class="btn btn-primary">Activities</a>
   <a href="productivity/guide.php" class="btn btn-primary">Instructor's Guide</a>
@@ -33,7 +33,9 @@
 <h4>Exploring Ocean Chemistry with OOI Data, OOI Workshop<br>
   <small>May 19-21, 2017</small>
 </h4>
-<p>Information coming soon.</p>
+<p class="text-center">
+  <a href="workshops2017.php" class="btn btn-primary">Registration Information</a>
+</p>
 
 
 <hr>
@@ -41,7 +43,9 @@
 <h4>Exploring Geology in the Ocean with OOI Data, OOI Workshop<br>
   <small>June 2-4, 2017</small>
 </h4>
-<p>Information coming soon.</p>
+<p class="text-center">
+  <a href="workshops2017.php" class="btn btn-primary">Registration Information</a>
+</p>
 
 <?php 
   include_once('footer.php'); 

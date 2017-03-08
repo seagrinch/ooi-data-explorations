@@ -36,6 +36,7 @@
   <div class="col-md-8">
     <h4>Exploring Ocean Chemistry with OOI Data </h4>
     <p>(coming May 2017)</p>
+    <p><a href="workshops2017.php" class="btn btn-primary">Workshop Registration Information</a></p>
   </div>  
 </div>
 <hr>
@@ -45,6 +46,7 @@
   <div class="col-md-8">
     <h4>Exploring Geology in the Ocean with OOI Data</h4>
     <p>(coming June 2017)</p>
+    <p><a href="workshops2017.php" class="btn btn-primary">Workshop Registration Information</a></p>
   </div>
 </div>
 
