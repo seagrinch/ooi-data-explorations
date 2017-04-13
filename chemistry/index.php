@@ -27,11 +27,22 @@
 <div class="media">
   <div class="media-left">
     <a href="#">
-      <a href="activity0.php"><img class="media-object" src="screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+      <a href="activity1.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
     </a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity1.php">Seasonal Salinity Variation</a></h4>
+    <p>???</p>
+  </div>
+</div>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity2.php">Processes that Change Salinity</a></h4>
     <p>???</p>
   </div>
 </div>
