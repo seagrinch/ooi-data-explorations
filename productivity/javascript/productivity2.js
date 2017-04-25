@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 g = new Dygraph(document.getElementById("chart"), "data/productivity2.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
@@ -21,7 +23,9 @@ g = new Dygraph(document.getElementById("chart"), "data/productivity2.csv", {
   axes: {
     y: {valueRange: [0, null]}
   },
-});
+}); 
+
+}); //document.ready
 
 function date_button(season) {
   // Remember, months must be specified between 0 and 11
@@ -36,6 +40,6 @@ function date_button(season) {
   } else {
     new_range = [new Date(2015,5,1).valueOf(), new Date(2016,5,1).valueOf()];
   }
-  console.log(new_range);
+  //console.log(new_range);
   g.updateOptions({dateWindow: new_range});
 }

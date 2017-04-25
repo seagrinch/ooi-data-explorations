@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 new Dygraph(document.getElementById("chart1"), "data/productivity3a.csv", {
   title: "Fall Chlorophyll-a Concentrations in Northern Hemisphere Temperate Coastal Oceans",
   ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
@@ -66,3 +68,5 @@ new Dygraph(document.getElementById("chart3"), "data/productivity3b.csv", {
   },
 */
 });
+
+}); //document.ready

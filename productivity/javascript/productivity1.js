@@ -8,6 +8,8 @@ var parameters = [
 
 var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
 
+$(document).ready(function () {
+
 g = new Dygraph(document.getElementById("chart"), "data/productivity1.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
@@ -41,6 +43,8 @@ g = new Dygraph(document.getElementById("chart"), "data/productivity1.csv", {
   },
   visibility: [1,1,0,0,0],
 });
+
+}); //document.ready
 
 function toggle_visibility(el) {
   g.setVisibility(parseInt(el.id), el.checked);

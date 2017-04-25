@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 g = new Dygraph(document.getElementById("chart"), "data/productivity5.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
@@ -24,6 +26,8 @@ g = new Dygraph(document.getElementById("chart"), "data/productivity5.csv", {
   visibility: [1,1,1],
 });
 
+}); //document.ready
+
 // independentTicks
 
 function toggle_radio(el) {
@@ -47,6 +51,6 @@ function toggle_radio(el) {
   } else {
     new_range = [new Date(2015,1,1).valueOf(), new Date(2016,1,1).valueOf()];
   }    
-  console.log(new_range);
+  //console.log(new_range);
   g.updateOptions({dateWindow: new_range});
 }

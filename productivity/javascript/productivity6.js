@@ -1,3 +1,5 @@
+$(document).ready(function () {
+
 g = new Dygraph(document.getElementById("chart"), "data/productivity6.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
@@ -23,8 +25,9 @@ g = new Dygraph(document.getElementById("chart"), "data/productivity6.csv", {
   },
   visibility: [1,1,0,0],
 });
-
 // independentTicks
+
+}); //document.ready
 
 function toggle_visibility(el) {
   g.setVisibility(parseInt(el.id), el.checked);
