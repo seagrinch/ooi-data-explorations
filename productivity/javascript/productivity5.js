@@ -43,13 +43,13 @@ function toggle_radio(el) {
   }
   // Remember, months must be specified between 0 and 11
   if (el.value==1) {
-    new_range = [new Date(2015,7,1).valueOf(), new Date(2015,10,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,7,1)).valueOf(), new Date(Date.UTC(2015,10,1)).valueOf()];
   } else if (el.value==2) {
-    new_range = [new Date(2015,7,1).valueOf(), new Date(2015,10,1).valueOf()];    
+    new_range = [new Date(Date.UTC(2015,7,1)).valueOf(), new Date(Date.UTC(2015,10,1)).valueOf()];    
   } else if (el.value==3) {
-    new_range = [new Date(2015,1,1).valueOf(), new Date(2015,4,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,1,1)).valueOf(), new Date(Date.UTC(2015,4,1)).valueOf()];
   } else {
-    new_range = [new Date(2015,1,1).valueOf(), new Date(2016,1,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,1,1)).valueOf(), new Date(Date.UTC(2016,1,1)).valueOf()];
   }    
   //console.log(new_range);
   g.updateOptions({dateWindow: new_range});

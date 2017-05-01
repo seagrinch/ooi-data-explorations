@@ -26,15 +26,15 @@ g = new Dygraph(document.getElementById("chart"), "data/chemistry1e.csv", {
 function date_button(season) {
   // Remember, months must be specified between 0 and 11
   if (season=='spring') {
-    new_range = [new Date(2016,2,1).valueOf(), new Date(2016,5,1).valueOf()];
+    new_range = [new Date(Date.UTC(2016,2,1)).valueOf(), new Date(Date.UTC(2016,5,1)).valueOf()];
   } else if (season=="summer") {
-    new_range = [new Date(2015,5,1).valueOf(), new Date(2015,8,1).valueOf()];    
+    new_range = [new Date(Date.UTC(2015,5,1)).valueOf(), new Date(Date.UTC(2015,8,1)).valueOf()];    
   } else if (season=="fall") {
-    new_range = [new Date(2015,8,1).valueOf(), new Date(2015,11,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,8,1)).valueOf(), new Date(Date.UTC(2015,11,1)).valueOf()];
   } else if (season=="winter") {
-    new_range = [new Date(2015,11,1).valueOf(), new Date(2016,2,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,11,1)).valueOf(), new Date(Date.UTC(2016,2,1)).valueOf()];
   } else {
-    new_range = [new Date(2015,5,1).valueOf(), new Date(2016,5,1).valueOf()];
+    new_range = [new Date(Date.UTC(2015,5,1)).valueOf(), new Date(Date.UTC(2016,5,1)).valueOf()];
   }
   console.log(new_range);
   g.updateOptions({dateWindow: new_range});
