@@ -11,7 +11,7 @@ $(document).ready(function () {
     labelsDivStyles: { 'textAlign': 'right' },
     labelsDivWidth : 400,
     labelsUTC : true,
-    colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"],
+    colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0","#999999"],
     strokeWidth: 0,
     drawPoints: true,
     pointSize: 2,
