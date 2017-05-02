@@ -24,7 +24,7 @@
 
 <h3>Challenge Question</h3>
 <?php if ($level=='exploration'): ?>
-<p>What changes in the surface ocean as salinity changes over time?</p>
+<p>As salinity in the surface ocean changes over time, what else changes?</p>
 <?php elseif ($level=='application'): ?>
 <p>Does salinity change over time in the surface ocean? Why?</p>
 <?php endif; ?>
@@ -35,20 +35,33 @@
 <div id="chart" style="width:800px; height: 400px;"></div>
 
 <?php if ($level=='exploration'): ?>
+<style>
+  #chart .dygraph-ylabel {color:#00457C;}
+  #chart .dygraph-y2label {color:#DBA53A;}
+</style>
 
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
-    <p class="text-right">Include datasets:</p>
+    <p class="text-right">Include Salinity?</p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
-    Air Temperature</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)" > 
-    Sea Surface Temperature</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" > 
-    Salinity</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="3" onclick="toggle_visibility(this)" > 
-    Rain Rate</label>
+    <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
+      Salinity</label>
+  </div>
+</div>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
+    <p class="text-right">Select the second parameter:</p>
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" checked> 
+      Air Temperature</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
+      Sea Surface Temperature</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+      Rain Rate</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" > 
+      None</label>
   </div>
 </div>
 
@@ -69,15 +82,15 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>...</p>
+<p>Explore data from the water and atmospheric conditions above the surface ocean across different time periods from the Northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> ...</p>
+<p><strong>Data Tip:</strong> Turn on and off different oceanic or atmospheric variables to compare them to the salinity data. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='application'): ?>
 
-<p>...</p>
+<p>Explore data from the water and atmospheric conditions above the surface ocean during different weather events from the Northern Pacific Ocean (Coastal Endurance Array) to observe patterns in processes that impact surface salinity values.</p>
 
-<p><strong>Data Tip:</strong> ...</p>
+<p><strong>Data Tip:</strong> Turn on and off different oceanic or atmospheric variables to compare them to the salinity data. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php endif; ?>
 
@@ -96,6 +109,7 @@
 <ol>
   <li>What did you find from the data about the influence of precipitation on surface ocean salinity over time?</li>
   <li>What did you find from the data about the influence of evaporation on surface ocean salinity over time?</li>
+  <li>What can you conclude overall about processes that affect surface ocean over time?</li>
 </ol>
 
 <?php endif; ?>
@@ -121,7 +135,7 @@
     <div class="list-group">
       <a href="activity2.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What changes in the surface ocean as salinity changes over time?</p>
+        <p class="list-group-item-text">As salinity in the surface ocean changes over time, what else changes?</p>
       </a>
       <a href="activity2.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>

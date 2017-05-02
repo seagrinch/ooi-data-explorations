@@ -31,9 +31,9 @@
 
 
 <!-- DATA CHART -->
-
 <div id="chart" style="width:800px; height: 400px;"></div>
 
+<?php if ($level=='exploration'): ?>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
     <p class="text-right">Select a season to zoom to see:</p>
@@ -48,8 +48,6 @@
   </p>
   </div>
 </div>
-
-<?php if ($level=='exploration'): ?>
 <?php 
   $scripts[] = "../js/dygraph-combined-dev.js";
   $scripts[] = "javascript/chemistry1e.js";
@@ -59,43 +57,55 @@
 <?php elseif ($level=='application'): ?>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
+    <p class="text-right">Select a season to zoom to see:</p>
+  </div>
+  <div class="col-xs-9">
+  <p>
+    <button class="btn btn-primary btn-sm" onclick="date_button('year')">Full Year</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('spring');">Spring</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('summer')">Summer</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('fall')">Fall</button>
+    <button class="btn btn-primary btn-sm" onclick="date_button('winter')">Winter</button>
+  </p>
+  </div>
+</div>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
     <p class="text-right">Choose a dataset: <br><small>Note, the graph will automatically zoom to the late summer season.</small></p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)">
+  <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(1)" checked>
     Inshore vs offshore coastal/Pacific Ocean (CE01ISSM vs. CE02SHSM)</label>
-  <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)"> 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(2)"> 
     Atlantic vs. Pacific coastal (CE07SHSM  vs. CP03ISSM)</label><br>
-  <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)"> 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(3)"> 
     Northern vs southern hemisphere/Atlantic Ocean (GA01SUMO vs. GI03FLMA)</label><br>
-  <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
+  <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(0)"> 
     Show All</label>
   </div>
 </div>
-
 <?php 
   $scripts[] = "../js/dygraph-combined-dev.js";
   $scripts[] = "javascript/chemistry1a.js";
 ?>  
 <p class="text-right"><a href="data/chemistry1a.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 <?php endif; ?>
-
-
 
 
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
 
-<p>...</p>
+<p>Explore salinity data across different time periods from the Northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> ...</p>
+<p><strong>Data Tip:</strong> Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='application'): ?>
 
-<p>...</p>
+<p>Compare patterns in salinity data across different time periods to determine if there are relationships over time across different regions of the ocean.</p>
 
-<p><strong>Data Tip:</strong> ...</p>
+<p><strong>Data Tip:</strong> Select which regional comparison you are interested in looking at: inshore vs offshore, north Atlantic vs. north Pacific, or northern vs southern hemisphere. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you. </p>
 
 <?php endif; ?>
 

@@ -1,6 +1,6 @@
 <?php 
   $page = 'activities';
-  $page_title = 'Exploring Primary Production with Data';
+  $page_title = 'Exploring Ocean Chemistry with Data';
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +8,7 @@
 <h2>Exploring Ocean Chemistry with Data</h2>
 
   <div class="row">
-    <div class="col-md-8">Through these Data Explorations, you will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</div>
+    <div class="col-md-8">Through these Data Explorations, you will...</div>
     <div class="col-md-4">
       <h4>Resources</h4>
       <ul>
