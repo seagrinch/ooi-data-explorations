@@ -82,13 +82,13 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>Explore data from the water and atmospheric conditions above the surface ocean across different time periods from the Northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
+<p>Explore data from the water and atmospheric conditions above the surface ocean across different time periods from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
 
 <p><strong>Data Tip:</strong> Turn on and off different oceanic or atmospheric variables to compare them to the salinity data. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='application'): ?>
 
-<p>Explore data from the water and atmospheric conditions above the surface ocean during different weather events from the Northern Pacific Ocean (Coastal Endurance Array) to observe patterns in processes that impact surface salinity values.</p>
+<p>Explore data from the water and atmospheric conditions above the surface ocean during different weather events from the northern Pacific Ocean (Coastal Endurance Array) to observe patterns in processes that impact surface salinity values.</p>
 
 <p><strong>Data Tip:</strong> Turn on and off different oceanic or atmospheric variables to compare them to the salinity data. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
@@ -118,13 +118,19 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 
+<h4>Lesson Metadata</h4>
+<?php if ($level=='exploration'): ?>
+<p>Data for this activity was adapted from the following instrument:</p>
+<?php elseif ($level=='application'): ?>
+<p>Data for this activity were adapted from the following instruments:</p>
+<?php endif; ?>
 
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure primary production</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure ???</small></h2>
 </div>
 
 <p>&nbsp;</p>

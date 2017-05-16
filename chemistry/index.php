@@ -46,6 +46,50 @@
     <p>???</p>
   </div>
 </div>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity3.php">Changes in pH with Depth</a></h4>
+    <p>???</p>
+  </div>
+</div>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity4.php">Carbonate Buffering System</a></h4>
+    <p>???</p>
+  </div>
+</div>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity5.php">Changes in Salinity with Depth</a></h4>
+    <p>???</p>
+  </div>
+</div>
+<div class="media">
+  <div class="media-left">
+    <a href="#">
+      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity6.php">Halocline</a></h4>
+    <p>???</p>
+  </div>
+</div>
 
 
 <hr>

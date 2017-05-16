@@ -134,13 +134,22 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 
+<h4>Lesson Metadata</h4>
+<?php if ($level=='exploration'): ?>
+<p>Data for this activity was adapted from the following instrument:</p>
+<ul>
+  <li>Coastal Endurance, Washington Shelf Surface Mooring CTD (CE07SHSM-RID27-03-CTDBPC000), telemetered, ctdbp_cdef_dcl_instrument</li>
+</ul>
+<?php elseif ($level=='application'): ?>
+<p>Data for this activity were adapted from the following instruments:</p>
+<?php endif; ?>
 
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure primary production</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure ???</small></h2>
 </div>
 
 <p>&nbsp;</p>
