@@ -15,6 +15,8 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
+<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
+
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -31,10 +33,25 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
+<div id="chart"></div>
 
 <?php if ($level=='exploration'): ?>
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "javascript/chemistry3e.js";
+?>  
 <?php elseif ($level=='application'): ?>
+<p class="text-center">Choose a Site:
+<select name="dataset" onchange="updateGraph(this.value)">
+  <option value="CE04OSPS">CE04OSPS</option>
+  <option value="RS01SBPS">RS01SBPS</option>
+  <option value="RS03AXPS">RS03AXPS</option>
+</select>
+</p>
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "javascript/chemistry3a.js";
+?>  
 <?php endif; ?>
 
 
