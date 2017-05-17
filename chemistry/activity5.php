@@ -31,7 +31,9 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
+<div id="chart"></div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="javascript/chemistry5.js"></script>
 
 <?php if ($level=='exploration'): ?>
 <?php elseif ($level=='application'): ?>
