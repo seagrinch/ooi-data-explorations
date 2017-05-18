@@ -41,6 +41,10 @@
   $scripts[] = "javascript/chemistry5e.js";
 ?>  
 <?php elseif ($level=='application'): ?>
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "javascript/chemistry5a.js";
+?>  
 <?php endif; ?>
 
 
