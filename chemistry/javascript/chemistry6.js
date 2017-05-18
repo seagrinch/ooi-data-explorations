@@ -228,6 +228,6 @@ showContext = function(){
 }
 
 updateGraph = function(dataset) {
-  console.log(dataset);
+  //console.log(dataset);
   drawGraph(dataset)
 }

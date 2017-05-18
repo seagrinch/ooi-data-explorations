@@ -103,10 +103,12 @@ d3.csv("data/chemistry3_CE04OSPS.csv", type, function(error, data) {
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
 
+  min_date = d3.min(data,function(d) {return d.date});
   context.append("g")
       .attr("class", "brush")
       .call(brush)
-      .call(brush.move, x.range());
+      //.call(brush.move, x.range());
+      .call(brush.move,[x2(min_date),x2(d3.timeDay.offset(min_date,30))]) // Preselect first 30 days
 
 });
 
