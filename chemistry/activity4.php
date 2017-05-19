@@ -33,10 +33,18 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
+<div id="chart"></div>
 
 <?php if ($level=='exploration'): ?>
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "javascript/chemistry4e.js";
+?>  
 <?php elseif ($level=='application'): ?>
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "javascript/chemistry4a.js";
+?>  
 <?php endif; ?>
 
 
