@@ -4,8 +4,8 @@
 var svg = d3.select("#chart").append("svg")
       .attr("width",800)
       .attr("height",500),
-    margin1 = {top: 20, right: 390, bottom: 110, left: 40},
-    margin2 = {top: 20, right: 20, bottom: 110, left: 470},
+    margin1 = {top: 20, right: 420, bottom: 110, left: 40},
+    margin2 = {top: 20, right: 20, bottom: 110, left: 440},
     margin3 = {top: 430, right: 20, bottom: 30, left: 40},
     width1 = +svg.attr("width") - margin1.left - margin1.right,
     width2 = +svg.attr("width") - margin2.left - margin2.right,
