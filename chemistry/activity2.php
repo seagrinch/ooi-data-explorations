@@ -119,12 +119,19 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<h4>Dataset Information</h4>
 
-<h4>Lesson Metadata</h4>
 <?php if ($level=='exploration'): ?>
-<p>Data for this activity was adapted from the following instrument:</p>
+
+<p>Data for this activity were accessed from the following instruments:</p>
+<ul>
+  <li>Coastal Endurance: Oregon Shelf Surface Mooring, Surface Buoy, Bulk Meteorology Instrument Package (CE02SHSM-SBD11-06-METBKA000), telemetered metbk_a_dcl_instrument</li>
+</ul>
+
 <?php elseif ($level=='application'): ?>
+
 <p>Data for this activity were adapted from the following instruments:</p>
+
 <?php endif; ?>
 
 

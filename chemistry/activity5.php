@@ -86,12 +86,23 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<h4>Dataset Information</h4>
 
-<h4>Lesson Metadata</h4>
 <?php if ($level=='exploration'): ?>
+
 <p>Data for this activity was adapted from the following instrument:</p>
+<ul>
+  <li>Coastal Pioneer: Upstream Inshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMUI-WFP01-03-CTDPFK000), telemetered ctdpf_ckl_wfp_instrument</li>
+</ul>
+
 <?php elseif ($level=='application'): ?>
+
 <p>Data for this activity were adapted from the following instruments:</p>
+<ul>
+  <li>Coastal Pioneer: Upstream Inshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMUI-WFP01-03-CTDPFK000), telemetered ctdpf_ckl_wfp_instrument</li>
+  <li>Global Irminger Sea, Apex Profiler Mooring, Wire-Following Profiler Upper, CTD (GI02HYPM-WFP02-04-CTDPFL000), recovered_wfp ctdpf_ckl_wfp_instrument_recovered</li>
+</ul>
+
 <?php endif; ?>
 
 

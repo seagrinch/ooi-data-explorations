@@ -78,12 +78,37 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<h4>Dataset Information</h4>
 
-<h4>Lesson Metadata</h4>
 <?php if ($level=='exploration'): ?>
+
 <p>Data for this activity was adapted from the following instrument:</p>
+<ul>
+  <li>Coastal Endurance:
+  <ul>
+    <li>Oregon Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE02SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
+    <li>Oregon Shelf Surface Mooring, Surface Buoy, pCO2 Air-Sea (CE02SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
+  </ul></li>
+</ul>
+
 <?php elseif ($level=='application'): ?>
+
 <p>Data for this activity were adapted from the following instruments:</p>
+<ul>
+  <li>Coastal Endurance:
+  <ul>
+    <li>Oregon Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE02SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
+    <li>Oregon Shelf Surface Mooring, Surface Buoy, pCO2 Air-Sea (CE02SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
+    <li>Washington Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE07SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
+    <li>Washington Shelf Surface Mooring, Surface Buoy, pCO2 Air-Sea (CE07SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
+  </ul></li>
+  <li>Global Southern Ocean: 
+  <ul>
+    <li>Apex Surface Mooring, Mooring Riser, Seawater pH (100 m) (GS01SUMO-RII11-02-PHSENE042), telemetered phsen_abcdef_imodem_instrument</li>
+    <li>Apex Surface Mooring, Surface Buoy, pCO2 Air-Sea (GS01SUMO-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_air</li>
+  </ul></li>
+</ul>
+
 <?php endif; ?>
 
 

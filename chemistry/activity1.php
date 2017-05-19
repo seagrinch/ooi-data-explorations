@@ -135,15 +135,30 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<h4>Dataset Information</h4>
 
-<h4>Lesson Metadata</h4>
 <?php if ($level=='exploration'): ?>
+
 <p>Data for this activity was adapted from the following instrument:</p>
 <ul>
   <li>Coastal Endurance, Washington Shelf Surface Mooring CTD (CE07SHSM-RID27-03-CTDBPC000), telemetered, ctdbp_cdef_dcl_instrument</li>
 </ul>
+
 <?php elseif ($level=='application'): ?>
+
 <p>Data for this activity were adapted from the following instruments:</p>
+<ul>
+  <li>Coastal Endurance:
+  <ul>
+    <li>Washington Shelf Surface Mooring, Near Surface Instrument Frame, CTD (CE07SHSM-RID27-03-CTDBPC000), telemetered ctdbp_cdef_dcl_instrument</li>
+    <li>Oregon Inshore Surface Mooring, Near Surface Instrument Frame, CTD (CE01ISSM-RID16-03-CTDBPC000), recovered_inst ctdbp_cdef_instrument_recovered</li>
+    <li>Oregon Shelf Surface Mooring, Near Surface Instrument Frame, CTD (CE02SHSM-RID27-03-CTDBPC000), telemetered ctdbp_cdef_dcl_instrument</li>
+  </ul></li>
+  <li>Coastal Pioneer: Inshore Surface Mooring, Near Surface Instrument Frame, CTD (CP03ISSM-RID27-03-CTDBPC000), telemetered ctdbp_cdef_dcl_instrument</li>
+  <li>Global Argentine Basin: Apex Surface Mooring, Near Surface Instrument Frame, CTD (GA01SUMO-RID16-03-CTDBPF000), recovered_inst ctdbp_cdef_instrument_recovered</li>
+  <li>Global Irminger Sea: Flanking Subsurface Mooring A, Mooring Riser, CTD (30 m) (GI03FLMA-RIM01-02-CTDMOG040), recovered_inst ctdmo_ghqr_instrument_recovered</li>
+</ul>
+
 <?php endif; ?>
 
 

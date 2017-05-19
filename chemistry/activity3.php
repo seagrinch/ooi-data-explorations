@@ -93,12 +93,30 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<h4>Dataset Information</h4>
 
-<h4>Lesson Metadata</h4>
 <?php if ($level=='exploration'): ?>
+
 <p>Data for this activity was adapted from the following instrument:</p>
+<ul>
+  <li>Coastal Endurance: Oregon Offshore, Cabled Shallow Profiler Mooring Shallow Profiler (SF01B), Seawater pH (CE04OSPS-SF01B-2B-PHSENA108), streamed phsen_data_record</li>
+</ul>
+
 <?php elseif ($level=='application'): ?>
+
 <p>Data for this activity were adapted from the following instruments:</p>
+<ul>
+  <li>Coastal Endurance: 
+  <ul>
+    <li>Oregon Offshore, Cabled Shallow Profiler Mooring, Shallow Profiler (SF01B), Seawater pH (CE04OSPS-SF01B-2B-PHSENA108), streamed phsen_data_record</li>
+  </ul></li>
+  <li>Cabled Array:
+  <ul>
+    <li>Axial Base Shallow Profiler Mooring, Shallow Profiler (SF03A), Seawater pH (RS03AXPS-SF03A-2D-PHSENA301), streamed phsen_data_record</li>
+    <li>Oregon Slope Base Shallow Profiler Mooring, Shallow Profiler (SF01A), Seawater pH (RS01SBPS-SF01A-2D-PHSENA101), streamed phsen_data_record</li>
+  </ul></li>
+</ul>
+
 <?php endif; ?>
 
 
