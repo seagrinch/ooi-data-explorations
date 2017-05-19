@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the Temperate Pacific Ocean (highlighted in red)."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_WAOffshoreHighlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance\">Coastal Endurance</a> location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Washington Offshore station (highlighted in red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "Endurance_WA_2015-10-07_ver_3-00_shelfhighlighted.jpg",
+    "caption": "Below the ocean surface off of Oregon and Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent the where the different instruments are located in the ocean. Data in this activity were collected from instruments on the <a href=\"http://oceanobservatories.org/site/ce07shsm/\">Shelf Surface Mooring</a> (D, highlighted in red) in the center of the drawing."
+  },
+  {
+    "title": "What is on a Mooring?",
+    "file": "CE07SHSM_ENDURANCE_WA_SHELF_SURFACE_MOORING_NearSurfaceInstrumenthighlighted.jpg",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the Washington Shelf Surface Mooring that collected data in this activity is included in the Near Surface Instrument Frame (highlighted in red), which is attached to the cable 7m below the water surface.  Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the CTD instrument."
+  },
+  {
+    "title": "How does a CTD work",
+    "file": "placeholder.png",
+    "caption": "The CTD measures and records conductivity, temperature, and pressure (proxy for depth). These parameters can then be used to calculate salinity and density. The CTD is specifically designed to be used for long durations in the ocean at the same site. It has internal batteries and memory to store the data (recovered data), but also communicates via an RS-232 serial interface (telemetered data). The specific kind of CTD used at the Washington Shelf Surface Mooring is a <a href=\"http://www.seabird.com/sbe16plusv2-seacat-ctd\">Sea-Bird</a> - SBE 16plusV2 and it has a bottom pump to control the water flow through the instrument (CTDBP)."
+  }
+]

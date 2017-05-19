@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_ednpioirmarghighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the temperate Pacific Ocean (highlighted in red), the Coastal Pioneer location in the temperate North Atlantic Ocean (highlighted in purple), Global Irminger Sea location in the near polar Atlantic Ocean (highlighted in blue), and Global Argentine Basin location in the temperate South Atlantic Ocean (highlighted in yellow)."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_wa_orlineshighlighted.jpg",
+    "caption": "The Coastal Endurance location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Washington Line (highlighted in red) and the Central Oregon Line (highlighted in pink)."
+  },
+  {
+    "title": "What it Looks Like Under the Water off Washington",
+    "file": "Endurance_WA_2015-10-07_ver_3-00_shelfhighlighted.jpg",
+    "caption": "Below the ocean surface off of Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Washington Shelf Surface Mooring (D, highlighted in red) in the center of the drawing."
+  },
+  {
+    "title": "What it Looks Like Under the Water off Oregon",
+    "file": "Endurance_OR_2015-10-07_ver_3-00_inshore_shelfhighlighted.jpg",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Shelf Surface Mooring (E, highlighted in orange in the center of the drawing) and the Oregon Inshore Surface Mooring (B, highlighted in pink on the right of the drawing)."
+  },
+  {
+    "title": "Ocean Off of the Atlantic Northeast",
+    "file": "Pioneer_NEObsMap_110914_states_highlighted.jpg",
+    "caption": "The Coastal Pioneer location is located in the ocean off of the southern New England states. Data in this activity were collected from the array (highlighted in purple)."
+  },
+  {
+    "title": "What it Looks Like Under the Water off Southern New England",
+    "file": "PioneerArray_2015-10-07_ver_3-00_inshoresurfacehighlighted.jpg",
+    "caption": "Below the ocean surface off of southern New England states are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Pioneer location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Inshore Surface Mooring (B, highlighted in purple) at the top left of the drawing."
+  },
+  {
+    "title": "What is on the Mooring?",
+    "file": "CE07SHSM_ENDURANCE_WA_SHELF_SURFACE_MOORING_NearSurfaceInstrumenthighlighted.jpg",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on each of the moorings just explored that collected data in this activity is included in the Near Surface Instrument Frame (highlighted in red), which is attached to the cable 7m below the water surface, or the Mooring Riser. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the CTD instrument."
+  },
+  {
+    "title": "How does a CTD work?",
+    "file": "placeholder.png",
+    "caption": "The CTD measures and records conductivity, temperature, and pressure (proxy for depth). These parameters can then be used to calculate salinity and density. The CTD is specifically designed to be used for long durations in the ocean at the same site. It has internal batteries and memory to store the data (recovered data), but also communicates via an RS-232 serial interface (telemetered data). The specific kind of CTD used at at these moorings is a Sea-Bird - SBE 16plusV2 and it has a bottom pump to control the water flow through the instrument (CTDBP)."
+  }
+]

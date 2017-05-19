@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_pioneerhighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Pioneer location in the Temperate Atlantic Ocean (highlighted in purple)."
+  },
+  {
+    "title": "Ocean Off of the Atlantic Northeast",
+    "file": "Pioneer_NEObsMap_110914_states_highlighted.jpg",
+    "caption": "The Coastal Pioneer location is located in the ocean off of the southern New England states. Data in this activity were collected from the array (highlighted in purple)."
+  },
+  {
+    "title": "What it Looks Like Under the Water Off of the Atlantic Northeast",
+    "file": "PioneerArray_2015-10-07_ver_3-00_centralin_offshorehighlighted.jpg",
+    "caption": "Below the ocean surface off of the southern New England states are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Pioneer location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Central Offshore Profiler Mooring (F, highlighted in purple) and Central Inshore Profiler Mooring (C, highlighted in pink) in the center of the drawing."
+  },
+  {
+    "title": "What is on the Mooring Off of the Atlantic Northeast?",
+    "file": "CP02PMCO_Pioneer_Central_Offshore_Profiler_Mooring_highlighted.jpg",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the Central Offshore Profiler Mooring and the Central Inshore Profiler Mooring that collected data in this activity is included in the Wire-Following Profiler (highlighted in purple), which moves along the cable between 15 and 125m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Wire-Following Profiler. Data for this activity were collected using the CTD instrument."
+  },
+  {
+    "title": "Ocean Off of Greenland & What is Looks Like Under Water",
+    "file": "Global_Irminger_2015-10-07_ver_5-00_apexprofilerhighlighted.jpg",
+    "caption": "The Global Irminger Sea location is located in the ocean off of southern Greenland. Below the ocean surface off of southern Greenland there are multiple oceanographic instruments attached along cables running from the surface down to the seafloor. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from the Apex Profiler Mooring (B, highlighted in blue) in the left of the drawing."
+  },
+  {
+    "title": "What is on the Mooring Off of Greenland?",
+    "file": "GI02HYPM_Irminger_Apex_Profiler_Mooring_wireprofilerhighlighted.jpg",
+    "caption": "The instrument on the Apex Profiler Mooring that collected data in this activity is included in the Wire-Following Profiler Upper (highlighted in blue), which moves along the cable between 240 and 2,592m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Wire-Following Profiler. Data for this activity were collected using the CTD instrument."
+  },
+  {
+    "title": "How does a CTD work?",
+    "file": "placeholder.png",
+    "caption": "The CTD measures and records conductivity, temperature, and pressure (proxy for depth). These parameters can then be used to calculate salinity and density. The CTD is specifically designed to be used to travel up and down between a buoy and a bottom-mounted platform. It is externally powered and memory to store the data temporarily (recovered data). The specific kind of CTD used at the Upstream Inshore Profiler Mooring and Central Inshore Profiler Mooring is a Sea-Bird - SBE 52MP and the Apex Profiler Mooring is a Sea-Bird - SBE 37IM."
+  }
+]

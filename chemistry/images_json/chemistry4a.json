@@ -1,0 +1,47 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EndSouthOcehighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the temperate North Pacific Ocean (highlighted in red) and the Global Southern Ocean location in the near polar South Pacific Ocean (highlighted in green)."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_wa_orlineshighlighted.jpg",
+    "caption": "The Coastal Endurance location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Oregon and Washington Lines (highlighted in pink and red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water Off of Oregon",
+    "file": "Endurance_OR_2015-10-07_ver_3-00_shelfhighlighted.jpg",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Shelf Surface Mooring (E, highlighted in red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water Off of Washington",
+    "file": "Endurance_WA_2015-10-07_ver_3-00_shelfhighlighted.jpg",
+    "caption": "Similarly, below the ocean surface off of Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Washington Shelf Surface Mooring (D, highlighted in red) in the center of the drawing. "
+  },
+  {
+    "title": "What is on the Pacific Northwest Moorings?",
+    "file": "CE02SHSM_ENDURANCE_OR_SHELF_SURFACE_MOORING_buoyinstrpackhighlighted.jpg",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instruments that collected data in this activity are included in the Near Surface Instrument Frame (highlighted in red), which is attached to the cable 7m below the water surface, and the Surface Buoy (highlighted in blue). Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the Seawater pH and the pCO2 Air-Sea."
+  },
+  {
+    "title": "Ocean Off of Chile & What it Looks Like Under the Water",
+    "file": "Global_Southern_2015-10-07_ver_5-00_apexsurfhighlighted.jpg",
+    "caption": "The Global Southern Ocean location is located in the ocean off of southern Chile. Below the ocean surface there are multiple oceanographic instruments attached along cables. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Apex Surface Mooring (A, highlighted in green)."
+  },
+  {
+    "title": "What is on the South Pacific Moorings?",
+    "file": "placeholder.png",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument that collected data in this activity is included in the Mooring Riser (highlighted in red), which is attached to the cable 100m below the water surface, and the Surface Buoy (highlighted in blue). Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the Seawater pH and the pCO2 Air-Sea."
+  },
+  {
+    "title": "How does a pH instrument work?",
+    "file": "placeholder.png",
+    "caption": "The Seawater pH measures the concentration of hydrogen ions in a solution (i.e., ocean water) so that you can determine the pH of the solution. The specific pH sensor is the Sunburst SAMI-pH."
+  },
+  {
+    "title": "The pCO2 Air-Sea measures the partial pressure of carbon dioxide (pCO2) in both the atmosphere and ocean. This enables scientists to calculate the amount of CO2 in the ocean and atmosphere as well as the movement (flux) between the two. The specific pCO2 sensor is the Pro-Oceanus pCO2-pro Model.",
+    "file": "placeholder.png",
+    "caption": "How does a pCO2 instrument work?"
+  }
+]

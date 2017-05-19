@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance, Cabled Axial Seamount, and Cabled Continental Margin locations (highlighted in red) in the Temperate Pacific Ocean."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_orhighlighted.jpg",
+    "caption": "The Coastal Endurance, Cabled Axial Seamount, and Cabled Continental Margin locations are located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Oregon Line (highlighted in red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water at the Coastal Sites",
+    "file": "Endurance_OR_2015-10-07_ver_3-00_cabledoffshorehighlighted.jpg",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Offshore Cabled Shallow Profiler Mooring (F, highlighted in red)."
+  },
+  {
+    "title": "What it Looks Like Under the Water at the Cabled Sites",
+    "file": "placeholder.png",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Cabled Axial Seamount and Cabled Continental Margin locations. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Axial Base Shallow Profiler Mooring and the Oregon Slope Base Shallow Profiler Mooring. "
+  },
+  {
+    "title": "What is on the Mooring?",
+    "file": "placeholder.png",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on all the Profiler Moorings that collected data in this activity is included on the Shallow Profiler, which moves along the cable between 20 and 200m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Shallow Profiler. Data for this activity were collected using the Seawater pH."
+  },
+  {
+    "title": "How does a Seawater pH work?",
+    "file": "placeholder.png",
+    "caption": "The Seawater pH measures the concentration of hydrogen ions in a solution (i.e., ocean water) so that you can determine the pH of the solution. The specific pH sensor is the Sunburst SAMI-pH."
+  }
+]

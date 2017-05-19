@@ -93,6 +93,23 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<?php
+  if ($level=='exploration') {
+    $json_file = file_get_contents('images_json/chemistry3e.json');  
+  } elseif ($level=='application') {
+    $json_file = file_get_contents('images_json/chemistry3a.json');
+  }
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
+
+
 <h4>Dataset Information</h4>
 
 <?php if ($level=='exploration'): ?>
