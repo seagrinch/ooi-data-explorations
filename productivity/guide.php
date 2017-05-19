@@ -11,6 +11,7 @@
 </div>
 
 <h3>Summary</h3>
+<a href="index.php"><img src="screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This collection consists of 7 sets of activities, each having 2-3 Data Explorations, to overall include all 5 Learning Cycle phases. The collection was developed to assist with students understanding of various concepts covered in Chapter 13. Biological Productivity and Energy Transfer of The Essentials of Oceanography (12<sup>th</sup> Ed) including: Measurement of Primary Productivity, Productivity in Middle Latitude (Temperate) Oceans, Productivity in Polar (High Latitude) Oceans, and Comparing Regional Productivity. Use of an interactive concept-mapping tool is also included in the collection to assist with students accessing their prior knowledge before beginning the Chapter (Invitation, link to corresponding text) and/or thinking about/demonstrating what understanding about primary production they have gained through the Chapter (Reflection, link to corresponding text).</p>
 
 <h3>Learning Goals</h3>

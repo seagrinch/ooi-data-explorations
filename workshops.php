@@ -34,7 +34,9 @@
   <small>May 19-21, 2017</small>
 </h4>
 <p class="text-center">
-  <a href="workshops2017.php" class="btn btn-primary">Registration Information</a>
+  <a href="chemistry/workshop.php" class="btn btn-primary">Workshop Resources</a>
+  <a href="chemistry/index.php" class="btn btn-primary">Activities</a>
+  <a href="chemistry/guide.php" class="btn btn-primary">Instructor's Guide</a>
 </p>
 
 
