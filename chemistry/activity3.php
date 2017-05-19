@@ -106,7 +106,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore and analyze patterns in how seawater pH changes with depth.</small></h2>
 </div>
 
 <p>&nbsp;</p>

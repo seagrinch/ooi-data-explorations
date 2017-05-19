@@ -132,7 +132,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore different kinds of variables that are collected to measure ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore seawater characteristics of processes that are correlated with changes in salinity over time.</small></h2>
 </div>
 
 <p>&nbsp;</p>
@@ -145,10 +145,12 @@
         <h4 class="list-group-item-heading">Exploration</h4>
         <p class="list-group-item-text">As salinity in the surface ocean changes over time, what else changes?</p>
       </a>
+<!--
       <a href="activity2.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
         <p class="list-group-item-text">Does salinity change over time in the surface ocean? Why?</p>
       </a>
+-->
     </div>
   </div>
   <div class="col-md-6">

@@ -26,68 +26,56 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity1.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity1.php"><img class="media-object thumbnail" src="screenshots/Activity1_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity1.php">Seasonal Salinity Variation</a></h4>
-    <p>???</p>
+    <p>Explore and analyze patterns in how surface salinity changes over time.</p>
   </div>
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity2_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity2.php">Processes that Change Salinity</a></h4>
-    <p>???</p>
+    <p>Explore seawater characteristics of processes that are correlated with changes in salinity over time.</p>
   </div>
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity3_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity3.php">Changes in pH with Depth</a></h4>
-    <p>???</p>
+    <p>Explore and analyze patterns in how seawater pH changes with depth.</p>
   </div>
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity4_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity4.php">Carbonate Buffering System</a></h4>
-    <p>???</p>
+    <p>Explore and analyze patterns in seawater pH and pCO2 over time.</p>
   </div>
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity5_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity5.php">Changes in Salinity with Depth</a></h4>
-    <p>???</p>
+    <p>Explore and analyze patterns in how salinity changes with depth over time.</p>
   </div>
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity6_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity6.php">Halocline</a></h4>
-    <p>???</p>
+    <p>Explore and analyze patterns in the location of the halocline over time.</p>
   </div>
 </div>
 

@@ -27,9 +27,7 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity0.php"><img class="media-object" src="screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
-    </a>
+    <a href="activity0.php"><img class="media-object" src="screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity0.php">Primary Production in General</a></h4>
@@ -38,9 +36,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity1.php"><img class="media-object" src="screenshots/Activity1_sm.jpg" alt="Graph of data from the Endurance Array" width="250" height="150"></a>
-    </a>
+    <a href="activity1.php"><img class="media-object" src="screenshots/Activity1_sm.jpg" alt="Graph of data from the Endurance Array" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity1.php">Primary Production Variables</a></h4>
@@ -49,9 +45,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="screenshots/Activity2_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object" src="screenshots/Activity2_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity2.php">Chlorophyll-a Across the Year</a></h4>
@@ -60,9 +54,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity3.php"><img class="media-object" src="screenshots/Activity3_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
-    </a>
+    <a href="activity3.php"><img class="media-object" src="screenshots/Activity3_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity3.php">Chlorophyll-a Across the Globe</a></h4>
@@ -71,9 +63,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity4.php"><img class="media-object" src="screenshots/Activity4_sm.jpg" alt="Graph of chlorophyll data from the temperate ocean" width="250" height="150"></a>
-    </a>
+    <a href="activity4.php"><img class="media-object" src="screenshots/Activity4_sm.jpg" alt="Graph of chlorophyll data from the temperate ocean" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity4.php">Chlorophyll-a in Temperate Zones of the Ocean</a></h4>
@@ -82,9 +72,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity5.php"><img class="media-object" src="screenshots/Activity5_sm.jpg" alt="Graph of chlorophyll data from the polar ocean" width="250" height="150"></a>
-    </a>
+    <a href="activity5.php"><img class="media-object" src="screenshots/Activity5_sm.jpg" alt="Graph of chlorophyll data from the polar ocean" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity5.php">Chlorophyll-a Near the Polar Zones of the Ocean</a></h4>
@@ -93,9 +81,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity6.php"><img class="media-object" src="screenshots/Activity6_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
-    </a>
+    <a href="activity6.php"><img class="media-object" src="screenshots/Activity6_sm.jpg" alt="Graph of fluorometry data" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity6.php">Chlorophyll-a Inshore vs. Offshore</a></h4>
