@@ -45,6 +45,13 @@
   $scripts[] = "https://d3js.org/d3.v4.min.js";
   $scripts[] = "javascript/chemistry4a.js";
 ?>  
+<p class="text-center">Select a Site:
+<select name="dataset" onchange="updateGraph(this.value)">
+  <option value="CE02SHSM">CE02SHSM</option>
+  <option value="CE07SHSM">CE07SHSM</option>
+  <option value="GS01SUMO">GS01SUMO</option>
+</select>
+</p>
 <?php endif; ?>
 
 

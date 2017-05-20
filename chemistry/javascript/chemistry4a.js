@@ -90,81 +90,107 @@ graph3.append("text")
     .style("font-weight", "normal")
     .text("pCO2");
 
+graph1.append("g")
+    .attr("id","xAxis1")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height1 + ")")
+//     .call(xAxis1);
+graph1.append("g")
+    .attr("id","yAxis1")
+    .attr("class", "axis axis--y")
+//     .call(yAxis1);
+graph2.append("g")
+    .attr("id","xAxis2")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height2 + ")")
+//     .call(xAxis2);
+graph2.append("g")
+    .attr("id","yAxis2")
+    .attr("class", "axis axis--y")
+//     .call(yAxis2);
+graph3.append("g")
+    .attr("id","xAxis3")
+    .attr("class", "axis axis--x")
+    .attr("transform", "translate(0," + height3 + ")")
+//     .call(xAxis3);
+graph3.append("g")
+    .attr("id","yAxis3")
+    .attr("class", "axis axis--y")
+//     .call(yAxis3);
 
-d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
-  if (error) throw error;
+graph2.append("g")
+    .attr("class", "brush2")
+    .call(brush2)
+    //.call(brush2.move, x2.range()); //Default to all time
+graph3.append("g")
+    .attr("class", "brush3")
+    .call(brush3)
+    //.call(brush3.move, x3.range()); //Default to all time
 
-  x1.domain(d3.extent(data, function(d) { return d.ph; }));
-  y1.domain(d3.extent(data, function(d) { return d.pco2; }));
-  x2.domain(d3.extent(data, function(d) { return d.date; }));
-  y2.domain(d3.extent(data, function(d) { return d.ph; }));
-  x3.domain(d3.extent(data, function(d) { return d.date; }));
-  y3.domain(d3.extent(data, function(d) { return d.pco2; }));
-  color.domain(d3.extent(data, function(d) {return d.date}));
+drawGraph = function(dataset) {
+  d3.csv("data/chemistry4_"+dataset+".csv", type, function(error, data) {
+    if (error) throw error;
 
-  var dots1 = graph1.append("g");
-  //dots1.attr("clip-path", "url(#clip)")
-  dots1.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 2.5)
-        .attr("cx", function(d) { return x1(d.ph); })
-        .attr("cy", function(d) { return y1(d.pco2); })
-        .style("fill", function(d) {return color(d.date)});
-  graph1.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height1 + ")")
-      .call(xAxis1);
-  graph1.append("g")
-      .attr("class", "axis axis--y")
-      .call(yAxis1);
+    x1.domain(d3.extent(data, function(d) { return d.ph; }));
+    y1.domain(d3.extent(data, function(d) { return d.pco2; }));
+    x2.domain(d3.extent(data, function(d) { return d.date; }));
+    y2.domain(d3.extent(data, function(d) { return d.ph; }));
+    x3.domain(d3.extent(data, function(d) { return d.date; }));
+    y3.domain(d3.extent(data, function(d) { return d.pco2; }));
+    color.domain(d3.extent(data, function(d) {return d.date}));
+  
+    // Clear all existing elements
+    svg.selectAll(".dot").remove();
+  
+    var dots1 = graph1.append("g");
+    //dots1.attr("clip-path", "url(#clip)")
+    dots1.selectAll(".dot")
+          .data(data)
+        .enter().append("circle")
+          .attr("class", "dot")
+          .attr("r", 2.5)
+          .attr("cx", function(d) { return x1(d.ph); })
+          .attr("cy", function(d) { return y1(d.pco2); })
+          .style("fill", function(d) {return color(d.date)});
+  
+    var dots2 = graph2.append("g");
+    //dots2.attr("clip-path", "url(#clip)")
+    dots2.selectAll(".dot")
+          .data(data)
+        .enter().append("circle")
+          .attr("class", "dot")
+          .attr("r", 2.5)
+          .attr("cx", function(d) { return x2(d.date); })
+          .attr("cy", function(d) { return y2(d.ph); })
+          .style("fill", function(d) {return color(d.date)});
+  
+    var dots3 = graph3.append("g");
+    //dots3.attr("clip-path", "url(#clip)")
+    dots3.selectAll(".dot")
+          .data(data)
+        .enter().append("circle")
+          .attr("class", "dot")
+          .attr("r", 2.5)
+          .attr("cx", function(d) { return x3(d.date); })
+          .attr("cy", function(d) { return y3(d.pco2); })
+          .style("fill", function(d) {return color(d.date)});
 
-  var dots2 = graph2.append("g");
-  //dots2.attr("clip-path", "url(#clip)")
-  dots2.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 2.5)
-        .attr("cx", function(d) { return x2(d.date); })
-        .attr("cy", function(d) { return y2(d.ph); })
-        .style("fill", function(d) {return color(d.date)});
-  graph2.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height2 + ")")
-      .call(xAxis2);
-  graph2.append("g")
-      .attr("class", "axis axis--y")
-      .call(yAxis2);
+    svg.select(".brush2").call(brush2.move,null);
+    svg.select(".brush3").call(brush3.move,null);
 
-  var dots3 = graph3.append("g");
-  //dots3.attr("clip-path", "url(#clip)")
-  dots3.selectAll(".dot")
-        .data(data)
-      .enter().append("circle")
-        .attr("class", "dot")
-        .attr("r", 2.5)
-        .attr("cx", function(d) { return x3(d.date); })
-        .attr("cy", function(d) { return y3(d.pco2); })
-        .style("fill", function(d) {return color(d.date)});
-  graph3.append("g")
-      .attr("class", "axis axis--x")
-      .attr("transform", "translate(0," + height3 + ")")
-      .call(xAxis3);
-  graph3.append("g")
-      .attr("class", "axis axis--y")
-      .call(yAxis3);
+    // Update axes
+    d3.select("#xAxis1").call(xAxis1);
+    d3.select("#yAxis1").call(yAxis1);
+    d3.select("#xAxis2").call(xAxis2);
+    d3.select("#yAxis2").call(yAxis2);
+    d3.select("#xAxis3").call(xAxis3);
+    d3.select("#yAxis3").call(yAxis3);
 
-  graph2.append("g")
-      .attr("class", "brush2")
-      .call(brush2)
-      //.call(brush2.move, x2.range()); //Default to all time
-  graph3.append("g")
-      .attr("class", "brush3")
-      .call(brush3)
-      //.call(brush3.move, x3.range()); //Default to all time
-});
+  });
+} //drawGraph
+
+// Draw Default Graph
+drawGraph('CE02SHSM');
 
 function brushed2() {
   if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
@@ -197,4 +223,9 @@ function type(d) {
   d.pco2 = +d['pCO2'];
   d.ph = +d['pH'];
   return d;
+}
+
+updateGraph = function(dataset) {
+  //console.log(dataset);
+  drawGraph(dataset)
 }

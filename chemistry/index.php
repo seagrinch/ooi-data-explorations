@@ -44,7 +44,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity3_sm.jpg" alt="" width="250" height="150"></a>
+    <a href="activity3.php"><img class="media-object thumbnail" src="screenshots/Activity3_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity3.php">Changes in pH with Depth</a></h4>
@@ -53,7 +53,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity4_sm.jpg" alt="" width="250" height="150"></a>
+    <a href="activity4.php"><img class="media-object thumbnail" src="screenshots/Activity4_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity4.php">Carbonate Buffering System</a></h4>
@@ -62,7 +62,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity5_sm.jpg" alt="" width="250" height="150"></a>
+    <a href="activity5.php"><img class="media-object thumbnail" src="screenshots/Activity5_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity5.php">Changes in Salinity with Depth</a></h4>
@@ -71,7 +71,7 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="activity2.php"><img class="media-object thumbnail" src="screenshots/Activity6_sm.jpg" alt="" width="250" height="150"></a>
+    <a href="activity6.php"><img class="media-object thumbnail" src="screenshots/Activity6_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity6.php">Halocline</a></h4>
