@@ -73,7 +73,7 @@
 </div>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
-    <p class="text-right">Choose a dataset: <br><small>Note, the graph will automatically zoom to the late summer season.</small></p>
+    <p class="text-right">Choose a dataset: </p>
   </div>
   <div class="col-xs-9">
   <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(1)" checked>

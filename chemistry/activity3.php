@@ -61,13 +61,13 @@
 
 <p>Explore data from the surface to 200m across different time periods from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> Turn on and off different seasons to compare changes in pH with depth over time. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Drag the time slider to compare changes in pH with depth over time. Select another time period, or adjust the size of the selected time, to explore the data in ways that interest you.</p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Compare patterns in pH with depth data across different time periods to determine if there are relationships over time across different regions of the from the northern Pacific Ocean.</p>
 
-<p><strong>Data Tip:</strong> Select which comparison you are interested in looking at against the Coastal Offshore dataset: Axial Seamount or Shallow Slope. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you. </p>
+<p><strong>Data Tip:</strong> Select different datasets from Axial Seamount (RS03) or Shallow Slope (RS01) against the Coastal Offshore dataset (CE04). Drag the time slider to compare changes in pH with depth over time among the datasets. Select another time period, or adjust the size of the selected time, to explore the data in ways that interest you. </p>
 
 <?php endif; ?>
 

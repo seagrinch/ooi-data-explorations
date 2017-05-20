@@ -61,13 +61,13 @@
 
 <p>Explore data from the surface across different time periods from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> Turn on and off different seasons to compare changes in pH and pCO2 over time. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p><strong>Data Tip:</strong> Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO2 over time across all the graphs. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
 
 <?php elseif ($level=='application'): ?>
 
 <p>Explore data from the surface across different time periods from different areas of the Pacific Ocean - North (Coastal Endurance Array) and South (Global Southern Ocean Array) - to see what you can observe.</p>
 
-<p><strong>Data Tip:</strong> Select which comparison you are interested in looking at against the Oregon dataset: Washington or Chile. Select another time period to explore the data to help you observe patterns in the data. Zoom in and out of the data to look at different time scales that interest you. </p>
+<p><strong>Data Tip:</strong> Select different datasets from Washington (CE07) or off Chile (GS01) against the Oregon dataset (CE02). Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO2 over time across all the graphs among the datasets. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
 
 <?php endif; ?>
 
