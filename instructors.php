@@ -48,7 +48,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+    <a href="productivity/guide.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="productivity/guide.php">Exploring Primary Production with Data</a></h4>
@@ -58,9 +58,10 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
+    <a href="chemistry/guide.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean Wave" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
-    <h4>Exploring Ocean Chemistry with OOI Data</h4>
+    <h4><a href="chemistry/guide.php">Exploring Ocean Chemistry with OOI Data</a></h4>
     <p>(coming May 2017)</p>
   </div>  
 </div>
