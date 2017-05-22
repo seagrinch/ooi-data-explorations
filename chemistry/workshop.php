@@ -24,44 +24,83 @@
 <h3>Presentations</h3>
 <ul>
   <li><a href="documents/Welcome%20from%20the%20OOI%20Program.pptx">Welcome from the OOI Program</a> (Mike Crowley)</li>
-  <li><a href="documents/Introduction%20to%20the%20Learning%20Cycle.pptx.pdf">Introduction to the Learning Cycle</a> (Catherine Halversen)</li>
-  <li>Foundational Ideas of Learning (Catherine Halversen)</li>
-  <li>Effective Practices for Teaching with Data (Sage Lichtenwalner)</li>
-  <li>Overview of the OOI Data Portal (Mike Vardaro)</li>
+  <li><a href="documents/Introduction%20to%20the%20Learning%20Cycle.pdf">Introduction to the Learning Cycle</a> (Catherine Halversen)</li>
+  <li><a href="documents/OOI_Workshop_OA_Lecture_v2_2017-05-20.pptx">Ocean Acidification Overview Discussion</a> (Mike Vardaro, for Grace Saba)</li>
+  <li><a href="documents/Foundational%20Ideas%20of%20Learning_Halversen.pdf">Foundational Ideas of Learning</a> (Catherine Halversen)</li>
+  <li><a href="">Hydrothermal Vents</a> (Friedrich Knuth)</li>
 </ul>
 
 
 <h3>Workshop Resources</h3>
-<ul>
-  <li>Agenda</li>
-  <li>Silke Severmann's Intro Ocean <a href="documents/IntroOcean2015_Ex7_HurricaneExercise.docx">Hurricanes &amp; Superstorms Activity</a>, and <a href="documents/IntroOcean2015_Ex7_Hurricaneexercise_answers.pdf">Answer Key</a></li>
-  <li>Anna's <a href="documents/Primary_production_OOI_activity_Spr2017.pdf">homework and screenshots</a></li>
-  <li><a href="#collapseLessons" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Shared Chemistry related lessons with data</a>
-    <ul class="collapse" id="collapseLessons">
-      <li>Coming Soon</li>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Handouts</h5>
+    <ul>
+      <li><a href="documents/OOIWorkshop_May19-21_Chemistry_Participants.pdf">Workshop Agenda</a></li>
+      <li><a href="documents/Crosswalk%20of%20OOI%20data%20and%20Trujillo.pdf">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
+      <li><a href="documents/OOI%20Teaching%20with%20Data%20Chemistry%20Workshop%20Activities%202017.pdf">Website Overview Document</a></li>
+      <li><a href="documents/Levels%20of%20Engagement%20with%20Data%20Visualization%202017.pdf">3 Levels of Engagement with Data</a></li>
+      <li><a href="documents/Sharing%20OOI%20Concept%20Map%20Instructions.pdf">OOI Concept Map Instructions &amp; Sharing Instructions</a></li>
+      <li><a href="../productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
+      <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
     </ul>
-  </li>
-  <li><a href="documents/Crosswalk%20of%20OOI%20data%20and%20Trujillo.pdf">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
-  <li><a href="documents/Levels%20of%20Engagement%20with%20Data%20Visualization%202017.pdf">3 Levels of Engagement with Data</a></li>
-  <li><a href="documents/Learning%20Cycle%202017.pdf">The Learning Cycle</a></li>
-  <li><a href="documents/Five%20Foundational%20Ideas.pdf">Five Foundational Ideas</a></li>
-  <li><a href="documents/Key%20Ideas%20-%20How%20People%20Learn.pdf">Key Ideas - How People Learn</a></li>
-  <li><a href="documents/Ice%20Cubes%20Explanation.pdf">Ice Cube Explanation</a></li>
-  <li><a href="documents/OOI%20Teaching%20with%20Data%20Chemistry%20Workshop%20Activities%202017.pdf">Website Overview Document</a></li>
-  <li><a href="documents/Key%20Ideas%20-%20Prior%20Knowledge%20and%20Conceptual%20Change.pdf">Prior Knowledge &amp; Misconceptions handout</a></li>
-  <li><a href="documents/Sharing%20OOI%20Concept%20Map%20Instructions.pdf">OOI Concept Map Instructions &amp; Sharing Instructions</a></li>
-  <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
-  <li><a href="../productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
-</ul>
+  </div>
+  <div class="col-md-6">
+    <h5>Effective Teaching</h5>
+    <ul>
+      <li><a href="documents/Learning%20Cycle%202017.pdf">The Learning Cycle</a></li>
+      <li><a href="documents/Five%20Foundational%20Ideas.pdf">Five Foundational Ideas</a></li>
+      <li><a href="documents/Key%20Ideas%20-%20How%20People%20Learn.pdf">Key Ideas - How People Learn</a></li>
+      <li><a href="documents/Ice%20Cubes%20Explanation.pdf">Ice Cube Explanation</a></li>
+      <li><a href="documents/Key%20Ideas%20-%20Prior%20Knowledge%20and%20Conceptual%20Change.pdf">Prior Knowledge &amp; Misconceptions handout</a></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h5>Shared Activities</h5>
+    <ul>
+      <li>Silke Severmann's <a href="documents/IntroOcean2015_Ex7_HurricaneExercise.docx">Hurricanes &amp; Superstorms Worksheet</a>, <a href="documents/IntroOcean2015_Ex7_Hurricaneexercise_answers.pdf">Answer Key</a>, and <a href="http://education.oceanobservatories.org/node/300">Online Actvitiy</a></li>
+      <li>Anna's <a href="documents/Primary_production_OOI_activity_Spr2017.pdf">homework and screenshots</a></li>
+      <li><a href="#collapseLessons" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Shared Chemistry related lessons with data</a>
+        <ul class="collapse" id="collapseLessons">
+          <li>Coming Soon</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</div>
 
 
 <h3>Additional Resources</h3>
+<div class="row">
+  <div class="col-md-6">
+    <h5>Education Tools</h5>
+    <ul>
+      <li><a href="http://education.oceanobservatories.org/cm">OOI Concept Map Builder</a></li>
+      <li><a href="http://education.oceanobservatories.org/vocab">OOI Vocabulary Navigator</a></li>
+      <li><a href="http://education.oceanobservatories.org">OOI Education Portal</a></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <h5>OOI Information</h5>
+    <ul>
+      <li><a href="http://oceanobservatories.org/major-science-themes/">OOI Major Science Themes</a></li>
+      <li><a href="http://oceanobservatories.org/planning-history/">OOI History &amp; Context</a></li>
+      <li><a href="http://oceanobservatories.org/data-portal/">OOI Data Portal</a> (check out the video tutorials)</li>
+      <li><a href="https://www.giss.nasa.gov/tools/panoply/">NASA Panoply</a> for quick viewing netcdf files</li>
+      <li><a href="http://oceanobservatories.org/research-arrays/">Research Arrays List</a> (<a href="http://ooi.visualocean.net">alternative</a>)</li>
+      <li><a href="http://oceanobservatories.org/instruments/">Instruments List</a> (<a href="http://ooi.visualocean.net/instrumentClasses">alternative</a>)</li>
+      <li><a href="http://oceanobservatories.org/data-products/">Data Products List</a></li>
+      <li><a href="http://oceanobservatories.org/glossary/">Glossary</a></li>
+    </ul>
+
+  </div>
+</div>
+
+
+<h3>Extra Links</h3>
 <ul>
-  <li><a href="http://education.oceanobservatories.org/cm">OOI Concept Map Builder</a></li>
-  <li><a href="http://education.oceanobservatories.org/vocab">OOI Vocabulary Navigator</a></li>
-  <li><a href="http://oceanobservatories.org/major-science-themes/">OOI Major Science Themes</a></li>
-  <li><a href="http://oceanobservatories.org/planning-history/">OOI History &amp; Context</a></li>
-  <li><a href="http://oceanobservatories.org/data-portal/">OOI Data Portal</a> (check out the introduction videos and tutorials)</li>
+  <li><a href="https://youtu.be/MF-Mmk30cOE">NECAN Ocean Warming Video</a></li>
+  <li><a href="https://youtu.be/ZimEBFw1Q7c">NECAN Ocean Acidification Video</a></li>
 </ul>
 
 
@@ -85,7 +124,7 @@
 <ul>
   <li>Walter Cho (Point Loma Nazarene University) </li>
   <li>Cheryl Greengrove (University of Washington) </li> 
-  <li>Fred Hochstaedter (Monterey Peninsula Community College)</li>
+  <li>Fred Hochstaedter (Monterey Peninsula College)</li>
   <li>Anna Pfeiffer-Herbert (Stockton University)</li>
   <li>Brooke Love (Western Washington University)</li>
   <li>Chris Perle (Florida State College at Jacksonville)</li>
