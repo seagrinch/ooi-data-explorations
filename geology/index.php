@@ -26,9 +26,7 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity1.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity1.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity1.php">Seamount Geology</a></h4>
@@ -37,16 +35,31 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="#">
-      <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
-    </a>
+    <a href="activity2.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity2.php">Seamount Erruptions</a></h4>
+    <h4 class="media-heading"><a href="activity2.php">Seamount Eruptions</a></h4>
     <p>???</p>
   </div>
 </div>
-
+<div class="media">
+  <div class="media-left">
+    <a href="activity3.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity3.php">Seismic Activity</a></h4>
+    <p>???</p>
+  </div>
+</div>
+<div class="media">
+  <div class="media-left">
+    <a href="activity4.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity4.php">Earthquakes</a></h4>
+    <p>???</p>
+  </div>
+</div>
 
 <hr>
 
