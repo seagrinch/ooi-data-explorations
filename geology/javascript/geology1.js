@@ -4,6 +4,13 @@ http://bl.ocks.org/tnightingale/4718717
 https://bost.ocks.org/mike/leaflet/
 http://bl.ocks.org/sumbera/10463358
 https://bl.ocks.org/rgdonohue/51c43bb749689e696b8a
+
+Todo:
+ - Add plate boundaries
+ - Add tooltips
+ - Color by depth?
+ - Fix hiding during zoom
+ - Fix imeseries labels
 */
 
 (function () {
