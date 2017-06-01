@@ -55,7 +55,7 @@
 <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5"></div>
 
 <?php elseif ($level=='application1'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_gordo.csv" data-zoom="6"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_gordo.csv" data-zoom="6" data-center="[42, -128]"></div>
 
 <?php elseif ($level=='application2'): ?>
 <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_blanco.csv" data-zoom="6"></div>

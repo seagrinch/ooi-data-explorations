@@ -9,17 +9,21 @@ Todo:
  - Add default selection
  - Fix timeseries labels
  - Add circle size legend
+ - Add plate boundaries
+ - Add date range label
+ - Add tooltips
  - Add scale bar
  - Add North Arrow?
- - Add plate boundaries
- - Add tooltips
- - Color by depth?
+ - Color by depth? (add legend)
  - Fix hiding during zoom
 */
 
 (function () {
   var container = L.DomUtil.get('map');
-  var myMap = L.map(container).setView([44, -128], container.dataset.zoom);
+  var zoomlevel = (container.dataset.zoom) ? container.dataset.zoom : 5;
+  var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128];  
+
+  var myMap = L.map(container).setView(mapcenter, zoomlevel);
   var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
     // maxZoom: 12,
     // minZoom: 2.6,
