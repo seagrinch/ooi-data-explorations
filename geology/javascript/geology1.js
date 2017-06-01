@@ -6,11 +6,15 @@ http://bl.ocks.org/sumbera/10463358
 https://bl.ocks.org/rgdonohue/51c43bb749689e696b8a
 
 Todo:
+ - Add default selection
+ - Fix timeseries labels
+ - Add circle size legend
+ - Add scale bar
+ - Add North Arrow?
  - Add plate boundaries
  - Add tooltips
  - Color by depth?
  - Fix hiding during zoom
- - Fix imeseries labels
 */
 
 (function () {
