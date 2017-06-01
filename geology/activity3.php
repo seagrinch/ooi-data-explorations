@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Seamount Erruptions';
+  $lesson_title = 'Seamount Diking-Eruption Event Science';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -24,9 +24,9 @@
 
 <h3>Challenge Question</h3>
 <?php if ($level=='exploration'): ?>
-<p>When do you think the next eruption could occur?</p>
+<p>When do you think the next diking-eruption event could have occurred?</p>
 <?php elseif ($level=='application'): ?>
-<p>When do you think the next eruption could occur?</p>
+<p>When do you think the next diking-eruption event could occur?</p>
 <?php endif; ?>
 
 
@@ -75,12 +75,12 @@
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next eruption will occur.</p>
-<p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next eruption will occur.</p>
+<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event could have occurred.</p>
+<p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next eruption will occur.</p>
-<p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next eruption will occur.</p>
+<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event may occur.</p>
+<p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
 
 <?php endif; ?>
 
@@ -89,24 +89,30 @@
 
 <?php if ($level=='exploration'): ?>
 <ol>
-  <li>What did you find interesting about what you observed in the seafloor depth data at the seamount over time?</li>
-  <li>Did you observe any patterns? If so, what were the patterns? </li>
-  <li>How did you use that pattern to make your prediction of when the next eruption would occur?</li>
-  <li>What questions do you still have about when eruptions occur and how we can predict when they will occur?</li>
+  <li>What did you find interesting in the seafloor depth data at the Axial Seamount from 1998 to 2012?</li>
+  <li>Did you observe any patterns? If so, what was it/were they?  </li>
+  <li>How did you use that pattern between 1998-2012 to make your prediction of when the next diking-eruption event could have occurred?</li>
+  <li>What questions do you still have about how we infer patterns in diking-eruption event cycles to predict when the next diking-eruption event may occur?</li>
 </ol>
 
 <?php elseif ($level=='application'): ?>
 <ol>
-  <li>Is there a relationship between how much time has passed and an eruption occurring? If so, explain what kind of relationship is it? Why do you think that relationship exists between time and eruption occurrence?</li>
-  <li>Is there a relationship between how much change in the depth of the seafloor and an eruption occurring? If so, explain what kind of relationship is it? Why do you think that relationship exists between depth of the seafloor and an eruption occurrence? </li>
-  <li>How did you use those relationships to make your prediction of when the next eruption would occur?</li>
-  <li>When do you think the next seamount eruption will occur? 
-  <ol>
+  <li>Is there a relationship between how much time has passed and an diking-eruption event occurring? 
+  <ul>
+    <li>If so, explain what kind of relationship is it and what your evidence for the relationship is. </li>
+    <li>Why do you think that relationship exists between time and diking-eruption event occurrence?</li>
+  </ul></li>
+  <li>Is there a relationship between how much of a change in the depth of the seafloor over time and an diking-eruption event occurring? 
+  <ul>
+    <li>If so, explain what kind of relationship is it and what your evidence for the relationship is.</li>
+    <li>Why do you think that relationship exists between depth of the seafloor and an diking-eruption event occurrence? </li>
+  </ul></li>
+  <li>When do you think the next seamount diking-eruption event will occur? 
+  <ul>
     <li>What evidence did you use to make that prediction?</li>
     <li>What is your reasoning for choosing that time period?</li>
-  </ol></li>
-  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about seamounts and plate tectonics?</li>
-  <li>What questions do you still have about when eruptions occur and how we can predict when they will occur?</li>
+  </ul></li>
+  <li>What questions do you still have about when diking-eruption events can occur and how we can predict when they may occur?</li>
 </ol>
 
 <?php endif; ?>
@@ -132,11 +138,11 @@
     <div class="list-group">
       <a href="activity3.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">When do you think the next eruption could occur?</p>
+        <p class="list-group-item-text">When do you think the next diking-eruption event could have occurred?</p>
       </a>
       <a href="activity3.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">When do you think the next eruption could occur?</p>
+        <p class="list-group-item-text">When do you think the next diking-eruption event could occur?</p>
       </a>
     </div>
   </div>

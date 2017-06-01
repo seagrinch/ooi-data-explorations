@@ -47,7 +47,7 @@
     <a href="geology/index.php"><img src="https://placehold.it/250x150" alt="" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="geology/index.php">Exploring Geology in the Ocean with OOI Data</a></h4>
+    <h4><a href="geology/index.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>
     <p>(coming June 2017)</p>
     <a href="geology/index.php" class="btn btn-primary">Activities</a>
     <a href="geology/guide.php" class="btn btn-primary">Instructor's Guide</a>

@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Seamount Geology';
+  $lesson_title = 'Geologic Features of a Seamount';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -16,7 +16,7 @@
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration','concept_invention','application'))): ?>
+<?php if (in_array($level, array('exploration','application1','application2'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -24,11 +24,11 @@
 
 <h3>Challenge Question</h3>
 <?php if ($level=='exploration'): ?>
-<p>What can we observe about a seamount from seafloor data over time?</p>
-<?php elseif ($level=='concept_invention'): ?>
-<p>What happens when a seamount erupts?</p>
-<?php elseif ($level=='application'): ?>
-<p>Has a seamount eruption has occurred?</p>
+<p>What observations can we make about a seamount over time?</p>
+<?php elseif ($level=='application1'): ?>
+<p>What can happen to the seafloor when a seamount erupts?</p>
+<?php elseif ($level=='application2'): ?>
+<p>Has a seamount diking-eruption event occurred?</p>
 <?php endif; ?>
 
 
@@ -53,15 +53,15 @@
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to see what you can observe.</p>
+<p>Explore seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) over 6 months and see what kinds of patterns, if any, you can observe.</p>
 <p><strong>Data Tip:</strong> Select another location (in addition to the blue plotted Central Caldera data) to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
-<?php elseif ($level=='concept_invention'): ?>
-<p>Explore seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to look for patterns in what changes when a seamount eruption occurs.</p>
+<?php elseif ($level=='application1'): ?>
+<p>Explore maps of the changes in the seafloor and seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) before, during, and after an diking-eruption event in April 2015 to look for patterns in what changes in the seafloor when a seamount diking-eruption event occurs.</p>
 <p><strong>Data Tip:</strong> To compare the seafloor data from Before and After the event, select the map title of which you are interested in looking. Select another location (in addition to the blue plotted Central Caldera data) to explore how the event was detected at different locations on the seamount. Zoom in and out of the data to look at different time scales during the event.</p>
 
-<?php elseif ($level=='application'): ?>
-<p>Explore data (seafloor depth, seafloor angle/tilt, and water temperature) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to determine if, and when, a seamount eruption occurred.</p>
+<?php elseif ($level=='application2'): ?>
+<p>Explore maps of the changes in the seafloor and data (seafloor depth, seafloor angle/tilt, and water temperature) from 3 locations on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) over time to determine if, and when, a seamount diking-eruption occurred.</p>
 <p><strong>Data Tip:</strong> Select another location (in addition to the blue plotted Central Caldera data) to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
@@ -71,34 +71,44 @@
 
 <?php if ($level=='exploration'): ?>
 <ol>
-  <li>What did you find interesting about what you observed in the seafloor data at a seamount?</li>
-  <li>Did you observe any patterns? If so, what were the patterns? </li>
-  <li>Did the patterns occur at all 3 locations? If so, were the patterns similar?</li>
+  <li>What did you find interesting in the seafloor data at the Axial Seamount over 6 months in 2015?</li>
+  <li>Did you observe any patterns? If so, what was it/were they? </li>
+  <li>Did you see the pattern(s) occur at all 3 locations? If so, were the patterns similar or different at all 3 locations?</li>
   <li>What questions do you still have about what we can learn about seamounts from seafloor data?</li>
 </ol>
 
-<?php elseif ($level=='concept_invention'): ?>
+<?php elseif ($level=='application1'): ?>
 <ol>
-  <li>How did the seafloor depth vary before, during, and after the eruption event? How did the tilt of the seafloor vary before, during, and after the eruption event?</li>
-  <li>What is your evidence for the pattern, which you observed, in the data before, during, and after the eruption event?</li>
-  <li>What questions do you still have about patterns of the changes to a seamount before, during, and after an eruption event?</li>
+  <li>In general, how did the seafloor depth vary before, during, and after the diking-eruption event? </li>
+  <li>In general, how did the tilt of the seafloor vary before, during, and after the diking-eruption event?</li>
+  <li>What is your evidence for these patterns in the seafloor depth and tilt data before, during, and after the diking-eruption event?</li>
+  <li>How do these patterns relate to what you already knew about seamounts?</li>
+  <li>What questions do you still have about changes to the seafloor at a seamount before, during, and after an diking-eruption event?</li>
 </ol>
 
-<?php elseif ($level=='application'): ?>
+<?php elseif ($level=='application2'): ?>
 
 <ol>
-  <li>Did a seamount eruption occur?
-  <ol>
-    <li>If so, what is your evidence that an eruption occurred?</li>
-    <li>If not, what is your evidence that no eruption occurred? </li>
-  </ol></li>
-  <li>Is there a relationship among water temperature, seafloor depth, and seafloor tilt? 
-  <ol>
-    <li>If so, explain what kind of relationship is it? Why do you think that relationship exists among water temperature, seafloor depth, and seafloor tilt?</li>
-    <li>If not, why do you think there is no relationship among water temperature, seafloor depth, and seafloor tilt?</li>
-  </ol></li>
-  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about seamounts and plate tectonics?</li>
-  <li>What questions do you still have about seamounts and plate tectonics?</li>
+  <li>Did a seamount diking-eruption occur?
+  <ul>
+    <li>If so, what is your evidence that an diking-eruption occurred?</li>
+    <li>If not, what is your evidence that no diking-eruption occurred? </li>
+  </ul></li>
+  <li>Is there a relationship among among water temperature, seafloor depth, and seafloor tilt at Axial Seamount in 2015? 
+  <ul>
+    <li>If so,
+    <ul>
+      <li>What kind of relationship is it? </li>
+      <li>What is your evidence of the relationship?</li>
+      <li>Why do you think that relationship exists among water temperature, seafloor depth, and seafloor tilt? </li>
+    </ul></li>
+    <li>If not,
+    <ul>
+      <li>Why do you think there is no relationship among water temperature, seafloor depth, and seafloor tilt?</li>
+    </ul></li>
+  </ul>
+  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about seamounts?</li>
+  <li>What questions do you still have about seamounts?</li>
 </ol>
 
 <?php endif; ?>
@@ -124,20 +134,20 @@
     <div class="list-group">
       <a href="activity2.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What can we observe about a seamount from seafloor data over time?</p>
+        <p class="list-group-item-text">What observations can we make about a seamount over time?</p>
       </a>
-      <a href="activity2.php?level=concept_invention" class="list-group-item">
-        <h4 class="list-group-item-heading">Concept Invention</h4>
-        <p class="list-group-item-text">What happens when a seamount erupts?</p>
+      <a href="activity2.php?level=application1" class="list-group-item">
+        <h4 class="list-group-item-heading">Application #1</h4>
+        <p class="list-group-item-text">What can happen to the seafloor when a seamount erupts?</p>
       </a>
-      <a href="activity2.php?level=application" class="list-group-item">
-        <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">Has a seamount eruption has occurred?</p>
+      <a href="activity2.php?level=application2" class="list-group-item">
+        <h4 class="list-group-item-heading">Application #2</h4>
+        <p class="list-group-item-text">Has a seamount diking-eruption event occurred?</p>
       </a>
     </div>
   </div>
   <div class="col-md-6">
-    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 
