@@ -10,10 +10,12 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Ocean Geology</a></li>
+  <li><a href="index.php">Tectonics & Seamounts</a></li>
   <li><a href="activity4.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
+
+<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the June 2017 workshop.</div>
 
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>

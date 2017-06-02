@@ -4,6 +4,12 @@
   include_once('header.php'); 
 ?>
 
+<ol class="breadcrumb">
+  <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li><a href="index.php">Tectonics & Seamounts</a></li>
+  <li>Instructor's Guide</li>
+</ol>
+
 <div class="page-header">
   <h2>Instructor's Guide</h2>
 </div>
@@ -70,7 +76,7 @@
   <div class="col-md-4">
   </div>
   <div class="col-md-8">
-    <h4>Exploring Geology in the Ocean with OOI Data</h4>
+    <h4><a href="geology/guide.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>
     <p>(coming June 2017)</p>
   </div>
 </div>

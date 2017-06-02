@@ -17,6 +17,10 @@
   <li>Teaching with available authentic real-time OOI data in a user- and professor-friendly manner.</li>
 </ul>
 
+<p class="text-left">
+  <a href="workshops2017.php" class="btn btn-primary">2017 Registration Information</a>
+</p>
+
 <hr>
 
 <h4>Exploring Primary Production with Data, Ocean Observing Initiative (OOI) Workshop<br>
@@ -39,14 +43,15 @@
   <a href="chemistry/guide.php" class="btn btn-primary">Instructor's Guide</a>
 </p>
 
-
 <hr>
 
 <h4>Exploring Geology in the Ocean with OOI Data, OOI Workshop<br>
   <small>June 2-4, 2017</small>
 </h4>
 <p class="text-center">
-  <a href="workshops2017.php" class="btn btn-primary">Registration Information</a>
+  <a href="geology/workshop.php" class="btn btn-primary">Workshop Resources</a>
+  <a href="geology/index.php" class="btn btn-primary">Activities</a>
+  <a href="geology/guide.php" class="btn btn-primary">Instructor's Guide</a>
 </p>
 
 <?php 

@@ -1,5 +1,5 @@
 <?php 
-  $page = 'home';
+  $page = 'activities';
   $page_title = 'Data Explorations';
   include_once('header.php'); 
 ?>
@@ -9,15 +9,15 @@
 </div>
 
 
-<p class="lead">Looking for ways to connect your undergraduates in introductory courses with authentic data?</p>
+<p class="lead">Looking for ways to connect your undergraduates in introductory courses with authentic data from the Ocean Observatories Initiative?</p>
 
 <div class="well">
 <h3 style="margin-top:0px;">What are Data Explorations?</h3>
 <p>We provide a range of free, interactive Data Explorations using authentic, raw data that is relevant to various concepts you are already teaching in introductory courses. The Data Explorations are quick (15-20 minute) interactions with data so that you can easily integrate them into your current classroom teaching while increasing your students understanding of the concept.</p> 
-<a href="instructors.php" class="btn btn-primary">Learn More</a>
+<p class="text-right"><strong>Learn More: <a href="instructors.php" class="btn btn-primary">Instructor's Guide</a> <a href="about.php" class="btn btn-primary">Project Info</a></strong>
 </div>
 
-<h3>Current Explorations</h3>
+<h3>New Collections</h3>
 <div class="row">
   <div class="col-md-4">
     <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="thumbnail"></a>

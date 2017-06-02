@@ -22,8 +22,7 @@
 
 <hr>
 
-<h3>Primary Production Explorations</h3>
-<p>Select the activity your instructor has assigned:</p>
+<h3>Data Explorations in this Collection</h3>
 
 <div class="media">
   <div class="media-left">

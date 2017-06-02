@@ -5,6 +5,12 @@
   include_once('../header.php'); 
 ?>
 
+<ol class="breadcrumb">
+  <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li><a href="index.php">Primary Production</a></li>
+  <li>Instructor's Guide</li>
+</ol>
+
 <div class="page-header">
   <h2>Exploring Primary Production with Data<br>
     <small>Instructor's Guide</small></h2>
