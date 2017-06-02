@@ -1,11 +1,11 @@
 <?php 
   $page = 'activities';
-  $page_title = 'Exploring Ocean Chemistry with Data';
+  $page_title = 'Exploring Ocean Chemistry with OOI Data';
   $base_url = '../';
   include_once('../header.php'); 
 ?>
 
-<h2>Exploring Ocean Chemistry with Data</h2>
+<h2>Exploring Ocean Chemistry with OOI Data</h2>
 
   <div class="row">
     <div class="col-md-8">Through these Data Explorations, you will...</div>

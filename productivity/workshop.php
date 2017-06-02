@@ -1,6 +1,6 @@
 <?php 
   $page = 'workshops';
-  $page_title = 'Exploring Primary Production with Data Workshop';
+  $page_title = 'Exploring Primary Production with OOI Data Workshop';
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -11,10 +11,11 @@
   <li>Instructor's Guide</li>
 </ol>
 
-<h2>Exploring Primary Production with Data<br>
-  <small>Ocean Observing Initiative (OOI) Workshop (May 20-22, 2016)</small>
+<h2>Exploring Primary Production with OOI Data<br>
+  <small>OOI Teaching with Data Workshop (May 20-22, 2016)</small>
 </h2>
 
+<img src="../images/2016_productivity_workshop.jpg" alt="OOI Productivity Workshop Participants" class="img-thumbnail pull-right" width="350" />
 <p>During the Spring 2016 workshop (May 20-22), eleven undergraduate professors convened at Rutgers University to focus on the integration of data into undergraduate teaching of introductory oceanography themes and concepts using data from the Ocean Observing Initiative (OOI). Professors who were interested in using online data and who do exemplary work in undergraduate teaching were invited to attend. Workshop participants explored ways to effectively teach with data, shared their personal effective practices, expanded their understanding of effective pedagogy, and brainstormed ideas for how to integrate OOI data into Introduction to Oceanography courses.</p>
 
 <p>For this workshop we chose to focus on Primary Production, as the overarching topic area. Al Trujillo, co-author of Essentials of Oceanography (Trujillo & Thurman, 2017), assisted and participated in the workshop. During the workshop, participants were asked to provide detailed feedback on the activities, including their perceived utility and effectiveness of the activities in the classroom. It is the hope, that each participant will utilize the activities in their class and implement a short student assessment to help us collect some initial information on the students' impression of the OOI activities.</p>

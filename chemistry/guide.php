@@ -12,7 +12,7 @@
 </ol>
 
 <div class="page-header">
-  <h2>Exploring Ocean Chemistry with Data<br>
+  <h2>Exploring Ocean Chemistry with OOI Data<br>
     <small>Instructor's Guide</small></h2>
 </div>
 
@@ -53,9 +53,9 @@
     <h3 class="panel-title"><a href="activity2.php">Processes that Change Salinity</a></h3>
   </div>
   <div class="panel-body">
-<p><strong>Exploration:</strong> Students compare time series of air temperature, salinity, precipitation, evaporation, and rain rate at a coastal site over time to explore the data for changes and patterns. The students can:</p>
+<p>Students compare time series of air temperature, salinity, precipitation, evaporation, and rain rate at a coastal site over time to explore the data for changes and patterns. The students can:</p>
 <ul>
-  <li>Explore data from the water and atmospheric conditions above the surface ocean across different time periods. The data are from the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) from April 2015 to December 2016.</li>
+  <li><strong>Exploration:</strong> Explore data from the water and atmospheric conditions above the surface ocean across different time periods. The data are from the Northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) from April 2015 to December 2016.</li>
 </ul>
   </div>
 </div>

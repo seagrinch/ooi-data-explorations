@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Pacific & Juan de Fuca Plate Boundaries",
+    "file": "Juan_de_fuca_ridge-south-map-usgs.png",
+    "caption": "There are divergent and transform fault boundaries between the Pacific Plate and the Juan de Fuca Plate off the northwestern United States."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_orhighlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance\">Coastal Endurance</a> location is located in the ocean off of Oregon and Washington states. Some of the data in this activity were collected from the Central Oregon Line (highlighted in red). Other data in this activity were collected from various seismic instruments throughout the region operated by different government agencies (e.g., USGS) and universities (e.g., Oregon State University)."
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "Cabled_Array_Map_2014-12-02_Axial.jpg",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running along the seafloor in the <a href=\"http://oceanobservatories.org/array/coastal-endurance\">Coastal Endurance</a> location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from <a href=\"http://oceanobservatories.org/array/cabled-continental-margin/\">Cabled Continental Margin</a> (in the bottom right corner) and <a href=\"http://oceanobservatories.org/array/cabled-axial-seamount/\">Cabled Axial Seamount</a> (highlighted in the white box on the left)."
+  },
+  {
+    "title": "What Collects the Seismic Data?",
+    "file": "placeholder.png",
+    "caption": "Multiple <a href=\"http://oceanobservatories.org/instrument-class/obsbb/\">Broadband Ocean Bottom Seismometers</a> provide data to investigate seismicity/earthquake activity along tectonic plate boundaries where large-magnitude subduction zone earthquakes and seismicity associated with movement of magma beneath the seafloor at underwater volcanoes can occur. The Broadband Ocean Bottom Seismometers used at the OOI sites are Guralp, model CMG-1T/5T. More information about the instrument can be found at the <a href=\"http://www.interactiveoceans.washington.edu/story/Broadband_Ocean_Bottom_Seismometer\">Interactive Oceans Broadband Ocean Bottom Seismometer</a> webpage."
+  },
+  {
+    "title": "How does it work?",
+    "file": "placeholder.png",
+    "caption": "More information about the instrument can be found at the <a href=\"http://www.interactiveoceans.washington.edu/story/Broadband_Ocean_Bottom_Seismometer\">Interactive Oceans Broadband Ocean Bottom Seismometer</a> webpage."
+  }
+]

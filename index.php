@@ -9,7 +9,7 @@
 </div>
 
 
-<p class="lead">Looking for ways to connect your undergraduates in introductory courses with authentic data from the Ocean Observatories Initiative?</p>
+<p class="lead">Looking for ways to connect your undergraduates in introductory courses with authentic data from the Ocean Observatories Initiative (OOI)?</p>
 
 <div class="well">
 <h3 style="margin-top:0px;">What are Data Explorations?</h3>
@@ -20,10 +20,10 @@
 <h3>New Collections</h3>
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="thumbnail"></a>
+    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="productivity/index.php">Exploring Primary Production with Data</a></h4>
+    <h4><a href="productivity/index.php">Exploring Primary Production with OOI Data</a></h4>
     <p>Through these activities, we will explore primary production in greater detail. Primary production is the rate at which organisms store energy through the formation of organic matter (carbon-based compounds), using energy derived from solar radiation during photosynthesis or from chemical reactions during chemosynthesis.</p>
     <a href="productivity/index.php" class="btn btn-primary">Activities</a>
     <a href="productivity/guide.php" class="btn btn-primary">Instructor's Guide</a>
@@ -32,7 +32,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <a href="chemistry/index.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean wave" width="250" height="150" class="thumbnail"></a>
+    <a href="chemistry/index.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean wave" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="chemistry/index.php">Exploring Ocean Chemistry with OOI Data</a></h4>
@@ -44,7 +44,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <a href="geology/index.php"><img src="https://placehold.it/250x150" alt="" width="250" height="150" class="thumbnail"></a>
+    <a href="geology/index.php"><img src="geology/screenshots/mgds_juandefuca_sm.jpg" alt="" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="geology/index.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>

@@ -12,7 +12,7 @@
 </ol>
 
 <div class="page-header">
-  <h2>Exploring Primary Production with Data<br>
+  <h2>Exploring Primary Production with OOI Data<br>
     <small>Instructor's Guide</small></h2>
 </div>
 

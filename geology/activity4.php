@@ -116,14 +116,28 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-
+<?php
+  if ($level=='exploration') {
+    $json_file = file_get_contents('images_json/geology4.json');  
+  } elseif ($level=='application') {
+    $json_file = file_get_contents('images_json/geology4.json');
+  }
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption) ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
 
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Help students understand features of seamounts by working with earthquake data at the Axial Seamount, North Pacific Ocean.</small></h2>
 </div>
 
 <p>&nbsp;</p>

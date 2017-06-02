@@ -1,6 +1,6 @@
 <?php 
   $page = 'workshops';
-  $page_title = 'Exploring Ocean Chemistry with Data';
+  $page_title = 'Exploring Ocean Chemistry with OOI Data';
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -11,12 +11,14 @@
   <li>Instructor's Guide</li>
 </ol>
 
-<h2>Exploring Ocean Chemistry with Data<br>
-  <small>Ocean Observing Initiative (OOI) Workshop (May 19-21, 2017)</small>
+<h2>Exploring Ocean Chemistry with OOI Data<br>
+  <small>OOI Teaching with Data Workshop (May 19-21, 2017)</small>
 </h2>
 
-<p>During a Spring 2017 workshop (May 19-21), eleven undergraduate professors convened at Rutgers University to focus on the integration of data into undergraduate teaching of introductory oceanography themes and concepts using data from the Ocean Observing Initiative (OOI). Professors who were interested in using online data and who do exemplary work in undergraduate teaching were invited to attend. Workshop participants explored ways to effectively teach with data, shared their personal effective practices, expanded their understanding of effective pedagogy, and brainstormed ideas for how to integrate OOI data into Introduction to Oceanography courses.</p>
+<img src="../images/2017_chemistry_workshop.jpg" alt="OOI Chemistry Workshop Participants" class="img-thumbnail pull-right" width="350" />
+<p>During our Spring 2017 workshop (May 19-21), eleven undergraduate professors convened at Rutgers University to focus on the integration of data into undergraduate teaching of introductory oceanography themes and concepts using data from the Ocean Observing Initiative (OOI). Professors who were interested in using online data and who do exemplary work in undergraduate teaching were invited to attend. Workshop participants explored ways to effectively teach with data, shared their personal effective practices, expanded their understanding of effective pedagogy, and brainstormed ideas for how to integrate OOI data into Introduction to Oceanography courses.</p>
 <p>For this workshop we chose to focus on properties of Water &amp; Seawater, as the overarching topic area. During the workshop, participants were asked to provide detailed feedback on the activities, including their perceived utility and effectiveness of the activities in the classroom. It is the hope, that each participant will utilize the activities in their class and implement a short student assessment to help us collect some initial information on the students' impression of the OOI activities.</p>
+
 
 <h3>Data Scope</h3>
 <p>Our scope in exploring ways to use professionally-collected data in our teaching:</p>
@@ -79,11 +81,16 @@
 <h3>Additional Resources</h3>
 <div class="row">
   <div class="col-md-6">
-    <h5>Education Tools</h5>
+    <h5>OOI Education Tools</h5>
     <ul>
       <li><a href="http://education.oceanobservatories.org/cm">OOI Concept Map Builder</a></li>
       <li><a href="http://education.oceanobservatories.org/vocab">OOI Vocabulary Navigator</a></li>
       <li><a href="http://education.oceanobservatories.org">OOI Education Portal</a></li>
+    </ul>
+    <h5>Suggested Links from Participants</h5>
+    <ul>
+      <li><a href="https://youtu.be/MF-Mmk30cOE">NECAN Ocean Warming Video</a></li>
+      <li><a href="https://youtu.be/ZimEBFw1Q7c">NECAN Ocean Acidification Video</a></li>
     </ul>
   </div>
   <div class="col-md-6">
@@ -103,13 +110,6 @@
 </div>
 
 
-<h3>Extra Links</h3>
-<ul>
-  <li><a href="https://youtu.be/MF-Mmk30cOE">NECAN Ocean Warming Video</a></li>
-  <li><a href="https://youtu.be/ZimEBFw1Q7c">NECAN Ocean Acidification Video</a></li>
-</ul>
-
-
 <h3>Project Team</h3>
 <table class="table table-striped table-condensed">
   <thead>
@@ -121,7 +121,7 @@
     <tr><td><a href="mailto:mcdonnel@marine.rutgers.edu">Janice McDonnell</a></td><td>Rutgers University</td><td>Project Manager, Workshop Facilitator</td></tr>
     <tr><td><a href="mailto:hunterthomson@marine.rutgers.edu">Kristin Hunter-Thomson</a></td><td>Rutgers University</td><td>Data Activity Development</td></tr>
     <tr><td><a href="mailto:sage@marine.rutgers.edu">Sage Lichtenwalner</a></td><td>Rutgers University</td><td>Data Processing, Visualization Tool &amp; Website Development</td></tr>
-    <tr><td>Catherine Halversen</td><td>Lawrence Hall of Science, <br>University of California, Berkeley</td><td>Pedagogy and Effective Teaching Instructor</td></tr>
+    <tr><td><a href="mailto:chalver@berkeley.edu">Catherine Halversen</a></td><td>Lawrence Hall of Science, <br>University of California, Berkeley</td><td>Pedagogy and Effective Teaching Instructor</td></tr>
   </tbody>
 </table>
 

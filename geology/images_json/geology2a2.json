@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location in the North Pacific Ocean (highlighted in red)."
+  },
+  {
+    "title": "Ocean Off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_orhighlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance\">Coastal Endurance</a> location is located in the ocean off of Oregon and Washington states. Some of the data in this activity were collected from the Central Oregon Line (highlighted in red)."
+  },
+  {
+    "title": "Where are the Instruments in the Water?",
+    "file": "Cabled_Array_Map_2014-12-02_Axial.jpg",
+    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running along the seafloor in the <a href=\"http://oceanobservatories.org/array/coastal-endurance\">Coastal Endurance</a> location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from <a href=\"http://oceanobservatories.org/array/cabled-axial-seamount/\">Cabled Axial Seamount</a> (highlighted in white). Axial Seamount is the most advanced underwater volcanic observatory in the world's oceans. This site is the most magmatically robust volcano on the Juan de Fuca Ridge."
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "Cabled_Axial_Caldera_wBoxes_lowrez.jpg",
+    "caption": "As the first U.S. ocean observatory to span a tectonic plate, the OOI Cabled Array provides a constant stream of near-real time data from the seafloor and through the water column across the Juan de Fuca plate. There are numerous different instruments at the Axial Seamount, as indicated in the schematic here."
+  },
+  {
+    "title": "What Collects the Seafloor Data?",
+    "file": "placeholder.png",
+    "caption": "Three <a href=\"http://oceanobservatories.org/instrument-class/botpt/\">Bottom Pressure and Tilt</a> sensors measure the inflation and deflation of the seafloor using a very precise pressure sensor that can detect the seafloor's rise and fall (i.e., \"breathing\") as magma moves in and out of magma chambers under the seafloor. In addition, a very precise tilt-meter (measures in micro-radians) records the \"tilting\" of the seafloor as it deforms in response to melt migration. The Bottom Pressure and Tilt sensors used at the OOI sites are PMEL/Chadwick, model PMELcabled BPR/Tilt. There are additional sensors in the area that are operated by different organizations than the OOI that also contributed to the data used in this activity."
+  },
+  {
+    "title": "How does it work?",
+    "file": "placeholder.png",
+    "caption": "More information about the instrument can be found at the <a href=\"http://www.interactiveoceans.washington.edu/story/Bottom_Pressure_and_Tilt_Meter\">Interactive Oceans Bottom Pressure and Tilt Meter</a> webpage. A video explaining how the instruments measure changes in the seafloor was created by the NOAA Earth-Oceans Interaction Program in their Axial 2015 <a href=\"https://www.youtube.com/watch?v=SvoP4LF-Y0M&index=9&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P\">Video Blog #9 Pressure Measurements</a> series."
+  },
+  {
+    "title": "What Collects the Water Properties Data?",
+    "file": "placeholder.png",
+    "caption": "The XX sensors used at the OOI sites are YY."
+  },
+  {
+    "title": "How does it work?",
+    "file": "placeholder.png",
+    "caption": "More information about the instrument can be found at XX."
+  }
+]
