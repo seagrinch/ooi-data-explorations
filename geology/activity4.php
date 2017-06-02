@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Seamount Features';
+  $lesson_title = 'Seismic Features at a Seamount';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -52,35 +52,29 @@
 </style>
 
 <?php if ($level=='exploration'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_downsampled.csv" data-zoom="11" data-center="[45.9549, -130.0089]"></div>
 
 <?php elseif ($level=='application'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_blanco.csv" data-zoom="6"></div>
-
-<?php elseif ($level=='test1'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/Blanco_May16_July16_2015.csv" data-zoom="5"></div>
-
-<?php elseif ($level=='test2'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/Blanco_2013_2017.csv" data-zoom="5"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_april.csv" data-zoom="11" data-center="[45.9549, -130.0089]"></div>
 
 <?php endif; ?>
 
 <div id="map2"></div>
 <?php 
   $scripts[] = "https://d3js.org/d3.v4.min.js";
-  $scripts[] = "javascript/geology1.js";
+  $scripts[] = "javascript/geology4.js";
 ?>
 
 
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore earthquake magnitude data at the Axial Seamount over 4 months and see what kinds of patterns, if any, you can observe at the seamount.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 month of data to start (February, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>Explore earthquake magnitude data at the Axial Seamount over 3 months and see what kinds of patterns, if any, you can observe at the seamount.</p>
+<p><strong>Data Tip:</strong> You are looking at 1 month of data to start (March, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>Interpret the earthquake magnitude data at the Axial Seamount over 4 days to investigate when and where a diking-eruptive event occurred.</p>
-<p><strong>Data Tip:</strong> You are looking at 6 hours of data to start (April 22, 2015 from 04:00-10:00 UTC). Select another time period (by dragging the gray box at the bottom) to explore the data in ways to see changes in the location and timing of earthquakes. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>Interpret the earthquake magnitude data at the Axial Seamount over 3 days to investigate when and where a diking-eruptive event occurred.</p>
+<p><strong>Data Tip:</strong> You are looking at 6 hours of data to start (April 23, 2015 from 04:00-10:00 UTC). Select another time period (by dragging the gray box at the bottom) to explore the data in ways to see changes in the location and timing of earthquakes. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
 
 <?php endif; ?>
 
@@ -89,7 +83,7 @@
 
 <?php if ($level=='exploration'): ?>
 <ol>
-  <li>What did you find interesting in the earthquake magnitude data at the Axial Seamount over 4 months in 2015?</li>
+  <li>What did you find interesting in the earthquake magnitude data at the Axial Seamount over 3 months in 2015?</li>
   <li>Did you observe any patterns in how many earthquakes per day occurred over time? If so, what was it/were they?</li>
   <li>Did you observe any patterns in how big the earthquakes were over time? If so, what was it/were they?</li>
   <li>Did you observe any patterns in where the earthquakes occurred over space? If so, what was it/were they?</li>

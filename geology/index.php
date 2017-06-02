@@ -51,7 +51,7 @@
     <a href="activity4.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity4.php">Seamount Features</a></h4>
+    <h4 class="media-heading"><a href="activity4.php">Seismic Features at a Seamount</a></h4>
     <p>???</p>
   </div>
 </div>
