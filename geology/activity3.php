@@ -79,10 +79,12 @@
 <?php if ($level=='exploration'): ?>
 <p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event could have occurred.</p>
 <p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
+<p>Note - Eruptions occurred in 1998 and 2011. The “threshold” is the inflation threshold at or above which eruptions are triggered.</p>
 
 <?php elseif ($level=='application'): ?>
 <p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event may occur.</p>
 <p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
+<p>Note - Eruptions occurred in 1998 and 2011. The “threshold” is the inflation threshold at or above which eruptions are triggered.</p>
 
 <?php endif; ?>
 

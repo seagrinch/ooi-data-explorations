@@ -1,0 +1,23 @@
+Geology 1 & 4
+ - Add default time range selection
+ - Fix timeseries labels
+ - Add circle size legend showing magnitude
+ - Add circle color legend showing depth (4 only)
+ - Add plate/caldera boundaries
+ - Add selected date range display
+ - Add tooltips on map
+ - Add scale bar
+ - Add North arrow
+ - Fix buggy animation during zoom
+ - Try using Canvas to improve rendering
+ 
+ Geology 2A1
+  - Zoom in on slider images
+  - Create context graph
+ 
+ Geology 3
+  - Turn off trend by default
+  - Add confirmation dialog before showing data (3E)
+  - Add inflation/deflation labels
+  - Add reset button (3E)
+  - Fix zoom range bug
