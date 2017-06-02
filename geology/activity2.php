@@ -34,8 +34,42 @@
 <?php endif; ?>
 
 
-<!-- DATA CHART -->
+<!-- DATA CHARTS -->
+<div id="chart1" style="width:800px; height: 250px;"></div>
+<div id="chart2" style="width:730px; height: 250px; margin-top: 20px;"></div>
+<?php if ($level=='application2'): ?>
+<div id="chart3" style="width:730px; height: 250px; margin-top: 20px;"></div>
+<?php endif; ?>
 
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-3">
+    <p class="text-right">Include datasets:</p>
+  </div>
+  <div class="col-xs-9">
+  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+    MJ03D</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)"> 
+    MJ03E</label><br>
+  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)"> 
+    MJ03F</label><br>
+  </div>
+</div>
+<?php 
+  $scripts[] = "../js/dygraph-combined-dev.js";
+  $scripts[] = "../js/dygraph-synchronizer.js";
+
+  if ($level=='exploration') {
+    $scripts[] = "javascript/geology2e.js";    
+  } elseif ($level=='application1') {
+    $scripts[] = "javascript/geology2a1.js";
+  } elseif ($level=='application2') {
+    $scripts[] = "javascript/geology2a2.js";
+  }
+?>  
+
+<?php if ($level=='application1'): ?>
+<h3>Bathymetry Change</h3>
+<p>Use the slider to view changes in Bathymetry between the two surveys</p>
 <div id="imgslider">
  <div><img alt="before" src="data/axial_2013.jpg" width="600" height="590" /></div>
  <div><img alt="after" src="data/axial_2015.jpg" width="600" height="590" /></div>
@@ -44,11 +78,7 @@
   $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
   $scripts[] = "../js/beforeafter/jquery.beforeafter-1.4.min.js";
   $scripts[] = "javascript/geology2_bathy.js";
-?>  
-
-
-<?php if ($level=='exploration'): ?>
-<?php elseif ($level=='application'): ?>
+?>
 <?php endif; ?>
 
 

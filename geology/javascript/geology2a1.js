@@ -1,0 +1,76 @@
+$(document).ready(function () {
+
+  g1 = new Dygraph(document.getElementById("chart1"), "data/IRIS-Apr23-27.csv", {
+    //title: 'Tilt Measurements',
+    ylabel: 'X-Tilt (microradians)',
+    y2label: 'Y-Tilt (microradians)',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always', //onmouseover
+    labelsSeparateLines: true,
+    labelsDivStyles: { 'textAlign': 'right' },
+    //labelsDivWidth : 600,
+    labelsUTC : true,
+    colors : ["#00457C","#333","#DBA53A","#777","#008100","#bbb"], //"#00839C","#00C6B0","#999999"
+    strokeWidth: 0,
+    drawPoints: true,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    animatedZooms : true,
+    axes: {
+    //   y: {valueRange: [0, null]},
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'MJ03D X-tilt': {axis: 'y', showInRangeSelector: true},
+      'MJ03D Y-tilt': {axis: 'y2'},
+      'MJ03E X-tilt': {axis: 'y'},
+      'MJ03E Y-tilt': {axis: 'y2'},
+      'MJ03F X-tilt': {axis: 'y'},
+      'MJ03F Y-tilt': {axis: 'y2'},
+    },
+    visibility: [1,1,0,0,0,0],
+  });
+
+  g2 = new Dygraph(document.getElementById("chart2"), "data/NANO-depth-Apr23-27.csv", {
+    //title: 'Detided Depth',
+    ylabel: 'Depth (m)',
+    y2label: '',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always', //onmouseover
+    labelsSeparateLines: true,
+    labelsDivStyles: { 'textAlign': 'right' },
+    //labelsDivWidth : 600,
+    labelsUTC : true,
+    colors : ["#00457C","#DBA53A","#008100"],
+    strokeWidth: 0,
+    drawPoints: true,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    animatedZooms : true,
+    axes: {
+    //   y: {valueRange: [1500, 1520]},
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'MJ03D Depth': {axis: 'y1'},
+      'MJ03E Depth': {axis: 'y1', showInRangeSelector: true},
+      'MJ03F Depth': {axis: 'y1'},
+    },
+    visibility: [1,0,0],
+  });
+
+  var sync = Dygraph.synchronize(g1, g2, {
+    selection: true,
+    zoom: true,
+    range: false
+  });
+
+}); //document.ready
+
+function toggle_visibility(el) {
+  g1.setVisibility(parseInt(el.id)*2, el.checked);
+  g1.setVisibility(parseInt(el.id)*2+1, el.checked);
+  g2.setVisibility(parseInt(el.id), el.checked);
+}
