@@ -36,7 +36,6 @@
   <li>Hydrothermal Vents (Friedrich Knuth)</li>
 </ul>
 
-
 <h3>Workshop Resources</h3>
 <div class="row">
   <div class="col-md-6">
@@ -44,53 +43,51 @@
     <ul>
       <li><a href="documents/Ocean Observing Initiative Workshop_June2-4Geology_participantsfinal.pdf">Workshop Agenda</a></li>
       <li><a href="../chemistry/documents/Crosswalk%20of%20OOI%20data%20and%20Trujillo.pdf">Essentials of Oceanography 12th Edition - OOI Data Crosswalk</a></li>
-      <li><a href="../chemistry/documents/OOI%20Teaching%20with%20Data%20Chemistry%20Workshop%20Activities%202017.pdf">Website Overview Document</a></li>
-      <li><a href="../chemistry/documents/Levels%20of%20Engagement%20with%20Data%20Visualization%202017.pdf">3 Levels of Engagement with Data</a></li>
+      <li><a href="documents/OOISupplement_ScopeofDataExplorations_2017.pdf">Scope of Data Explorations</a></li>
+      <li><a href="documents/OOITeachingwithDataGeologyWorkshop_WebsiteResources_2017.pdf">Website Overview Document</a></li>
       <li><a href="../chemistry/documents/Sharing%20OOI%20Concept%20Map%20Instructions.pdf">OOI Concept Map Instructions &amp; Sharing Instructions</a></li>
-      <li><a href="../productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
-      <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
-    </ul>
-
-    <h5>Effective Teaching</h5>
-    <ul>
-      <li><a href="../chemistry/documents/Learning%20Cycle%202017.pdf">The Learning Cycle</a></li>
-      <li><a href="../chemistry/documents/Five%20Foundational%20Ideas.pdf">Five Foundational Ideas</a></li>
-      <li><a href="../chemistry/documents/Key%20Ideas%20-%20How%20People%20Learn.pdf">Key Ideas - How People Learn</a></li>
-      <li><a href="../chemistry/documents/Ice%20Cubes%20Explanation.pdf">Ice Cube Explanation</a></li>
-      <li><a href="../chemistry/documents/Key%20Ideas%20-%20Prior%20Knowledge%20and%20Conceptual%20Change.pdf">Prior Knowledge &amp; Misconceptions handout</a></li>
-    </ul>
-
-    <h5>Shared Activities</h5>
-    <ul>
-      <li>Silke Severmann's <a href="documents/IntroOcean2015_Ex7_HurricaneExercise.docx">Hurricanes &amp; Superstorms Worksheet</a>, <a href="documents/IntroOcean2015_Ex7_Hurricaneexercise_answers.pdf">Answer Key</a>, and <a href="http://education.oceanobservatories.org/node/300">Online Actvitiy</a></li>
-      <li>Anna's <a href="documents/Primary_production_OOI_activity_Spr2017.pdf">homework and screenshots</a></li>
-      <li><a href="#collapseLessons" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Shared Geology related lessons with data</a>
-        <ul class="collapse" id="collapseLessons">
-          <li>Coming Soon</li>
-        </ul>
-      </li>
+      <li><a href="documents/OOISupplement_3LevelsDataVizEngagmentHandout2017.pdf">3 Levels of Engagement with Data</a></li>
     </ul>
 
   </div>
   <div class="col-md-6">
-    <h5>Axial Seamount Resources</h5>
+    <h5>Effective Teaching</h5>
     <ul>
-      <li><a href="https://www.pmel.noaa.gov/eoi/axial_blog.html">NOAA Axial Blog</a> - Follow the NOAA scientists efforts to forecast the 2015 eruption from 2012 onward, through descriptions of what really happened and how they approached this same problem.</li>
-      <li>Earth-Oceans Interaction Program Axial 2015 Video Blog
-      <ul>
-        <li><a href="https://www.youtube.com/watch?v=RXPe82F5o6w&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P&index=16">#2 Monitoring</a> - Learn more about why and how scientists are monitoring the active volcano of the Axial Seamount</li>
-        <li><a href="https://www.youtube.com/watch?v=SvoP4LF-Y0M&index=9&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P">#9 Pressure Measurements</a> - Learn more about how the pressure measurements are taken to understand movement of magma under the seafloor and changes in the seafloor elevation</li>
-        <li><a href="https://www.youtube.com/watch?v=rxO6LWNBPHM&index=8&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P">#10 Facilitating Science</a> - Learn more about who works on the research vessel to make this science happen</li>
-      </ul></li>
-    <li>Wilcock et al. (2016). <a href="http://science.sciencemag.org/content/354/6318/1395.full">Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption</a>, Science 354(6318).</li>
-    <li><a href="https://www.pmel.noaa.gov/eoi/rsn/">NOAA PMEL - Earth-Oceans Interaction Program's Realtime data from the OOI BPR/Tilt instruments at Axial</a></li>
+      <li><a href="../chemistry/documents/Learning%20Cycle%202017.pdf">The Learning Cycle</a></li>
+      <li><a href="../chemistry/documents/Ice%20Cubes%20Explanation.pdf">Ice Cube Explanation</a></li>
+      <li><a href="../chemistry/documents/Key%20Ideas%20-%20Prior%20Knowledge%20and%20Conceptual%20Change.pdf">Prior Knowledge &amp; Misconceptions handout</a></li>
+      <li><a href="../chemistry/documents/Five%20Foundational%20Ideas.pdf">Five Foundational Ideas</a></li>
+      <li><a href="../chemistry/documents/Key%20Ideas%20-%20How%20People%20Learn.pdf">Key Ideas - How People Learn</a></li>
     </ul>
 
   </div>
 </div>
 
+<h5>Axial Seamount Resources</h5>
+<ul>
+  <li><a href="https://www.pmel.noaa.gov/eoi/axial_blog.html">NOAA Axial Blog</a> - Follow the NOAA scientists efforts to forecast the 2015 eruption from 2012 onward, through descriptions of what really happened and how they approached this same problem.</li>
+  <li>Earth-Oceans Interaction Program Axial 2015 Video Blog
+  <ul>
+    <li><a href="https://www.youtube.com/watch?v=RXPe82F5o6w&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P&index=16">#2 Monitoring</a> - Learn more about why and how scientists are monitoring the active volcano of the Axial Seamount</li>
+    <li><a href="https://www.youtube.com/watch?v=SvoP4LF-Y0M&index=9&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P">#9 Pressure Measurements</a> - Learn more about how the pressure measurements are taken to understand movement of magma under the seafloor and changes in the seafloor elevation</li>
+    <li><a href="https://www.youtube.com/watch?v=rxO6LWNBPHM&index=8&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P">#10 Facilitating Science</a> - Learn more about who works on the research vessel to make this science happen</li>
+  </ul></li>
+  <li>Wilcock et al. (2016). <a href="http://science.sciencemag.org/content/354/6318/1395.full">Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption</a>, Science 354(6318).</li>
+  <li><a href="https://www.pmel.noaa.gov/eoi/rsn/">NOAA PMEL - Earth-Oceans Interaction Program's Realtime data from the OOI BPR/Tilt instruments at Axial</a></li>
+</ul>
 
-<h3>Additional Resources</h3>
+<h5>Shared Activities</h5>
+<ul>
+  <li>Silke Severmann's <a href="../chemistry/documents/IntroOcean2015_Ex7_HurricaneExercise.docx">Hurricanes &amp; Superstorms Worksheet</a>, <a href="../chemistry/documents/IntroOcean2015_Ex7_Hurricaneexercise_answers.pdf">Answer Key</a>, and <a href="http://education.oceanobservatories.org/node/300">Online Activity</a></li>
+  <li>Anna's <a href="../chemistry/documents/Primary_production_OOI_activity_Spr2017.pdf">homework and screenshots</a></li>
+  <li><a href="#collapseLessons" data-toggle="collapse" aria-expanded="false" aria-controls="collapseExample">Shared Geology related lessons with data</a>
+    <ul class="collapse" id="collapseLessons">
+      <li>Coming Soon</li>
+    </ul>
+  </li>
+</ul>
+
+<h3>OOI Resources</h3>
 <div class="row">
   <div class="col-md-6">
     <h5>OOI Education Tools</h5>
@@ -98,10 +95,8 @@
       <li><a href="http://education.oceanobservatories.org/cm">OOI Concept Map Builder</a></li>
       <li><a href="http://education.oceanobservatories.org/vocab">OOI Vocabulary Navigator</a></li>
       <li><a href="http://education.oceanobservatories.org">OOI Education Portal</a></li>
-    </ul>
-    <h5>Suggested Links from Participants</h5>
-    <ul>
-      <li></li>
+      <li><a href="../productivity/documents/decharon_MTS-10pp.pdf">Characterizing Complex Marine Systems and Technology Using Visualized Vocabularies</a></li>
+      <li><a href="http://coseenow.net/blog/2013/03/ooiepetools/">EPE 2012 Community Survey: Assessment of the Use of Data in Undergraduate Teaching</a></li>
     </ul>
   </div>
   <div class="col-md-6">
@@ -119,6 +114,17 @@
 
   </div>
 </div>
+
+<h3>Additional Resources</h3>
+<h5>Suggested Links from Participants</h5>
+<ul>
+  <li><a href="https://earth.nullschool.net">EarthWind Map</a> - Multi-layered, interactive, near-real-time model of Earth's oceanic and atmospheric features</li>
+</ul>
+
+<h5>Teaching with Data Resources</h5>
+<ul>
+  <li><a href="https://serc.carleton.edu/introgeo/teachingwdata/What.html">SERC Teaching with Data Definition</a> - NSF workshop participants at "<a href="https://serc.carleton.edu/usingdata/">Using Data in the Undergraduate Science Classroom</a>" (UD) created a useful operational definition to guide our understanding of the meaning of "Teaching With Data."</li>
+</ul>
 
 
 <h3>Project Team</h3>
@@ -139,8 +145,17 @@
 
 <h3>Project Participants</h3>
 <ul>
-  <li>Cheryl Greengrove (University of Washington) </li> 
+  <li>Al Trujillo (Palomar College)</li>
   <li>Anna Pfeiffer-Herbert (Stockton University)</li>
+  <li>Cheryl Greengrove (University of Washington, Tacoma) </li>
+  <li>Deb Kelley (University of Washington)</li>
+  <li>Denise Bristol (Hillsborough Community College, South Shore Campus)</li>
+  <li>Ellen Cowan (Appalachian State University)</li>
+  <li>Julie Bowles (University of Wisconsin)</li>
+  <li>Kusali Gamage Sooriarachchi (Austin Community College)</li>
+  <li>Marina Halverson (Seattle Central College)</li>
+  <li>Rachel Teasdale (California State University, Chico)</li>
+  <li>Rus Higley (Highline College)</li>
 </ul>
 
 <?php 
