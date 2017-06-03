@@ -54,6 +54,7 @@ $(document).ready(function () {
       'MJ03F Depth': {axis: 'y1'},
     },
     visibility: [1,0,0],
+    valueRange: [1515, 1500]
   });
 
   var sync = Dygraph.synchronize(g1, g2, {

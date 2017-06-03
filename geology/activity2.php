@@ -47,11 +47,11 @@
   </div>
   <div class="col-xs-9">
   <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
-    MJ03D</label><br>
+    International District Vent Field 2 (MJ03D)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)"> 
-    MJ03E</label><br>
+    Eastern Caldera (MJ03E)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)"> 
-    MJ03F</label><br>
+    Central Caldera (MJ03F)</label><br>
   </div>
 </div>
 <?php 
