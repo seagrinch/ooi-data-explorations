@@ -163,6 +163,14 @@
   <?php endforeach; ?>
 </div>
 
+<h5>Dataset Information</h5>
+<p>Data for this activity were accessed from the following instruments on <a href="http://oceanobservatories.org/array/cabled-axial-seamount/">Cabled Axial Seamount</a>:</p>
+<ul>
+  <li>Central Caldera, Medium-Power JBox, Bottom Pressure and Tilt (RS03CCAL-MJ03F-05-BOTPTA301)</li>
+  <li>Eastern Caldera, Medium-Power JBox, Bottom Pressure and Tilt (RS03ECAL-MJ03E-06-BOTPTA302)</li>
+  <li>International District Vent Field 2, Medium-Power JBox, Bottom Pressure and Tilt (RS03INT2-MJ03D-06-BOTPTA303)</li>
+</ul>
+
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
