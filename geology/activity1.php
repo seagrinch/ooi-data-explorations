@@ -172,11 +172,11 @@
         <p class="list-group-item-text">What observations can we make about earthquakes along plate boundaries over time?</p>
       </a>
       <a href="activity1.php?level=application1" class="list-group-item">
-        <h4 class="list-group-item-heading">Application #1</h4>
+        <h4 class="list-group-item-heading">Application #1 - Divergent Boundary</h4>
         <p class="list-group-item-text">What patterns in earthquakes can occur along a divergent plate boundary?</p>
       </a>
       <a href="activity1.php?level=application2" class="list-group-item">
-        <h4 class="list-group-item-heading">Application #2</h4>
+        <h4 class="list-group-item-heading">Application #2 - Transform Boundary</h4>
         <p class="list-group-item-text">What patterns in earthquakes can occur along a transform fault boundary?</p>
       </a>
     </div>

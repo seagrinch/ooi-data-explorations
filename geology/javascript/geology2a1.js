@@ -29,7 +29,7 @@ $(document).ready(function () {
       'MJ03F X-tilt': {axis: 'y'},
       'MJ03F Y-tilt': {axis: 'y2'},
     },
-    visibility: [1,1,0,0,0,0],
+    visibility: [0,0,0,0,1,1],
   });
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/NANO-depth-Apr23-27.csv", {
@@ -58,7 +58,8 @@ $(document).ready(function () {
       'MJ03E Depth': {axis: 'y1', showInRangeSelector: true},
       'MJ03F Depth': {axis: 'y1'},
     },
-    visibility: [1,0,0],
+    visibility: [0,0,1],
+    valueRange: [1515, 1500]
   });
 
   var sync = Dygraph.synchronize(g1, g2, {

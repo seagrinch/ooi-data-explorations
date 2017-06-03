@@ -34,6 +34,19 @@
 <?php endif; ?>
 
 
+<?php if ($level=='application1'): ?>
+<div id="imgslider">
+ <div><img alt="before" src="data/axial_2013.jpg" width="600" height="590" /></div>
+ <div><img alt="after" src="data/axial_2015.jpg" width="600" height="590" /></div>
+</div>
+<?php 
+  $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+  $scripts[] = "../js/beforeafter/jquery.beforeafter-1.4.min.js";
+  $scripts[] = "javascript/geology2_bathy.js";
+?>
+<?php endif; ?>
+
+
 <!-- DATA CHARTS -->
 <div id="chart1" style="width:800px; height: 250px;"></div>
 <div id="chart2" style="width:730px; height: 250px; margin-top: 20px;"></div>
@@ -46,11 +59,11 @@
     <p class="text-right">Include datasets:</p>
   </div>
   <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)"> 
     International District Vent Field 2 (MJ03D)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)"> 
     Eastern Caldera (MJ03E)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)"> 
+  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
     Central Caldera (MJ03F)</label><br>
   </div>
 </div>
@@ -66,20 +79,6 @@
     $scripts[] = "javascript/geology2a2.js";
   }
 ?>  
-
-<?php if ($level=='application1'): ?>
-<h3>Bathymetry Change</h3>
-<p>Use the slider to view changes in Bathymetry between the two surveys</p>
-<div id="imgslider">
- <div><img alt="before" src="data/axial_2013.jpg" width="600" height="590" /></div>
- <div><img alt="after" src="data/axial_2015.jpg" width="600" height="590" /></div>
-</div>
-<?php 
-  $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
-  $scripts[] = "../js/beforeafter/jquery.beforeafter-1.4.min.js";
-  $scripts[] = "javascript/geology2_bathy.js";
-?>
-<?php endif; ?>
 
 
 <h3>Your Objective</h3>
@@ -183,11 +182,11 @@
         <p class="list-group-item-text">What observations can we make about a seamount over time?</p>
       </a>
       <a href="activity2.php?level=application1" class="list-group-item">
-        <h4 class="list-group-item-heading">Event-in-Detail Application</h4>
+        <h4 class="list-group-item-heading">Application #1 - Event-in-Detail</h4>
         <p class="list-group-item-text">What can happen to the seafloor when a seamount erupts?</p>
       </a>
       <a href="activity2.php?level=application2" class="list-group-item">
-        <h4 class="list-group-item-heading">Impacts of Event Application</h4>
+        <h4 class="list-group-item-heading">Application #2 - Event Impacts</h4>
         <p class="list-group-item-text">Has a seamount diking-eruption event occurred?</p>
       </a>
     </div>
