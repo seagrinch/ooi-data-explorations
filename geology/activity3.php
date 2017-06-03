@@ -77,12 +77,14 @@
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event could have occurred.</p>
+<p>Zoom in and out of the data to look at different time scales that interest you. The “Estimated Threshold” is the inflation threshold at or above which diking-eruptions are triggered. Use your cursor to draw your prediction on the graph of when the next diking-eruption event will occur.</p>
+<p>Note - Previous eruptions occurred in 1998 and 2011.</p>
 <p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
 <p>Note - Eruptions occurred in 1998 and 2011. The “threshold” is the inflation threshold at or above which eruptions are triggered.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>Explore the changes in the depth of the seafloor data over time on the Axial Seamount in the Northern Pacific Ocean (Cabled Array) to make a prediction of when you think the next diking-eruption event may occur.</p>
+<p>Zoom in and out of the data to look at different time scales to look at the pattern. The “Estimated Threshold” is the inflation threshold at or above which diking-eruptions are triggered. Use your cursor to draw your prediction on the graph of when the next diking-eruption event will occur.</p>
+<p>Note - Previous eruptions occurred in 1998 and 2011.</p>
 <p><strong>Data Tip:</strong> Zoom in and out of the data to look at different time scales that interest you. Use your cursor to draw your prediction of when the next diking-eruption event will occur.</p>
 <p>Note - Eruptions occurred in 1998 and 2011. The “threshold” is the inflation threshold at or above which eruptions are triggered.</p>
 
@@ -93,30 +95,30 @@
 
 <?php if ($level=='exploration'): ?>
 <ol>
-  <li>What did you find interesting in the seafloor depth data at the Axial Seamount from 1998 to 2012?</li>
+  <li>What did you find interesting about the change in seafloor depth data at the Axial Seamount from 1998 to 2012?</li>
   <li>Did you observe any patterns? If so, what was it/were they?  </li>
   <li>How did you use that pattern between 1998-2012 to make your prediction of when the next diking-eruption event could have occurred?</li>
-  <li>What questions do you still have about how we infer patterns in diking-eruption event cycles to predict when the next diking-eruption event may occur?</li>
+  <li>What questions do you still have about how we use change in seafloor depth over time data to predict when the next diking-eruption event may occur?</li>
 </ol>
 
 <?php elseif ($level=='application'): ?>
 <ol>
-  <li>Is there a relationship between how much time has passed and an diking-eruption event occurring? 
+  <li>Is there a relationship between how much time has passed and when a diking-eruption event occurs? 
   <ul>
     <li>If so, explain what kind of relationship is it and what your evidence for the relationship is. </li>
     <li>Why do you think that relationship exists between time and diking-eruption event occurrence?</li>
   </ul></li>
-  <li>Is there a relationship between how much of a change in the depth of the seafloor over time and an diking-eruption event occurring? 
+  <li>Is there a relationship between how much of a change there is in seafloor depth over time and when a diking-eruption event occurs? 
   <ul>
     <li>If so, explain what kind of relationship is it and what your evidence for the relationship is.</li>
-    <li>Why do you think that relationship exists between depth of the seafloor and an diking-eruption event occurrence? </li>
+    <li>Why do you think that relationship exists between seafloor depth and diking-eruption event occurrence? </li>
   </ul></li>
   <li>When do you think the next seamount diking-eruption event will occur? 
   <ul>
-    <li>What evidence did you use to make that prediction?</li>
+    <li>What evidence did you use to make your prediction?</li>
     <li>What is your reasoning for choosing that time period?</li>
   </ul></li>
-  <li>What questions do you still have about when diking-eruption events can occur and how we can predict when they may occur?</li>
+  <li>What questions do you still have about when diking-eruption events can occur and how we predict when they may occur?</li>
 </ol>
 
 <?php endif; ?>
@@ -140,6 +142,12 @@
   <?php endforeach; ?>
 </div>
 
+<h4>Dataset Information</h4>
+<p>Data in this activity is from:</p>
+<ul>
+  <li>Nooner, S. L., and W. W. Chadwick, Jr. (2016), <a href="http://science.sciencemag.org/content/354/6318/1399">Inflation-predictable behavior and co-diking-eruption event deformation at Axial Seamount</a>, Science, 354(6318), 1399-1403, doi:10.1126/science.aah4666.</li>
+  <li>PMEL: Earth-Ocean Interactions Program’s <a href="https://www.pmel.noaa.gov/eoi/axial_blog.html">Blog to chronicle diking-eruption event forecasts at Axial Seamount</a> </li>
+</ul>
 
 
 <!-- ACTIVITY INTRODUCTION -->

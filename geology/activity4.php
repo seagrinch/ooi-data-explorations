@@ -132,6 +132,12 @@
   <?php endforeach; ?>
 </div>
 
+<h4>Dataset Information</h4>
+<p>Data in this activity is from:</p>
+<ul>
+  <li>Data are from: Wilcock, W., Waldhauser, F., & Tolstoy, M. (2016). Catalogs of earthquake recorded on Axial Seamount from January, 2015 through November, 2015 (investigators William Wilcock, Maya Tolstoy, Felix Waldhauser). (Version 1) [Data set]. Integrated Earth Data Applications (IEDA). <a href="https://doi.org/10.1594/ieda/323843">https://doi.org/10.1594/ieda/323843</a></li>
+  <li>Earthquake catalog(s) data are publicly available in the Marine Geoscience Data System: <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843</a></li>
+</ul>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>

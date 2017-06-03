@@ -74,8 +74,8 @@
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore earthquake magnitude data in the Northern Pacific Ocean over 6.5 years and see what kinds of patterns, if any, you can observe along plate boundaries.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 year of data to start (2010). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>Explore earthquake magnitude data in the Northeast Pacific Ocean over 6.5 years and see what kinds of patterns, if any, you can observe along plate boundaries..</p>
+<p><strong>Data Tip:</strong> You are looking at 1 year of data to start (2010). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to see more or less of the area.</p>
 
 <?php elseif ($level=='application1'): ?>
 <p>Interpret the earthquake magnitude data along the Gordo Ridge over a year to investigate how earthquakes can occur along a divergent plate boundary.</p>
@@ -100,7 +100,7 @@
 
 <?php elseif ($level=='application1'): ?>
 <ol>
-  <li>Is there a relationship among magnitude and location of earthquakes over time along this divergent fault boundary from May-August, 2015? 
+  <li>Is there a relationship among magnitude and location of earthquakes over time along this divergent fault boundary from May 2013 to May 2014? 
   <ul>
     <li>If so, 
     <ul>
@@ -113,7 +113,7 @@
       <li>Why do you think there is no relationship among magnitude and location of earthquakes?</li>
     </ul></li>
   </ul></li>
-  <li>How does this relationship support or lack of relationship challenge what you previously knew about features at divergent fault boundaries?</li>
+  <li>How does this relationship support, or lack of relationship challenge, what you previously knew about earthquakes at divergent plate boundaries?</li>
   <li>What questions do you still have about features at divergent fault boundaries?</li>
 </ol>
 
