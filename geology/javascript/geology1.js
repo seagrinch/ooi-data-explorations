@@ -21,7 +21,8 @@ Todo:
 (function () {
   var container = L.DomUtil.get('map');
   var zoomlevel = (container.dataset.zoom) ? container.dataset.zoom : 5;
-  var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128];  
+  var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128]; 
+  var selected_days =  (container.dataset.days) ? container.dataset.days : 30;
 
   var myMap = L.map(container).setView(mapcenter, zoomlevel);
   var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
@@ -43,12 +44,6 @@ Todo:
   //d3.json("data/us-states.json", function(error, geoData) {
     if (error) throw error;
     
-    var chart = timeseries_chart()
-      .x(get_time).xLabel("Earthquake origin time")
-      .y(get_magnitude).yLabel("Magnitude");
-  
-    d3.select("#map2").datum(data).call(chart);
-
     function reformat(array) {
       var data = [];
       array.map(function (d, i) {
@@ -115,6 +110,13 @@ Todo:
     
     myMap.on("zoom", reset);
     reset();
+
+    var chart = timeseries_chart()
+      .x(get_time).xLabel("Earthquake origin time")
+      .y(get_magnitude).yLabel("Magnitude")
+      .days(selected_days);
+  
+    d3.select("#map2").datum(data).call(chart);
   
   });
 
@@ -172,10 +174,11 @@ Todo:
         width = 720 - margin.left - margin.right,
         height = 100;
 
-    var x = d3.scaleTime(),
+    var x = d3.scaleUtc(),
         y = d3.scaleLinear(),
         color = d3.scaleSequential(d3.interpolateInferno),
         x_label = "X", y_label = "Y",
+        days = 30,
         brush = d3.brushX().extent([[0, 0], [width, height]]).on("brush end", _brushend)
         get_x = no_op,
         get_y = no_op;
@@ -220,7 +223,7 @@ Todo:
             .attr("height", height - .25)
             .attr("transform", "translate(1,0)");
   
-        x.domain(d3.extent(d, get_x)).nice();
+        x.domain(d3.extent(d, get_x)); //.nice();
         x_axis.call(d3.axisBottom(x));
 
         y.domain(d3.extent(d, get_y)).nice();
@@ -254,6 +257,12 @@ Todo:
                 //.style("fill", "green") //color[2]
                 .attr("opacity", 0.4);
 
+        min_date = d3.min(d,function(d) {return d.date});
+        console.log(min_date,x(min_date));
+        d3.select(".brush")
+            //.call(brush.move, x.range());
+            .call(brush.move,[x(min_date),x(d3.timeDay.offset(min_date,days))])
+
           });
       }
   
@@ -278,6 +287,12 @@ Todo:
     timeseries.yLabel = function (label) {
       if (!arguments.length) return y_label;
       y_label = label;
+      return timeseries;
+    }
+
+    timeseries.days = function (n) {
+      if (!arguments.length) return days;
+      days = n;
       return timeseries;
     }
 

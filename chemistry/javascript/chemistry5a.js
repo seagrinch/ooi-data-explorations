@@ -18,7 +18,7 @@ var parseDate = d3.utcParse("%Y-%m-%d %H:%M:%S");
 
 var x1 = d3.scaleLinear().range([0, width1]),
     x2 = d3.scaleLinear().range([0, width2]),
-    x3 = d3.scaleTime().range([0, width3]),
+    x3 = d3.scaleUtc().range([0, width3]),
     y1 = d3.scaleLinear().range([0, height1]), //Flip y-axis
     y2 = d3.scaleLinear().range([0, height2]), //Flip y-axis
     y3 = d3.scaleLinear().range([height3, 0]),

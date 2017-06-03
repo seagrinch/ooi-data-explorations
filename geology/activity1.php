@@ -54,13 +54,13 @@
 </style>
 
 <?php if ($level=='exploration'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5" data-days="365"></div>
 
 <?php elseif ($level=='application1'): ?>
 <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_gordo.csv" data-zoom="6" data-center="[42, -128]"></div>
 
 <?php elseif ($level=='application2'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_blanco.csv" data-zoom="6"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_blanco.csv" data-zoom="6" data-days="14"></div>
 
 <?php endif; ?>
 
@@ -83,7 +83,7 @@
 
 <?php elseif ($level=='application2'): ?>
 <p>Interpret the earthquake magnitude data along the Blanco Fracture Zone over 4 months to investigate how earthquakes can occur along a transform fault boundary.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 week of data to start (May 3-9, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data to see how the earthquake location and magnitude vary over time. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p><strong>Data Tip:</strong> You are looking at 2 weeks of data to start (May 3-9, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data to see how the earthquake location and magnitude vary over time. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
 
 <?php endif; ?>
 

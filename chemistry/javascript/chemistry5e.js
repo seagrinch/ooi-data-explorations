@@ -13,7 +13,7 @@ var svg = d3.select("#chart").append("svg")
 var parseDate = d3.utcParse("%Y-%m-%d %H:%M:%S");
 
 var x = d3.scaleLinear().range([0, width]),
-    x2 = d3.scaleTime().range([0, width]),
+    x2 = d3.scaleUtc().range([0, width]),
     y = d3.scaleLinear().range([0, height]), //Flip y-axis
     y2 = d3.scaleLinear().range([height2, 0]),
     color = d3.scaleSequential(d3.interpolateRainbow); //interpolateViridis

@@ -52,10 +52,10 @@
 </style>
 
 <?php if ($level=='exploration'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_downsampled.csv" data-zoom="11" data-center="[45.9549, -130.0089]"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_downsampled.csv" data-zoom="11" data-center="[45.9549, -130.0089]" data-days="7"></div>
 
 <?php elseif ($level=='application'): ?>
-<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_april.csv" data-zoom="11" data-center="[45.9549, -130.0089]"></div>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/axial_earthquakes_april.csv" data-zoom="11" data-center="[45.9549, -130.0089]" data-days="0.25"></div>
 
 <?php endif; ?>
 
@@ -70,7 +70,7 @@
 
 <?php if ($level=='exploration'): ?>
 <p>Explore earthquake magnitude data at the Axial Seamount over 3 months and see what kinds of patterns, if any, you can observe at the seamount.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 month of data to start (March, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p><strong>Data Tip:</strong> You are looking at 1 week of data to start (March, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
 
 <?php elseif ($level=='application'): ?>
 <p>Interpret the earthquake magnitude data at the Axial Seamount over 3 days to investigate when and where a diking-eruptive event occurred.</p>
