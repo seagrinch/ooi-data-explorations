@@ -75,7 +75,7 @@ Todo:
     var path = d3.geoPath().projection(transform);
 
     var extent = d3.extent(geoData.features, function (d) { return d.properties.depth; });
-    var color = d3.scaleSequential(d3.interpolateRainbow) //interpolateInferno
+    var color = d3.scaleSequential(d3.interpolatePlasma) //interpolateInferno
     color.domain(extent);
 			
     var features = layer.selectAll("path")
