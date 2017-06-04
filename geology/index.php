@@ -56,6 +56,15 @@
     <p>Help students understand features of seamounts by working with earthquake data at the Axial Seamount, North Pacific Ocean.</p>
   </div>
 </div>
+<div class="media">
+  <div class="media-left">
+    <a href="activity5.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="activity5.php">Vent Video Frames</a></h4>
+    <p>Prototype video frame interactive</p>
+  </div>
+</div>
 
 <?php 
   include_once('../footer.php'); 
