@@ -153,6 +153,9 @@
   <?php endforeach; ?>
 </div>
 
+<h5>Dataset Information</h5>
+<p>Data for this activity were accessed from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>  
+
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>

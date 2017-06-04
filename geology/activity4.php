@@ -28,7 +28,7 @@
 <?php if ($level=='exploration'): ?>
 <p>What observations can we make about earthquakes at a seamount over time?</p>
 <?php elseif ($level=='application'): ?>
-<p>When and where did the diking-eruptive event occur at the Axial Seamount?</p>
+<p>When did the diking-eruptive event occur at the Axial Seamount?</p>
 <?php endif; ?>
 
 
@@ -69,12 +69,12 @@
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore earthquake magnitude data at the Axial Seamount over 3 months and see what kinds of patterns, if any, you can observe at the seamount.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 week of data to start (March, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>Explore earthquake magnitude and depth data at the Axial Seamount over 3 months to see what kinds of patterns, if any, you can observe at the seamount.</p>
+<p><strong>Data Tip:</strong> You are looking at 1 week of data to start (March 1-7, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale..</p>
 
 <?php elseif ($level=='application'): ?>
-<p>Interpret the earthquake magnitude data at the Axial Seamount over 3 days to investigate when and where a diking-eruptive event occurred.</p>
-<p><strong>Data Tip:</strong> You are looking at 6 hours of data to start (April 23, 2015 from 04:00-10:00 UTC). Select another time period (by dragging the gray box at the bottom) to explore the data in ways to see changes in the location and timing of earthquakes. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>Interpret the earthquake magnitude and depth data at the Axial Seamount over 3 days to investigate when a diking-eruptive event occurred.</p>
+<p><strong>Data Tip:</strong> You are looking at 6 hours of data to start (April 23, 2015 from 0:00-6:00 UTC). Select another time period (by dragging the gray box at the bottom) to explore the data in ways to see changes in the location and timing of earthquakes. Adjust the size of the gray box to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial area.</p>
 
 <?php endif; ?>
 
@@ -83,32 +83,23 @@
 
 <?php if ($level=='exploration'): ?>
 <ol>
-  <li>What did you find interesting in the earthquake magnitude data at the Axial Seamount over 3 months in 2015?</li>
-  <li>Did you observe any patterns in how many earthquakes per day occurred over time? If so, what was it/were they?</li>
-  <li>Did you observe any patterns in how big the earthquakes were over time? If so, what was it/were they?</li>
-  <li>Did you observe any patterns in where the earthquakes occurred over space? If so, what was it/were they?</li>
-  <li>Do you think any unique events occurred at the seamount during these 4 months? If so, what is your evidence for an event occurring.</li>
-  <li>What questions do you still have about earthquakes at a seamount over time?</li>
+  <li>What did you find interesting in the earthquake data at the Axial Seamount over 3 months in 2015?</li>
+  <li>What kinds of patterns did you observe in:
+  <ul>
+    <li>how many earthquakes per day occurred over time? or</li>
+    <li>how big the earthquakes were over time? or</li>
+    <li>where the earthquakes occurred over space? </li>
+  </ul></li>
+  <li>What is your evidence that an unusual event occurred at the seamount during these 3 months?</li>
+  <li>What questions do you still have about earthquakes at a seamount?</li>
 </ol>
 
 <?php elseif ($level=='application'): ?>
 <ol>
-  <li>Is there a relationship among magnitude and location of earthquakes during the diking-eruptive event at the Axial Seamount? 
-  <ul>
-    <li>If so, 
-    <ul>
-      <li>What kind of relationship is it? </li>
-      <li>What is your evidence of the relationship? </li>
-      <li>Why do you think that relationship exists among magnitude and location of earthquakes? </li>
-    </ul></li>
-    <li>If not, 
-    <ul>
-      <li>Why do you think there is no relationship among magnitude and location of earthquakes?</li>
-    </ul></li>
-  </ul></li>
-  <li>How does this relationship support or lack of relationship challenge what you previously knew about diking-eruptions at seamounts?</li>
-  <li>When and where along the Axial Seamount did the diking-eruptive event occur?</li>
-  <li>What questions do you still have about features of seamounts?</li>
+  <li>What evidence do you have of a relationship between earthquake magnitude and location during the diking-eruptive event at the Axial Seamount?</li>
+  <li>How does this relationship support what you previously knew about seismic activity at seamounts?</li>
+  <li>During what time frame did the diking-eruptive event occur?</li>
+  <li>What questions do you still have about seismic activity at seamounts?</li>
 </ol>
 
 <?php endif; ?>
@@ -158,7 +149,7 @@
       </a>
       <a href="activity4.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">When and where did the diking-eruptive event occur at the Axial Seamount?</p>
+        <p class="list-group-item-text">When did the diking-eruptive event occur at the Axial Seamount?</p>
       </a>
     </div>
   </div>
