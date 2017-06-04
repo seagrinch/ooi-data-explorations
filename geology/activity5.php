@@ -44,7 +44,6 @@
 </div>
 <div class="clearfix"></div>
 
-<h3>Challenge Question</h3>
 <?php if ($level=='scene1'): ?>
 <img id="slider-image" data-directory="scene1">
 <?php elseif ($level=='scene7'): ?>
