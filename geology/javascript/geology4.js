@@ -178,7 +178,7 @@ Todo:
 
     var x = d3.scaleUtc(),
         y = d3.scaleLinear(),
-        color = d3.scaleSequential(d3.interpolateRainbow), //interpolateInferno
+        color = d3.scaleSequential(d3.interpolatePlasma), //interpolateInferno
         x_label = "X", y_label = "Y",
         days = 30,
         brush = d3.brushX().extent([[0, 0], [width, height]]).on("brush end", _brushend)
