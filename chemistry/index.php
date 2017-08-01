@@ -1,14 +1,14 @@
 <?php 
   $page = 'activities';
-  $page_title = 'Exploring Ocean Chemistry with OOI Data';
+  $page_title = 'Exploring Properties of Seawater with OOI Data';
   $base_url = '../';
   include_once('../header.php'); 
 ?>
 
-<h2>Exploring Ocean Chemistry with OOI Data</h2>
+<h2>Exploring Properties of Seawater with OOI Data</h2>
 
   <div class="row">
-    <div class="col-md-8">Through these Data Explorations, you will...</div>
+    <div class="col-md-8">Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seawater explored include: salinity variations over time and space, processes that affect surface seawater salinity, changes in pH with depth, relationship between pH and oceanic pCO<sub>2</sub> for the carbonate buffering system, variations in salinity with depth over time and space, and the depth of the halocline over time and space.</div>
     <div class="col-md-4">
       <h4>Resources</h4>
       <ul>
@@ -28,7 +28,7 @@
     <a href="activity1.php"><img class="media-object thumbnail" src="screenshots/Activity1_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity1.php">Seasonal Salinity Variation</a></h4>
+    <h4 class="media-heading"><a href="activity1.php">Seasonal Variation of Surface Salinity</a></h4>
     <p>Explore and analyze patterns in how surface salinity changes over time.</p>
   </div>
 </div>
@@ -55,8 +55,8 @@
     <a href="activity4.php"><img class="media-object thumbnail" src="screenshots/Activity4_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity4.php">Carbonate Buffering System</a></h4>
-    <p>Explore and analyze patterns in seawater pH and pCO2 over time.</p>
+    <h4 class="media-heading"><a href="activity4.php">Changes in pH and pCO<sub>2</sub></a></h4>
+    <p>Explore and analyze patterns in seawater pH and pCO<sub>2</sub> over time.</p>
   </div>
 </div>
 <div class="media">

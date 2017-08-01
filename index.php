@@ -35,8 +35,8 @@
     <a href="chemistry/index.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean wave" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="chemistry/index.php">Exploring Ocean Chemistry with OOI Data</a></h4>
-    <p>(coming May 2017)</p>
+    <h4><a href="chemistry/index.php">Exploring Properties of Seawater with OOI Data</a></h4>
+    <p>These activities explore properties of seawater in greater detail, to be used as Exploration or Application activities. The properties of seawater explored include: salinity variations over time and space, processes that affect surface seawater salinity, changes in pH with depth, relationship between pH and oceanic pCO<sub>2</sub> for the carbonate buffering system, variations in salinity with depth over time and space, and the depth of the halocline over time and space.</p>
     <a href="chemistry/index.php" class="btn btn-primary">Activities</a>
     <a href="chemistry/guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>  

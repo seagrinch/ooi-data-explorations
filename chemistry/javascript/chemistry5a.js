@@ -67,7 +67,7 @@ focus1.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("Pressure (dbar)")
+    .text("Depth (m)")
 focus2.append("text")
     .attr("class", "label")
     .attr("dy", "2.6em")
@@ -93,6 +93,8 @@ focus2.append("text")
     .style("font-weight", "bold")
     .text("Global Irminger Sea GI02HYPM");
 
+var dots1 = focus1.append("g");
+var dots2 = focus2.append("g");
 
 d3.queue()
     .defer(d3.csv, "data/chemistry5_CP02PMUI.csv", type)
@@ -112,14 +114,15 @@ d3.queue()
 drawGraph = function(data1,data2) {
   alldata = data1.concat(data2);
   x1.domain(d3.extent(data1, function(d) { return d.salinity; }));
-  y1.domain(d3.extent(data1, function(d) { return d.pressure; }));
+  //y1.domain(d3.extent(data1, function(d) { return d.pressure; }));
+  y1.domain([25,75]);
   x2.domain(d3.extent(data2, function(d) { return d.salinity; }));
-  y2.domain(d3.extent(data2, function(d) { return d.pressure; }));
+  //y2.domain(d3.extent(data2, function(d) { return d.pressure; }));
   x3.domain(d3.extent(alldata, function(d) { return d.date; }));
+  y2.domain([0,2600]);
   y3.domain(d3.extent(alldata, function(d) { return d.salinity; }));
   color.domain(d3.extent(alldata, function(d) {return d.date}));
 
-  var dots1 = focus1.append("g");
   //dots1.attr("clip-path", "url(#clip)")
   dots1.selectAll(".dot")
         .data(data1)
@@ -137,7 +140,6 @@ drawGraph = function(data1,data2) {
       .attr("class", "axis axis--y")
       .call(yAxis1);
 
-  var dots2 = focus2.append("g");
   //dots2.attr("clip-path", "url(#clip)")
   dots2.selectAll(".dot")
         .data(data2)
@@ -173,10 +175,14 @@ drawGraph = function(data1,data2) {
   selected_date = new Date(2015,6,1)
   //min_date = d3.min(alldata,function(d) {return d.date});
   context.append("g")
+      .attr('id','brush_box')
       .attr("class", "brush")
       .call(brush)
       //.call(brush.move, x.range());
       .call(brush.move,[x3(selected_date), x3(d3.timeDay.offset(selected_date,14))]) // Preselect 14 days
+      .selectAll("rect.selection")
+        .style("stroke", "#999")
+        .style("fill", "#157ab5")
 
 };
 
@@ -206,4 +212,40 @@ function type(d) {
   d.salinity = +d.salinity;
   d.index = +d.index;
   return d;
+}
+
+function graph_zoom(days) {
+  var brush_box = d3.select("#brush_box");
+  var extent = d3.brushSelection(brush_box.node()) || x3.range();
+  var min_date = x3.invert(extent[0]);
+  var max_date = d3.timeHour.offset(min_date,days*24);
+  brush_box.call(brush.move,[x3(min_date),x3(max_date)]);  
+}
+
+function match_salinity(el) {
+  if (el.checked) {    
+    x1.domain([32.7897, 36.1399]);
+    x2.domain([32.7897, 36.1399]);
+  } else {
+    x1.domain([32.7897, 36.1399]);
+    x2.domain([34.8401, 34.9996]);
+  }
+  focus1.select(".axis--x").call(xAxis1);
+  focus1.selectAll(".dot").attr("cx", function(d) { return x1(d.salinity); });
+  focus2.select(".axis--x").call(xAxis2);
+  focus2.selectAll(".dot").attr("cx", function(d) { return x2(d.salinity); });
+}
+
+function match_depth(el) {
+  if (el.checked) {    
+    y1.domain([0,2600]);//[26,2609]
+    y2.domain([0,2600]);
+  } else {
+    y1.domain([25,75]); //[26,71]
+    y2.domain([0,2600]); //[157,2609]
+  }
+  focus1.select(".axis--y").call(yAxis1);
+  focus1.selectAll(".dot").attr("cy", function(d) { return y1(d.pressure); });
+  focus2.select(".axis--y").call(yAxis2);
+  focus2.selectAll(".dot").attr("cy", function(d) { return y2(d.pressure); });
 }

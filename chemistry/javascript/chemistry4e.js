@@ -64,7 +64,7 @@ graph1.append("text")
     .attr("text-anchor", "end")
     .style("font-size", "12px")    
     .style("font-weight", "normal")
-    .text("ph");
+    .text("pH");
 graph1.append("text")
     .attr("class", "label")
     .attr("dy", "-2.5em")
@@ -80,7 +80,7 @@ graph2.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("ph");
+    .text("pH");
 graph3.append("text")
     .attr("class", "label")
     .attr("dy", "-2.5em")
@@ -160,10 +160,15 @@ d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
       .attr("class", "brush2")
       .call(brush2)
       //.call(brush2.move, x2.range()); //Default to all time
+      .selectAll("rect.selection")
+        .style("stroke", "#999")
+        .style("fill", "#157ab5")
+/*
   graph3.append("g")
       .attr("class", "brush3")
       .call(brush3)
       //.call(brush3.move, x3.range()); //Default to all time
+*/
 });
 
 function brushed2() {
@@ -176,7 +181,7 @@ function brushed2() {
         return (d.date > x3.invert(s[0]) && d.date < x3.invert(s[1]))
       })
     .attr("display","inline");
-  d3.select(".brush3").call(brush3.move,s);
+  //d3.select(".brush3").call(brush3.move,s);
 }
 
 function brushed3() {

@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Carbonate Buffering System';
+  $lesson_title = 'Changes in pH and pCO2';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -10,7 +10,7 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Ocean Chemistry</a></li>
+  <li><a href="index.php">Properties of Seawater</a></li>
   <li><a href="activity4.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -24,11 +24,22 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Challenge</h3>
 <?php if ($level=='exploration'): ?>
-<p> As pH changes over time, what else changes?</p>
+<p>Make a prediction about what changes in pH at the ocean surface you could observe as pCO2 of the water changes over time.</p>
 <?php elseif ($level=='application'): ?>
 <p>How does the relationship between pH and pCO<sub>2</sub> depth vary across the ocean and over time?</p>
+<?php endif; ?>
+
+
+<h3>Your Objective</h3>
+
+<?php if ($level=='exploration'): ?>
+<p>Explore pH and pCO<sub>2</sub> data from the surface over time from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
+
+<?php elseif ($level=='application'): ?>
+<p>Explore data from the surface across different time periods from different areas of the Pacific Ocean - North (Coastal Endurance Array) and South (Global Southern Ocean Array) - to see what you can observe.</p>
+
 <?php endif; ?>
 
 
@@ -55,34 +66,43 @@
 <?php endif; ?>
 
 
-<h3>Your Objective</h3>
+<h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-
-<p>Explore data from the surface across different time periods from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
-
-<p><strong>Data Tip:</strong> Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO2 over time across all the graphs. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
+<p>When the site loads, you are able to see the full dataset (September 2015-August 2016) of pH and pCO2 data from the Oregon Shelf Surface Mooring in the Coastal Endurance Array. You can see each variable plotted against time in the stacked plots on the right, as well as the variables plotted against one another in the scatter plot on the left. The colors help to distinguish when in time the data were collected, light purple is September 2015 and the colors progress through the rainbow over time until dark purple is August 2016. You can interact with the data by: </p>
+<ul>
+  <li>Selecting a different time period to explore the data in ways that interest you by selecting a section of data in the top right graph to draw a box and then moving the highlighted box to the right or left. </li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of your highlighted box section in the top right graph.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-
-<p>Explore data from the surface across different time periods from different areas of the Pacific Ocean - North (Coastal Endurance Array) and South (Global Southern Ocean Array) - to see what you can observe.</p>
-
-<p><strong>Data Tip:</strong> Select different datasets from Washington (CE07) or off Chile (GS01) against the Oregon dataset (CE02). Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO2 over time across all the graphs among the datasets. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
+<p>Select different datasets from Washington (CE07) or off Chile (GS01) against the Oregon dataset (CE02). Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO2 over time across all the graphs among the datasets. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
+<h3>Questions for Thought</h3>
 
 <?php if ($level=='exploration'): ?>
-
-<ol>
-  <li>What did you learn about changes in pH and pCO2 over time?</li>
-  <li>What questions do you still have about how pH and pCO2 are related?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>What is the overall range of pH data you are able to observe in this graph?</li>
+      <li>What is the overall range of pCO2 data you are able to observe in this graph?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in the relationship between pH and  pCO2 over this time period in the Northern Pacific Ocean? </li>
+      <li>When did you see these changes or patterns?</li>
+      <li>What questions do you still have about how pH and pCO2 are related?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application'): ?>
-
 <ol>
   <li>What similarities and differences did you find in seasonal patterns in changes in pH and pCO2 across the Pacific Ocean?</li>
   <li>What can you conclude overall about seasonal patterns in changes in pH and pCO<sub>2</sub> across the ocean from these data?</li>
@@ -114,14 +134,13 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>Data for this activity was adapted from the following instrument:</p>
+<p>The data for this activity was obtained from the following instruments:</p>
 <ul>
-  <li>Coastal Endurance:
-  <ul>
-    <li>Oregon Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE02SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
-    <li>Oregon Shelf Surface Mooring, Surface Buoy, pCO2 Air-Sea (CE02SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
-  </ul></li>
+  <li>Seawater pH: Coastal Endurance, <a href="http://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-RID26-06-PHSEND000/telemetered_phsen-abcdef-dcl-instrument">CE02SHSM-RID26-06-PHSEND000</a>)</li>
+  <li>Seawater pCO<sub>2</sub>: Coastal Endurance, <a href="http://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD12-04-PCO2AA000/telemetered_pco2a-a-dcl-instrument-water">CE02SHSM-SBD12-04-PCO2AA000</a>)</li>
 </ul>
+<p class="text-center"><a href="data/chemistry4_CE02SHSM.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<p>The above datasets were downloaded from the OOI data portal, and then down-sampled to hourly intervals.  The data presented are from the raw record, that is, they are instantaneous measurements that have not been averaged because that would smooth out the variability in the dataset.</p>
 
 <?php elseif ($level=='application'): ?>
 
@@ -155,20 +174,22 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p>Select the question your instructor has assigned:</p>
+    <p>This activity has the following variations:</p>
     <div class="list-group">
       <a href="activity4.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text"> As pH changes over time, what else changes?</p>
+        <p class="list-group-item-text">Make a prediction about what changes in pH at the ocean surface you could observe as pCO2 of the water changes over time.</p>
       </a>
+<!--
       <a href="activity4.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
         <p class="list-group-item-text">How does the relationship between pH and pCO<sub>2</sub> depth vary across the ocean and over time?</p>
       </a>
+-->
     </div>
   </div>
   <div class="col-md-6">
-    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 

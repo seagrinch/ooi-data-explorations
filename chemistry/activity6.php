@@ -10,7 +10,7 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Ocean Chemistry</a></li>
+  <li><a href="index.php">Properties of Seawater</a></li>
   <li><a href="activity6.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -24,99 +24,172 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Challenge</h3>
 <?php if ($level=='exploration'): ?>
-<p>What kind of changes or patterns in the location of the halocline do you observe over the summer?</p>
+<p>Make a prediction about how the location of the halocline may change over a summer in one location.</p>
 <?php elseif ($level=='application'): ?>
-<p>How do patterns of the location of the halocline vary across the ocean?</p>
+<p>Make a prediction about what differences in the location of the halocline you could observe across different parts of the ocean.</p>
 <?php endif; ?>
 
-
-<!-- DATA CHART -->
-<div class="row">
-  <div class="col-md-6">
-
-<div id="chart"></div>
-    
-  </div>
-  <div class="col-md-6">
-
-<?php if ($level=='exploration'): ?>
-<?php elseif ($level=='application'): ?>
-<p class="text-center">Select a Site:
-<select name="dataset" onchange="updateGraph(this.value)">
-  <option value="CP02PMCI">CP02PMCI</option>
-  <option value="CP02PMCO">CP02PMCO</option>
-  <option value="GI02HYPM">GI02HYPM</option>
-</select>
-</p>
-<?php endif; ?>
-
-<div style="margin-top: 12px; width: 400px;">
-  <div style="float: left; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
-    <span class="glyphicon glyphicon-chevron-left" onClick="sliderSubtract()"></span>
-  </div>
-  <div style="float: right; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
-    <span class="glyphicon glyphicon-chevron-right" onClick="sliderAdd()"></span>
-  </div>
-  <div style="float: left; width: 250px; font-size: 12px;">
-    <div id="profile-slider" style="margin-bottom: 6px; margin-top: 0px"></div>
-    <span id="profile-slider-left" style="float: left;"></span>
-    <span id="profile-slider-right" style="float: right;"></span>
-  </div>
-  <p class="text-center small">
-    <label for="show_all" style="font-weight: normal;"><input type="checkbox" id="show_all" onClick="showAll()"> Show All Profiles</label> <br>
-    <label for="show_context" style="font-weight: normal;"><input type="checkbox" id="show_context" onClick="showContext()"> Show Context</label>
-  </p>
-</div>
-    
-  </div>
-</div>
-
-<script charset="utf-8" src="../js/d3.js"></script>
-<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-<?php 
-  $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
-  $scripts[] = "../js/colorbrewer.js";
-  $scripts[] = "javascript/chemistry6.js";
-?>  
-
-
-
-<div style="clear:both"></div>
 
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-
-<p>Explore data across different parts of the summer from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe about the halocline.</p>
-
-<p><strong>Data Tip:</strong> Use the time slide to compare changes in the depth of the halocline over the summer. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p>Explore data across a summer from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe about the location of the halocline.</p>
 
 <?php elseif ($level=='application'): ?>
-
-<p>Compare patterns in halocline depth data during the summer to determine if there are relationships over time across different regions from the northern Atlantic Ocean (Coastal Endurance Array and Global Irminger Sea Array).</p>
-
-<p><strong>Data Tip:</strong> Select another location to explore the data to find patterns in the halocline location. Zoom in and out of the data to look at different time scales that interest you. </p>
+<p>Investigate patterns in halocline depth data during a summer at two Temperate Continental Shelf locations and at a Polar Abyssal Plain location to determine how the halocline depth varies in different regions of the northern Atlantic Ocean.</p>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
-
+<!-- DATA CHART -->
+<script charset="utf-8" src="../js/d3.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <?php if ($level=='exploration'): ?>
-
-<ol>
-  <li>What did you learn about the depth of the halocline over the summer?</li>
-  <li>What questions do you still have about changes in the depth of the halocline over time?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <div id="chart"></div>
+  </div>
+  <div class="col-md-6">
+    <div style="margin-top: 12px; width: 400px;">
+      <div style="float: left; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
+        <span class="glyphicon glyphicon-chevron-left" onClick="sliderSubtract()"></span>
+      </div>
+      <div style="float: right; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
+        <span class="glyphicon glyphicon-chevron-right" onClick="sliderAdd()"></span>
+      </div>
+      <div style="float: left; width: 250px; font-size: 12px;">
+        <div id="profile-slider" style="margin-bottom: 6px; margin-top: 0px"></div>
+        <span id="profile-slider-left" style="float: left;"></span>
+        <span id="profile-slider-right" style="float: right;"></span>
+      </div>
+      <p class="text-center small">
+        <label for="show_context" style="font-weight: normal;"><input type="checkbox" id="show_context" onClick="showContext()"> Show Context</label>
+      </p>
+    </div>
+  </div>
+</div>
+<?php 
+  $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+  $scripts[] = "../js/colorbrewer.js";
+  $scripts[] = "javascript/chemistry6e.js";
+?>  
 
 <?php elseif ($level=='application'): ?>
+<div id="chart"></div>
+<div class="row">
+  <div class="col-md-9">
+    <div style="margin-top: 12px; width: 600px;">
+      <p id="chart-date" class="text-center"></p>
+      <div style="float: left; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
+        <span class="glyphicon glyphicon-chevron-left" onClick="sliderSubtract()"></span>
+      </div>
+      <div style="float: right; width: 75px; font-size: 20px; text-align: center; cursor: pointer;">
+        <span class="glyphicon glyphicon-chevron-right" onClick="sliderAdd()"></span>
+      </div>
+      <div style="float: left; width: 450px; font-size: 12px;">
+        <div id="profile-slider" style="margin-bottom: 6px; margin-top: 0px"></div>
+        <span id="profile-slider-left" style="float: left;"></span>
+        <span id="profile-slider-right" style="float: right;"></span>
+      </div>
+      <p class="text-center small">
+        <label for="show_context" style="font-weight: normal;"><input type="checkbox" id="show_context" onClick="showContext()"> Show Context</label>
+      </p>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <br>
+    <label style="font-weight: normal;"><input type="checkbox" onclick="match_salinity(this)"> 
+      Match salinity limits</label> <br>
+    <label style="font-weight: normal;"><input type="checkbox" onclick="match_depth(this)"> 
+      Match depth limits</label>
+  </div>
+</div>
+<?php 
+  $scripts[] = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js";
+  $scripts[] = "../js/colorbrewer.js";
+  $scripts[] = "javascript/chemistry6a.js";
+?>  
+<?php endif; ?>
+<style>
+  div.tooltip {
+    position: absolute;
+    text-align: left;
+    padding: 4px;
+    font: 12px sans-serif;
+    background: white;
+    border: 0px;
+    border-radius: 8px;	
+    pointer-events: none;
+}
+</style>
 
-<ol>
-  <li>What similarities and differences did you find in patterns of changes in the depth of the halocline across the northern Atlantic Ocean?</li>
-  <li>What can you conclude overall about patterns of changes in the depth of the halocline in the summer across the ocean from these data?</li>
-</ol>
+<div style="clear:both"></div>
+
+
+<h3>Data Tips</h3>
+
+<?php if ($level=='exploration'): ?>
+<p>When the site loads, you are able to a salinity profile from June 1, 2015 from the Offshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider to the left or right. </li>
+  <li>Seeing how the date your are looking at compares with the other data from the summer by selecting the “Show Context” button.</li>
+</ul>
+
+<?php elseif ($level=='application'): ?>
+<p>When the site loads, you are able to a salinity profile from June 1, 2015 from the Inshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by: </p>
+<ul>
+  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider to the left or right. </li>
+  <li>Seeing how the date your are looking at compares with the other data from the summer by selecting the “Show Context” button.</li>
+  <li>Selecting to have the salinity or depth scales be the same between the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
+</ul>
+
+<?php endif; ?>
+
+
+<h3>Questions for Thought</h3>
+
+<?php if ($level=='exploration'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>How can you know what date the data are from that you are looking at in the graph?</li>
+      <li>Across what time periods in summer 2015 are you able to observe salinity with depth data in this interactive? </li>
+      <li>What is the first day and month there are data?</li>
+      <li>What is the last day and month there are data?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in the location of the halocline over this time period in the Northern Atlantic Ocean? </li>
+      <li>When did you see these changes or patterns?</li>
+      <li>What questions do you still have about changes in the depth of the halocline over time?</li>
+    </ul>
+  </div>
+</div>
+
+<?php elseif ($level=='application'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>How can you know what date the data are from that you are looking at in each graph?</li>
+      <li>What is the overall range of salinity data you are able to observe in each graph? </li>
+      <li>What is the overall range of depth data you are able to observe in each graph?</li>
+      <li>What is the overall time range are you able to observe in each graph? </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What similarities and differences did you find in patterns of halocline depth over time between these Temperate Shelf and Polar Plain locations in the North Atlantic Ocean?</li>
+      <li>What other questions do you have about patterns of changes in the depth of the halocline in the summer across the ocean from these data?</li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
 
@@ -144,28 +217,25 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>Data for this activity was adapted from the following instrument:</p>
+<p>The data for this activity was obtained from the following profiling CTD instrument:</p>
 <ul>
-  <li>Coastal Pioneer: Central Offshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMCO-WFP01-03-CTDPFK000), recovered_wfp ctdpf_ckl_wfp_instrument_recovered</li>
+  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP02PMCO/">Central Offshore Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP02PMCO-WFP01-03-CTDPFK000/recovered-wfp_ctdpf-ckl-wfp-instrument-recovered">CP02PMCO-WFP01-03-CTDPFK000</a>)</li>
 </ul>
 
 <?php elseif ($level=='application'): ?>
 
-<p>Data for this activity were adapted from the following instruments:</p>
+<p>The data for this activity was obtained from the following profiling CTD instruments:</p>
 <ul>
-  <li>Coastal Pioneer: 
-  <ul>
-    <li>Central Offshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMCO-WFP01-03-CTDPFK000), recovered_wfp ctdpf_ckl_wfp_instrument_recovered</li>
-    <li>Central Inshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMCI-WFP01-03-CTDPFK000), telemetered ctdpf_ckl_wfp_instrument</li>
-  </ul></li>
-  <li>Global Irminger Sea:
-  <ul>
-    <li>Apex Profiler Mooring, Wire-Following Profiler Upper, CTD (GI02HYPM-WFP02-04-CTDPFL000), recovered_wfp ctdpf_ckl_wfp_instrument_recovered</li>
-  </ul></li>
+  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP02PMCO/">Central Offshore Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP02PMCO-WFP01-03-CTDPFK000/recovered-wfp_ctdpf-ckl-wfp-instrument-recovered">CP02PMCO-WFP01-03-CTDPFK000</a>)</li>
+  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP02PMCI/">Central Inshore Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP02PMCI-WFP01-03-CTDPFK000/telemetered_ctdpf-ckl-wfp-instrument">CP02PMCI-WFP01-03-CTDPFK000</a>)</li>
+  <li>Global Irminger Sea, <a href="http://oceanobservatories.org/site/GI02HYPM/">Apex Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GI02HYPM-WFP02-04-CTDPFL000/recovered-wfp_ctdpf-ckl-wfp-instrument-recovered">GI02HYPM-WFP02-04-CTDPFL000</a>)</li>
 </ul>
 
 <?php endif; ?>
 
+<p class="text-center"><a href="data/chemistry6.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
+<p>The above datasets were downloaded from the OOI data portal.  Complete profiles of the instrument were identified and the profile closest to midnight (GMT) each day was saved.  This reduced the overall temporal resolution (and size) of the final dataset but it preserved the raw variability exhibited in individual profiles and measurements.</p>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
@@ -178,15 +248,15 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p>Select the question your instructor has assigned:</p>
+    <p>This activity has the following variations:</p>
     <div class="list-group">
       <a href="activity6.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What kind of changes or patterns in the location of the halocline do you observe over the summer?</p>
+        <p class="list-group-item-text">Make a prediction about how the location of the halocline may change over a summer in one location.</p>
       </a>
       <a href="activity6.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">How do patterns of the location of the halocline vary across the ocean?</p>
+        <p class="list-group-item-text">Make a prediction about what differences in the location of the halocline you could observe across different parts of the ocean.</p>
       </a>
     </div>
   </div>

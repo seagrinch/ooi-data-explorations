@@ -1,7 +1,7 @@
 var parameters = [
+  {title:"Salinity"},
   {title:"Air Temperature (&deg;C)"},
   {title:"Sea Surface Temperature (&deg;C)"},
-  {title:"Salinity"},
   {title:"Rain Rate (mm/hr)"},
 ];
 
@@ -17,7 +17,8 @@ $(document).ready(function () {
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always',
     labelsDivStyles: { 'textAlign': 'right' },
-    labelsDivWidth : 600,
+    labelsDivWidth : 250,
+    labelsSeparateLines: true,
     labelsUTC : true,
     colors : colors,
     strokeWidth: 0,
@@ -30,16 +31,16 @@ $(document).ready(function () {
     //rangeSelectorPlotStrokeColor : "#008100",
     //animatedZooms : true,
     axes: {
-//       y: {valueRange: [0, null]},
+    //   y: {valueRange: [0, null]},
       y2: {axisLabelWidth: 70}
     },
     series: {
-      'Air Temperature (C)': {axis: 'y2'},
-      'Sea Surface Temperature (C)': {axis: 'y2'},
       'Salinity': {axis: 'y', showInRangeSelector: true},
-      'Rain Rate (mm/hr)': {axis: 'y2'},
+      'Air Temperature': {axis: 'y2'},
+      'Sea Surface Temperature': {axis: 'y2'},
+      'Rain Rate': {axis: 'y2'},
     },
-    visibility: [1,0,1,0],
+    visibility: [1,1,0,0],
   });
 
 }); //document.ready
@@ -49,8 +50,8 @@ function toggle_visibility(el) {
 }
 
 function toggle_radio(el) {
-  g.setVisibility(0, false);
   g.setVisibility(1, false);
+  g.setVisibility(2, false);
   g.setVisibility(3, false);
   if (el.value) {
     g.setVisibility(parseInt(el.value), el.checked);

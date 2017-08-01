@@ -6,12 +6,11 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Tectonics & Seamounts</a></li>
   <li>Instructor's Guide</li>
 </ol>
 
 <div class="page-header">
-  <h2>Instructor's Guide</h2>
+  <h2>Data Explorations Instructor's Guide</h2>
 </div>
 
 <h3>How Are the Data Explorations Set-up?</h3>
@@ -67,8 +66,8 @@
     <a href="chemistry/guide.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean Wave" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="chemistry/guide.php">Exploring Ocean Chemistry with OOI Data</a></h4>
-    <p>(coming May 2017)</p>
+    <h4><a href="chemistry/guide.php">Exploring Properties of Seawater with OOI Data</a></h4>
+    <p>These activities explore properties of seawater in greater detail, to be used as Exploration or Application activities. The properties of seawater explored include: salinity variations over time and space, processes that affect surface seawater salinity, changes in pH with depth, relationship between pH and oceanic pCO<sub>2</sub> for the carbonate buffering system, variations in salinity with depth over time and space, and the depth of the halocline over time and space.</p>
   </div>  
 </div>
 <hr>

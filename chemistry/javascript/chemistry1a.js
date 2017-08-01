@@ -5,11 +5,11 @@ $(document).ready(function () {
     // xlabel
     ylabel: 'Salinity',
     // y2label
-    labels : ["Date","Inshore northern Pacific Ocean","Offshore northern Pacific Ocean",
-      "northern Pacific Ocean","northern Atlantic Ocean","southern Atlantic Ocean","northern Atlantic Ocean (near polar)"],
+    labels : ["Date","Inshore","Offshore","Coastal Pacific","Coastal Mid-Atlantic","Southern Atlantic","Northern Atlantic"],
     legend: 'always',
     labelsDivStyles: { 'textAlign': 'right' },
-    labelsDivWidth : 400,
+    labelsDivWidth : 200,
+    labelsSeparateLines: true,
     labelsUTC : true,
     colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0","#999999"],
     strokeWidth: 0,
@@ -21,9 +21,9 @@ $(document).ready(function () {
     //rangeSelectorPlotFillColor : "#00839C",
     //rangeSelectorPlotStrokeColor : "#008100",
     //animatedZooms : true,
-    //axes: {
-    //  y: {valueRange: [0, null]}
-    //},    
+    axes: {
+      y: {valueRange: [26,36]}
+    },    
   });
   
   g.ready(function() {

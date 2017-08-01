@@ -52,12 +52,20 @@ if(!isset($base_url)) $base_url='./';
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Collections <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <li><a href="<?=$base_url?>productivity/">Primary Production</a></li>
-                <li><a href="<?=$base_url?>chemistry/">Ocean Chemistry</a></li>
+                <li><a href="<?=$base_url?>chemistry/">Properties of Seawater</a></li>
                 <li><a href="<?=$base_url?>geology/">Tectonics & Seamounts</a></li>
               </ul>
             </li>
             <li <?php echo ($page=='workshops' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>workshops.php">Workshops</a></li>
-            <li <?php echo ($page=='instructors' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>instructors.php">Instructor's Guide</a></li>
+            <li class="dropdown <?php echo ($page=='instructors' ? 'active' : '') ?>">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instructor's Guides <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="<?=$base_url?>instructors.php">Introduction</a></li>
+                <li><a href="<?=$base_url?>productivity/guide.php">Primary Production</a></li>
+                <li><a href="<?=$base_url?>chemistry/guide.php">Properties of Seawater</a></li>
+                <li><a href="<?=$base_url?>geology/guide.php">Tectonics & Seamounts</a></li>
+              </ul>
+            </li>
             <li <?php echo ($page=='about' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>about.php">Project Info</a></li>
           </ul>
         </div><!--/.nav-collapse -->

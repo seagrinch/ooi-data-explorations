@@ -25,8 +25,8 @@ var x1 = d3.scaleLinear().range([0, width1]),
     color = d3.scaleSequential(d3.interpolateRainbow); //Alternate: interpolateViridis
 
 var xAxis1 = d3.axisBottom(x1),
-    xAxis2 = d3.axisBottom(x2).tickFormat(d3.timeFormat("%b")),
-    xAxis3 = d3.axisBottom(x3).tickFormat(d3.timeFormat("%b")),
+    xAxis2 = d3.axisBottom(x2),
+    xAxis3 = d3.axisBottom(x3),
     yAxis1 = d3.axisLeft(y1),
     yAxis2 = d3.axisLeft(y2),
     yAxis3 = d3.axisLeft(y3);
@@ -64,7 +64,7 @@ graph1.append("text")
     .attr("text-anchor", "end")
     .style("font-size", "12px")    
     .style("font-weight", "normal")
-    .text("ph");
+    .text("pH");
 graph1.append("text")
     .attr("class", "label")
     .attr("dy", "-2.5em")
@@ -80,7 +80,7 @@ graph2.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("ph");
+    .text("pH");
 graph3.append("text")
     .attr("class", "label")
     .attr("dy", "-2.5em")
@@ -122,10 +122,12 @@ graph2.append("g")
     .attr("class", "brush2")
     .call(brush2)
     //.call(brush2.move, x2.range()); //Default to all time
+/*
 graph3.append("g")
     .attr("class", "brush3")
     .call(brush3)
     //.call(brush3.move, x3.range()); //Default to all time
+*/
 
 drawGraph = function(dataset) {
   d3.csv("data/chemistry4_"+dataset+".csv", type, function(error, data) {
@@ -176,7 +178,19 @@ drawGraph = function(dataset) {
           .style("fill", function(d) {return color(d.date)});
 
     svg.select(".brush2").call(brush2.move,null);
-    svg.select(".brush3").call(brush3.move,null);
+//     svg.select(".brush3").call(brush3.move,null);
+
+    //Tweak to format date ticks
+    var date_range = x2.domain(),
+    date_diff = (date_range[1]-date_range[0])/1000/3600/24;
+    if (date_diff < 150) {
+        xAxis2.ticks(8).tickFormat(d3.timeFormat("%b %e"));
+        xAxis3.ticks(8).tickFormat(d3.timeFormat("%b %e"));  
+    } else {
+        xAxis2.ticks(10).tickFormat(d3.timeFormat("%b"));
+        xAxis3.ticks(10).tickFormat(d3.timeFormat("%b"));  
+    }
+
 
     // Update axes
     d3.select("#xAxis1").call(xAxis1);
@@ -202,7 +216,7 @@ function brushed2() {
         return (d.date > x3.invert(s[0]) && d.date < x3.invert(s[1]))
       })
     .attr("display","inline");
-  d3.select(".brush3").call(brush3.move,s);
+  //d3.select(".brush3").call(brush3.move,s);
 }
 
 function brushed3() {

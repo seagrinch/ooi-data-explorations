@@ -56,13 +56,14 @@ focus.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("Pressure (dbar)")
+    .text("Depth (m)")
 
 d3.csv("data/chemistry5_CP02PMUI.csv", type, function(error, data) {
   if (error) throw error;
 
   x.domain(d3.extent(data, function(d) { return d.salinity; }));
-  y.domain(d3.extent(data, function(d) { return d.pressure; }));
+  //y.domain(d3.extent(data, function(d) { return d.pressure; }));
+  y.domain([25,75]);
   x2.domain(d3.extent(data, function(d) { return d.date; }));
   y2.domain(d3.extent(data, function(d) { return d.salinity; }));
   color.domain(d3.extent(data, function(d) {return d.date}));
@@ -104,11 +105,16 @@ d3.csv("data/chemistry5_CP02PMUI.csv", type, function(error, data) {
       .call(xAxis2);
 
   min_date = d3.min(data,function(d) {return d.date});
+  
   context.append("g")
+      .attr('id','brush_box')
       .attr("class", "brush")
       .call(brush)
       //.call(brush.move, x.range());
       .call(brush.move,[x2(min_date),x2(d3.timeDay.offset(min_date,30))]) // Preselect first 30 days
+      .selectAll("rect.selection")
+        .style("stroke", "#999")
+        .style("fill", "#157ab5")
 
 });
 
@@ -131,4 +137,12 @@ function type(d) {
   d.salinity = +d.salinity;
   d.index = +d.index;
   return d;
+}
+
+function graph_zoom(days) {
+  var brush_box = d3.select("#brush_box");
+  var extent = d3.brushSelection(brush_box.node()) || x2.range();
+  var min_date = x2.invert(extent[0]);
+  var max_date = d3.timeHour.offset(min_date,days*24);
+  brush_box.call(brush.move,[x2(min_date),x2(max_date)]);  
 }

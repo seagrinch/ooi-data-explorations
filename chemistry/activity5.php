@@ -10,7 +10,7 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Ocean Chemistry</a></li>
+  <li><a href="index.php">Properties of Seawater</a></li>
   <li><a href="activity5.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -24,16 +24,44 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Challenge</h3>
 <?php if ($level=='exploration'): ?>
-<p>What kind of changes or patterns in salinity with depth do you observe over a year?</p>
+<p>Make a prediction about what changes in salinity with depth you could observe over time in one location.</p>
 <?php elseif ($level=='application'): ?>
-<p>How do patterns of changes in salinity with depth vary across the ocean?</p>
+<p>Make a prediction about what changes in salinity with depth you could observe across different parts of the ocean.</p>
+<?php endif; ?>
+
+
+<h3>Your Objective</h3>
+
+<?php if ($level=='exploration'): ?>
+<p>Explore data from the surface to 100m over time from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe.</p>
+
+<?php elseif ($level=='application'): ?>
+<p>Investigate patterns in salinity with depth data over time at a Temperate Continental Shelf location and at a Polar Abyssal Plain location to determine how salinity varies with depth in different regions of the northern Atlantic Ocean.</p>
+
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
 <div id="chart"></div>
+<div class="row">
+  <div class="col-md-6">
+    <p>Zoom to: 
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(7)">1 week</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(14)">2 weeks</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(30)">1 month</button>
+    </p>
+  </div>
+  <div class="col-md-6">
+<?php if ($level=='application'): ?>
+    <label style="font-weight: normal;"><input type="checkbox" onclick="match_salinity(this)"> 
+      Match salinity limits</label> <br>
+    <label style="font-weight: normal;"><input type="checkbox" onclick="match_depth(this)"> 
+      Match depth limits</label>
+<?php endif; ?>
+  </div>
+</div>
 
 <?php if ($level=='exploration'): ?>
 <?php 
@@ -48,38 +76,67 @@
 <?php endif; ?>
 
 
-<h3>Your Objective</h3>
+<h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-
-<p>Explore data from the surface to XXm across different time periods from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe.</p>
-
-<p><strong>Data Tip:</strong> Turn on and off different seasons to compare changes in salinity with depth over time. Select another time period to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
+<p>When the site loads, you are able to see May 2015 salinity with depth data from the Inshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-
-<p>Compare patterns in salinity with depth data across different time periods to determine if there are relationships over time across different regions from the northern Atlantic Ocean.</p>
-
-<p><strong>Data Tip:</strong> Select another time period to explore the data in ways to help you find the patterns. Zoom in and out of the data to look at different time scales that interest you. </p>
+<p>When the site loads, you are able to see the first two weeks of July 2015 salinity with depth data from the Inshore Profile Mooring in the Coastal Pioneer Array and the Profile Mooring in the Global Irminger Sea Array both in the Atlantic Ocean. You can interact with the data by: </p>
+<ul>
+  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting to have the salinity or depth scales be the same between the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
+</ul>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
+<h3>Questions for Thought</h3>
 
 <?php if ($level=='exploration'): ?>
-
-<ol>
-  <li>What did you learn about changes in salinity over time?</li>
-  <li>What questions do you still have about changes in salinity from the surface to down in the water column over time?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what time periods are you able to observe salinity with depth data in this graph? </li>
+      <li>What is the first month and year there are data?</li>
+      <li>What is the last month and year there are data?</li>
+      <li>What is the overall range of salinity data you are able to observe in this graph?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in salinity with depth over this time period in the Northern Atlantic Ocean? </li>
+      <li>When did you see these changes or patterns?</li>
+      <li>What questions do you still have about changes in salinity from the surface to down in the water column over time?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application'): ?>
-
-<ol>
-  <li>What similarities and differences did you find in seasonal patterns in changes in salinity with depth across the northern Atlantic Ocean?</li>
-  <li>What can you conclude overall about seasonal patterns in changes in salinity with depth across the ocean from these data?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>What is the overall range of salinity data you are able to observe in each graph? </li>
+      <li>What is the overall range of depth data you are able to observe in each graph?</li>
+      <li>What is the overall time range are you able to observe in each graph? </li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What similarities and differences did you find in patterns of salinity with depth over time between these Temperate Shelf and Polar Plain locations in the North Atlantic Ocean?</li>
+      <li>What other questions do you have about differences in patterns in changes in salinity with depth across different parts of the ocean from these data?</li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
 
@@ -107,20 +164,27 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>Data for this activity was adapted from the following instrument:</p>
+<p>The data for this activity was obtained from the following profiling CTD instrument:</p>
 <ul>
-  <li>Coastal Pioneer: Upstream Inshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMUI-WFP01-03-CTDPFK000), telemetered ctdpf_ckl_wfp_instrument</li>
+  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP02PMUI/">Upstream Inshore Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP02PMUI-WFP01-03-CTDPFK000/telemetered_ctdpf-ckl-wfp-instrument">CP02PMUI-WFP01-03-CTDPFK000</a>)</li>
 </ul>
+<p class="text-center"><a href="data/chemistry5_CP02PMUI.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 <?php elseif ($level=='application'): ?>
 
-<p>Data for this activity were adapted from the following instruments:</p>
+<p>The data for this activity was obtained from the following profiling CTD instruments:</p>
 <ul>
-  <li>Coastal Pioneer: Upstream Inshore Profiler Mooring, Wire-Following Profiler, CTD (CP02PMUI-WFP01-03-CTDPFK000), telemetered ctdpf_ckl_wfp_instrument</li>
-  <li>Global Irminger Sea, Apex Profiler Mooring, Wire-Following Profiler Upper, CTD (GI02HYPM-WFP02-04-CTDPFL000), recovered_wfp ctdpf_ckl_wfp_instrument_recovered</li>
+  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP02PMUI/">Upstream Inshore Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP02PMUI-WFP01-03-CTDPFK000/telemetered_ctdpf-ckl-wfp-instrument">CP02PMUI-WFP01-03-CTDPFK000</a>)</li>
+  <li>Global Irminger Sea, <a href="http://oceanobservatories.org/site/GI02HYPM/">Apex Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GI02HYPM-WFP02-04-CTDPFL000/recovered-wfp_ctdpf-ckl-wfp-instrument-recovered">GI02HYPM-WFP02-04-CTDPFL000</a>)</li>
 </ul>
+<p class="text-center">
+  <a href="data/chemistry5_CP02PMUI.csv" class="btn btn-sm btn-primary">Download CP02PMUI</a>
+  <a href="data/chemistry5_GI02HYPM.csv" class="btn btn-sm btn-primary">Download GI02HYPM</a>
+</p>
 
 <?php endif; ?>
+
+<p>The above datasets were downloaded from the OOI data portal.  Complete profiles of the instrument were identified and the profile closest to midnight (GMT) each day was saved.  This reduced the overall temporal resolution (and size) of the final dataset but it preserved the raw variability exhibited in individual profiles and measurements.</p>
 
 
 <!-- ACTIVITY INTRODUCTION -->
@@ -134,15 +198,15 @@
 
 <div class="row">
   <div class="col-md-6">
-    <p>Select the question your instructor has assigned:</p>
+    <p>This activity has the following variations:</p>
     <div class="list-group">
       <a href="activity5.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What kind of changes or patterns in salinity with depth do you observe over a year?</p>
+        <p class="list-group-item-text">Make a prediction about what changes in salinity with depth you could observe over time in one location.</p>
       </a>
       <a href="activity5.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">How do patterns of changes in salinity with depth vary across the ocean?</p>
+        <p class="list-group-item-text">Make a prediction about what changes in salinity with depth you could observe across different parts of the ocean.</p>
       </a>
     </div>
   </div>

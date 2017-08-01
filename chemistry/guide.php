@@ -7,12 +7,12 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">Ocean Chemistry</a></li>
+  <li><a href="index.php">Properties of Seawater</a></li>
   <li>Instructor's Guide</li>
 </ol>
 
 <div class="page-header">
-  <h2>Exploring Ocean Chemistry with OOI Data<br>
+  <h2>Exploring Properties of Seawater with OOI Data<br>
     <small>Instructor's Guide</small></h2>
 </div>
 
@@ -81,7 +81,7 @@
 <p>Students compare pH vs water pCO2 over space and time to explore the data for relationships and patterns in how pH varies with water pCO2. The students can:</p>
 <ul>
   <li><strong>Exploration:</strong> Explore data from the surface across different time periods. The data are from the northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) from October 2015 through December 2016. </li>
-  <li><strong> Application:</strong> Explore data from the surface across different time periods from different areas. The data are from the northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and southern Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) from October 2015 through December 2016.</li>
+<!--   <li><strong> Application:</strong> Explore data from the surface across different time periods from different areas. The data are from the northern Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>) and southern Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>) from October 2015 through December 2016.</li> -->
 </ul>
   </div>
 </div>
