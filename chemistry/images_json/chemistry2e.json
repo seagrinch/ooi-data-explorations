@@ -1,27 +1,27 @@
 [
   {
-    "title": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the Temperate Pacific Ocean (highlighted in red).",
+    "title": "Measuring the Ocean",
     "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
-    "caption": "Measuring the Ocean"
+    "caption": "The Ocean Observatories Initiative (<a href=\"OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg\">OOI</a>) has hundreds of instruments collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location in the Temperate Pacific Ocean (red box)."
   },
   {
-    "title": "Ocean Off of the Pacific Northwest",
+    "title": "The ocean off of the Pacific Northwest",
     "file": "Endurance-Array-Map_2013_04-17_ver_0-02_orhighlighted.jpg",
-    "caption": "The Coastal Endurance location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Oregon Line (highlighted in red)."
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location is in the ocean off of Oregon and Washington. There are many instruments at this location. Data in this activity were collected from the Central Oregon Line (red box)."
   },
   {
-    "title": "What it Looks Like Under the Water",
+    "title": "What does it look like underwater?",
     "file": "Endurance_OR_2015-10-07_ver_3-00_shelfhighlighted.jpg",
-    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Shelf Surface Mooring (E, highlighted in red)."
+    "caption": "This drawing represents where the different instruments are attached to cables running from the surface down to the seafloor (i.e., a mooring) along the Central Oregon Line. Data in this activity were collected from instruments on the <a href=\"http://oceanobservatories.org/site/ce02shsm/\">Oregon Shelf Surface Mooring</a> (E, red box)."
   },
   {
     "title": "What is on the Mooring?",
-    "file": "CE02SHSM_ENDURANCE_OR_SHELF_SURFACE_MOORING_highlighted.jpg",
-    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the Oregon Shelf Surface Mooring that collected data in this activity is included in the Near Surface Instrument Frame (highlighted in red), which is attached to the cable 7m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the Bulk Meteorology Instrument Package (METBK). "
+    "file": "CE07SHSM_ENDURANCE_WA_SHELF_SURFACE_MOORING_NearSurfaceInstrumenthighlighted.jpg",
+    "caption": "The Near Surface Instrument Frame (red box) at 7m below the water surface is where the data for this activity were collected at the <a href=\"http://oceanobservatories.org/site/ce07shsm/\">Shelf Surface Mooring</a>. Many instruments, each collecting different oceanographic variable data, are included but data for this activity were collected using a <a href=\"http://oceanobservatories.org/instrument-class/metbk/\">Bulk Meteorology Instrument Package</a> instrument."
   },
   {
     "title": "How does a METBK work?",
-    "file": "placeholder.png",
-    "caption": "The Bulk Meteorology Instrument Package (METBK) measures a variety of parameters that characterize weather conditions above the sea surface, including the data required to compute air-sea fluxes of heat, freshwater, and momentum. The specific data products that are used in this activity are: Sea Surface Salinity (SALSURF), Air Temperature (TEMPAIR), Sea Surface Temperature (TEMPSRF), and Rain rate (RAINRTE)."
+    "file": "128WHOTS3_6in_27952.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/instrument-class/metbk/\">Bulk Meteorology Instrument Package</a> measures different aspects of weather conditions above the sea surface, including data used to calculate movement of energy between the air and ocean. More information of how it works can be found <a href=\"http://www.whoi.edu/instruments/viewInstrument.do?id=14686\">here</a>. The specific data in this activity are: <a href=\"http://oceanobservatories.org/data-product/salsurf/\">Sea Surface Salinity</a>, <a href=\"http://oceanobservatories.org/data-product/tempair/\">Air Temperature</a>, <a href=\"http://oceanobservatories.org/data-product/tempsrf/\">Sea Surface Temperature</a>, and <a href=\"http://oceanobservatories.org/data-product/rainrte/\">Rain rate</a>."
   }
 ]

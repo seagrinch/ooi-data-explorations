@@ -1,42 +1,37 @@
 [
   {
     "title": "Measuring the Ocean",
-    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_ednpioirmarghighlighted.jpg",
-    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the temperate Pacific Ocean (highlighted in red), the Coastal Pioneer location in the temperate North Atlantic Ocean (highlighted in purple), Global Irminger Sea location in the near polar Atlantic Ocean (highlighted in blue), and Global Argentine Basin location in the temperate South Atlantic Ocean (highlighted in yellow)."
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_ednpioirmarghighlighted_v2.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> (green), <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> (blue), <a href=\"http://oceanobservatories.org/array/global-irminger-sea/\">Global Irminger Sea</a> (grey), and <a href=\"http://oceanobservatories.org/array/global-argentine-basin/\">Global Argentine Basin</a> (teal)."
   },
   {
-    "title": "Ocean Off of the Pacific Northwest",
-    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_wa_orlineshighlighted.jpg",
-    "caption": "The Coastal Endurance location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Washington Line (highlighted in red) and the Central Oregon Line (highlighted in pink)."
+    "title": "The ocean off of the Pacific Northwest",
+    "file": "Endurance-Array-Map_2013_04-17_ver_0-02_wa_orlineshighlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location is in the ocean off of Oregon and Washington. There are many instruments at this location. Data in this activity were collected from Surface Moorings at 7m below the water surface in the Central Washington Line (green) and the Central Oregon Line (orange)."
   },
   {
-    "title": "What it Looks Like Under the Water off Washington",
-    "file": "Endurance_WA_2015-10-07_ver_3-00_shelfhighlighted.jpg",
-    "caption": "Below the ocean surface off of Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Washington Shelf Surface Mooring (D, highlighted in red) in the center of the drawing."
+    "title": "",
+    "file": "Pioneer_NEObsMap_110914_states_highlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> location (blue boxes) is in the ocean off of Rhode Island and Massachusetts. There are many instruments at this location. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/cp03issm/\">Inshore Surface Mooring</a> at 7m below the water surface."
   },
   {
-    "title": "What it Looks Like Under the Water off Oregon",
-    "file": "Endurance_OR_2015-10-07_ver_3-00_inshore_shelfhighlighted.jpg",
-    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Shelf Surface Mooring (E, highlighted in orange in the center of the drawing) and the Oregon Inshore Surface Mooring (B, highlighted in pink on the right of the drawing)."
+    "title": "",
+    "file": "Global_Southern_2015-10-07_ver_5-00_flankingAhighlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-irminger-sea/\">Global Irminger Sea</a> location (grey) is in the ocean off Greenland. There are many instruments at this location. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/GI03FLMA/\">Flanking Subsurface Mooring A</a> at 30m below the water surface."
   },
   {
-    "title": "Ocean Off of the Atlantic Northeast",
-    "file": "Pioneer_NEObsMap_110914_states_highlighted.jpg",
-    "caption": "The Coastal Pioneer location is located in the ocean off of the southern New England states. Data in this activity were collected from the array (highlighted in purple)."
+    "title": "",
+    "file": "Global_Argentine_2015-10-07_ver_5-00_apexhighlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-argentine-basin/\">Global Argentine Basin</a> location (teal) is in the ocean off Argentina. There are many instruments at this location. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/GA01SUMO/\">Apex Surface Mooring</a> at 12m below the water surface."
   },
   {
-    "title": "What it Looks Like Under the Water off Southern New England",
-    "file": "PioneerArray_2015-10-07_ver_3-00_inshoresurfacehighlighted.jpg",
-    "caption": "Below the ocean surface off of southern New England states are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Pioneer location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Inshore Surface Mooring (B, highlighted in purple) at the top left of the drawing."
-  },
-  {
-    "title": "What is on the Mooring?",
+    "title": "",
     "file": "CE07SHSM_ENDURANCE_WA_SHELF_SURFACE_MOORING_NearSurfaceInstrumenthighlighted.jpg",
-    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on each of the moorings just explored that collected data in this activity is included in the Near Surface Instrument Frame (highlighted in red), which is attached to the cable 7m below the water surface, or the Mooring Riser. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the CTD instrument."
+    "caption": "The Near Surface Instrument Frame (red box) at 7m below the water surface is where these data were collected on each mooring (instruments attached to a cable in the water). Many instruments, each collecting different oceanographic variable data, are included but data for this activity were collected using a CTD instrument."
   },
   {
     "title": "How does a CTD work?",
-    "file": "placeholder.png",
-    "caption": "The CTD measures and records conductivity, temperature, and pressure (proxy for depth). These parameters can then be used to calculate salinity and density. The CTD is specifically designed to be used for long durations in the ocean at the same site. It has internal batteries and memory to store the data (recovered data), but also communicates via an RS-232 serial interface (telemetered data). The specific kind of CTD used at at these moorings is a Sea-Bird - SBE 16plusV2 and it has a bottom pump to control the water flow through the instrument (CTDBP)."
+    "file": "DSC00221_Papa_Deploy_CTD.jpg",
+    "caption": "The <a href=\"http://www.whoi.edu/instruments/viewInstrument.do?id=1003\">CTD</a> measures and records conductivity, temperature, and pressure as water flows through the instrument. Then scientists can calculate the salinity, density, and depth of the water. This CTD, a <a href=\"http://www.seabird.com/sbe16plusv2-seacat-ctd\">Sea-Bird - SBE 16plusV2</a>, stores data (recovered data), and communicates some of the data in real time (telemetered data)."
   }
 ]

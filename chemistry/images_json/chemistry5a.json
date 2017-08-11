@@ -1,37 +1,27 @@
 [
   {
     "title": "Measuring the Ocean",
-    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_pioirnmhighlighted.jpg",
-    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Pioneer location in the Temperate Atlantic Ocean (highlighted in purple) and the Global Irminger Sea location in the near polar Atlantic Ocean (highlighted in blue)."
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_pioirnmhighlighted_v2.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> (blue box) and and the <a href=\"http://oceanobservatories.org/array/global-irminger-sea/\">Global Irminger Sea</a> (red box)."
   },
   {
-    "title": "Ocean Off of the Atlantic Northeast",
-    "file": "Pioneer_NEObsMap_110914_states_highlighted.jpg",
-    "caption": "The Coastal Pioneer location is located in the ocean off of the southern New England states. Data in this activity were collected from the array (highlighted in purple)."
+    "title": "The ocean off of the Atlantic Northeast",
+    "file": "Pioneer_NEObsMap_110914_states_highlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> location (blue boxes) is in the ocean off of Rhode Island and Massachusetts. There are many instruments at this location. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/cp02pmui/\">Upstream Inshore Profiler Mooring</a> at 90m below the water surface."
   },
   {
-    "title": "What it Looks Like Under the Water off the Atlantic Northeast",
-    "file": "PioneerArray_2015-10-07_ver_3-00_upstreaminhighlighted.jpg",
-    "caption": "Below the ocean surface off of the southern New England states are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Pioneer location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Upstream Inshore Profiler Mooring (I, highlighted in purple) in the center of the drawing. "
+    "title": "",
+    "file": "Global_Irminger_2015-10-07_ver_5-00_apexprofilerhighlighted_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-irminger-sea/\">Global Irminger Sea</a> location is in the ocean off of southern Greenland. There are many instruments at this location. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/gi02hypm/\">Apex Profiler Mooring</a> (B, red box)."
   },
   {
-    "title": "What is on the Mooring off the Atlantic Northeast?",
+    "title": "",
     "file": "CP02PMUI_Pioneer_Upstream_Inshore_Profiler_Mooring_wirefollowerhighlighted.jpg",
-    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the Upstream Inshore Profiler Mooring that collected data in this activity is included in the Wire-Following Profiler (highlighted in purple), which moves along the cable between 15 and 70m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Wire-Following Profiler. Data for this activity were collected using the CTD instrument."
-  },
-  {
-    "title": "Ocean Off of Greenland & What is Looks Like Under Water",
-    "file": "Global_Irminger_2015-10-07_ver_5-00_apexprofilerhighlighted.jpg",
-    "caption": "The Global Irminger Sea location is located in the ocean off of southern Greenland. Below the ocean surface off of southern Greenland there are multiple oceanographic instruments attached along cables running from the surface down to the seafloor. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from the Apex Profiler Mooring (B, highlighted in blue) in the left of the drawing."
-  },
-  {
-    "title": "What is on the Mooring Off of Greenland?",
-    "file": "GI02HYPM_Irminger_Apex_Profiler_Mooring_wireprofilerhighlighted.jpg",
-    "caption": "The instrument on the Apex Profiler Mooring that collected data in this activity is included in the Wire-Following Profiler Upper (highlighted in blue), which moves along the cable between 240 and 2,592m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Wire-Following Profiler. Data for this activity were collected using the CTD instrument."
+    "caption": "The Wire-Following Profiler (purple box) moves along the cable from 15-70m (<a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Pioneer</a>) or from 240-2,592m (<a href=\"http://oceanobservatories.org/array/global-irminger-sea/\">Irminger</a>) below the water surface. It is where these data were collected. Many instruments, each collecting different oceanographic variable data, are included in the Profiler. Data for this activity are from the CTD instruments."
   },
   {
     "title": "How does a CTD work?",
-    "file": "placeholder.png",
-    "caption": "The CTD measures and records conductivity, temperature, and pressure (proxy for depth). These parameters can then be used to calculate salinity and density. The CTD is specifically designed to be used for long durations. The specific kind of CTD used at the Upstream Inshore Profiler Mooring is a Sea-Bird - SBE 52MP and at the Apex Profiler Mooring is a Sea-Bird - SBE 37IM."
+    "file": "DSC00221_Papa_Deploy_CTD.jpg",
+    "caption": "The <a href=\"http://www.whoi.edu/instruments/viewInstrument.do?id=1003\">CTD</a> measures and records conductivity, temperature, and pressure as water flows through the instrument, so scientists can calculate the salinity, density, and depth of the water. These CTDs are designed to move up and down while it stores (recovered) and communicates data in real time (telemetered). Pioneer has a <a href=\"http://www.seabird.com/sbe52mp-moored-profiler-ctd-dissolved-oxygen-sensor\">Sea-Bird - SBE 52MP</a> and Irminger has a <a href=\"http://www.seabird.com/sbe37im-microcat-CTD\">Sea-Bird - SBE 37IM</a>."
   }
 ]

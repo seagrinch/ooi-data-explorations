@@ -2,26 +2,21 @@
   {
     "title": "Measuring the Ocean",
     "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
-    "caption": "The Ocean Observatories Initiative (OOI) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data from the Coastal Endurance location in the Temperate Pacific Ocean (highlighted in red)."
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location in the Temperate Pacific Ocean (red box)."
   },
   {
-    "title": "Ocean Off of the Pacific Northwest",
+    "title": "The Ocean off of the Pacific Northwest",
     "file": "Endurance-Array-Map_2013_04-17_ver_0-02_orhighlighted.jpg",
-    "caption": "The Coastal Endurance location is located in the ocean off of Oregon and Washington states. Data in this activity were collected from the Central Oregon Line (highlighted in red). "
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location is in the ocean off of Oregon and Washington. There are many instruments at this location. Data in this activity were collected from the Central Oregon Line (red box)."
   },
   {
-    "title": "What it Looks Like Under the Water",
+    "title": "What does it look like underwater?",
     "file": "Endurance_OR_2015-10-07_ver_3-00_cabledoffshorehighlighted.jpg",
-    "caption": "Below the ocean surface off of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Oregon Offshore Cabled Shallow Profiler Mooring (F, highlighted in red)."
+    "caption": "This drawing represents where the different instruments are attached to cables running from the surface down to the seafloor (i.e., a mooring) along the Central Oregon Line. Data in this activity were collected from instruments on the <a href=\"http://oceanobservatories.org/site/ce04osps/\">Oregon Offshore Cabled Shallow Profiler Mooring</a> (F, red box) between 20-200m."
   },
   {
-    "title": "What is on the Mooring",
-    "file": "placeholder.png",
-    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the Oregon Offshore Cabled Shallow Profiler Mooring that collected data in this activity is included on the Shallow Profiler, which moves along the cable between 20 and 200m below the water surface. Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Shallow Profiler. Data for this activity were collected using the Seawater pH."
-  },
-  {
-    "title": "How does a Seawater pH work?",
-    "file": "placeholder.png",
-    "caption": "The Seawater pH measures the concentration of hydrogen ions in a solution (i.e., ocean water) so that you can determine the pH of the solution. The specific pH sensor is the Sunburst SAMI-pH."
+    "title": "How does a Seawater pH sensor work?",
+    "file": "ph_epe.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/instrument-class/phsen/\">Seawater pH</a> instrument measures the concentration of hydrogen ions in the ocean water that passes by the sensor so that scientists can calculate the pH of the water. The specific pH sensor is the <a href=\"http://www.sunburstsensors.com/products/oceanographic-ph-sensor.html\">Sunburst SAMI-pH</a>. This is an image of the pH scale with the average global surface ocean pH stared for comparisons of these data."
   }
 ]
