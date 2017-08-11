@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,18 +23,14 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge</h3>
-<?php if ($level=='exploration'): ?>
-<p>Make a prediction about how as salinity in the surface ocean changes, what changes in other aspects of the ocean and/or atmosphere you could observe.</p>
-<?php elseif ($level=='application'): ?>
-<p>Does salinity change over time in the surface ocean? Why?</p>
-<?php endif; ?>
-
-
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore data from the water and atmospheric conditions above the surface ocean across different time periods from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
+<p>Use water and atmospheric conditions (above the surface ocean) data across different time periods from the North Pacific Ocean to see if there are patterns.</p>
+<ul>
+  <li>Make a prediction about how as salinity in the surface ocean changes, what changes in other aspects of the ocean and/or atmosphere you may observe.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
 <p>Explore data from the water and atmospheric conditions above the surface ocean during different weather events from the northern Pacific Ocean (Coastal Endurance Array) to observe patterns in processes that impact surface salinity values.</p>
@@ -95,7 +90,7 @@
 <p>When the site loads, you are able to see the full dataset of salinity and air temperature data from the Oregon Shelf Surface Buoy in the Coastal Endurance Array. You can interact with the data by:</p>
 <ul>
   <li>Turning on and off different oceanic or atmospheric variables to compare their data to the salinity data.</li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted).</li>
 </ul>
 
 <?php elseif ($level=='application'): ?>
@@ -189,7 +184,7 @@
     <div class="list-group">
       <a href="activity2.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Make a prediction about how as salinity in the surface ocean changes, what changes in other aspects of the ocean and/or atmosphere you could observe.</p>
+        <p class="list-group-item-text">Use water and atmospheric conditions (above the surface ocean) data across different time periods from the North Pacific Ocean to see if there are patterns.</p>
       </a>
 <!--
       <a href="activity2.php?level=application" class="list-group-item">

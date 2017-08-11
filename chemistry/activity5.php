@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,21 +23,21 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge</h3>
-<?php if ($level=='exploration'): ?>
-<p>Make a prediction about what changes in salinity with depth you could observe over time in one location.</p>
-<?php elseif ($level=='application'): ?>
-<p>Make a prediction about what changes in salinity with depth you could observe across different parts of the ocean.</p>
-<?php endif; ?>
-
-
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore data from the surface to 100m over time from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe.</p>
+<p>Use salinity data from the surface to 100m from the North Atlantic Ocean to look if there are patterns over time.</p>
+<ul>
+  <li>Make a prediction about what changes in salinity with depth you may observe over time at one location.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>Investigate patterns in salinity with depth data over time at a Temperate Continental Shelf location and at a Polar Abyssal Plain location to determine how salinity varies with depth in different regions of the northern Atlantic Ocean.</p>
+<p>Use salinity with depth data to determine if there are relationships over time between two different regions of the North Atlantic Ocean.</p>
+<ul>
+  <li>Make a prediction about what changes in salinity with depth you may observe across different parts of the ocean.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time and/or space.</li>
+</ul>
 
 <?php endif; ?>
 
@@ -79,19 +78,23 @@
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>When the site loads, you are able to see May 2015 salinity with depth data from the Inshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by:</p>
+<p>When the site loads, you are able to see daily profiles of salinity data from all of May 2015 from the Coastal Pioneer Array. You can interact with the data by:</p>
 <ul>
-  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting a different amount of time to look at by choosing between, "1 week," "2 weeks," or "1 month." </li>
+  <li>Selecting a different part of the year to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph to be more or less than a month.</li>
 </ul>
+<p>As a note, the color denotes the time of year the salinity data are from (light purple/pink are from May 2015 through blue/dark purple from February 2016).</p>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads, you are able to see the first two weeks of July 2015 salinity with depth data from the Inshore Profile Mooring in the Coastal Pioneer Array and the Profile Mooring in the Global Irminger Sea Array both in the Atlantic Ocean. You can interact with the data by: </p>
+<p>When the site loads, you are able to see daily profiles of salinity data from the first two weeks of July 2015 from the Coastal Pioneer Array (Temperate Shelf) and the Global Irminger Sea Array (Polar Deep Basin) both in the North Atlantic Ocean. You can interact with the data by: </p>
 <ul>
-  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
-  <li>Selecting to have the salinity or depth scales be the same between the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
+  <li>Selecting a different amount of time to look at by choosing between, "1 week," "2 weeks," or "1 month." </li>
+  <li>Selecting a different part of the year to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph to be more or less than two weeks.</li>
+  <li>Selecting to have the salinity or depth scales be the same across the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
 </ul>
+<p>As a note, the color denotes the time of year the salinity data are from (pink are from May 2015 through dark purple from February 2016).</p>
 
 <?php endif; ?>
 
@@ -202,11 +205,11 @@
     <div class="list-group">
       <a href="activity5.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Make a prediction about what changes in salinity with depth you could observe over time in one location.</p>
+        <p class="list-group-item-text">Use salinity data from the surface to 100m from the North Atlantic Ocean to look if there are patterns over time.</p>
       </a>
       <a href="activity5.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">Make a prediction about what changes in salinity with depth you could observe across different parts of the ocean.</p>
+        <p class="list-group-item-text">Use salinity with depth data to determine if there are relationships over time between two different regions of the North Atlantic Ocean.</p>
       </a>
     </div>
   </div>

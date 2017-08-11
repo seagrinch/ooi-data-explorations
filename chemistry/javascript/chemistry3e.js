@@ -63,8 +63,9 @@ focus.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("Pressure (dbar)")
+    .text("Depth (m)")
 
+/*
 focus.append("text")
     .attr("class", "title")
     .attr("dy", "-.4em")
@@ -73,6 +74,7 @@ focus.append("text")
     .style("font-size", "14px")    
     .style("font-weight", "bold")
     .text("Coastal Endurance (CE04OSPS)");
+*/
 
 d3.csv("data/chemistry3.csv", type, function(error, data) {
   if (error) throw error;
@@ -83,7 +85,8 @@ d3.csv("data/chemistry3.csv", type, function(error, data) {
 
   var data = nested['CE04OSPS'];
 
-  x.domain(d3.extent(data, function(d) { return d.ph; }));
+  //x.domain(d3.extent(data, function(d) { return d.ph; }));
+  x.domain([7.5,8.5]);
   y.domain(d3.extent(data, function(d) { return d.pressure; }));
   x2.domain(d3.extent(data, function(d) { return d.date; }));
   y2.domain(d3.extent(data, function(d) { return d.ph; }));

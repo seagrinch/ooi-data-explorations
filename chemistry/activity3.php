@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,21 +23,21 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge</h3>
-<?php if ($level=='exploration'): ?>
-<p>Make a prediction about what kind of changes or patterns in pH data with depth could observe over a year.</p>
-<?php elseif ($level=='application'): ?>
-<p>Make a prediction about what kind of changes or patterns in pH with depth could observe between two different parts of the ocean.</p>
-<?php endif; ?>
-
-
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore pH data from the surface down to 200m over a year from the northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
+<p>Use pH data from the surface down to 200m from the North Pacific Ocean to look if there are patterns over a year.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in pH with depth may observe over a year.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>Compare patterns in pH with depth data to determine if there are relationships over time between two different regions off of Oregon in the northern Pacific Ocean.</p>
+<p>Use pH with depth data to determine if there are relationships over time across different regions of the ocean.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in pH with depth you may observe between two different parts of the ocean.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time and/or space.</li>
+</ul> 
 
 <?php endif; ?>
 
@@ -69,18 +68,22 @@
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>When the site loads, you are able to see January 2016 pH data from the Oregon Offshore Profile Mooring in the Coastal Endurance Array. You can interact with the data by:</p>
+<p>When the site loads, you are able to see pH data from all of January 2016 from the Oregon Offshore Profile Mooring in the Coastal Endurance Array. You can interact with the data by:</p>
 <ul>
-  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting a different amount of time to look at by choosing between, "1 week," "2 weeks," or "1 month." </li>
+  <li>Selecting a different part of the year to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph to be more or less than a month.</li>
 </ul>
+<p>As a note, the color denotes the time of year the pH data are from (light purple/pink are from January through blue/dark purple from December).</p>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads, you are able to see January 2016 pH data from the Coastal Offshore Profile Mooring in the Coastal Endurance Array and the Shallow Slope Profile Mooring in the Cabled Array both off of Oregon. You can interact with the data by: </p>
+<p>When the site loads, you are able to see pH data data from all of January 2016 from the Coastal Endurance (Oregon Offshore) and Cabled (Oregon Shallow Slope) Arrays both off of Oregon. You can interact with the data by: </p>
 <ul>
-  <li>Selecting a different time period to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left. </li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting a different amount of time to look at by choosing between, "1 week," "2 weeks," or "1 month."</li>
+  <li>Selecting a different part of the year to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph to be more or less than a month.</li>
 </ul>
+<p>As a note, the color denotes the time of year the pH data are from (light purple/pink are from January through blue/dark purple from December).</p>
 
 <?php endif; ?>
 
@@ -164,7 +167,6 @@
 <p>The data for this activity was obtained from the following profiling pH instruments:</p>
 <ul>
   <li>Coastal Endurance, <a href="http://oceanobservatories.org/site/CE04OSPS/">Oregon Offshore Cabled Shallow Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE04OSPS-SF01B-2B-PHSENA108/streamed_phsen-data-record">CE04OSPS-SF01B-2B-PHSENA108</a>)</li>
-  <li>Cabled Array, <a href="http://oceanobservatories.org/site/RS03AXPS/">Axial Base Shallow Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#RS03AXPS-SF03A-2D-PHSENA301/streamed_phsen-data-record">RS03AXPS-SF03A-2D-PHSENA301</a>)</li>
   <li>Cabled Array, <a href="http://oceanobservatories.org/site/RS01SBPS/">Oregon Slope Base Shallow Profiler Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#RS01SBPS-SF01A-2D-PHSENA101/streamed_phsen-data-record">RS01SBPS-SF01A-2D-PHSENA101</a>)</li>
 </ul>
 
@@ -189,11 +191,11 @@
     <div class="list-group">
       <a href="activity3.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Make a prediction about what kind of changes or patterns in pH data with depth could observe over a year.</p>
+        <p class="list-group-item-text">Use pH data from the surface down to 200m from the North Pacific Ocean to look if there are patterns over a year.</p>
       </a>
       <a href="activity3.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">Make a prediction about what kind of changes or patterns in pH with depth could observe between two different parts of the ocean.</p>
+        <p class="list-group-item-text">Use pH with depth data to determine if there are relationships over time across different regions of the ocean.</p>
       </a>
     </div>
   </div>

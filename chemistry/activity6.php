@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,21 +23,21 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge</h3>
-<?php if ($level=='exploration'): ?>
-<p>Make a prediction about how the location of the halocline may change over a summer in one location.</p>
-<?php elseif ($level=='application'): ?>
-<p>Make a prediction about what differences in the location of the halocline you could observe across different parts of the ocean.</p>
-<?php endif; ?>
-
-
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore data across a summer from the northern Atlantic Ocean (Coastal Pioneer Array) to see what you can observe about the location of the halocline.</p>
+<p>Use salinity data across a summer in the North Atlantic Ocean to look if there are patterns in the depth and shape of the halocline over time.</p>
+<ul>
+  <li>Make a prediction about how the location of the halocline may change over a summer in one location.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>Investigate patterns in halocline depth data during a summer at two Temperate Continental Shelf locations and at a Polar Abyssal Plain location to determine how the halocline depth varies in different regions of the northern Atlantic Ocean.</p>
+<p>Use salinity data across a summer to determine if there are relationships in the depth and shape of the halocline over time between three different regions of the North Atlantic Ocean.</p>
+<ul>
+  <li>Make a prediction about what differences in the location of the halocline you may observe across Temperate and Polar locations.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time and/or space.</li>
+</ul>
 
 <?php endif; ?>
 
@@ -131,19 +130,21 @@
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>When the site loads, you are able to a salinity profile from June 1, 2015 from the Offshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by:</p>
+<p>When the site loads, you are able to a salinity profile from June 1, 2015 from the Coastal Pioneer Array. You can interact with the data by:</p>
 <ul>
-  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider to the left or right. </li>
-  <li>Seeing how the date your are looking at compares with the other data from the summer by selecting the “Show Context” button.</li>
+  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider box to the left or right.</li>
+  <li>Seeing how the date your are looking at compares with all of the other data from the summer by selecting the "Show Context" button.</li>
 </ul>
+<p>As a note, each day graphs as a different color. </p>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads, you are able to a salinity profile from June 1, 2015 from the Inshore Profile Mooring in the Coastal Pioneer Array. You can interact with the data by: </p>
+<p>When the site loads, you are able to daily salinity profiles from June 1, 2015 from the Coastal Pioneer Array (Temperate Inshore & Offshore Shelf), with an empty graph for the Irminger Sea Array (Polar Deep Basin) as data are not available from June 1, 2015. You can interact with the data by: </p>
 <ul>
-  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider to the left or right. </li>
-  <li>Seeing how the date your are looking at compares with the other data from the summer by selecting the “Show Context” button.</li>
-  <li>Selecting to have the salinity or depth scales be the same between the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
+  <li>Selecting a different date to explore the data in ways that interest you by using the left/right arrows or moving the time slider box to the left or right. </li>
+  <li>Seeing how the date your are looking at compares with all of the other data from the summer by selecting the "Show Context" button.</li>
+  <li>Selecting to have the salinity or depth scales be the same across the two graphs, rather than determined by the available data (as it shows when the site loads).</li>
 </ul>
+<p>As a note, each day graphs as a different color.</p>
 
 <?php endif; ?>
 
@@ -252,11 +253,11 @@
     <div class="list-group">
       <a href="activity6.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Make a prediction about how the location of the halocline may change over a summer in one location.</p>
+        <p class="list-group-item-text">Use salinity data across a summer in the North Atlantic Ocean to look if there are patterns in the depth and shape of the halocline over time.</p>
       </a>
       <a href="activity6.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">Make a prediction about what differences in the location of the halocline you could observe across different parts of the ocean.</p>
+        <p class="list-group-item-text">Use salinity data across a summer to determine if there are relationships in the depth and shape of the halocline over time between three different regions of the North Atlantic Ocean.</p>
       </a>
     </div>
   </div>

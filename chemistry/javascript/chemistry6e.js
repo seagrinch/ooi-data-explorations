@@ -110,7 +110,8 @@ d3.csv("data/chemistry6.csv", function(error, data) {
   data = data.filter(function(d) { return d.site =='CP02PMCI' });
   
   x.domain(d3.extent(data, function(d) { return d.salinity; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.pressure; })).nice();
+  //y.domain(d3.extent(data, function(d) { return d.pressure; })).nice();
+  y.domain([0,110])
 
   var date_range = d3.extent(data, function(d) { return d.dt; });
   color.domain(d3.range(date_range[0],date_range[1], (date_range[1]-date_range[0])/11 ));

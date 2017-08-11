@@ -39,13 +39,21 @@ var brush3 = d3.brushX()
     .extent([[0, 0], [width3, height3]])
     .on("brush end", brushed3);
 
-/*
 svg.append("defs").append("clipPath")
-    .attr("id", "clip")
+    .attr("id", "clip1")
   .append("rect")
-    .attr("width", width)
-    .attr("height", height);
-*/
+    .attr("width", width1)
+    .attr("height", height1);
+svg.append("defs").append("clipPath")
+    .attr("id", "clip2")
+  .append("rect")
+    .attr("width", width2)
+    .attr("height", height2);
+svg.append("defs").append("clipPath")
+    .attr("id", "clip3")
+  .append("rect")
+    .attr("width", width3)
+    .attr("height", height3);
 
 var graph1 = svg.append("g")
     .attr("class", "focus")
@@ -94,16 +102,20 @@ graph3.append("text")
 d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
   if (error) throw error;
 
-  x1.domain(d3.extent(data, function(d) { return d.ph; }));
-  y1.domain(d3.extent(data, function(d) { return d.pco2; }));
+  //x1.domain(d3.extent(data, function(d) { return d.ph; }));
+  x1.domain([7.5,8.5]);
+  //y1.domain(d3.extent(data, function(d) { return d.pco2; }));
+  y1.domain([0,800]);
   x2.domain(d3.extent(data, function(d) { return d.date; }));
-  y2.domain(d3.extent(data, function(d) { return d.ph; }));
+  //y2.domain(d3.extent(data, function(d) { return d.ph; }));
+  y2.domain([7.5,8.5]);
   x3.domain(d3.extent(data, function(d) { return d.date; }));
-  y3.domain(d3.extent(data, function(d) { return d.pco2; }));
+  //y3.domain(d3.extent(data, function(d) { return d.pco2; }));
+  y3.domain([0,800]);
   color.domain(d3.extent(data, function(d) {return d.date}));
 
   var dots1 = graph1.append("g");
-  //dots1.attr("clip-path", "url(#clip)")
+  dots1.attr("clip-path", "url(#clip1)")
   dots1.selectAll(".dot")
         .data(data)
       .enter().append("circle")
@@ -121,7 +133,7 @@ d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
       .call(yAxis1);
 
   var dots2 = graph2.append("g");
-  //dots2.attr("clip-path", "url(#clip)")
+  dots2.attr("clip-path", "url(#clip2)")
   dots2.selectAll(".dot")
         .data(data)
       .enter().append("circle")
@@ -139,7 +151,7 @@ d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
       .call(yAxis2);
 
   var dots3 = graph3.append("g");
-  //dots3.attr("clip-path", "url(#clip)")
+  dots3.attr("clip-path", "url(#clip3)")
   dots3.selectAll(".dot")
         .data(data)
       .enter().append("circle")

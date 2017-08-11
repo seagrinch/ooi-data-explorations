@@ -80,7 +80,7 @@ focus1.append("text")
     .attr("text-anchor", "start")
     .style("font-size", "14px")    
     .style("font-weight", "bold")
-    .text("Oregon Offshore (CE04OSPS)");
+    .text("Oregon Offshore");
 focus2.append("text")
     .attr("class", "label")
     .attr("dy", "2.5em")
@@ -104,7 +104,7 @@ focus2.append("text")
     .attr("text-anchor", "start")
     .style("font-size", "14px")    
     .style("font-weight", "bold")
-    .text("Oregon Slope Base (RS01SBPS)");
+    .text("Oregon Shallow Slope");
 
 d3.csv("data/chemistry3.csv", type, function(error, data) {
   if (error) throw error;

@@ -63,7 +63,7 @@ d3.csv("data/chemistry5_CP02PMUI.csv", type, function(error, data) {
 
   x.domain(d3.extent(data, function(d) { return d.salinity; }));
   //y.domain(d3.extent(data, function(d) { return d.pressure; }));
-  y.domain([25,75]);
+  y.domain([0,75]);
   x2.domain(d3.extent(data, function(d) { return d.date; }));
   y2.domain(d3.extent(data, function(d) { return d.salinity; }));
   color.domain(d3.extent(data, function(d) {return d.date}));

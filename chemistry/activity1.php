@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the May 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,21 +23,21 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge</h3>
-<?php if ($level=='exploration'): ?>
-<p>Make a prediction about what kind of changes or patterns in salinity you could observe over a year.</p>
-<?php elseif ($level=='application'): ?>
-<p>Make a prediction about what kinds of changes or patterns in salinity over time you could observe across different parts of the ocean.</p>
-<?php endif; ?>
-
-
 <h3>Your Objective</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore salinity data across different time periods from the Northern Pacific Ocean (Coastal Endurance Array) to see what you can observe.</p>
+<p>Use salinity data across different periods of time from the North Pacific Ocean to look if there are patterns over a year.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in salinity you may observe over a year.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>Compare patterns in salinity data across different time periods to determine if there are relationships over time across different regions of the ocean.</p>
+<p>Use salinity data across different time periods to determine if there are relationships over time across different regions of the ocean.</p>
+<ul>
+  <li>Make a prediction about what kinds of changes or patterns in salinity over time you may observe across different parts of the ocean.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time and/or space.</li>
+</ul>
 
 <?php endif; ?>
 
@@ -88,11 +87,11 @@
   </div>
   <div class="col-xs-9">
   <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(1)" checked>
-    Inshore vs. Offshore (Pacific Ocean off of the Oregon coast)</label>
+    Inshore vs. Offshore (North Pacific Ocean off of the Oregon coast)</label>
   <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(2)"> 
-    Coastal Pacific vs. Coastal Mid-Atlantic</label><br>
+    Coastal Atlantic vs. Coastal Pacific (in northern hemisphere off of Massachusetts and Oregon coasts)</label><br>
   <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(3)"> 
-    Northern vs. Southern Atlantic Ocean</label>
+    Northern near-polar vs. Southern temperate Atlantic Ocean</label>
 <!--
   <br>
   <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(0)"> 
@@ -114,16 +113,16 @@
 <?php if ($level=='exploration'): ?>
 <p>When the site loads, you are able to see the full dataset of salinity data from the Coastal Endurance's Near Shelf Surface Mooring. You can interact with the data by:</p>
 <ul>
-  <li>Selecting a shorter or different time period to explore the data in ways that interest you.</li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting a different time period (season or full year) to explore the data in ways that interest you.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted).</li>
 </ul>
 
 <?php elseif ($level=='application'): ?>
 <p>When the site loads, you are able to see the full dataset of salinity data from the Inshore and Offshore sites of the Coastal Endurance. You can interact with the data by:</p>
 <ul>
-  <li>Selecting which regional comparison you are interested in looking at: Inshore vs. Offshore, Atlantic vs. Pacific, or Northern near-polar vs. Southern temperate.</li>
-  <li>Selecting a shorter or different time period to explore the data in ways to investigate your Challenge.</li>
-  <li>Zooming in and out of the data to look at different time scales to investigate your Challenge by changing the width of the highlighted section of the bottom graph.</li>
+  <li>Selecting which regional comparison you are interested in looking at: Inshore vs. Offshore, Atlantic vs. Pacific, or Northern vs. Southern.</li>
+  <li>Selecting a different time period (season or full year) to explore the data in ways that interest you.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted).</li>
 </ul>
 
 <?php endif; ?>
@@ -240,11 +239,11 @@
     <div class="list-group">
       <a href="activity1.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Make a prediction about what kind of changes or patterns in salinity you could observe over a year.</p>
+        <p class="list-group-item-text">Use salinity data across different periods of time from the North Pacific Ocean to look if there are patterns over a year.</p>
       </a>
       <a href="activity1.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">Make a prediction about what kinds of changes or patterns in salinity over time you could observe across different parts of the ocean.</p>
+        <p class="list-group-item-text">Use salinity data across different time periods to determine if there are relationships over time across different regions of the ocean.</p>
       </a>
     </div>
   </div>

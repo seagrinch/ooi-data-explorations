@@ -5,7 +5,7 @@ $(document).ready(function () {
     // xlabel
     ylabel: 'Salinity',
     // y2label
-    labels : ["Date","Inshore","Offshore","Coastal Pacific","Coastal Mid-Atlantic","Southern Atlantic","Northern Atlantic"],
+    labels : ["Date","Inshore","Offshore","Pacific","Atlantic","Southern","Northern"],
     legend: 'always',
     labelsDivStyles: { 'textAlign': 'right' },
     labelsDivWidth : 200,
@@ -22,7 +22,7 @@ $(document).ready(function () {
     //rangeSelectorPlotStrokeColor : "#008100",
     //animatedZooms : true,
     axes: {
-      y: {valueRange: [26,36]}
+      y: {valueRange: [26,37]}
     },    
   });
   

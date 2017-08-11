@@ -4,9 +4,9 @@
 var svg = d3.select("#chart").append("svg")
       .attr("width",800)
       .attr("height",500),
-    margin1 = {top: 20, right: 420, bottom: 110, left: 40},
-    margin2 = {top: 20, right: 20, bottom: 110, left: 440},
-    margin3 = {top: 430, right: 20, bottom: 30, left: 40},
+    margin1 = {top: 20, right: 420, bottom: 110, left: 50},
+    margin2 = {top: 20, right: 20, bottom: 110, left: 450},
+    margin3 = {top: 430, right: 20, bottom: 30, left: 50},
     width1 = +svg.attr("width") - margin1.left - margin1.right,
     width2 = +svg.attr("width") - margin2.left - margin2.right,
     width3 = +svg.attr("width") - margin3.left - margin3.right,
@@ -62,12 +62,20 @@ focus1.append("text")
     .text("Salinity");
 focus1.append("text")
     .attr("class", "label")
-    .attr("dy", "-2em")
+    .attr("dy", "-3.2em")
     .attr("transform", "translate(" + (0) + "," + (height1/2) + "), rotate(-90)")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
     .text("Depth (m)")
+focus1.append("text")
+    .attr("class", "title")
+    .attr("dy", "-.4em")
+    .attr("transform", "translate(" + (0) + "," + (0) + "), rotate(0)")
+    .attr("text-anchor", "start")
+    .style("font-size", "14px")    
+    .style("font-weight", "bold")
+    .text("Temperate Shelf");
 focus2.append("text")
     .attr("class", "label")
     .attr("dy", "2.6em")
@@ -76,14 +84,14 @@ focus2.append("text")
     .style("font-size", "12px")    
     .style("font-weight", "normal")
     .text("Salinity");
-focus1.append("text")
-    .attr("class", "title")
-    .attr("dy", "-.4em")
-    .attr("transform", "translate(" + (0) + "," + (0) + "), rotate(0)")
-    .attr("text-anchor", "start")
-    .style("font-size", "14px")    
-    .style("font-weight", "bold")
-    .text("Coastal Pioneer CP02PMUI");
+focus2.append("text")
+    .attr("class", "label")
+    .attr("dy", "-3.2em")
+    .attr("transform", "translate(" + (0) + "," + (height2/2) + "), rotate(-90)")
+    .attr("text-anchor", "middle")
+    .style("font-size", "12px")
+    .style("font-weight", "normal")
+    .text("Depth (m)")
 focus2.append("text")
     .attr("class", "title")
     .attr("dy", "-.4em")
@@ -91,7 +99,7 @@ focus2.append("text")
     .attr("text-anchor", "start")
     .style("font-size", "14px")    
     .style("font-weight", "bold")
-    .text("Global Irminger Sea GI02HYPM");
+    .text("Polar Deep Basin");
 
 var dots1 = focus1.append("g");
 var dots2 = focus2.append("g");
@@ -115,7 +123,7 @@ drawGraph = function(data1,data2) {
   alldata = data1.concat(data2);
   x1.domain(d3.extent(data1, function(d) { return d.salinity; }));
   //y1.domain(d3.extent(data1, function(d) { return d.pressure; }));
-  y1.domain([25,75]);
+  y1.domain([0,75]);
   x2.domain(d3.extent(data2, function(d) { return d.salinity; }));
   //y2.domain(d3.extent(data2, function(d) { return d.pressure; }));
   x3.domain(d3.extent(alldata, function(d) { return d.date; }));
@@ -241,7 +249,7 @@ function match_depth(el) {
     y1.domain([0,2600]);//[26,2609]
     y2.domain([0,2600]);
   } else {
-    y1.domain([25,75]); //[26,71]
+    y1.domain([0,75]); //[26,71]
     y2.domain([0,2600]); //[157,2609]
   }
   focus1.select(".axis--y").call(yAxis1);

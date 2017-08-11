@@ -33,7 +33,7 @@ var div = d3.select("body").append("div")
 var titles = {
   'CP02PMCI': 'Temperate Inshore Shelf',
   'CP02PMCO': 'Temperate Offshore Shelf',
-  'GI02HYPM': 'Polar Plain'
+  'GI02HYPM': 'Polar Deep Basin'
 };
 
 d3.csv("data/chemistry6.csv", function(error, data) {
