@@ -15,6 +15,7 @@
   <small>OOI Teaching with Data Workshop (June 2-4, 2017)</small>
 </h2>
 
+<img src="../images/2017_geology_workshop.png" alt="OOI Geology Workshop Participants" class="img-thumbnail pull-right" width="350" />
 <p>During a Spring 2017 workshop (June 2-4), ten undergraduate professors convened at Rutgers University to focus on the integration of data into undergraduate teaching of introductory oceanography themes and concepts using data from the Ocean Observing Initiative (OOI). Professors who were interested in using online data and who do exemplary work in undergraduate teaching were invited to attend. Workshop participants explored ways to effectively teach with data, shared their personal effective practices, expanded their understanding of effective pedagogy, and brainstormed ideas for how to integrate OOI data into Introduction to Oceanography courses.</p>
 <p>For this workshop we chose to focus on features of Plate Tectonics &amp; the Ocean Floor, as the overarching topic area. During the workshop, participants were asked to provide detailed feedback on the activities, including their perceived utility and effectiveness of the activities in the classroom. It is the hope, that each participant will utilize the activities in their class and implement a short student assessment to help us collect some initial information on the students' impression of the OOI activities.</p>
 

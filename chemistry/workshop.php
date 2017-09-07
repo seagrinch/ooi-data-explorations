@@ -35,7 +35,7 @@
   <li><a href="documents/Introduction%20to%20the%20Learning%20Cycle.pdf">Introduction to the Learning Cycle</a> (Catherine Halversen)</li>
   <li><a href="documents/OOI_Workshop_OA_Lecture_v2_2017-05-20.pptx">Ocean Acidification Overview Discussion</a> (Mike Vardaro, for Grace Saba)</li>
   <li><a href="documents/Foundational%20Ideas%20of%20Learning_Halversen.pdf">Foundational Ideas of Learning</a> (Catherine Halversen)</li>
-  <li><a href="">Hydrothermal Vents</a> (Friedrich Knuth)</li>
+  <li>Hydrothermal Vents (Friedrich Knuth)</li>
 </ul>
 
 

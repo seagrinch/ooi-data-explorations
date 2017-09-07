@@ -7,13 +7,13 @@
 
 <h2>Exploring Tectonics & Seamounts with OOI Data</h2>
 
-  <div class="row">
-    <div class="col-md-6">Through these Data Explorations, you can assist your students' understanding of various concepts covered in Chapter 2. Plate Tectonics & the Ocean Floor (12th Ed) including: divergent boundary features, transform boundary features, and seamounts. The various Data Exploration activities can be used in either the Exploration or Application phases of the Learning Cycle. Ideas for what to do in the Invitation, Concept Invention, and Reflection phases are provided in the <a href="guide.php">Instructor's Guide</a>.</div>
-    <div class="col-md-6 well">
-      <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
-      <p class="text-right"><a href="guide.php" class="btn btn-primary">Instructor's Guide</a></p>
-    </div>
+<div class="row">
+  <div class="col-md-7">Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</div>
+  <div class="col-md-5 well">
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
+    <p class="text-right"><a href="guide.php" class="btn btn-primary">Instructor's Guide</a></p>
   </div>
+</div>
 
 <hr>
 

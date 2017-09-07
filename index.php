@@ -48,7 +48,7 @@
   </div>
   <div class="col-md-8">
     <h4><a href="geology/index.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>
-    <p>(coming June 2017)</p>
+    <p>These activities explore characteristics of seamounts and tectonics in greater detail, to be used as Exploration or Application activities. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</p>
     <a href="geology/index.php" class="btn btn-primary">Activities</a>
     <a href="geology/guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
