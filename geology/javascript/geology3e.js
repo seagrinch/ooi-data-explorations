@@ -1,6 +1,6 @@
 $(document).ready(function () {
   $.ajax({
-    url: "data/geology2e.csv",
+    url: "data/geology3e.csv",
   })
   .done(function(data) {
     var isDrawing = false;
@@ -94,6 +94,8 @@ $(document).ready(function () {
       var row = data[idx];
       row.push(null);
     }
+    saved_data = $.extend(true,[],data); //Save array so it can be reset later
+    
     g = new Dygraph(document.getElementById("chart"), data, { 
       title: 'Long-term inflation/deflation record in Axial caldera',
       ylabel: 'Change in seafloor elevation (meters)',
@@ -102,7 +104,7 @@ $(document).ready(function () {
       labelsDivStyles: { 'textAlign': 'right' },
       labelsDivWidth : 400,
       labelsUTC : true,
-      colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"],
+      colors : ["#00457C","#00839C","#008100","#DBA53A","#00C6B0"],
       highlightCircleSize: 6,
       showRangeSelector: true,
       //rangeSelectorPlotFillColor : "#00839C",
@@ -113,26 +115,30 @@ $(document).ready(function () {
           drawPoints: true,
           pointSize: 1.5,
           showInRangeSelector: true,
+          color: "#00457C",
         },
         'Depth (m)': {
           strokeWidth: 0,
           drawPoints: true,
           pointSize: 1.5,
           showInRangeSelector: false,
+          color: "#00839C",
         },
         'Threshold': {
           strokeWidth: 2,
           //strokePattern: [50,50],
           drawPoints: false,
           pointSize: 0,
+          color: "#008100",
         },
         'Prediction': {
           strokeWidth: 4,
           drawPoints: false,
           pointSize: 0,
+          color: "#DBA53A",
         },
       },
-      visibility: [1,0,1,1],
+      visibility: [1,0,0,1],
       valueRange: valueRange,
       interactionModel: {
         mousedown: function (event, g, context) {
@@ -173,6 +179,7 @@ $(document).ready(function () {
         dblclick: function(event, g, context) {
           Dygraph.defaultInteractionModel.dblclick(event, g, context);
         },
+/*
         mousewheel: function(event, g, context) {
           var normal = event.detail ? event.detail * -1 : event.wheelDelta / 40;
           var percentage = normal / 50;
@@ -192,6 +199,7 @@ $(document).ready(function () {
           });
           event.preventDefault();
         }
+*/
       },
     }); //Dygraph
     window.onmouseup = finishDraw;
@@ -201,9 +209,33 @@ $(document).ready(function () {
 }); //document.ready
 
 function toggle_visibility(el) {
-  console.log(el);
+  //console.log(el);
   g.setVisibility(parseInt(el.id), el.checked);
 }
+
+function prediction_reset() {
+  g.updateOptions({ file: saved_data });
+}
+
+function show_results(el) {
+  if (el.checked) {
+    $('#confirmModal').modal('show')    
+  } else {
+    g.setVisibility(1, el.checked);  
+  }
+}
+
+function confirm_results() {
+  $('#confirmModal').modal('hide')    
+  g.setVisibility(1, true);
+}
+
+function cancel_results() {
+  $('#confirmModal').modal('hide')    
+  g.setVisibility(1, false);
+  $('#1').attr('checked',false);
+}
+
 
 /* References
   http://blog.dygraphs.com/2012/04/how-to-download-and-parse-data-for.html
