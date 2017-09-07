@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. Some of the data in this activity were collected from the <a href=\"http://oceanobservatories.org/array/cabled-axial-seamount/\">Cabled Axial Seamount</a> location in the Temperate Pacific Ocean (red box)."
+  },
+  {
+    "title": "Where are the Instruments in the Water?",
+    "file": "Cabled_Array_Map_2014-12-02_Axial_v2.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/cabled-axial-seamount/\">Cabled Axial Seamount</a> location is in the ocean off of Oregon at the most active marine volcano on the Juan de Fuca Ridge, which has erupted multiple times since 1998. The collection of instruments is the most advanced underwater volcano observatory in the ocean around the world."
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "Cabled_Axial_Caldera_wBoxes_lowrez_v2.jpg",
+    "caption": "This drawing represents where the different <a href=\"http://oceanobservatories.org/\">OOI</a> instruments are attached to cables along the seafloor at the <a href=\"http://oceanobservatories.org/array/cabled-axial-seamount/\">Cabled Axial Seamount</a>. The data in this activity collected after 2012 were recorded by instruments in the Central Caldera, Eastern Caldera, and International District sites (red boxes)."
+  },
+  {
+    "title": "What it Looks Like Under the Water",
+    "file": "bottom_pressure_and_tilt_meter.jpg",
+    "caption": "<a href=\"http://oceanobservatories.org/instrument-class/botpt/\">Bottom Pressure and Tilt sensors</a> measure the movement of the seafloor - inflation (rise), deflation (fall) and \"tilting\" or angle - as magma moves in and out of magma chambers under the seafloor, using pressure and tilt-meter sensors. The <a href=\"http://oceanobservatories.org/\">OOI</a> uses a model <a href=\"http://www.interactiveoceans.washington.edu/story/Bottom_Pressure_and_Tilt_Meter\">PMELcabled BPR/Tilt</a>."
+  },
+  {
+    "title": "How does it work?",
+    "file": "PMEL_EOIP_ChadwickNoonerBlog.jpg",
+    "caption": "Data for this activity were provided by Dr. Bill Chadwick (Oregon State University and NOAA/PMEL) and Dr. Scott Nooner (University of North Carolina at WIlmington) who collected and analyzed these data over many years, projects, funding sources, and cruises. They maintain a <a href=\"https://www.pmel.noaa.gov/eoi/axial_blog.html\">blog</a> of their research findings."
+  }
+]
