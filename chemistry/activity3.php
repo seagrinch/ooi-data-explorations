@@ -176,6 +176,13 @@
 <p>The above datasets were downloaded from the OOI data portal.  Complete profiles of the instrument were identified and the profile closest to midnight (GMT) each day was saved.  This reduced the overall temporal resolution (and size) of the final dataset but it preserved the raw variability exhibited in individual profiles and measurements.</p>
 
 
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem3e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem3a" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
+
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

@@ -218,6 +218,13 @@ Dziak, R.P., D.R. Bohnenstiehl, J.P. Cowen, E.T. Baker, K.H. Rubin, J.H. Haxel a
 <p>To see the latest data from this instrument, you can check out <a href="https://www.pmel.noaa.gov/eoi/rsn/index.html">Bottom Pressure and Tilt</a> page at NOAA PMEL.  They also provide a blog that chronicles past and future<a href="https://www.pmel.noaa.gov/eoi/axial_blog.html"> diking-eruption event forecasts at Axial Seamount</a>.
 
 
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo3e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo3a" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
+
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

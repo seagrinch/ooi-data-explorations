@@ -130,6 +130,14 @@
   <li>Earthquake catalog(s) data are publicly available in the Marine Geoscience Data System: <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843</a></li>
 </ul>
 
+
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo4e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo4a" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
+
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

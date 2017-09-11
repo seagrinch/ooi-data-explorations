@@ -170,6 +170,13 @@
   <li>Eastern Caldera, Medium-Power JBox, Bottom Pressure and Tilt (RS03ECAL-MJ03E-06-BOTPTA302)</li>
   <li>International District Vent Field 2, Medium-Power JBox, Bottom Pressure and Tilt (RS03INT2-MJ03D-06-BOTPTA303)</li>
 </ul>
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application1'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2a1" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application2'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2a2" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
 
 
 <!-- ACTIVITY INTRODUCTION -->

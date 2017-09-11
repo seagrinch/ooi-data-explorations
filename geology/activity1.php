@@ -157,6 +157,15 @@
 <p>Data for this activity were accessed from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>  
 
 
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo1e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application1'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo1a1" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application2'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo1a2" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
+
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

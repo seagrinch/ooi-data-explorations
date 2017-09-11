@@ -169,6 +169,13 @@
 <?php endif; ?>
 
 
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem2e" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php elseif ($level=='application'): ?>
+<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem2a" class="btn btn-sm btn-warning">Student Survey</a></p>
+<?php endif; ?>
+
+
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 
