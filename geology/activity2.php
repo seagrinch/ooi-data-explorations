@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -24,13 +25,28 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
-<p>What observations can we make about a seamount over time?</p>
+<p>Use depth and angle (tilt from side to side) data of the seafloor from 3 locations on the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to look if there are patterns over 7 months in 2015.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in seafloor depth and angle you may observe over time.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
 <?php elseif ($level=='application1'): ?>
-<p>What can happen to the seafloor when a seamount erupts?</p>
+<p>Use depth and angle (tilt from side to side) data of the seafloor, along with maps of the seafloor from the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to determine if there are relationships over 4 days in 2015.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in seafloor depth, angle, and overall shape you may observe over time.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time.</li>
+</ul>
+
 <?php elseif ($level=='application2'): ?>
-<p>Has a seamount diking-eruption event occurred?</p>
+<p>Use depth and angle (tilt from side to side) data of the seafloor along with temperature data from the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to determine if there are relationships around an eruption event.</p>
+<ul>
+  <li>Make a prediction about what kind of changes or patterns in seafloor depth, angle, and temperature you may observe over time.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships among the variables.</li>
+</ul>
+
 <?php endif; ?>
 
 
@@ -48,8 +64,8 @@
 
 
 <!-- DATA CHARTS -->
-<div id="chart1" style="width:800px; height: 250px;"></div>
-<div id="chart2" style="width:730px; height: 250px; margin-top: 20px;"></div>
+<div id="chart1" style="width:730px; height: 250px;"></div>
+<div id="chart2" style="width:800px; height: 250px; margin-top: 20px;"></div>
 <?php if ($level=='application2'): ?>
 <div id="chart3" style="width:730px; height: 250px; margin-top: 20px;"></div>
 <?php endif; ?>
@@ -60,11 +76,11 @@
   </div>
   <div class="col-xs-9">
   <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)"> 
-    International District Vent Field 2 (MJ03D)</label><br>
+    International District Vent Field 2 (ID)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)"> 
-    Eastern Caldera (MJ03E)</label><br>
+    Eastern Caldera (EC)</label><br>
   <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
-    Central Caldera (MJ03F)</label><br>
+    Central Caldera (CC)</label><br>
   </div>
 </div>
 <?php 
@@ -81,70 +97,138 @@
 ?>  
 
 
-<h3>Your Objective</h3>
+<h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) over 7 months and see what kinds of patterns, if any, you can observe.</p>
-<p><strong>Data Tip:</strong> Select another location (in addition to the blue & black plotted Central Caldera data) to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
-<p>Note - Tilt values are in microradians. One microradian is the amount of tilt you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
+<p>When the site loads, you are able to see the seafloor depth and angle (tilt) in the X (east-west) and Y (north-south) directions from 7 months in 2015 at the Axial Seamount. You can interact with the data by:</p>
+<ul>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Adding a different location of instruments at the seamount by selecting the other locations.</li>
+</ul>
+<p>Note - Tilt values are in microradians. One microradian is the amount of angle you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
 
 <?php elseif ($level=='application1'): ?>
-<p>Explore maps of the changes in the seafloor and seafloor data (depth and angle/tilt) from 3 locations on the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) before, during, and after an diking-eruption event in April 2015 to look for patterns in how the seafloor can change when a seamount diking-eruption event occurs.</p>
-<p><strong>Data Tip:</strong> To compare the seafloor data from Before and After the event, use the green slider at the center to move between the images as you are interested. Or select the category buttons below to jump to only Before or only After.</p>
-<p>Select another location (in addition to the blue & black plotted Central Caldera data) to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
-<p>Note - Tilt values are in microradians. One microradian is the amount of tilt you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
+<p>When the site loads, you are able to compare the bathymetry (map of seafloor) in September 2013 or July 2015. You also can see the seafloor depth and angle (tilt) in the X (east-west) and Y (north-south) directions four days in April 2015 at the Axial Seamount. </p>
+<p>You can interact with the map by:</p>
+<ul>
+  <li>Using the green slider at the center of the map to move between the Sep 2013 and Jul 2015 maps as you are interested. </li>
+  <li>Selecting the category buttons below to "Show only before" or "Show only after."</li>
+</ul>
+<p>You can interact with the graphs by:</p>
+<ul>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Adding a different location of instruments at the seamount by selecting the other locations.</li>
+</ul>
+<p>Note - Tilt values are in microradians. One microradian is the amount of angle you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
 
 <?php elseif ($level=='application2'): ?>
-<p>Explore maps of the changes in the seafloor (seafloor depth and angle/tilt) and surrounding waters (temperature) from 3 locations on the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) over time to determine if, and when, a seamount diking-eruption event occurred.</p>
-<p><strong>Data Tip:</strong> Select another location (in addition to the blue plotted Central Caldera data) to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales to see if it changes the relationships or patterns you observe.</p>
-<p>Note - Tilt values are in microradians. One microradian is the amount of tilt you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
+<p>When the site loads, you are able to see the seafloor depth and angle (tilt) in the X (east-west) and Y (north-south) directions, as well as temperature recorded from inside the seafloor sensor, from 7 months in 2015 at the Axial Seamount. You can interact with the data by:</p>
+<ul>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Adding a different location of instruments at the seamount by selecting the other locations.</li>
+</ul>
+<p>Note - Tilt values are in microradians. One microradian is the amount of angle you'd get if you lifted one end of a straight line that is 1 km long by 1 mm.</p>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
+<h3>Questions for Thought</h3>
 
 <?php if ($level=='exploration'): ?>
-<ol>
-  <li>What did you find interesting in the seafloor data at the Axial Seamount over these 7 months in 2015?</li>
-  <li>Did you observe any patterns? If so, what was it/were they? </li>
-  <li>Did you see the pattern(s) occur at all 3 locations? If so, were the patterns similar or different at all 3 locations?</li>
-  <li>What questions do you still have about what we can learn about seamounts from seafloor data?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what time period are you able to observe depth and angle (tilt from side to side) data of the seafloor in these graphs? </li>
+      <li>What is the first month there are data?</li>
+      <li>What is the last month there are data?</li>
+      <li>In what direction (North, South, East, or West) is the angle of the seafloor when there is a negative X-tilt? A negative Y-tilt?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in seafloor depth over this time period at the Axial Seamount? </li>
+      <li>When did you see these changes or patterns?</li>
+      <li>What changes or patterns did you observe in seafloor angle over this time period at the Axial Seamount? </li>
+      <li>When did you see these changes or patterns?</li>
+      <li>What questions do you still have about why the depth and angle of the seafloor changes over time?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application1'): ?>
-<ol>
-  <li>In general, how did the seafloor depth vary from before, during, to after the diking-eruption event? </li>
-  <li>In general, how did the tilt of the seafloor from before, during, to after the diking-eruption event?</li>
-  <li>What is your evidence for these patterns in the seafloor depth and tilt data from before, during, to after the diking-eruption event?</li>
-  <li>How do these patterns relate to what you already knew about seamounts?</li>
-  <li>What questions do you still have about changes to the seafloor at a seamount before, during, and after an diking-eruption event?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what depth range is the seafloor around the Axial Seamount?</li>
+      <li>Across what time period are you able to observe depth and angle (tilt from side to side) data of the seafloor in these graphs? 
+        <ul>
+          <li>What is the first day there are data?</li>
+          <li>What is the last day there are data?</li>
+        </ul>
+      </li>
+      <li>In what direction (North, South, East, or West) is the angle of the seafloor when there is a negative X-tilt? A negative Y-tilt?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>In general, what changes did you observe in the seafloor shape from before (Sep 2013) and after (Jul 2015) the event?</li>
+      <li>What changes or patterns did you observe in seafloor depth over this time period at the Axial Seamount? 
+        <ul>
+          <li>When did you see these changes or patterns?</li>
+          <li>What is your evidence?</li>
+        </ul>
+      </li>
+      <li>What changes or patterns did you observe in seafloor angle over this time period at the Axial Seamount? 
+        <ul>
+          <li>When did you see these changes or patterns?</li>
+          <li>What is your evidence?</li>
+        </ul>
+      </li>
+      <li>What questions do you still have about why the depth, angle, and shape of the seafloor changes over time?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application2'): ?>
-
-<ol>
-  <li>Did a seamount diking-eruption occur?
-  <ul>
-    <li>If so, what is your evidence that an diking-eruption occurred?</li>
-    <li>If not, what is your evidence that no diking-eruption occurred? </li>
-  </ul></li>
-  <li>Is there a relationship among among water temperature, seafloor depth, and seafloor tilt at Axial Seamount in 2015? 
-  <ul>
-    <li>If so,
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
     <ul>
-      <li>What kind of relationship is it? </li>
-      <li>What is your evidence of the relationship?</li>
-      <li>Why do you think that relationship exists among water temperature, seafloor depth, and seafloor tilt? </li>
-    </ul></li>
-    <li>If not,
+      <li>Across what time period are you able to observe depth and angle (tilt from side to side) data of the seafloor in these graphs? 
+      What is the first day there are data?
+      What is the last day there are data?</li>
+      <li>In what direction (North, South, East, or West) is the angle of the seafloor when there is a negative X-tilt? A negative Y-tilt?</li>
+      <li>Across what range are you able to observe temperature data of the water, as measured from inside the seafloor sensor?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
     <ul>
-      <li>Why do you think there is no relationship among water temperature, seafloor depth, and seafloor tilt?</li>
-    </ul></li>
-  </ul>
-  <li>How does this relationship, or lack of relationship, support or challenge what you previously knew about volcanic activity at seamounts?</li>
-  <li>What questions do you still have about seamounts?</li>
-</ol>
+      <li>When did the eruption event occur?</li>
+      <li>What changes or patterns did you observe in depth and angle of the seafloor occurred during the eruption event at the Axial Seamount? 
+        <ul>
+          <li>When did you see these changes or patterns?</li>
+          <li>What is your evidence?</li>
+        </ul>
+      </li>
+      <li>What changes or patterns did you observe in the temperature data around the time of the eruption event?
+        <ul>
+          <li>When did you see these changes or patterns?</li>
+          <li>What is your evidence?</li>
+          <li>Why do you think theses changes or patterns occurred?</li>
+        </ul>
+      </li>
+      <li>What questions do you still have about why the depth and angle of the seafloor as well as surrounding water temperature changes during an eruption event?</li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
 
@@ -163,13 +247,23 @@
   <?php endforeach; ?>
 </div>
 
-<h5>Dataset Information</h5>
-<p>Data for this activity were accessed from the following instruments on <a href="http://oceanobservatories.org/array/cabled-axial-seamount/">Cabled Axial Seamount</a>:</p>
+<h4>Additional Resources</h4>
 <ul>
-  <li>Central Caldera, Medium-Power JBox, Bottom Pressure and Tilt (RS03CCAL-MJ03F-05-BOTPTA301)</li>
-  <li>Eastern Caldera, Medium-Power JBox, Bottom Pressure and Tilt (RS03ECAL-MJ03E-06-BOTPTA302)</li>
-  <li>International District Vent Field 2, Medium-Power JBox, Bottom Pressure and Tilt (RS03INT2-MJ03D-06-BOTPTA303)</li>
+  <li>Want to convert microradians into degrees? You can use an <a href="https://www.convertunits.com/from/microradian/to/degree">online unit converter</a>.</li>
+  <li>Learn how the <a href="http://oceanobservatories.org/instrument-class/botpt/">Bottom Pressure and Tilt sensor</a> measures changes in the seafloor in this <a href="https://www.youtube.com/watch?v=SvoP4LF-Y0M&index=9&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P">Video Blog #9 "Pressure Measurements"</a> from the NOAA Earth-Oceans Interaction Program 2015 cruise to Axial Seamount. </li>
 </ul>
+
+<h4>Dataset Information</h4>
+<p>The data for this activity was obtained from the following <a href="http://oceanobservatories.org/instrument-class/botpt/">Bottom Pressure and Tilt</a> instruments on the <a href="http://oceanobservatories.org/array/cabled-axial-seamount/">Cabled Axial Seamount</a> array:</p>
+<ul>
+  <li>Central Caldera  (<a href="https://ooinet.oceanobservatories.org/data_access/?search=RS03CCAL-MJ03F-05-BOTPTA301#RS03CCAL-MJ03F-05-BOTPTA301/streamed_botpt-nano-sample-15s">RS03CCAL-MJ03F-05-BOTPTA301</a>)</li>
+  <li>Eastern Caldera (<a href="https://ooinet.oceanobservatories.org/data_access/?search=RS03CCAL-MJ03F-05-BOTPTA301#RS03ECAL-MJ03E-06-BOTPTA302/streamed_botpt-nano-sample-15s">RS03ECAL-MJ03E-06-BOTPTA302</a>)</li>
+  <li>International District Vent Field 2 (<a href="https://ooinet.oceanobservatories.org/data_access/?search=RS03CCAL-MJ03F-05-BOTPTA301#RS03INT2-MJ03D-06-BOTPTA303/streamed_botpt-nano-sample-15s">RS03INT2-MJ03D-06-BOTPTA303</a>)</li>
+</ul>
+<p class="text-center"><a href="data/BOTPT_data.zip" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<p>The above datasets were downloaded from the OOI data portal and downsampled to simplify the datasets for plotting.  Special thanks to William Chadwick for assistance in the processing these data.  For more information about these data and past events, please check out NOAA PMEL's site on <a href="https://www.pmel.noaa.gov/eoi/rsn/index.html">Bottom Pressure and Tilt instruments at Axial Seamount</a>.</p>
+
+
 <?php if ($level=='exploration'): ?>
 <p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2e" class="btn btn-sm btn-warning">Student Survey</a></p>
 <?php elseif ($level=='application1'): ?>
@@ -194,15 +288,15 @@
     <div class="list-group">
       <a href="activity2.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What observations can we make about a seamount over time?</p>
+        <p class="list-group-item-text">Use depth and angle (tilt from side to side) data of the seafloor from 3 locations on the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to look if there are patterns over 7 months in 2015.</p>
       </a>
       <a href="activity2.php?level=application1" class="list-group-item">
         <h4 class="list-group-item-heading">Application #1 - Event-in-Detail</h4>
-        <p class="list-group-item-text">What can happen to the seafloor when a seamount erupts?</p>
+        <p class="list-group-item-text">Use depth and angle (tilt from side to side) data of the seafloor, along with maps of the seafloor from the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to determine if there are relationships over 4 days in 2015.</p>
       </a>
       <a href="activity2.php?level=application2" class="list-group-item">
         <h4 class="list-group-item-heading">Application #2 - Event Impacts</h4>
-        <p class="list-group-item-text">Has a seamount diking-eruption event occurred?</p>
+        <p class="list-group-item-text">Use depth and angle (tilt from side to side) data of the seafloor along with temperature data from the Axial Seamount in the Northeast Pacific Ocean (Cabled Axial Seamount) to determine if there are relationships around an eruption event.</p>
       </a>
     </div>
   </div>

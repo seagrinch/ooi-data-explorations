@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -24,24 +25,43 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
-<p>What observations can we make about earthquakes along plate boundaries over time?</p>
+<p>Use earthquake data from plate boundaries in ocean regions off of the Pacific Northwest to look if there are patterns between 2010-17.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in earthquake magnitude and location you may observe over time.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
 <?php elseif ($level=='application1'): ?>
-<p>What patterns in earthquakes can occur along a divergent plate boundary?</p>
+<p>Use earthquake data from a divergent plate boundaries in ocean regions off of the Pacific Northwest to determine what relationships of earthquakes along the boundary over time.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in earthquake magnitude and location you may observe over time along the boundary.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time along the boundary.</li>
+</ul>
+
 <?php elseif ($level=='application2'): ?>
-<p>What patterns in earthquakes can occur along a transform fault boundary?</p>
+<p>Use earthquake data from a transform plate boundaries in ocean regions off of the Pacific Northwest to determine what relationships of earthquakes along the boundary over time.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in earthquake magnitude and location you may observe over time along the boundary.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time along the boundary.</li>
+</ul>
+
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
 
+<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-   crossorigin=""/>   
+  integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+  crossorigin=""/>   
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
-   crossorigin=""></script>
+  integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+  crossorigin=""></script>
+<!-- Leaflet Plugins -->
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
+<link href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' rel='stylesheet' />
 
 <style type="text/css">
   .circle { visibility: hidden; }
@@ -65,76 +85,119 @@
 <?php endif; ?>
 
 <div id="map2"></div>
+<p>Automatically select: 
+<?php if ($level=='application1' || $level=='application2'): ?>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(7)">1 Week</button>
+<?php endif; ?>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(30)">1 Month</button>
+<?php if ($level=='exploration'): ?>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(180)">6 Months</button>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(365)">1 Year</button>
+<?php endif; ?>
+</p>
+
 <?php 
   $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "https://d3js.org/d3-scale-chromatic.v1.min.js";
   $scripts[] = "javascript/geology1.js";
 ?>
 
 
-<h3>Your Objective</h3>
+<h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore earthquake magnitude data in the Northeast Pacific Ocean over 6.5 years and see what kinds of patterns, if any, you can observe along plate boundaries..</p>
-<p><strong>Data Tip:</strong> You are looking at 1 year of data to start (2010). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to see more or less of the area.</p>
+<p>When the site loads, you are able to see all of the earthquake data from 2010 throughout the Coastal Endurance Array. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
+</ul>
+<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php elseif ($level=='application1'): ?>
-<p>Interpret the earthquake magnitude data along the Gordo Ridge over a year to investigate how earthquakes can occur along a divergent plate boundary.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 month of data to start (XX, 2013). Select another time period (by dragging the gray box at the bottom) to explore the data to see how the earthquake location and magnitude vary over time. Adjust the size of the gray box at the bottom to look at the data over different time scales.  Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>When the site loads, you are able to see all of the earthquake data from the last two weeks in May 2013 throughout the Coastal Endurance Array. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
+</ul>
+<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php elseif ($level=='application2'): ?>
-<p>Interpret the earthquake magnitude data along the Blanco Fracture Zone over 4 months to investigate how earthquakes can occur along a transform fault boundary.</p>
-<p><strong>Data Tip:</strong> You are looking at 2 weeks of data to start (May 3-9, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data to see how the earthquake location and magnitude vary over time. Adjust the size of the gray box at the bottom to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale.</p>
+<p>When the site loads, you are able to see all of the earthquake data from two weeks in May 2015 throughout the Coastal Endurance Array. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
+</ul>
+<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
+<h3>Questions for Thought</h3>
 
 <?php if ($level=='exploration'): ?>
-<ol>
-  <li>What did you find interesting in the earthquake magnitude data in the Northern Pacific Ocean over 6.5 years?</li>
-  <li>Did you observe any patterns in the earthquake data over time? If so, what was it/were they?</li>
-  <li>Did you observe any patterns in the earthquake data over space? If so, what was it/were they?</li>
-  <li>What questions do you still have about what we can learn about plate boundaries from earthquake data over time?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what geographic area are you able to observe earthquake data in this map? </li>
+      <li>What is the range of earthquake size (magnitude) in these data?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in earthquake location over this time period in the Northern Pacific Ocean? </li>
+      <li>Where did you see these changes or patterns?</li>
+      <li>What changes or patterns did you observe in earthquake magnitude over this time period in the Northern Pacific Ocean?</li>
+      <li>What questions do you still have about what we can learn about plate boundaries from earthquake data over time?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application1'): ?>
-<ol>
-  <li>Is there a relationship among magnitude and location of earthquakes over time along this divergent fault boundary from May 2013 to May 2014? 
-  <ul>
-    <li>If so, 
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
     <ul>
-      <li>What kind of relationship is it? </li>
-      <li>What is your evidence of the relationship? </li>
-      <li>Why do you think that relationship exists among magnitude and location of earthquakes? </li>
-    </ul></li>
-    <li>If not, 
+      <li>Across what geographic area are you able to observe earthquake data in this map? </li>
+      <li>What is the range of earthquake magnitudes in these data?</li>
+      <li>Where do you see the largest earthquakes and the smallest earthquakes along the plate boundary?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
     <ul>
-      <li>Why do you think there is no relationship among magnitude and location of earthquakes?</li>
-    </ul></li>
-  </ul></li>
-  <li>How does this relationship support, or lack of relationship challenge, what you previously knew about earthquakes at divergent plate boundaries?</li>
-  <li>What questions do you still have about features at divergent fault boundaries?</li>
-</ol>
+      <li>What is the relationship between earthquake size (magnitude) and location over time along this divergent plate boundary from 2013-14? </li>
+      <li>What is your evidence of the relationship?</li>
+      <li>How does this relationship support, or lack of relationship challenge, what you previously knew about features at divergent plate boundaries?</li>
+      <li>What questions do you still have about features at divergent plate boundaries?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application2'): ?>
-<ol>
-  <li>Is there a relationship among magnitude and location of earthquakes over time along this transform plate boundary from 2013-2014? 
-  <ul>
-    <li>If so, 
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
     <ul>
-      <li>What kind of relationship is it? </li>
-      <li>What is your evidence of the relationship? </li>
-      <li>Why do you think that relationship exists among magnitude and location of earthquakes? </li>
-    </ul></li>
-    <li>If not, 
+      <li>Across what geographic area are you able to observe earthquake data in this map? </li>
+      <li>What is the range of earthquake magnitudes in these data?</li>
+      <li>Where do you see the largest earthquakes and the smallest earthquakes along the plate boundary?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
     <ul>
-      <li>Why do you think there is no relationship among magnitude and location of earthquakes?</li>
-    </ul></li>
-  </ul></li>
-  <li>How does this relationship support or lack of relationship challenge what you previously knew about features at transform plate boundaries?</li>
-  <li>What questions do you still have about features at transform plate boundaries?</li>
-</ol>
+      <li>What is the relationship between earthquake size (magnitude) and location over time along this transform plate boundary in May 2015? </li>
+      <li>What is your evidence of the relationship?</li>
+      <li>How does this relationship support, or lack of relationship challenge, what you previously knew about features at transform plate boundaries?</li>
+      <li>What questions do you still have about features at transform plate boundaries?</li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
 
@@ -153,7 +216,7 @@
   <?php endforeach; ?>
 </div>
 
-<h5>Dataset Information</h5>
+<h4>Dataset Information</h4>
 <p>Data for this activity were accessed from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>  
 
 
@@ -181,15 +244,15 @@
     <div class="list-group">
       <a href="activity1.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What observations can we make about earthquakes along plate boundaries over time?</p>
+        <p class="list-group-item-text">Use earthquake data from plate boundaries in ocean regions off of the Pacific Northwest to look if there are patterns between 2010-17.</p>
       </a>
       <a href="activity1.php?level=application1" class="list-group-item">
         <h4 class="list-group-item-heading">Application #1 - Divergent Boundary</h4>
-        <p class="list-group-item-text">What patterns in earthquakes can occur along a divergent plate boundary?</p>
+        <p class="list-group-item-text">Use earthquake data from a divergent plate boundaries in ocean regions off of the Pacific Northwest to determine what relationships of earthquakes along the boundary over time.</p>
       </a>
       <a href="activity1.php?level=application2" class="list-group-item">
         <h4 class="list-group-item-heading">Application #2 - Transform Boundary</h4>
-        <p class="list-group-item-text">What patterns in earthquakes can occur along a transform fault boundary?</p>
+        <p class="list-group-item-text">Use earthquake data from a transform plate boundaries in ocean regions off of the Pacific Northwest to determine what relationships of earthquakes along the boundary over time.</p>
       </a>
     </div>
   </div>

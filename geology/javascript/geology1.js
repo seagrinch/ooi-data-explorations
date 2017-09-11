@@ -4,18 +4,6 @@ http://bl.ocks.org/tnightingale/4718717
 https://bost.ocks.org/mike/leaflet/
 http://bl.ocks.org/sumbera/10463358
 https://bl.ocks.org/rgdonohue/51c43bb749689e696b8a
-
-Todo:
- - Add default selection
- - Fix timeseries labels
- - Add circle size legend
- - Add plate boundaries
- - Add date range label
- - Add tooltips
- - Add scale bar
- - Add North Arrow?
- - Color by depth? (add legend)
- - Fix hiding during zoom
 */
 
 (function () {
@@ -24,6 +12,7 @@ Todo:
   var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128]; 
   var selected_days =  (container.dataset.days) ? container.dataset.days : 30;
 
+  // Basemap
   var myMap = L.map(container).setView(mapcenter, zoomlevel);
   var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
     // maxZoom: 12,
@@ -37,6 +26,39 @@ Todo:
     crs: L.CRS.EPSG3857
   }).addTo(myMap);
   
+  // Overlay Minimap
+  var osm2 = new L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+    maxZoom: 13,
+    minZoom: 0,
+    attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
+    layers: 'topo',
+    format: 'image/png',
+    transparent: true,
+    // bounceAtZoomLimits: true,
+    // crs: L.CRS.EPSG4326,
+    crs: L.CRS.EPSG3857
+  });
+  var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, zoomLevelOffset: -3}).addTo(myMap);
+
+  // Dataset boundary
+  var data_bounds = (function(dataset) {  
+    switch(dataset) {
+      case 'data/usgs_gordo.csv':
+        return [[40.188, -127.423], [43.3113, -124.5978333]]; // Gordo
+      case 'data/usgs_blanco.csv':
+        return [[41.7515, -131.1226], [45.2948333, -125.7963333]]; // Blanco
+      default:
+        return [[40.0563333, -131.1226], [48.5676667, -124.6731667]]; // Full dataset
+    }
+  })(container.dataset.source);
+
+  var data_rect = L.rectangle(data_bounds, {
+    color: 'grey', 
+    weight: 2,
+    fill: false
+  }).addTo(myMap);
+  
+  // Container for earthquake locations
   var svg = d3.select(myMap.getPanes().overlayPane).append("svg").style('overflow','visible');
   var layer = svg.append("g").attr("class", "leaflet-zoom-hide");
 
@@ -73,9 +95,9 @@ Todo:
     var transform = d3.geoTransform({point: projectPoint});
     var path = d3.geoPath().projection(transform);
 
-    var extent = d3.extent(geoData.features, function (d) { return d.properties.mag; });
-    var color = d3.scaleSequential(d3.interpolateInferno)
-    color.domain(extent);
+    //var extent = d3.extent(geoData.features, function (d) { return d.properties.depth; });
+    var color = d3.scaleSequential(d3.interpolateRdYlBu)
+    color.domain([0,50]);
 			
     var features = layer.selectAll("path")
         .data(geoData.features)
@@ -101,11 +123,11 @@ Todo:
       path.pointRadius(function(d) {return get_radius(d.properties) * Math.pow(mscale,1/2)});
       
       features.attr("d", path)
+        .style('fill', function (d) { return color(d.properties.depth) })
         .style("fill-opacity", 0.6)
         //.style('stroke', function (d) { return color(d.properties.depth) })
         .style('stroke','grey')
-        .style('stroke-width', 1)
-        .style('fill', function (d) { return color(d.properties.mag) });
+        .style('stroke-width', 1);
     }
     
     myMap.on("zoom", reset);
@@ -115,6 +137,8 @@ Todo:
       .x(get_time).xLabel("Earthquake origin time")
       .y(get_magnitude).yLabel("Magnitude")
       .days(selected_days);
+      
+    this.chart = chart; // Make this global
   
     d3.select("#map2").datum(data).call(chart);
   
@@ -176,7 +200,7 @@ Todo:
 
     var x = d3.scaleUtc(),
         y = d3.scaleLinear(),
-        color = d3.scaleSequential(d3.interpolateInferno),
+        color = d3.scaleSequential(d3.interpolateRdYlBu),
         x_label = "X", y_label = "Y",
         days = 30,
         brush = d3.brushX().extent([[0, 0], [width, height]]).on("brush end", _brushend)
@@ -202,18 +226,20 @@ Todo:
                 .attr("class", "y axis");
 
         x_axis.append("text")
-            .attr("class", "label")
+            .attr("class", "glabel")
             .attr("x", width)
             .attr("y", 30)
             .style("text-anchor", "end")
+            .style("fill","black")
             .text(x_label);
   
         y_axis.append("text")
-            .attr("class", "label")
+            .attr("class", "glabel")
             .attr("transform", "rotate(-90)")
             .attr("y", -40)
             .attr("dy", ".71em")
             .style("text-anchor", "end")
+            .style("fill","black")
             .text(y_label);
 
         series.append("clipPath")
@@ -229,42 +255,36 @@ Todo:
         y.domain(d3.extent(d, get_y)).nice();
         y_axis.call(d3.axisLeft(y).ticks(5));
         
-        color.domain(d3.extent(d, function (d) { return d.mag; }));
-
+        //color.domain(d3.extent(d, function (d) { return d.depth; }));
+        color.domain([0,50]);
+        
         series.append("g").attr("class", "timeseries")
             .attr("clip-path", "url(#clip)")
             .selectAll("circle")
             .data(d).enter()
             .append("circle")
-            //.style("stroke", "rgb(129, 15, 124)") //color[color.length - 2]
             .style("stroke","gray")
             .style("stroke-width", 0.5)
-            //.style("fill", "rgb(77, 0, 75)") //color[color.length - 1]
-            .style('fill', function (d) { return color(d.mag) })
+            //.style("stroke-opacity",.3)
+            .style('fill', function (d) { return color(d.depth) })
             //.attr("opacity", .4)
             .attr("r", 3)
             .attr("transform", function (d) {
                 return "translate(" + x(get_x(d)) + "," + y(get_y(d)) + ")";
             });
 
-        series.append("g")
-                .attr("class", "brush")
-                .call(brush)
-                .selectAll("rect")
-                .attr("height", height)
-                .style("stroke-width", 1)
-                //.style("stroke", "red") //color[color.length - 1]
-                //.style("fill", "green") //color[2]
-                .attr("opacity", 0.4);
-
         min_date = d3.min(d,function(d) {return d.date});
-        console.log(min_date,x(min_date));
-        d3.select(".brush")
-            //.call(brush.move, x.range());
-            .call(brush.move,[x(min_date),x(d3.timeDay.offset(min_date,days))])
+        series.append("g")
+          .attr('id',"brush_box")
+          .attr("class", "brush")
+          .call(brush)
+          .call(brush.move,[x(min_date),x(d3.timeDay.offset(min_date,days))]) //Preselect specified days
+          .selectAll("rect.selection")
+            .style("stroke", "#999")
+            .style("fill", "#157ab5");
 
-          });
-      }
+      });
+    }
   
     timeseries.x = function (accessor) {
       if (!arguments.length) return get_x;
@@ -310,6 +330,14 @@ Todo:
 
     function no_op() {}
 
+    timeseries.xx = function () {
+      return x;
+    };
+    
+    timeseries.brush = function () {
+      return brush;
+    };
+
     return timeseries;
   }
 
@@ -322,6 +350,16 @@ Todo:
     d.depth = +d.depth;
     d.mag = +d.mag;
     return d;
+  }
+
+  graph_zoom = function(days) {
+    var brush_box = d3.select("#brush_box");
+    var x = chart.xx();
+    var brush = chart.brush();
+    var extent = d3.brushSelection(brush_box.node()) || x.range();
+    var min_date = x.invert(extent[0]);
+    var max_date = d3.timeHour.offset(min_date,days*24);
+    brush_box.call(brush.move,[x(min_date),x(max_date)]);  
   }
 
 }());

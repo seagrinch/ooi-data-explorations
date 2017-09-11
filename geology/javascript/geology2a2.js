@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-  g1 = new Dygraph(document.getElementById("chart1"), "data/IRIS-Jan-Aug.csv", {
+  g1 = new Dygraph(document.getElementById("chart2"), "data/IRIS-Jan-Aug.csv", {
     //title: 'Tilt Measurements',
     ylabel: 'X-Tilt (microradians)',
     y2label: 'Y-Tilt (microradians)',
@@ -8,9 +8,9 @@ $(document).ready(function () {
     legend: 'always', //onmouseover
     labelsSeparateLines: true,
     labelsDivStyles: { 'textAlign': 'right' },
-    //labelsDivWidth : 600,
+    labelsDivWidth : 150,
     labelsUTC : true,
-    colors : ["#00457C","#333","#DBA53A","#777","#008100","#bbb"], //"#00839C","#00C6B0","#999999"
+    colors : ["#00457C","#7fc4fb","#DBA53A","#ffd86d","#008100","#4dce4d"], 
     strokeWidth: 0,
     drawPoints: true,
     pointSize: 2,
@@ -22,39 +22,39 @@ $(document).ready(function () {
       y2: {axisLabelWidth: 70}
     },
     series: {
-      'MJ03D X-tilt': {axis: 'y', showInRangeSelector: true},
-      'MJ03D Y-tilt': {axis: 'y2'},
-      'MJ03E X-tilt': {axis: 'y'},
-      'MJ03E Y-tilt': {axis: 'y2'},
-      'MJ03F X-tilt': {axis: 'y'},
-      'MJ03F Y-tilt': {axis: 'y2'},
+      'ID X-tilt': {axis: 'y', showInRangeSelector: true},
+      'ID Y-tilt': {axis: 'y2'},
+      'EC X-tilt': {axis: 'y'},
+      'EC Y-tilt': {axis: 'y2'},
+      'CC X-tilt': {axis: 'y'},
+      'CC Y-tilt': {axis: 'y2'},
     },
     visibility: [0,0,0,0,1,1],
   });
 
-  g2 = new Dygraph(document.getElementById("chart2"), "data/NANO-depth-Jan-Aug.csv", {
+  g2 = new Dygraph(document.getElementById("chart1"), "data/NANO-depth-Jan-Aug.csv", {
     //title: 'Detided Depth',
     ylabel: 'Depth (m)',
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always', //onmouseover
     labelsSeparateLines: true,
     labelsDivStyles: { 'textAlign': 'right' },
-    //labelsDivWidth : 600,
+    labelsDivWidth : 150,
     labelsUTC : true,
     colors : ["#00457C","#DBA53A","#008100"],
     strokeWidth: 0,
     drawPoints: true,
     pointSize: 2,
     highlightCircleSize: 6,
-    showRangeSelector: true,
+    showRangeSelector: false,
     animatedZooms : true,
     series: {
-      'MJ03D Depth': {axis: 'y1'},
-      'MJ03E Depth': {axis: 'y1', showInRangeSelector: true},
-      'MJ03F Depth': {axis: 'y1'},
+      'ID Depth': {axis: 'y1'},
+      'EC Depth': {axis: 'y1', showInRangeSelector: true},
+      'CC Depth': {axis: 'y1'},
     },
     visibility: [0,0,1],
-    valueRange: [1515, 1500]
+    valueRange: [1515, 1499]
   });
 
   g3 = new Dygraph(document.getElementById("chart3"), "data/NANO-temp-Jan-Aug.csv", {
@@ -64,7 +64,7 @@ $(document).ready(function () {
     legend: 'always', //onmouseover
     labelsSeparateLines: true,
     labelsDivStyles: { 'textAlign': 'right' },
-    //labelsDivWidth : 600,
+    labelsDivWidth : 180,
     labelsUTC : true,
     colors : ["#00457C","#DBA53A","#008100"],
     strokeWidth: 0,
@@ -74,9 +74,9 @@ $(document).ready(function () {
     showRangeSelector: true,
     animatedZooms : true,
     series: {
-      'MJ03D Temperature': {axis: 'y1'},
-      'MJ03E Temperature': {axis: 'y1', showInRangeSelector: true},
-      'MJ03F Temperature': {axis: 'y1'},
+      'ID Temperature': {axis: 'y1'},
+      'EC Temperature': {axis: 'y1', showInRangeSelector: true},
+      'CC Temperature': {axis: 'y1'},
     },
     visibility: [0,0,1],
   });
