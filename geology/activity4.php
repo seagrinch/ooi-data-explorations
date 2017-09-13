@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the June 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('exploration','application'))): ?>
 
@@ -24,22 +23,33 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
+<h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
-<p>What observations can we make about earthquakes at a seamount over time?</p>
+<p>Use earthquake data at Axial Seamount to look if there are patterns over 3 months in spring 2015.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in earthquake magnitude, depth, and location you may observe over time at an active seamount.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
 <?php elseif ($level=='application'): ?>
-<p>When did the diking-eruptive event occur at the Axial Seamount?</p>
+<p>Use earthquake data from Axial Seamount in April 2015 to determine when the diking-eruptive event occurred.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in earthquake magnitude and location you may observe at the time of a diking-eruptive event.</li>
+  <li>Compare patterns in the data below to determine what and if there are relationships over time at the Axial Seamount.</li>
+</ul>
+
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
 
+<!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
-   integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-   crossorigin=""/>   
+  integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+  crossorigin=""/>   
 <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
-   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
-   crossorigin=""></script>
+  integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+  crossorigin=""></script>
 
 <style type="text/css">
   .circle { visibility: hidden; }
@@ -60,47 +70,91 @@
 <?php endif; ?>
 
 <div id="map2"></div>
+<p>Automatically select: 
+<?php if ($level=='exploration'): ?>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(7)">1 Week</button>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(30)">1 Month</button>
+<?php endif; ?>
+<?php if ($level=='application'): ?>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(1/12)">1 Hour</button>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(1/4)">6 Hours</button>
+  <button class="btn btn-primary btn-sm" onclick="graph_zoom(1)">1 Day</button>
+<?php endif; ?>
+</p>
+
 <?php 
   $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "https://d3js.org/d3-scale-chromatic.v1.min.js";
   $scripts[] = "javascript/geology4.js";
 ?>
 
 
-<h3>Your Objective</h3>
+<h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>Explore earthquake magnitude and depth data at the Axial Seamount over 3 months to see what kinds of patterns, if any, you can observe at the seamount.</p>
-<p><strong>Data Tip:</strong> You are looking at 1 week of data to start (March 1-7, 2015). Select another time period (by dragging the gray box at the bottom) to explore the data in ways that interest you. Adjust the size of the gray box to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial scale..</p>
+<p>When the site loads, you are able to see all of the earthquake data from March 1-7, 2015 around the Axial Seamount. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the amount of data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with only data from March 1-7, 2015 highlighted). </li>
+  <li>Zooming in and out of the map to see more or less of the area of the Axial Seamount where earthquakes occurred.
+As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>Interpret the earthquake magnitude and depth data at the Axial Seamount over 3 days to investigate when a diking-eruptive event occurred.</p>
-<p><strong>Data Tip:</strong> You are looking at 6 hours of data to start (April 23, 2015 from 0:00-6:00 UTC). Select another time period (by dragging the gray box at the bottom) to explore the data in ways to see changes in the location and timing of earthquakes. Adjust the size of the gray box to look at the data over different time scales. Zoom in and out of the map to vary see more or less of the spatial area.</p>
+<p>When the site loads, you are able to see all of the earthquake data from 6 hours on April 23, 2015 (00:00-06:00 UTC). You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
+  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
+  <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
+</ul>
+<p>Note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php endif; ?>
 
 
-<h3>Interpretation and Analysis Questions</h3>
+<h3>Questions for Thought</h3>
 
 <?php if ($level=='exploration'): ?>
-<ol>
-  <li>What did you find interesting in the earthquake data at the Axial Seamount over 3 months in 2015?</li>
-  <li>What kinds of patterns did you observe in:
-  <ul>
-    <li>how many earthquakes per day occurred over time? or</li>
-    <li>how big the earthquakes were over time? or</li>
-    <li>where the earthquakes occurred over space? </li>
-  </ul></li>
-  <li>What is your evidence that an unusual event occurred at the seamount during these 3 months?</li>
-  <li>What questions do you still have about earthquakes at a seamount?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what geographic area are you able to observe earthquake data in this map? </li>
+      <li>What is the range of earthquake size (magnitude) in these data?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in earthquake location over this time period at Axial Seamount in reference to bathymetric features? </li>
+      <li>Where did you see these changes or patterns?</li>
+      <li>What changes or patterns did you observe in earthquake magnitude over this time period at Axial Seamount?</li>
+      <li>What changes or patterns did you observe in the relative number of earthquakes that occurred during a week over these 3 months at Axial Seamount?</li>
+      <li>What questions do you still have about what we can learn about plate boundaries from earthquake data over time?</li>
+    </ul>
+  </div>
+</div>
 
 <?php elseif ($level=='application'): ?>
-<ol>
-  <li>What evidence do you have of a relationship between earthquake magnitude and location during the diking-eruptive event at the Axial Seamount?</li>
-  <li>How does this relationship support what you previously knew about seismic activity at seamounts?</li>
-  <li>During what time frame did the diking-eruptive event occur?</li>
-  <li>What questions do you still have about seismic activity at seamounts?</li>
-</ol>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>Across what geographic area are you able to observe earthquake data in this map? </li>
+      <li>What is the range of earthquake magnitudes in these data?</li>
+      <li>When do you see the largest earthquakes along this time series across the diking-eruptive event?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>During what time frame did the diking-eruptive event occur?</li>
+      <li>What evidence do you have of a relationship between earthquake magnitude and timing during the diking-eruptive event at the Axial Seamount? </li>
+      <li>How does this relationship support what you previously knew about seismic activity at seamounts?</li>
+      <li>What questions do you still have about seismic activity at seamounts during eruption events?</li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
 
@@ -128,7 +182,9 @@
 <ul>
   <li>Data are from: Wilcock, W., Waldhauser, F., & Tolstoy, M. (2016). Catalogs of earthquake recorded on Axial Seamount from January, 2015 through November, 2015 (investigators William Wilcock, Maya Tolstoy, Felix Waldhauser). (Version 1) [Data set]. Integrated Earth Data Applications (IEDA). <a href="https://doi.org/10.1594/ieda/323843">https://doi.org/10.1594/ieda/323843</a></li>
   <li>Earthquake catalog(s) data are publicly available in the Marine Geoscience Data System: <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843</a></li>
+  <li>To learn more about this diking-eruptive event, see Wilcock, W., M. Tolstoy, F. Waldhauser, C. Garcia1, Y. Joe Tan, D. Bohnenstiehl, J. Caplan-Auerbach, R. Dziak, A. Arnulf, and M. Mann. (2016) Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption. Science. 354(6318): 1395-1399. DOI: 10.1126/science.aah5563</li>
 </ul>
+
 
 
 <?php if ($level=='exploration'): ?>
@@ -153,11 +209,11 @@
     <div class="list-group">
       <a href="activity4.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">What observations can we make about earthquakes at a seamount over time?</p>
+        <p class="list-group-item-text">Use earthquake data at Axial Seamount to look if there are patterns over 3 months in spring 2015.</p>
       </a>
       <a href="activity4.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
-        <p class="list-group-item-text">When did the diking-eruptive event occur at the Axial Seamount?</p>
+        <p class="list-group-item-text">Use earthquake data from Axial Seamount in April 2015 to determine when the diking-eruptive event occurred.</p>
       </a>
     </div>
   </div>

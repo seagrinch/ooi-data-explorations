@@ -3,6 +3,7 @@
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
+  $page = 'activity';
   
   $base_url = '../';
   include_once('../header.php'); 
@@ -15,8 +16,6 @@
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
-<div class="alert alert-danger">Note: These are prototype activities.  They will be updated following the June 2017 workshop.</div>
-
 <!-- INDIVIDUAL ACTIVITY -->
 <?php if (in_array($level, array('scene1','scene7','combined'))): ?>
 
@@ -24,8 +23,29 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3>Challenge Question</h3>
-<p>How do vent chimneys change over time?</p>
+<h3>Your Objective</h3>
+<?php if ($level=='scene1'): ?>
+<p>Use still images from a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in shape and size of the vent chimney, and the organisms living around it, you may observe over time on an active vent.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
+<?php elseif ($level=='scene7'): ?>
+<p>Use still images from a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in shape and size of the vent chimney, and the organisms living around it, you may observe over time on an active vent.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
+<?php elseif ($level=='combined'): ?>
+<p>Use still images from two locations on a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
+<ul>
+  <li>Make a prediction about what kind of patterns in shape and size of the vent chimney, and the organisms living around it, you may observe over time on an active vent.</li>
+  <li>Explore the data below to see what you can observe.</li>
+</ul>
+
+<?php endif; ?>
 
 
 <!-- DATA CHART -->
@@ -60,37 +80,108 @@
 ?> 
 
 
+<h3>Data Tips</h3>
+
+<?php if ($level=='scene1'): ?>
+<p>When the site loads, you are able to see an image from November 20, 2015 from the Scene 1 camera. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the slider above the image to the right or left (or by using the right and left arrows).</li>
+</ul>
+<p>Note, if you are interested in knowing what you are looking at check out the <a href="http://www.interactiveoceans.washington.edu/story/Biology_at_Axial_Seamount">List of Organisms at Hydrothermal Vents</a>.</p>
+
+<?php elseif ($level=='scene7'): ?>
+<p>When the site loads, you are able to see an image from November 20, 2015 from the Scene 7 camera. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the slider above the image to the right or left (or by using the right and left arrows).</li>
+</ul>
+<p>Note, if you are interested in knowing what you are looking at check out the <a href="http://www.interactiveoceans.washington.edu/story/Biology_at_Axial_Seamount">List of Organisms at Hydrothermal Vents</a>.</p>
+
+<?php elseif ($level=='combined'): ?>
+<p>When the site loads, you are able to see an image from November 20, 2015 from the Scene 1 & 7 cameras. You can interact with the data by:</p>
+<ul>
+  <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the slider above the image to the right or left (or by using the right and left arrows).</li>
+</ul>
+<p>Note, if you are interested in knowing what you are looking at check out the <a href="http://www.interactiveoceans.washington.edu/story/Biology_at_Axial_Seamount">List of Organisms at Hydrothermal Vents</a>.</p>
+
+<?php endif; ?>
+
+
 <!--
-<h3>Your Objective</h3>
+<h3>Questions for Thought</h3>
 
-<?php if ($level=='exploration'): ?>
-<p>Objective.</p>
-<p><strong>Data Tip:</strong> Tip.</p>
+<?php if ($level=='scene1'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
 
-<?php elseif ($level=='application'): ?>
-<p>Objective.</p>
-<p><strong>Data Tip:</strong> Tip.</p>
+<?php elseif ($level=='scene7'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
+
+<?php elseif ($level=='combined'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>
 
 <?php endif; ?>
+-->
 
 
-<h3>Interpretation and Analysis Questions</h3>
-
-<?php if ($level=='exploration'): ?>
-<ol>
-  <li></li>
-</ol>
-
-<?php elseif ($level=='application'): ?>
-<ol>
-  <li></li>
-</ol>
-
-<?php endif; ?>
-
-
+<!--
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+-->
+
+
+<!--
+<h4>Dataset Information</h4>
+<p>Information</p>
 -->
 
 
@@ -118,15 +209,15 @@
     <div class="list-group">
       <a href="activity5.php?level=scene1" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration - Scene 1</h4>
-        <p class="list-group-item-text">How do vent chimneys change over time?</p>
+        <p class="list-group-item-text">Use still images from a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
       </a>
       <a href="activity5.php?level=scene7" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration - Scene 7</h4>
-        <p class="list-group-item-text">How do vent chimneys change over time?</p>
+        <p class="list-group-item-text">Use still images from a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
       </a>
       <a href="activity5.php?level=combined" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration - Combined Scene</h4>
-        <p class="list-group-item-text">How do vent chimneys change over time?</p>
+        <p class="list-group-item-text">Use still images from two locations on a hydrothermal vent chimney at Axial Seamount to look if there are patterns over a year.</p>
       </a>
     </div>
   </div>
