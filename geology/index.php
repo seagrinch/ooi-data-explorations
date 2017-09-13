@@ -58,11 +58,11 @@
 </div>
 <div class="media">
   <div class="media-left">
-    <a href="activity5.php"><img class="media-object" src="https://placehold.it/250x150" alt="" width="250" height="150"></a>
+    <a href="activity5.php"><img class="media-object" src="screenshots/Activity5_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity5.php">Vent Video Frames</a></h4>
-    <p>Prototype video frame interactive</p>
+    <p>Help students understand how hydrothermal vents evolve using a timeseries of snapshots from an HD Camera at Axial Seamount.</p>
   </div>
 </div>
 
