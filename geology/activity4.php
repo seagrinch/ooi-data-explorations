@@ -96,8 +96,7 @@
 <ul>
   <li>Selecting a different part of the time series to explore the data in ways that interest you by moving the highlighted section of the bottom graph to the right or left.</li>
   <li>Zooming in and out of the amount of data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with only data from March 1-7, 2015 highlighted). </li>
-  <li>Zooming in and out of the map to see more or less of the area of the Axial Seamount where earthquakes occurred.
-As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</li>
+  <li>Zooming in and out of the map to see more or less of the area of the Axial Seamount where earthquakes occurred.</li>
 </ul>
 
 <?php elseif ($level=='application'): ?>
@@ -107,9 +106,10 @@ As a note, the color denotes earthquake magnitude, with dark purple representing
   <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
   <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
 </ul>
-<p>Note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php endif; ?>
+
+<p>Note, the color denotes earthquake depth, with darker blues representing deeper depths (up to 5km) and dark red representing shallower depths (0km). The yellows are in-between.  The circles on the map are sized by the earthquake magnitude.</p>
 
 
 <h3>Questions for Thought</h3>
@@ -178,11 +178,10 @@ As a note, the color denotes earthquake magnitude, with dark purple representing
 </div>
 
 <h4>Dataset Information</h4>
-<p>Data in this activity is from:</p>
 <ul>
-  <li>Data are from: Wilcock, W., Waldhauser, F., & Tolstoy, M. (2016). Catalogs of earthquake recorded on Axial Seamount from January, 2015 through November, 2015 (investigators William Wilcock, Maya Tolstoy, Felix Waldhauser). (Version 1) [Data set]. Integrated Earth Data Applications (IEDA). <a href="https://doi.org/10.1594/ieda/323843">https://doi.org/10.1594/ieda/323843</a></li>
-  <li>Earthquake catalog(s) data are publicly available in the Marine Geoscience Data System: <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843</a></li>
-  <li>To learn more about this diking-eruptive event, see Wilcock, W., M. Tolstoy, F. Waldhauser, C. Garcia1, Y. Joe Tan, D. Bohnenstiehl, J. Caplan-Auerbach, R. Dziak, A. Arnulf, and M. Mann. (2016) Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption. Science. 354(6318): 1395-1399. DOI: 10.1126/science.aah5563</li>
+  <li>The data used in this activity is from: Wilcock, W., Waldhauser, F., & Tolstoy, M. (2016). Catalogs of earthquake recorded on Axial Seamount from January, 2015 through November, 2015 (investigators William Wilcock, Maya Tolstoy, Felix Waldhauser). (Version 1) [Data set]. Integrated Earth Data Applications (IEDA). <a href="https://doi.org/10.1594/ieda/323843">https://doi.org/10.1594/ieda/323843</a></li>
+  <li>The earthquake catalog data are publicly available in the <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">Marine Geoscience Data System</a>.  The data used are from the Axial_DD_n12.dat data file.</li>
+  <li>To learn more about this diking-eruptive event, see Wilcock, W., M. Tolstoy, F. Waldhauser, C. Garcia1, Y. Joe Tan, D. Bohnenstiehl, J. Caplan-Auerbach, R. Dziak, A. Arnulf, and M. Mann. (2016) Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption. Science. 354(6318): 1395-1399. <a href="https://doi.org/10.1126/science.aah5563">https://doi.org/10.1126/science.aah5563</a></li>
 </ul>
 
 

@@ -110,7 +110,6 @@
   <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
   <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
 </ul>
-<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php elseif ($level=='application1'): ?>
 <p>When the site loads, you are able to see all of the earthquake data from the last two weeks in May 2013 throughout the Coastal Endurance Array. You can interact with the data by:</p>
@@ -119,7 +118,6 @@
   <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
   <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
 </ul>
-<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php elseif ($level=='application2'): ?>
 <p>When the site loads, you are able to see all of the earthquake data from two weeks in May 2015 throughout the Coastal Endurance Array. You can interact with the data by:</p>
@@ -128,9 +126,10 @@
   <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted). </li>
   <li>Zooming in and out of the map to see more or less of the area of the ocean the earthquakes occurred.</li>
 </ul>
-<p>As a note, the color denotes earthquake magnitude, with dark purple representing lower magnitude and pink representing higher magnitude.</p>
 
 <?php endif; ?>
+
+<p>Note, the color denotes earthquake depth, with darker blues representing deeper depths (up to 50km) and dark red representing shallower depths (0km). The yellows are in-between.  The circles on the map are sized by the earthquake magnitude.</p>
 
 
 <h3>Questions for Thought</h3>
@@ -215,7 +214,7 @@
 </div>
 
 <h4>Dataset Information</h4>
-<p>Data for this activity were accessed from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>  
+<p>Data for this activity were retrieved from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>  
 
 
 <?php if ($level=='exploration'): ?>
