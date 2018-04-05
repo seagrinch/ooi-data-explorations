@@ -104,7 +104,7 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
-  $json_file = file_get_contents('images_json/productivity1.json');
+  $json_file = file_get_contents('images_json/silke1.json');
   $images = json_decode($json_file);
 ?>
 <div class="row">
