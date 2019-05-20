@@ -38,18 +38,23 @@
 <div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
 
 <div class="row" style="margin-top:10px;">
-  <div class="col-xs-3">
-    <p class="text-right">Include datasets:</p>
+  <div class="col-md-2">
+    <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
   </div>
-  <div class="col-xs-9">
-  <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)"> 
-    International District Vent Field 2 (ID)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_visibility(this)"> 
-    Eastern Caldera (EC)</label><br>
-  <label style="font-weight: normal;"><input type="checkbox" id="2" onclick="toggle_visibility(this)" checked> 
-    Central Caldera (CC)</label><br>
+  <div class="col-md-8">
+    <p id="btext" class="text-center">When you're ready to add a new dataset, click the Next button.</p>
+  </div>
+  <div class="col-md-2">
+    <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>
   </div>
 </div>
+
+<!--
+  <button class="btn btn-default" onclick="goto_step(1)">Step 1</button>
+  <button class="btn btn-default" onclick="goto_step(2)">Step 2</button>
+  <button class="btn btn-default" onclick="goto_step(3)">Step 3</button>
+-->
+
 <?php 
   $scripts[] = "../js/dygraph-combined-dev.js";
   $scripts[] = "../js/dygraph-synchronizer.js";
@@ -133,6 +138,16 @@ TTD
     <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="anoxia_guide.php" class="btn btn-primary">Instructor's Guide</a>
+  </div>
+  <div class="col-md-9">
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
+  </div>
+</div>
+
 
 <?php endif; ?>
 
