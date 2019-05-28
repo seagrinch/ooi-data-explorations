@@ -204,6 +204,29 @@ Explore salinity data at one location over time.</p>
     <strong>Orientation Questions</strong>
     <ul>
       <li>What oceanic or atmospheric variables can you look at in these graphs? </li>
+      <li>Across what time periods are you able to observe oceanic or atmospheric variables in these graphs?</li>
+      <li>What is the first month and year there are data?</li>
+      <li>What is the last month and year there are data?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe at the surface in other variables as salinity changes over this time period off of Oregon?</li>
+      <li>When did you see these changes or patterns?</li>
+      <li>Describe how the different oceanic and atmospheric variables affect salinity levels at this location, i.e., identify any correlations/relationships between variables?</li>
+      <li>Explain the reasons behind the relationships between the variables, if any.</li>
+      <li>What questions do you still have about what drives changes in salinity at the ocean surface over time?</li>
+    </ul>
+  </div>
+</div>
+
+<?php elseif ($level=='application'): ?>
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>What oceanic or atmospheric variables can you look at in these graphs? </li>
       <li>Where are the locations? Find them on a map.</li>
       <li>Across what time periods are you able to observe oceanic or atmospheric variables in these graphs?</li>
       <li>What is the first month and year there are data?</li>
@@ -223,8 +246,6 @@ Explore salinity data at one location over time.</p>
     </ul>
   </div>
 </div>
-
-<?php elseif ($level=='application'): ?>
 
 <?php endif; ?>
 
