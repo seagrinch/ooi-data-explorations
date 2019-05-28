@@ -20,7 +20,7 @@
 <h3>New Collections</h3>
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="img-rounded"></a>
+    <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_14366437299_sm.png" alt="Chlorophyll colored water off the coast of Brazil" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="productivity/index.php">Exploring Primary Production with OOI Data</a></h4>
@@ -32,7 +32,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <a href="chemistry/index.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="Ocean wave" width="250" height="150" class="img-rounded"></a>
+    <a href="chemistry/index.php"><img src="chemistry/screenshots/water-1555170_960_720_sm.jpg" alt="An ocean wave" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="chemistry/index.php">Exploring Properties of Seawater with OOI Data</a></h4>
@@ -44,7 +44,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <a href="geology/index.php"><img src="geology/screenshots/mgds_juandefuca_sm.jpg" alt="" width="250" height="150" class="img-rounded"></a>
+    <a href="geology/index.php"><img src="geology/screenshots/mgds_juandefuca_sm.jpg" alt="The ocean floor off the coast of Oregon and Washington" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="geology/index.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>

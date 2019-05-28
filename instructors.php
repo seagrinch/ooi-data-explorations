@@ -53,7 +53,7 @@
 
 <div class="row">
   <div class="col-md-4">
-    <a href="productivity/guide.php"><img src="productivity/screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150" class="thumbnail"></a>
+    <a href="productivity/guide.php"><img src="productivity/screenshots/ConceptMap1_14366437299_sm.png" alt="Chlorophyll colored water off the coast of Brazil" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="productivity/guide.php">Exploring Primary Production with Data</a></h4>
@@ -73,12 +73,14 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
+    <a href="geology/guide.php"><img src="geology/screenshots/mgds_juandefuca_sm.jpg" alt="The ocean floor off the coast of Oregon and Washington" width="250" height="150" class="thumbnail"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="geology/guide.php">Exploring Tectonics & Seamounts with OOI Data</a></h4>
-    <p>(coming June 2017)</p>
+    <p>These activities explore characteristics of seamounts and tectonics in greater detail, to be used as Exploration or Application activities. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</p>
   </div>
 </div>
+
 
 <?php 
   include_once('footer.php'); 

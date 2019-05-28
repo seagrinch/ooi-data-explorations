@@ -26,7 +26,7 @@
 
 <div class="media">
   <div class="media-left">
-    <a href="activity0.php"><img class="media-object" src="screenshots/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+    <a href="activity0.php"><img class="media-object img-rounded" src="screenshots/ConceptMap1_14366437299_sm.png" alt="Chlorophyll colored water off the coast of Brazil" width="250" height="150"></a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="activity0.php">Primary Production in General</a></h4>

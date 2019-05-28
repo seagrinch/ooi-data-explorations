@@ -35,7 +35,7 @@
     </p>
   </div>
   <div class="col-md-4">
-    <img src="../images/2016_productivity_workshop.jpg" alt="OOI Productivity Workshop Participants" class="img-rounded img-responsive" />
+    <img src="images/2016_productivity_workshop.jpg" alt="OOI Productivity Workshop Participants" class="img-rounded img-responsive" />
   </div>
 </div>
 
@@ -53,7 +53,7 @@
     </p>
   </div>
   <div class="col-md-4">
-    <img src="../images/2017_chemistry_workshop.jpg" alt="OOI Productivity Workshop Participants" class="img-rounded img-responsive" />
+    <img src="images/2017_chemistry_workshop.jpg" alt="OOI Productivity Workshop Participants" class="img-rounded img-responsive" />
   </div>
 </div>
 
@@ -71,7 +71,7 @@
     </p>
   </div>
   <div class="col-md-4">
-    <img src="../images/2017_geology_workshop.png" alt="OOI Geology Workshop Participants" class="img-rounded img-responsive" />
+    <img src="images/2017_geology_workshop.png" alt="OOI Geology Workshop Participants" class="img-rounded img-responsive" />
   </div>
 </div>
 

@@ -26,7 +26,7 @@
 <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-4">
     <div class="thumbnail">
-      <a href="activity_invitation.php"><img src="images/thumbnails/ConceptMap1_Diatoms_through_the_microscope_sm.jpg" alt="Diatoms through a microscope" width="250" height="150"></a>
+      <a href="activity_invitation.php"><img src="images/thumbnails/ConceptMap1_14366437299_sm.png" alt="Chlorophyll colored water off the coast of Brazil" width="250" height="150"></a>
       <div class="caption">
         <h4>Invitation Concept Map of Primary Productivity</h4>
         <p>Develop a concept map of your current knowledge and experience with <em>primary productivity</em>.</p>
