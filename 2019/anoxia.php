@@ -11,7 +11,7 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">March 2019</a></li>
+  <li><a href="index.php">2019 Collection</a></li>
   <li><a href="anoxia.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -23,7 +23,7 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3 style="color:red;">This activity is under construction!</h3>
+<h4 style="color:red;">This activity is under construction!</h4>
 
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
@@ -135,6 +135,7 @@ TTD
     </div>
   </div>
   <div class="col-md-6">
+    <h4 class="text-center">Learning Cycle Phases Supported</h4>
     <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
@@ -148,6 +149,7 @@ TTD
   </div>
 </div>
 
+<p><strong>Citation:</strong> ??? &amp; Lichtenwalner, S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php endif; ?>
 

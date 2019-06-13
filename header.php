@@ -54,6 +54,7 @@ if(!isset($base_url)) $base_url='./';
                 <li><a href="<?=$base_url?>productivity/">Primary Production</a></li>
                 <li><a href="<?=$base_url?>chemistry/">Properties of Seawater</a></li>
                 <li><a href="<?=$base_url?>geology/">Tectonics & Seamounts</a></li>
+                <li><a href="<?=$base_url?>2019/">2019 Collection</a></li>
               </ul>
             </li>
             <li <?php echo ($page=='workshops' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>workshops.php">Workshops</a></li>

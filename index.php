@@ -53,6 +53,17 @@
     <a href="geology/guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href="2019/index.php"><img data-src="holder.js/250x150?text=2019 Collection" alt="Generic placeholder image" width="250" height="150" class="img-rounded"></a>
+  </div>
+  <div class="col-md-8">
+    <h4><a href="2019/index.php">2019 Collection &ndash; In Development</a></h4>
+    <p>These activities in this collection were developed by participants to the 2019 OOI Data Labs Development Workshops.</p>
+    <a href="2019/index.php" class="btn btn-primary">Activities</a>
+  </div>
+</div>
 
 <hr>
 

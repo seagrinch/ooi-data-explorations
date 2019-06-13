@@ -11,7 +11,7 @@
 
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
-  <li><a href="index.php">March 2019</a></li>
+  <li><a href="index.php">2019 Collection</a></li>
   <li><a href="salinity.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
@@ -23,7 +23,7 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h3 style="color:red;">This activity is under construction!</h3>
+<h4 style="color:red;">This activity is under construction!</h4>
 
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
@@ -152,7 +152,6 @@ Explore salinity data at one location over time.</p>
 <?php if ($level=='exploration'): ?>
 <p>When the site loads, you are able to see the full salinity dataset from the Oregon Shelf Surface Buoy in the Coastal Endurance Array. You can interact with the data by:</p>
 <ul>
-  <li>Turning on and off different oceanic or atmospheric variables to compare their data to the salinity data.</li>
   <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of the highlighted section of the bottom graph (it loads with all of the data highlighted).</li>
 </ul>
 
@@ -295,9 +294,21 @@ Explore salinity data at one location over time.</p>
     </div>
   </div>
   <div class="col-md-6">
+    <h4 class="text-center">Learning Cycle Phases Supported</h4>
     <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-3">
+    <a href="anoxia_guide.php" class="btn btn-primary">Instructor's Guide</a>
+  </div>
+  <div class="col-md-9">
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
+  </div>
+</div>
+
+<p><strong>Citation:</strong> ??? &amp; Lichtenwalner, S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php endif; ?>
 
