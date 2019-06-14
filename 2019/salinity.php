@@ -106,6 +106,7 @@ Explore salinity data at one location over time.</p>
 <style>
   #chart .dygraph-ylabel {color:#00457C;}
   #chart .dygraph-y2label {color:#DBA53A;}
+  #chart .dygraph-axis-label-y2 {color:#fff;}
 </style>
 
 <div class="row" style="margin-top:10px;">

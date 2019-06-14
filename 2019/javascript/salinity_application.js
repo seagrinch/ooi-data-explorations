@@ -80,6 +80,10 @@ function toggle_lines() {
     for(i=0; i<cols.length; i++) {
       cols[i].style.color = colors[parameter];
     }
+    cols = document.getElementsByClassName('dygraph-axis-label-y2');
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.color = '#000';
+    }
   } else {
     g.updateOptions({
       y2label: '',
