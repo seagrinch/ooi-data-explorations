@@ -17,9 +17,9 @@ var colors = {
 $(document).ready(function () {
 
   g = new Dygraph(document.getElementById("chart"), "data/salinity_application.csv", {
-    title: 'Coastal Endurance Array - Oregon Shelf Surface Mooring',
+    //title: 'Coastal Endurance Array - Oregon Shelf Surface Mooring',
     ylabel: 'Salinity',
-    y2label: 'Air Temperature (C)',
+    y2label: '',
     legend: 'onmouseover',
     labelsDivStyles: { 'textAlign': 'right' },
     labelsDivWidth : 250,

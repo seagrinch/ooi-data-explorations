@@ -17,8 +17,9 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="anoxia.php">Anoxic Events</a></h4>
+    <h4 class="media-heading"><a href="anoxia.php">Anoxic Events</a> <small>March 2019</small></h4>
     <p>TBD</p>
+    <p><a href="anoxia_guide.php">Instructors' Guide</a></p>
   </div>
 </div>
 <div class="media">
@@ -28,8 +29,9 @@
     </a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="salinity.php">Changes in Salinity</a></h4>
+    <h4 class="media-heading"><a href="salinity.php">Changes in Salinity</a> <small>March 2019</small></h4>
     <p>TBD</p>
+    <p><a href="salinity_guide.php">Instructors' Guide</a></p>
   </div>
 </div>
 

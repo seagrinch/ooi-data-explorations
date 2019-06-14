@@ -1,0 +1,22 @@
+[
+  {
+    "title": "OOI Arrays",
+    "file": "OOI_Arrays_201905509_CECPGI.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"https://oceanobservatories.org\">OOI</a>) has hundreds of instruments collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. In this activity, we are looking at data from the <a href=\"https://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location in the Temperate Pacific Ocean (red box), the <a href=\"https://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> location in the Atlantic Ocean off the coast of New England (purple box), and the <a href=\"https://oceanobservatories.org/array/global-irminger-sea/\">Global Irminger Sea</a> location in the North Atlantic Ocean (green box)."
+  },
+  {
+    "title": "What does it look like underwater?",
+    "file": "EA_WAOR_2018_labels_CE02.jpg",
+    "caption": "This drawing represents where the different instruments are attached to cables running from the surface down to the seafloor (i.e., a mooring) along the Central Oregon Line. Data in this activity were collected from instruments on the <a href=\"https://oceanobservatories.org/site/ce02shsm/\">Oregon Shelf Surface Mooring</a> (red box)."
+  },
+  {
+    "title": "What is on the Mooring?",
+    "file": "CE_OR_Shelf_Surface_Mooring_METBK.jpg",
+    "caption": "The Surface Buoy (red box) at the water surface is where the data for this activity were collected at the <a href=\"https://oceanobservatories.org/site/ce02shsm/\">Oregon Shelf Surface Mooring</a>. Many instruments, each collecting different oceanographic variable data, are included but data for this activity were collected using a <a href=\"https://oceanobservatories.org/instrument-class/metbk/\">Bulk Meteorology Instrument Package</a> instrument."
+  },
+  {
+    "title": "How does a METBK sensor work?",
+    "file": "Global-Surface-Mooring-GI01SUMO-00002-just-deployed_landscape-web.jpg",
+    "caption": "The <a href=\"https://oceanobservatories.org/instrument-class/metbk/\">Bulk Meteorology Instrument Package</a> is located on the Surface Buoy and measures different aspects of weather conditions above the sea surface, including data used to calculate movement of energy between the air and ocean.  The specific data in this activity are: <a href=\"https://oceanobservatories.org/data-product/salsurf/\">Sea Surface Salinity</a>, <a href=\"https://oceanobservatories.org/data-product/tempair/\">Air Temperature</a>, <a href=\"https://oceanobservatories.org/data-product/tempsrf/\">Sea Surface Temperature</a>, and <a href=\"https://oceanobservatories.org/data-product/rainrte/\">Rain rate</a>. (Photo Credit: Sheri N. White)"
+  }
+]

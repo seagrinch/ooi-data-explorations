@@ -9,7 +9,7 @@ $(document).ready(function () {
     labelsDivWidth : 250,
     labelsUTC : true,
     colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"],
-    strokeWidth: 2,
+    strokeWidth: 0,
     drawPoints: true,
     pointSize: 2,
     highlightCircleSize: 6,
@@ -23,3 +23,9 @@ $(document).ready(function () {
   });
 
 }); //document.ready
+
+function toggle_line(el) {
+    g.updateOptions({
+      strokeWidth: (el.checked ? 2 : 0),
+    })
+}

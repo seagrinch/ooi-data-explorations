@@ -54,11 +54,18 @@ Explore salinity data at one location over time.</p>
 ?>  
 
 <?php if ($level=='exploration'): ?>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-1">
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="checkbox" id="drawline" onclick="toggle_line(this)"> 
+      Draw Line</label>
+  </div>
+</div>
+<p class="text-right"><a href="data/salinity_ce02.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <?php 
   $scripts[] = "javascript/salinity_exploration.js";
 ?>  
-<br>
-<p class="text-right"><a href="data/salinity_ce02.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 <?php elseif ($level=='invention'): ?>
 <style>
@@ -71,7 +78,7 @@ Explore salinity data at one location over time.</p>
     <p class="text-right">Include Salinity?</p>
   </div>
   <div class="col-xs-9">
-    <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_visibility(this)" checked> 
+    <label style="font-weight: normal;"><input type="checkbox" id="salinity" onclick="toggle_visibility(this)" checked> 
       Salinity</label>
   </div>
 </div>
@@ -90,10 +97,10 @@ Explore salinity data at one location over time.</p>
       None</label>
   </div>
 </div>
+<p class="text-right"><a href="data/salinity_ce02.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <?php 
   $scripts[] = "javascript/salinity_invention.js";
 ?>  
-<p class="text-right"><a href="data/salinity_ce02.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 <?php elseif ($level=='application'): ?>
 <style>
@@ -253,6 +260,26 @@ Explore salinity data at one location over time.</p>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <p>TBD</p>
 
+<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<?php
+  if ($level=='exploration') {
+    $json_file = file_get_contents('images_json/salinity1.json');  
+  } elseif ($level=='invention') {
+    $json_file = file_get_contents('images_json/salinity1.json');
+  } elseif ($level=='application') {
+    $json_file = file_get_contents('images_json/salinity2.json');
+  }
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
+
+
 <h4>Dataset Information</h4>
 <p>The data for this activity was obtained from the following instruments:</p>
 <ul>
@@ -299,16 +326,16 @@ Explore salinity data at one location over time.</p>
   </div>
 </div>
 
+<p><strong>Citation:</strong> Phillips, M., Helgers, K., Olney, J., Semcheski., M, &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+
 <div class="row">
   <div class="col-md-3">
-    <a href="anoxia_guide.php" class="btn btn-primary">Instructor's Guide</a>
+    <a href="salinity_guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
   <div class="col-md-9">
     <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
   </div>
 </div>
-
-<p><strong>Citation:</strong> ??? &amp; Lichtenwalner, S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php endif; ?>
 
