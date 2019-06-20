@@ -116,15 +116,16 @@
 <h3>Subject / Topics</h3>
 <p>Introduction to Oceanography</p>
 <ul>
-  <li>This exercise could have students revisit learned concepts, such as wind direction, Ekman transport and upwelling, and ask students to apply them to explaining a very real situation. If these topics have not yet been covered, this example can provide the impetus to learn about them.  It requires taking information in one form, mostly graphs, and using it to answer questions and conceptualize what it means about the Oregon continental shelf.</li>
+  <li>This exercise could have students revisit learned concepts, such as wind direction, Ekman transport and upwelling, and ask students to apply them to explaining a very real situation. If these topics have not yet been covered, this example can provide the impetus to learn about them. It requires taking information in one form, mostly graphs, and using it to answer questions and conceptualize what it means about the different locations examined.  It also requires students to consider what additional data they might like to have in order to develop a more complete understanding of the processes involved.</li>
   <li>In introductory classes instructors may want to have students grapple with one or a couple of the concepts and the instructor can provide the details for other concepts.</li>
   <li>In more advanced classes students should be challenged to recall previously learned information and apply it to this problem.  Instructors should be ready to jog the student?s memories about the previously learned information.</li>
 </ul>
 
+
 <h3>Grade Level (2 options)</h3>
 <ul>
   <li>Undergraduate course for majors and non-majors</li>
-  <li>This exercise can be a case study in an upper-level Physical Oceanography and Chemical Oceanography course, where students apply what they have learned about dissolved gases, winds, Ekman transport and upwelling and downwelling.</li>
+  <li>This exercise can be a case study in an upper-level Physical Oceanography and Chemical Oceanography course, where students access additional data (such as dissolved gases, wind speed and direction, etc.) and consider the effects of processes such as Ekman transport and upwelling and downwelling.</li>
 </ul>
 
 
@@ -138,18 +139,12 @@
 
 
 <h3>Quantitative Skills</h3>
+<p>Most of the quantitative reasoning in this exercise revolves around reading and interpreting graphs.</p>
 <ul>
-  <li>Most of the quantitative reasoning in this exercise revolves around reading and interpreting graphs.
-  <ul>
-    <li>Water quality is determined by interpreting a graph of dissolved oxygen concentration.  Students are asked to read the graph to determine number of days oxygen concentrations are too low for marine organisms.</li>
-    <li>Longshore wind speed is presented in a graph and students must make the connection between the direction on a graph and the direction on a map of the study area.  Understanding this is central to deriving Ekman transport and associated upwelling and downwelling.  </li>
-    <li>Students must examine a graph showing the relationship between oxygen saturation and water temperature to understand that the coupled temperature and oxygen data from the Oregon shelf are anomalous.</li>
-    <li>With the help of the widget students will examine time series of temperature, dissolved oxygen and alongshore wind speed.  They should see that there is a strong correlation between all three of these variables</li>
-  </ul></li>
-  <li>A vertical section of deep ocean dissolved oxygen concentration provides the final bit of information needed to determine the source of the low dissolved oxygen water.  Students need to examine this color contoured data product to determine where in the water column the low oxygen water resides.</li>
+  <li>Salinity changes are observed by interpreting a graph of salinity measurements taken over the span of several years. Students are asked to read the graph to determine if there is a pattern.</li>
+  <li>With the help of the widget students will examine time series of air temperature, sea surface temperature, and precipitation. They should determine whether or not there is a correlation between any of these variables and salinity.</li>
+  <li>With the help of the widget students will examine time series of air temperature, sea surface temperature, and precipitation from three different location. They should determine similarities and differences between the locations.</li>
 </ul>
-
-<p>For more information on using quantitative skills in higher ed, please see: <a href="http://serc.carleton.edu/quantskills/issues/issues.html">Teaching Quantitative Skills in the Geosciences</a></p>
 
 
 <?php 

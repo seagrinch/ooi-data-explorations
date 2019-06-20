@@ -78,7 +78,7 @@ Explore salinity data at one location over time.</p>
     <p class="text-right">Include Salinity?</p>
   </div>
   <div class="col-xs-9">
-    <label style="font-weight: normal;"><input type="checkbox" id="salinity" onclick="toggle_visibility(this)" checked> 
+    <label style="font-weight: normal;"><input type="checkbox" id="salinity" onclick="toggle_salinity(this)" checked> 
       Salinity</label>
   </div>
 </div>
@@ -259,7 +259,6 @@ Explore salinity data at one location over time.</p>
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-<p>TBD</p>
 
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php

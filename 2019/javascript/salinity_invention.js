@@ -45,8 +45,8 @@ $(document).ready(function () {
 
 }); //document.ready
 
-function toggle_visibility(el) {
-  g.setVisibility(parseInt(el.id), el.checked);
+function toggle_salinity(el) {
+  g.setVisibility(0, el.checked);
 }
 
 function toggle_radio(el) {
