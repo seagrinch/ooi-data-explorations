@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Where the data was collected",
+    "file": "OOI_Arrays_201905509_CE.jpg",
+    "caption": " The Ocean Observatories Initiative (<a href=\"https://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day. For this activity we will be looking at data from the Coastal Endurance location in the temperate Pacific Ocean (highlighted in red)."
+  },
+  {
+    "title": "What it looks like underwater",
+    "file": "EA_WAOR_2018_labels.png",
+    "caption": "Below the surface off the coast of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different data instruments are located in the ocean. Wind data in the activity were collected at the <a href=\"https://oceanobservatories.org/site/ce02shsm/\">Shelf Surface mooring</a> (center) and the dissolved oxygen and temperature data were collected at the <a href=\"https://oceanobservatories.org/site/CE01ISSM/\">Inner Shelf mooring</a> (right) on the seafloor."
+  },
+  {
+    "title": "Definition of anoxia and hypoxia",
+    "file": "do_scale.png",
+    "caption": "Most life in the ocean requires oxygen to be available as a gas dissolved in seawater. When oxygen levels are too low, animals suffer and may die. Some animals (like many fish) require more oxygen than others, but almost all animals suffer when the level drops to &lt;2 mg/L, a level that we call <strong>hypoxia</strong>. The lower the oxygen levels fall, the more likely it is that animals will die. If the oxygen level drops to 0 mg/L, we call this <strong>anoxia</strong>."
+  },
+  {
+    "title": "Collecting more data",
+    "file": "gliders-on-deck.jpg",
+    "caption": "In addition to the data collected at the fixed locations above, researchers deployed gliders in this area. A glider moves up and down in the water column, driven by buoyancy changes and powered by batteries. In this case the glider collected data about temperature, salinity, and dissolved oxygen as it moved up and down, creating depth profiles from the surface to deeper depths. (Credit: Sheri White WHOI/CGSN)"
+  },
+  {
+    "title": "A glider makes a trip",
+    "file": "glider384_map.png",
+    "caption": "Coastal Endurance Glider #384 took the path shown from 5/24 to 6/3, 2017. Note that the colors correspond to the days along the glider's journey."
+  },
+  {
+    "title": "Seawater variables across the shelf",
+    "file": "glider384_transect_distance.png",
+    "caption": "These three graphs show us temperature, salinity, and dissolved oxygen measured at different depths along the glider's path (shown in the map).  Depth is shown on each of the 3 left axes as meters from the surface.  Note that the colors here represent the measured values for each of the three measured properties of seawater."
+  },
+  {
+    "title": "Seawater variables from a single profile",
+    "file": "glider384_profiles.png",
+    "caption": "This last graph shows us the same three variables for a single profile measured by the glider near the study site.  This time the scale for each variable is depicted on the bottom axis, and water depth is shown on the left axis."
+  }
+]

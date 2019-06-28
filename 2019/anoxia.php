@@ -42,7 +42,7 @@
     <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
   </div>
   <div class="col-md-8">
-    <p id="btext" class="text-center">When you're ready to add a new dataset, click the Next button.</p>
+    <p id="btext" class="text-center">Hypoxia occurs when DO values decrease below 2mg/L.  Click the next button to show this threshold. <!--When you're ready to add a new dataset, click the Next button. --></p>
   </div>
   <div class="col-md-2">
     <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>
@@ -55,30 +55,32 @@
   <button class="btn btn-default" onclick="goto_step(3)">Step 3</button>
 -->
 
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+.dygraph-legend {
+  left: 544px !important;
+}
+</style>
 <?php 
-  $scripts[] = "../js/dygraph-combined-dev.js";
-  $scripts[] = "../js/dygraph-synchronizer.js";
-
+  $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
+  $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
   if ($level=='exploration') {
     $scripts[] = "javascript/anoxia.js";    
   }
 ?>  
 
-<!--
-TTD
-- Add 2 line
-- Show graphs sequentially
-- Show bands
-- Plot winds in 2 colors
--->
 
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>TBD</p>
+<ul>
+  <li>By clicking on the Next button you can add more data sets.</li>
+  <li>Examine the different data sets to see if they have similar patterns.</li>
+  <li>Zoom in and out to see if changes in one type of data correlate with changes in another, or if there is a lag between the two. You can zoom by grabbing the sliders on the graph underneath the dissolved oxygen graph, or by clicking and dragging on either the temperature or wind speed graphs.</li>
+  <li>Note that the wind data shows only that part of the wind parallel to shore.  Positive values indicate wind blowing to the north, negative values to the south</li>
+</ul>
 
 <?php endif; ?>
-
 
 
 <h3>Questions for Thought</h3>
@@ -108,12 +110,35 @@ TTD
 
 
 <h3>Background Information</h3>
-<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-<p>TBD</p>
+<p>Click on the images below to learn more about where and how the dataset above was collected, and to review dissolved oxygen in the ocean.</p>
+<?php
+  if ($level=='exploration') {
+    $json_file = file_get_contents('images_json/anoxia.json');  
+  }
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
+
 
 <h4>Dataset Information</h4>
-<p>TBD</p>
+<p>The data for this activity was obtained from the following Coastal Endurance instruments:</p>
+<ul>
+  <li><a href="https://oceanobservatories.org/site/CE01ISSM/">Oregon Inshore Surface Mooring</a>, <strong>Dissolved Oxygen</strong> @ 25m depth (<a href="https://ooinet.oceanobservatories.org/plot/#CE01ISSM-MFD37-03-DOSTAD000">CE01ISSM-MFD37-03-DOSTAD000</a>)</li>
+  <li><a href="https://oceanobservatories.org/site/CE01ISSM/">Oregon Inshore Surface Mooring</a>, <strong>Seawater Temperature</strong> @ 25m depth (<a href="https://ooinet.oceanobservatories.org/plot/#CE01ISSM-MFD37-03-CTDBPC000">CE01ISSM-MFD37-03-CTDBPC000</a>)</li>
+  <li><a href="https://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a>, <strong>Winds</strong> @ 3m above sea-level from the Bulk Meteorological Instrument Package (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD11-06-METBKA000">CE02SHSM-SBD11-06-METBKA000</a>) </li>
+</ul>
 
+<p>Recovered datasets for the above instruments were downloaded from the OOI data portal, and then averaged to hourly intervals before being merged and exported to CSV.  In addition, DO was converted from micromole/kg (which is what the OOI system provides) to mg/L (which is what textbooks often use).</p>
+
+<p>The Glider CTD and Dissolved Oxygen profile data shown in the background plots was collected by <a href="https://oceanobservatories.org/site/CE05MOAS/">Endurance Coastal Glider</a> #384,  (<a href="https://ooinet.oceanobservatories.org/plot/#CE05MOAS-GL384-04-DOSTAM000">CE05MOAS-GL384-04-DOSTAM000</a>).</p>
+
+<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/March2019/Activities/DL_March_Anoxia_v4.ipynb">Jupyter Notebook</a> for details on how all of the data used in this activity was processed.</p>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
@@ -149,10 +174,9 @@ TTD
   </div>
 </div>
 
-<p><strong>Citation:</strong> ??? &amp; Lichtenwalner, S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
-
 <?php endif; ?>
 
+<p><strong>Activity Citation:</strong> Browne, K., Sahl, L., Freeman, R., Smalley, G., White, C., &amp; Lichtenwalner, C.S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 
