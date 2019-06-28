@@ -5,10 +5,10 @@
   include_once('../header.php'); 
 ?>
 
-<h2>Data Labs 2019 Collection</h2>
+<h2>OOI Data Labs - 2019 Collection</h2>
 
 <h4 style="color:red;">These Data Explorations are currently in development!</h4>
-<p>These Data Explorations were developed by participants to the <a href="https://datalab.marine.rutgers.edu/workshops/development-workshops/">2019 OOI Data Labs Development Workshops</a>.  Each topic has 1-3 Exploration activities that can be used with students to augment your teaching of the concept.  Each variation generally focus on one phase of the Learning Cycle, so you can select what works best with your teaching.  Each topic also includes an Instructors' Guide, with additional information and suggestion for how to incorporate the activities into your courses.</p>
+<p>These Data Explorations were developed by participants to the <a href="https://datalab.marine.rutgers.edu/workshops/development-workshops/">2019 OOI Data Labs Development Workshops</a>.  Each topic has 1-3 activities that can be used with students to augment your teaching of the concept.  Each activity generally focus on one phase of the Learning Cycle, so you can select the variations that work best with your teaching sequence and content/skill goals.  An Instructors' Guide is also available for each topic below, which includes additional information and suggestions for how to incorporate the activities into your courses.</p>
 
 <div class="media">
   <div class="media-left">
@@ -35,6 +35,7 @@
   </div>
 </div>
 
+<p>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</p>
 
 <?php 
   include_once('../footer.php'); 
