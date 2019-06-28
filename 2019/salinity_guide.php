@@ -14,7 +14,7 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published ?, 2019</small></h2>
+    <small>Published June 24, 2019</small></h2>
 </div>
 
 <h3>Summary</h3>
@@ -106,7 +106,7 @@
   <div class="panel-body">
     <ul>
       <li>Revisit the concept map you created at the beginning of the exercise and make changes to reflect what you have learned in this activity.</li>
-      <li>Some of these questions: What new skills did you learn that helped you to figure out what was causing the XXX? What concepts did you need to learn more about in order to figure out the mystery? What new connections between concepts did you make? In what ways did these connections help you to understand the concepts better? What was the most difficult part of this activity/unit/challenge for you? Why? What helped you to figure it out?</li>
+      <li>Some of these questions: What new skills did you learn that helped you to figure out what was happening? What concepts did you need to learn more about in order to figure out the mystery? What new connections between concepts did you make? In what ways did these connections help you to understand the concepts better? What was the most difficult part of this activity/unit/challenge for you? Why? What helped you to figure it out?</li>
       <li>Something else that you are doing already</li>
     </ul>
   </div>
@@ -118,7 +118,7 @@
 <ul>
   <li>This exercise could have students revisit learned concepts, such as wind direction, Ekman transport and upwelling, and ask students to apply them to explaining a very real situation. If these topics have not yet been covered, this example can provide the impetus to learn about them. It requires taking information in one form, mostly graphs, and using it to answer questions and conceptualize what it means about the different locations examined.  It also requires students to consider what additional data they might like to have in order to develop a more complete understanding of the processes involved.</li>
   <li>In introductory classes instructors may want to have students grapple with one or a couple of the concepts and the instructor can provide the details for other concepts.</li>
-  <li>In more advanced classes students should be challenged to recall previously learned information and apply it to this problem.  Instructors should be ready to jog the student?s memories about the previously learned information.</li>
+  <li>In more advanced classes students should be challenged to recall previously learned information and apply it to this problem.  Instructors should be ready to jog the student's memories about the previously learned information.</li>
 </ul>
 
 

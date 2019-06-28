@@ -259,8 +259,6 @@ Explore salinity data at one location over time.</p>
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-
-<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
   if ($level=='exploration') {
     $json_file = file_get_contents('images_json/salinity1.json');  
@@ -281,16 +279,17 @@ Explore salinity data at one location over time.</p>
 
 
 <h4>Dataset Information</h4>
-<p>The data for this activity was obtained from the following instruments:</p>
+<p>The data for this activity was obtained from the following <a href="https://oceanobservatories.org/instrument-class/metbk/">Bulk Meteorological</a> instruments:</p>
 <ul>
-  <li>Coastal Endurance, <a href="http://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD11-06-METBKA000">CE02SHSM-SBD11-06-METBKA000</a>)</li>
+  <li>Coastal Endurance, <a href="https://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD11-06-METBKA000">CE02SHSM-SBD11-06-METBKA000</a>)</li>
   <?php if ($level=='application'): ?>
-  <li>Coastal Pioneer, <a href="http://oceanobservatories.org/site/CP03ISSM/"> Inshore Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP03ISSM-SBD11-06-METBKA000">CP03ISSM-SBD11-06-METBKA000</a>)</li>
-  <li>Global Irminger Sea, <a href="http://oceanobservatories.org/site/GI01SUMO/">Apex Surface Mooring</a> @ 7m (<a href="https://ooinet.oceanobservatories.org/plot/#GI01SUMO-SBD11-06-METBKA000">GI01SUMO-SBD11-06-METBKA000</a>)</li>
+  <li>Coastal Pioneer, <a href="https://oceanobservatories.org/site/CP03ISSM/"> Inshore Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP03ISSM-SBD11-06-METBKA000">CP03ISSM-SBD11-06-METBKA000</a>)</li>
+  <li>Global Irminger Sea, <a href="https://oceanobservatories.org/site/GI01SUMO/">Apex Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GI01SUMO-SBD11-06-METBKA000">GI01SUMO-SBD11-06-METBKA000</a>)</li>
   <?php endif; ?>
 </ul>
 
-<p>The above datasets were downloaded from the OOI data portal, and then averaged to hourly intervals.</p>
+<p>The above datasets were downloaded from the OOI data portal.  Both telemetered and recovered datasets were used from each instrument to stitch together the best available dataset.  Daily averages (means) of the temperature and salinity were calculated and the various datasets merged together into a single file.  Daily precipitation was calculated by summing the calculated 15-minute rainfall measurements.</p>
+<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/March2019/Activities/DL_March_Salinity_v2.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 
 
 <!-- ACTIVITY INTRODUCTION -->
@@ -326,8 +325,6 @@ Explore salinity data at one location over time.</p>
   </div>
 </div>
 
-<p><strong>Citation:</strong> Phillips, M., Helgers, K., Olney, J., Semcheski., M, &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
-
 <div class="row">
   <div class="col-md-3">
     <a href="salinity_guide.php" class="btn btn-primary">Instructor's Guide</a>
@@ -339,6 +336,7 @@ Explore salinity data at one location over time.</p>
 
 <?php endif; ?>
 
+<p><strong>Activity Citation:</strong> Phillips, M., Helgers, K., Olney, J., Semcheski., M, &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 

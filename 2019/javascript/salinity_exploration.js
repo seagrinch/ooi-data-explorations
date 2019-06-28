@@ -1,3 +1,8 @@
+/* Changes in Salinity - Exploration Widget
+  OOI Data Labs 2019
+  Written by Sage Lichtenwalner, Rutgers Univeristy 
+*/
+
 $(document).ready(function () {
 
   g = new Dygraph(document.getElementById("chart"), "data/salinity_ce02.csv", {

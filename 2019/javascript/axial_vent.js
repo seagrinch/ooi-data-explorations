@@ -1,3 +1,8 @@
+/* Axial Vents Widget
+  OOI Data Labs 2019
+  Written by Sage Lichtenwalner, Rutgers Univeristy 
+*/
+
 $(document).ready(function () {
 
   g1 = new Dygraph(document.getElementById("chart1"), "data/axial_vent.csv", {

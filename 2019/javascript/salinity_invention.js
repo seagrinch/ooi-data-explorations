@@ -1,3 +1,8 @@
+/* Changes in Salinity - Invention Widget
+  OOI Data Labs 2019
+  Written by Sage Lichtenwalner, Rutgers Univeristy 
+*/
+
 var parameters = [
   {title:"Salinity"},
   {title:"Air Temperature (&deg;C)"},
