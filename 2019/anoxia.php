@@ -42,7 +42,7 @@
     <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
   </div>
   <div class="col-md-8">
-    <p id="btext" class="text-center">Hypoxia occurs when DO values decrease below 2mg/L.  Click the next button to show this threshold. <!--When you're ready to add a new dataset, click the Next button. --></p>
+    <p id="btext" class="text-center">This dissolved oxygen data is from the seafloor (at 25m) at this location. Hypoxia occurs when dissolved oxygen (DO) values decrease below 2mg/L.  Click the next button to show this threshold.</p>
   </div>
   <div class="col-md-2">
     <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>

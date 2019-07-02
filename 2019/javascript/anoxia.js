@@ -8,7 +8,7 @@ colors = ["#00457C","#7fc4fb","#DBA53A","#ffd86d","#000080","#DC143C","#800000"]
 $(document).ready(function () {
 
   g1 = new Dygraph(document.getElementById("chart1"), "data/anoxia2017b.csv", {
-    title: 'Oregon Inshore Surface Mooring - 25m',
+    title: 'Oregon Inshore Surface Mooring - Seafloor Data from 25m',
     ylabel: 'Dissolved Oxygen (mg/L)',
     //legend: 'always', //onmouseover
     labelsSeparateLines: true,
@@ -138,7 +138,7 @@ function goto_step(step) {
       g3.setVisibility(2,true)
       g3.setVisibility(4,false)
       g3.setVisibility(5,false)
-      $('#btext').text("Hypoxia occurs when DO values decrease below 2mg/L.  Click the next button to show this threshold.")
+      $('#btext').text("This dissolved oxygen data is from the seafloor (at 25m) at this location. Hypoxia occurs when dissolved oxygen (DO) values decrease below 2mg/L.  Click the next button to show this threshold.")
       break;
     case 2: // DO with 2mg/L line
       g1.setVisibility(6, true)
@@ -147,7 +147,7 @@ function goto_step(step) {
       g3.setVisibility(2,true)
       g3.setVisibility(4,false)
       g3.setVisibility(5,false)
-      $('#btext').text("Let's take a look at another dataset.  Click the next button when you're ready.")
+      $('#btext').text("When the dissolved oxygen level falls below the 2mg/L threshold, hypoxic conditions may be occuring.  Click the next button when you're ready to take a look at another dataset.")
       break;
     case 3: // DO and temp
       g1.setVisibility(6, true)
@@ -156,7 +156,7 @@ function goto_step(step) {
       g3.setVisibility(2,true)
       g3.setVisibility(4,false)
       g3.setVisibility(5,false)
-      $('#btext').text("Here is the seawater temperature. Next, we'll add the wind speeds from a nearby buoy.")
+      $('#btext').text("Here is a graph of the seawater temperatures from the seafloor at this mooring. Click next to add wind speeds from a nearby buoy.")
       break;
     case 4: // Show all 3 graphs
       g1.setVisibility(6, true)
@@ -165,7 +165,7 @@ function goto_step(step) {
       g3.setVisibility(2,true)
       g3.setVisibility(4,false)
       g3.setVisibility(5,false)
-      $('#btext').text("Do you notice any correlations with DO and temperature during periods of North (N) or South (S) winds? Click the next button when you're ready")
+      $('#btext').text("This graph shows when winds blow to the North (Northward) or South (Southward).  Do you notice any relationship between the wind direction and dissolved oxygen or seawater temperature? Click the next button when you're ready")
       break;
     case 5: // Show N/S winds
       g1.setVisibility(6, true)
@@ -177,7 +177,7 @@ function goto_step(step) {
       g1.updateOptions({underlayCallback: null})
       g2.updateOptions({underlayCallback: null})
       g3.updateOptions({underlayCallback: null})
-      $('#btext').text("Here we've highlighted the periods of N winds in red and S winds in blue.  Take a look again at the other to see how they correspond during periods of N or S winds.")
+      $('#btext').text("Here we've colored the periods of Northward winds in blue and Southward winds in red.  Take a look again at the other variables to see if or how they respond during periods of N or S winds.")
       break;
     case 6: // Show wind boxes on just wind graph
       g1.setVisibility(6, true)
@@ -191,7 +191,7 @@ function goto_step(step) {
       g3.updateOptions({underlayCallback: function(canvas, area, g) {
         fill_rects(canvas, area, g)
       }})
-      $('#btext').text("Lets graph the wind data a bit differently. Instead of coloring the N and S winds, let's highlight the different time periods.")
+      $('#btext').text("Now we've highlighted the periods of Northward and Southward winds, to make the change in winds clearer.")
       break;
     case 7: // Show wind boxes on all graphs
       g1.setVisibility(6, true)
@@ -209,7 +209,7 @@ function goto_step(step) {
       g3.updateOptions({underlayCallback: function(canvas, area, g) {
         fill_rects(canvas, area, g)
       }})
-      $('#btext').text("Now we've highligghted the periods of N and S winds on all of the graphs. What happens to the over variables during the periods of N or S winds?")
+      $('#btext').text("Finally, we've highlighted the periods of Northward and Southward winds on all of the graphs. Take a look again at the other variables to see how they change during the periods of N or S winds. What relationships do you see?")
       break;
   }
 }
