@@ -25,37 +25,26 @@
 
 <h3>Challenge Question</h3>
 <?php if ($level=='invitation'): ?>
-<p>Use the OOI Concept Map Builder tool to create a concept map of <em>primary production.</em></p>
+<p>Create a Concept Map of your knowledge of <em>primary production.</em></p>
 <?php elseif ($level=='reflection'): ?>
-<p>Use the OOI Concept Map Builder tool to revise your original concept map of <em>primary production.</em></p>
+<p>Revise your original concept map of <em>primary production.</em></p>
 <?php endif; ?>
-
 
 
 <h3>How to Create a Concept Map</h3>
-<p class="note">Important: You can only create maps using a desktop or laptop computer.  Tablets and mobile devices that do not support Flash cannot be used with this tool</p>
 
-<?php if ($level=='invitation'): ?>
-
+<p>Create a concept map on paper or using an online tool of your choice. If you are working in a group, flip chart paper or 11x14 sheets, and sticky notes are a great choice.</p>
+<p>To create a concept map:</p>
 <ol>
-  <li>To create a concept map in the OOI Ocean Education Portal you must first <a href="http://education.oceanobservatories.org/user/register">register for an account</a>. You must be logged into the website to create and save concept maps.</li>
-  <li>Click on the Concept Maps link on the OOI home page menu bar and select <a href="http://education.oceanobservatories.org/node/add/cm-resource">Create a Concept Map</a>.</li>
-  <li>The Concept Map Builder will open with a new workspace to build out your concept map. Make sure to give it a title and save your concept map.</li>
-  <li>For more information of how to work in the Concept Map Builder, open and read the <a href="documents/ooi_conceptmap_instructions.pdf">Creating a Concept Map Using the OOI Ocean Education Portal</a> resource.</li>
+  <li>First draw circles for each key concept you wish to connect.</li>
+  <li>Next, draw lines linking the concepts together.</li>
+  <li>Add a phrase to each line that describes how the two concepts are linked.  <em>Don't forget this step.</em></li>
+  <li>Finally, add a title to your map.</li>
 </ol>
 
-<?php elseif ($level=='reflection'): ?>
-
-<ol>
-  <li>Log into the <a href="http://education.oceanobservatories.org">OOI Ocean Education Portal</a>. You must be logged into the website to create and save concept maps.</li>
-  <li>Click on the Concept Maps link on the OOI home page menu bar and select <a href="http://education.oceanobservatories.org/resource-browser#/search?filter=author&type=cm">My Concept Map</a>.</li>
-  <li>Select your original primary productivity concept map, which will open.</li>
-  <li>Select Copy in the top right corner of the concept map. A new workspace with a copy of the original map will appear to make your edits, additions, deletions, etc. Make sure to change the title of the new concept map and save the map.
-  <li>For more information of how to work in the Concept Map Builder, open and read the <a href="documents/ooi_conceptmap_instructions.pdf">Creating a Concept Map Using the OOI Ocean Education Portal</a> resource.</li>
-</ol>
-
-<?php endif; ?>
-
+<h3>Example Concept Map</h3>
+<p>As you design your concept map on the topic of Primary Production, you can follow this example that compares Hurricanes Katrina and Sandy.</p>
+<img src="images/sandy_conceptmap.png">
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
@@ -72,11 +61,11 @@
     <div class="list-group">
       <a href="activity0.php?level=invitation" class="list-group-item">
         <h4 class="list-group-item-heading">Invitation</h4>
-        <p class="list-group-item-text">Use the OOI Concept Map Builder tool to create a concept map of <em>primary production.</em></p>
+        <p class="list-group-item-text">Create a concept map of your knowledge of <em>primary production.</em></p>
       </a>
       <a href="activity0.php?level=reflection" class="list-group-item">
         <h4 class="list-group-item-heading">Reflection</h4>
-        <p class="list-group-item-text">Use the OOI Concept Map Builder tool to revise your original concept map of <em>primary production.</em></p>
+        <p class="list-group-item-text">Revise your original concept map of <em>primary production.</em></p>
       </a>
     </div>
   </div>
