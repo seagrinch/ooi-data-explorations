@@ -185,15 +185,6 @@
 -->
 
 
-<?php if ($level=='scene1'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo5scene1" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='scene7'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo5scene7" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='combined'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo5combined" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php endif; ?>
-
-
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

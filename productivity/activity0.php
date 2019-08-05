@@ -57,13 +57,6 @@
 <?php endif; ?>
 
 
-<?php if ($level=='invitation'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_9SGC6nHGhvpdrHn" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='reflection'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_5dqd9j2oDcPpEG1" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php endif; ?>
-
-
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

@@ -224,13 +224,6 @@
 <p>The above datasets were downloaded from the OOI data portal, and then down-sampled to hourly intervals.  The data presented are from the raw record, that is, they are instantaneous measurements that have not been averaged because that would smooth out the variability in the dataset.</p>
 
 
-<?php if ($level=='exploration'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem1e" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='application'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=chem1a" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php endif; ?>
-
-
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

@@ -262,15 +262,6 @@
 <p>The above datasets were downloaded from the OOI data portal and downsampled to simplify the datasets for plotting.  Special thanks to William Chadwick for assistance in the processing these data.  For more information about these data and past events, please check out NOAA PMEL's site on <a href="https://www.pmel.noaa.gov/eoi/rsn/index.html">Bottom Pressure and Tilt instruments at Axial Seamount</a>.</p>
 
 
-<?php if ($level=='exploration'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2e" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='application1'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2a1" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='application2'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/jfe/form/SV_9yRCJd5d9smZtCR?Lesson=geo2a2" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php endif; ?>
-
-
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
 

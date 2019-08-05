@@ -131,13 +131,6 @@
   <?php endforeach; ?>
 </div>
 
-<?php if ($level=='exploration'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_eDQFoB0CmC8vzYp" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='concept_invention'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_1XsY9egKKhWbIl7" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php elseif ($level=='application'): ?>
-<p class="text-right">Finished the activity?  Please take our quick <a href="https://rutgers.qualtrics.com/SE/?SID=SV_exSBs4pVfAoBBnT" class="btn btn-sm btn-warning">Student Survey</a></p>
-<?php endif; ?>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>
