@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Axial Vent';
+  $lesson_title = 'Changes in a hydrothermal vent community over time';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -27,7 +27,10 @@
 
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
-<p>TBD</p>
+<p>Use HD video to characterize the changes in a hydrothermal vent community over time.  Make comparisons with earthquake count and seawater temperature data to explore potential connections between the geology, chemistry, and biology of a hydrothermal vent ecosystem. </p>
+<ol>
+  <li>Sample HD video imagery to characterize a hydrothermal vent community and study changes in that community over time.</li>
+  <li>Explore data connected to geological processes (earthquake counts) and chemical processes (seawater temperature) to investigate potential correlations between the datasets.</li>
 
 <?php endif; ?>
 
@@ -46,14 +49,15 @@
   }
 ?>  
 
+<p class="text-right"><a href="data/axial_vent.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>TBD</p>
+<p>You can go through the video clips using the slider bar above.  Graphs of the temperature data will only use some of the sensors, not all 24.  The data may be averaged by day, 3-day or 5-day intervals.</p>
 
 <?php endif; ?>
-
 
 
 <h3>Questions for Thought</h3>
@@ -63,13 +67,22 @@
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
     <ul>
-      <li>TBD</li>
+      <li>What organisms live at hydrothermal vents?</li>
+      <li>What environmental factors may influence where animals live at hydrothermal vents?</li>
+      <li>What is the time period covered in the video sequence?</li>
+      <li>Where are the instruments located in relation to each other?</li>
     </ul>
   </div>
   <div class="col-md-6">
     <strong>Interpretation Questions</strong>
     <ul>
-      <li>TBD</li>
+      <li>What changes or patterns did you observe in the video of the hydrothermal vent community?</li>
+      <li>What might account for the changes (or lack of changes) observed?</li>
+      <li>Are the earthquake counts or seawater temperature correlated to changes observed in the hydrothermal vent community?  Why or why not?</li>
+    </ul>
+    <strong>Synthesis Questions</strong>
+    <ul>
+      <li>Describe the relationships between the earthquake counts or seawater temperature data to changes observed in the hydrothermal vent community?  How does this add to your understanding of hydrothermal vent communities?</li>
     </ul>
   </div>
 </div>
@@ -81,7 +94,7 @@
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <p>TBD</p>
 
-<h4>Dataset Information</h4>
+<h3>Dataset Information</h3>
 <p>TBD</p>
 
 
@@ -89,7 +102,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>The impact of interaction between the mid-depth ocean and coastal waters on fisheries</small></h2>
+<h2><?= $lesson_title ?><br><small>Observe changes in a hydrothermal vent community over time and compare with characteristics of the chemical and geological environment.</small></h2>
 </div>
 
 <p>&nbsp;</p>

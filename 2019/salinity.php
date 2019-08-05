@@ -278,7 +278,7 @@ Explore salinity data at one location over time.</p>
 </div>
 
 
-<h4>Dataset Information</h4>
+<h3>Dataset Information</h3>
 <p>The data for this activity was obtained from the following <a href="https://oceanobservatories.org/instrument-class/metbk/">Bulk Meteorological</a> instruments:</p>
 <ul>
   <li>Coastal Endurance, <a href="https://oceanobservatories.org/site/CE02SHSM/">Oregon Shelf Surface Mooring</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD11-06-METBKA000">CE02SHSM-SBD11-06-METBKA000</a>)</li>

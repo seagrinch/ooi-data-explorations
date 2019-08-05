@@ -69,6 +69,8 @@
   }
 ?>  
 
+<p class="text-right"><a href="data/anoxia2017b.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
 
 <h3>Data Tips</h3>
 
@@ -126,7 +128,7 @@
 </div>
 
 
-<h4>Dataset Information</h4>
+<h3>Dataset Information</h3>
 <p>The data for this activity was obtained from the following Coastal Endurance instruments:</p>
 <ul>
   <li><a href="https://oceanobservatories.org/site/CE01ISSM/">Oregon Inshore Surface Mooring</a>, <strong>Dissolved Oxygen</strong> @ 25m depth (<a href="https://ooinet.oceanobservatories.org/plot/#CE01ISSM-MFD37-03-DOSTAD000">CE01ISSM-MFD37-03-DOSTAD000</a>)</li>
