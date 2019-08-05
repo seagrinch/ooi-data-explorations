@@ -69,7 +69,6 @@
   </div>
 </div>
 
-<p class="text-right"><a href="data/salinity_ce02.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <?php 
   $scripts[] = "../js/dygraph-combined-dev.js";
   $scripts[] = "javascript/chlorophyll_exploration.js";

@@ -42,8 +42,8 @@ $(document).ready(function () {
     series: {
       'Endurance Chlorophyll': {axis: 'y', showInRangeSelector: true},
       'Endurance DO': {axis: 'y2'},
-      'Endurnace Water Temp': {axis: 'y2'},
-      'Endurnace Salinity': {axis: 'y2'},
+      'Endurance Water Temp': {axis: 'y2'},
+      'Endurance Salinity': {axis: 'y2'},
     },
     visibility: [1,0,0,0,0,0,0,0],
   });
