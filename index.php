@@ -9,12 +9,20 @@
 </div>
 
 
-<p class="lead">Looking for ways to connect your undergraduates in introductory courses with authentic data from the Ocean Observatories Initiative (OOI)?</p>
+<p class="lead">Interactive activities to connect undergraduates with data from the Ocean Observatories Initiative (OOI)</p>
 
 <div class="well">
-<h3 style="margin-top:0px;">What are Data Explorations?</h3>
-<p>We provide a range of free, interactive Data Explorations using authentic, raw data that is relevant to various concepts you are already teaching in introductory courses. The Data Explorations are quick (15-20 minute) interactions with data so that you can easily integrate them into your current classroom teaching while increasing your students understanding of the concept.</p> 
-<p class="text-right"><strong>Learn More: <a href="instructors.php" class="btn btn-primary">Instructor's Guide</a> <a href="about.php" class="btn btn-primary">Project Info</a></strong>
+  <div class="row">
+    <div class="col-md-8">
+      <h3 style="margin-top:0px;">What are Data Explorations?</h3>
+      <p>Data Explorations are quick (15-20 minute) explorations that are designed to be easily integrated into your current classroom teaching. This site provides a range of interactive activities that incorporate raw data from the OOI that is relevant to concepts you are already teaching in your undergraduate courses.  These explorations were developed and reviewed by faculty to help deepen students' understanding of key oceanographic concepts with real data.</p> 
+    </div>
+    <div class="col-md-4">
+      <h4>Learn More:</h4>
+      <p><a href="instructors.php" class="btn btn-primary">Instructor's Guide</a></p>
+      <p><a href="about.php" class="btn btn-primary">Project Info</a></p>
+    </div>
+  </div>
 </div>
 
 <h3>New Collections</h3>
@@ -61,14 +69,15 @@
   <div class="col-md-8">
     <h4><a href="2019/index.php">2019 Collection &ndash; In Development</a></h4>
     <p>These activities in this collection were developed by participants to the 2019 OOI Data Labs Development Workshops.</p>
-    <a href="2019/index.php" class="btn btn-primary">Activities</a>
+    <a href="2019/index.php" class="btn btn-primary">Activities</a><br>
+    <em>Instructors' Guides are available for each theme</em>
   </div>
 </div>
 
 <hr>
 
 <h3>Faculty Workshops</h3>
-<p>Faculty interested in using these activities or getting involved in future pilot projects should check out our upcoming and past <a href="workshops.php">workshops</a>.</p>
+<p>Faculty interested in using these activities or getting involved in future pilot projects should check out our upcoming and past <a href="https://datalab.marine.rutgers.edu/workshops/">workshops</a>.</p>
 
 <?php 
   include_once('footer.php'); 

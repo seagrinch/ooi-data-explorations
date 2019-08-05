@@ -57,17 +57,14 @@ if(!isset($base_url)) $base_url='./';
                 <li><a href="<?=$base_url?>2019/">2019 Collection</a></li>
               </ul>
             </li>
-            <li <?php echo ($page=='workshops' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>workshops.php">Workshops</a></li>
-            <li class="dropdown <?php echo ($page=='instructors' ? 'active' : '') ?>">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Instructor's Guides <span class="caret"></span></a>
+            <li class="dropdown <?php echo ($page=='about' ? 'active' : '') ?>">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Project Info<span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="<?=$base_url?>instructors.php">Introduction</a></li>
-                <li><a href="<?=$base_url?>productivity/guide.php">Primary Production</a></li>
-                <li><a href="<?=$base_url?>chemistry/guide.php">Properties of Seawater</a></li>
-                <li><a href="<?=$base_url?>geology/guide.php">Tectonics & Seamounts</a></li>
+                <li><a href="<?=$base_url?>about.php">About this Project</a></li>
+                <li><a href="<?=$base_url?>instructors.php">Instructor's Guides</a></li>
               </ul>
             </li>
-            <li <?php echo ($page=='about' ? 'class="active"' : '') ?> ><a href="<?=$base_url?>about.php">Project Info</a></li>
+            <li><a href="https://datalab.marine.rutgers.edu">Data Labs Home</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

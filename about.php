@@ -4,6 +4,11 @@
   include_once('header.php'); 
 ?>
 
+<ol class="breadcrumb">
+  <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+  <li>About this Project</li>
+</ol>
+
 <h2>About the Data Explorations Project</h2>
 <p>The National Science Foundation's Ocean Observatories Initiative (<a href="http://oceanobservatories.org">OOI</a>) is advancing our ability to understand the natural world by collecting large quantities of data to address complex oceanographic processes. This expanded access to data also provides professors in the geosciences with new opportunities to engage undergraduate students in authentic data experiences using real-world data sets to teach geoscience processes. </p>
 

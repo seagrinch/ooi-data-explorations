@@ -6,18 +6,7 @@
 ?>
 
 <h2>Exploring Properties of Seawater with OOI Data</h2>
-
-  <div class="row">
-    <div class="col-md-8">Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seawater explored include: salinity variations over time and space, processes that affect surface seawater salinity, changes in pH with depth, relationship between pH and oceanic pCO<sub>2</sub> for the carbonate buffering system, variations in salinity with depth over time and space, and the depth of the halocline over time and space.</div>
-    <div class="col-md-4">
-      <h4>Resources</h4>
-      <ul>
-        <li><a href="http://oceanobservatories.org/research-arrays/">What are OOI Arrays?</a></li>
-        <li><a href="http://oceanobservatories.org/instruments/">What are OOI Instruments?</a></li>
-        <li><a href="http://oceanobservatories.org/about/">What is the OOI?</a></li>
-      </ul>
-    </div>
-  </div>
+<p>Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seawater explored include: salinity variations over time and space, processes that affect surface seawater salinity, changes in pH with depth, relationship between pH and oceanic pCO<sub>2</sub> for the carbonate buffering system, variations in salinity with depth over time and space, and the depth of the halocline over time and space.</p>
 
 <hr>
 
@@ -78,12 +67,11 @@
   </div>
 </div>
 
-
 <hr>
 
 <div class="row">
   <div class="col-md-9">
-    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the <a href="guide.php">Instructor's Guide</a> for these activities.</p>
   </div>
   <div class="col-md-3">
     <a href="guide.php" class="btn btn-primary">Instructor's Guide</a>

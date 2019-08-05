@@ -36,11 +36,28 @@
 <p>The Learning Cycle can be replicated at different scales from as small as within an activity to as large as across a whole unit/semester. The key is providing your students opportunities to engage in each phase of The Learning Cycle. Each Data Exploration has been designed to be utilized for a specific phase, however multiple Data Explorations per data set have been developed so that you can best choose which way you want to use those data in your teaching.</p>
 
 <h3>How Are the Data Chosen?</h3>
+<div class="row">
+  <div class="col-md-8">
+    
 <p>We begin with a freely available online data portal, for example the Ocean Observatories Initiative <a href="https://ooinet.oceanobservatories.org">Data Portal</a>, and determine what kinds of data are available across what spatial and temporal scales.</p>
 
 <p>Then we consult with commonly used textbooks for introductory courses, for example <a href="https://www.pearsonhighered.com/product/Trujillo-Essentials-of-Oceanography-11th-Edition/9780321814050.html">The Essentials of Oceanography</a>, to highlight which concepts covered in the textbook could be augmented with the available data.</p>
 
 <p>After drafting learning objectives based off of the textbook concepts and The Learning Cycle, we dive into the data portals to extract and process the most relevant data to utilize in the Data Exploration interactives.</p>
+    
+  </div>
+  <div class="col-md-4">
+    <h4>More Information</h4>
+    <ul>
+      <li><a href="http://oceanobservatories.org/research-arrays/">What are OOI Arrays?</a></li>
+      <li><a href="http://oceanobservatories.org/instruments/">What are OOI Instruments?</a></li>
+      <li><a href="http://oceanobservatories.org/about/">What is the OOI?</a></li>
+      <li><a href="http://oceanobservatories.org/instrument-class/fluor/">What is a fluorometer?</a></li>
+    </ul>
+  </div>
+</div>
+
+
 
 <h3>How Are the Interactives of the Data Explorations Developed?</h3>
 <p>Using the learning objectives as our guide as well as the quantity and quality of the available data, we design the interactive component of the data exploration to maximize learning and minimize user frustration. </p>

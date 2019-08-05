@@ -6,14 +6,7 @@
 ?>
 
 <h2>Exploring Tectonics & Seamounts with OOI Data</h2>
-
-<div class="row">
-  <div class="col-md-7">Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</div>
-  <div class="col-md-5 well">
-    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
-    <p class="text-right"><a href="guide.php" class="btn btn-primary">Instructor's Guide</a></p>
-  </div>
-</div>
+<p>Through these Data Explorations, you can dive deeper into properties of seawater. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</p>
 
 <hr>
 
@@ -63,6 +56,17 @@
   <div class="media-body">
     <h4 class="media-heading"><a href="activity5.php">Vent Video Frames</a></h4>
     <p>Help students understand how hydrothermal vents evolve using a timeseries of snapshots from an HD Camera at Axial Seamount.</p>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-md-9">
+    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the <a href="guide.php">Instructor's Guide</a> for these activities.</p>
+  </div>
+  <div class="col-md-3">
+    <a href="guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
 </div>
 
