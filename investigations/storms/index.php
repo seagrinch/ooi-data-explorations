@@ -1,5 +1,5 @@
 <?php 
-  $page_title = 'Ocean-Atmpshere Interaction During Storms';
+  $page_title = 'Ocean-Atmosphere Interaction During Storms';
   $page = 'investigation';
   
   $base_url = '../../';

@@ -40,7 +40,7 @@
   <li>March: Ecosystem Vertical Structure</li>
   <li>March: Profiles of DO and Chlorophyll-a in the Open Ocean</li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
-  <li>March: <a href="axial_vent.php">Seafloor Deformation</a></li>
+  <li>March: Seafloor Deformation</li>
   <li>June: <a href="thermohaline.php">The Thermohaline Circulation (conveyor belt) and NADW Formation in the Irminger Sea</a></li>
   <li>June: <a href="airsea.php">Dynamic Air-Sea Interactions</a></li>
   <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a></li>
@@ -50,6 +50,8 @@
   <li>July: Tectonics and Tsunamis</li>
   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break</li>
   <li>Other: <a href="../productivity/silke1.php">Chlorophyll-a and Nitrate</a></li>
+  <li>Other: Irminger Sea</li>
+  <li>Other: <a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
 </ul>
 
 <p>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</p>
