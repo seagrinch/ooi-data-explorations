@@ -51,7 +51,16 @@
   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break</li>
   <li>Other: <a href="../productivity/silke1.php">Chlorophyll-a and Nitrate</a></li>
   <li>Other: Irminger Sea</li>
-  <li>Other: <a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
+</ul>
+
+<h3>EPE Investigations</h3>
+<ul>
+  <li>The Spatial Response from Hurricane Sandy</li>
+  <li><a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
+  <li>Ocean Acidification </li>
+  <li>Is Overfishing Creating a Population Bottleneck?</li>
+  <li>Seasonality in the Ocean</li>
+  <li>Questioning Ocean Productivity and Temperature</li>
 </ul>
 
 <p>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</p>
