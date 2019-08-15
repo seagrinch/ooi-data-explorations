@@ -22,31 +22,20 @@
     <div class="tabbable">
         <ul id="llbnav" class="nav nav-tabs">
             <li class="active"><a href="#intro" data-toggle="tab">Introduction</a></li>
-
             <li><a href="#background" data-toggle="tab">Background</a></li>
-
             <li><a href="#challenge" data-toggle="tab">Challenge</a></li>
-
             <li id="llb2" class="dropdown">
                 <a href="#" class="dropdown-toggle" id="exploration_tab" data-toggle="dropdown">Exploration</a>
-
                 <ul class="dropdown-menu">
                     <li><a href="#exploration" data-toggle="tab">Exploration</a></li>
-
                     <li><a href="#dataset0" data-toggle="tab">Gliders: Sea-going drones</a></li>
-
                     <li><a href="#dataset1" data-toggle="tab">Glider Data from Hurricane Irene</a></li>
-
                     <li><a href="#dataset2" data-toggle="tab">Glider Day from Superstorm Sandy</a></li>
-
                     <li><a href="#dataset3" data-toggle="tab">Buoys: Oceanic weather stations</a></li>
-
                     <li><a href="#dataset4" data-toggle="tab">NOAA buoy observations of Hurricane Irene</a></li>
-
                     <li><a href="#dataset5" data-toggle="tab">NOAA buoy observations of Superstorm Sandy</a></li>
                 </ul>
             </li>
-
             <li><a href="#explanation" data-toggle="tab">Explanation</a></li>
         </ul>
 
@@ -505,6 +494,9 @@
             </div><!-- /#explanation -->
         </div><!-- /.tab-content -->
     </div><!-- /.tabbable -->
-</div><?php 
-      include_once($base_url . 'footer.php'); 
-    ?>
+</div>
+
+<?php 
+  $scripts[] = "../navtabs.js";
+  include_once($base_url . 'footer.php'); 
+?>
