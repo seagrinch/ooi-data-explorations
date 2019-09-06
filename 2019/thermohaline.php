@@ -61,13 +61,22 @@
 </div>
 <div class="row">
   <div class="col-xs-4">
-    <p class="text-right">Show:</p>
+    <p class="text-right">Select one:</p>
   </div>
   <div class="col-xs-8">
     <label style="font-weight: normal;"><input type="radio" name="density" value="den" onclick="toggle_lines()" > 
       Density</label> &nbsp;&nbsp;
     <label style="font-weight: normal;"><input type="radio" name="density" value="pden" onclick="toggle_lines()" checked> 
       Potential Density</label> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4">
+    <p class="text-right">Show:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="checkbox" id="air" onclick="toggle_air()" > 
+      Model Air Temperature</label>
   </div>
 </div>
 
@@ -151,7 +160,8 @@
   <li>1000m - <a href="https://ooinet.oceanobservatories.org/plot/#GI03FLMB-RIM01-02-CTDMOH070">GI03FLMB-RIM01-02-CTDMOH070</a></li>
 </ul>
 
-<p>Recovered datasets were downloaded from the OOI data portal, and then daily (mean) averages of temperature and density were calculated and merged together into a single file.  Potential temperature and potential density were calculated using the seawater toolbox.  Because the meteorological data from the Irminger Surface Mooring is rather sparse, wind speed data was obtained from the ECMWF reanalysis at the closest grid points (between 59-61&deg;N and 40-38&deg;W).</p>
+<p>Recovered datasets were downloaded from the OOI data portal, and then daily (mean) averages of temperature and density were calculated and merged together into a single file.  Potential temperature and potential density were calculated using the seawater toolbox.</p>
+<p>Because the meteorological data from the Irminger Surface Mooring is rather sparse, wind speed and air temperature data was obtained from the ECMWF reanalysis at the closest grid points (between 59-61&deg;N and 40-38&deg;W).</p>
 
 <p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/June2019/DL_June_Thermohaline_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 

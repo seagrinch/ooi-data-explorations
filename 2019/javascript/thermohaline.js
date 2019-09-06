@@ -6,7 +6,7 @@
 colors = ["#ffd86d","#DBA53A","#7fc4fb","#00457C",
 "#ffd86d","#DBA53A","#7fc4fb","#00457C",
 "#ffd86d","#DBA53A","#7fc4fb","#00457C",
-"#800000","#000080","#DC143C"];
+"#800000","#800000"]; //"#000080","#DC143C"
 
 // time, temp_30m,temp_90m,temp_350m,temp_1000m, 
 // density_30m,density_90m,density_350m,density_1000m, 
@@ -106,3 +106,6 @@ function toggle_lines() {
 
 } // End toggle_lines
 
+function toggle_air(el) {
+  g1.setVisibility(13, $('#air').is(':checked'));
+} // End toggle_air
