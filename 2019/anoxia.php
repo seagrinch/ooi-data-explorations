@@ -115,14 +115,14 @@
 <p>Click on the images below to learn more about where and how the dataset above was collected, and to review dissolved oxygen in the ocean.</p>
 <?php
   if ($level=='exploration') {
-    $json_file = file_get_contents('images_json/anoxia.json');  
+    $json_file = file_get_contents('json/anoxia.json');  
   }
   $images = json_decode($json_file);
 ?>
 <div class="row">
   <?php foreach ($images as $image): ?>
   <div class="col-xs-6 col-md-3">
-    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+    <a href="images_anoxia/thumb/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images_anoxia/large/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_anoxia/thumb/<?= $image->file ?>" class="img-responsive" alt="" /></a>
   </div>
   <?php endforeach; ?>
 </div>

@@ -261,18 +261,18 @@ Explore salinity data at one location over time.</p>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
   if ($level=='exploration') {
-    $json_file = file_get_contents('images_json/salinity1.json');  
+    $json_file = file_get_contents('json/salinity1.json');  
   } elseif ($level=='invention') {
-    $json_file = file_get_contents('images_json/salinity1.json');
+    $json_file = file_get_contents('json/salinity1.json');
   } elseif ($level=='application') {
-    $json_file = file_get_contents('images_json/salinity2.json');
+    $json_file = file_get_contents('json/salinity2.json');
   }
   $images = json_decode($json_file);
 ?>
 <div class="row">
   <?php foreach ($images as $image): ?>
   <div class="col-xs-6 col-md-3">
-    <a href="images_small/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_small/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+    <a href="images_salinity/thumb/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images_salinity/large/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_salinity/thumb/<?= $image->file ?>" class="img-responsive" alt="" /></a>
   </div>
   <?php endforeach; ?>
 </div>
