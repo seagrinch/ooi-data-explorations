@@ -28,9 +28,11 @@
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>What trends do you observe as primary productivity, temperature, salinity, and dissolved oxygen varies over time in the North Pacific Ocean?</p>
+<p>Look for patterns in how the chlorophyll-a concentration, temperature, salinity, and/or oxygen data varies over time in the Northern Pacific Ocean (Coastal Endurance Array).</p>
 
 <?php elseif ($level=='application'): ?>
 <p>How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
+<p>Compare patterns in chlorophyll-a concentration, salinity, and/or oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array). Make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>
 
 <?php endif; ?>
 
@@ -182,7 +184,17 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-<p>TBD</p>
+<?php
+  $json_file = file_get_contents('json/chlorophyll.json');  
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_chlorophyll/thumb/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images_chlorophyll/large/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_chlorophyll/thumb/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
 
 
 <h3>Dataset Information</h3>

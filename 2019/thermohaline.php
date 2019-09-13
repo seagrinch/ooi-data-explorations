@@ -148,7 +148,17 @@
 
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
-<p>TBD</p>
+<?php
+  $json_file = file_get_contents('json/thermohaline.json');  
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_thermohaline/thumb/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images_thermohaline/large/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_thermohaline/thumb/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
 
 
 <h3>Dataset Information</h3>

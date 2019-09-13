@@ -1,0 +1,37 @@
+[
+  {
+    "title": "Where the data was collected?",
+    "file": "OOI_Arrays_201905509_CE.jpg",
+    "caption": " The Ocean Observatories Initiative (<a href=\"https://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day. For this activity we will be looking at data from the <a href=\"https://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance</a> location in the temperate Pacific Ocean (highlighted in red)."
+  },
+  {
+    "title": "What does it look like underwater?",
+    "file": "EA_WAOR_2018_labels.png",
+    "caption": "Below the surface off the coast of Oregon are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different data instruments are located in the ocean. Data in this activity were collected from the <a href=\"https://oceanobservatories.org/site/CE04OSSM/\">Oregon Offshore Surface mooring</a>."
+  },
+  {
+    "title": "IMAGE 3",
+    "file": "placeholder.svg",
+    "caption": "Location map of Pioneer array"
+  },
+  {
+    "title": "IMAGE 4",
+    "file": "placeholder.svg",
+    "caption": "Figure of idealized coastal upwelling"
+  },
+  {
+    "title": "IMAGE 5",
+    "file": "chl_and_sst_201708.png",
+    "caption": "Satellite image of chl and temp August 2017 (<a href=\"https://earthobservatory.nasa.gov/global-maps/MY1DMM_CHLORA/MYD28M\">source</a>)"
+  },
+  {
+    "title": "IMAGE 6",
+    "file": "placeholder.svg",
+    "caption": "Curtain plot of DO for the month before and the month during upwelling, approx. July 2016 and July 2017"
+  },
+  {
+    "title": "IMAGE 7",
+    "file": "placeholder.svg",
+    "caption": "Picture of upwelling"
+  }
+]

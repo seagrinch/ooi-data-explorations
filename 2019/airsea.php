@@ -151,7 +151,7 @@
 
 <p>Recovered datasets were downloaded from the OOI data portal, and then hourly mean averages were calculated and merged together into a single file for use in this activity.  Hourly rain rate was calculated by differencing the hourly precipitation measurements.</p>
 
-<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/March2019/Activities/DL_June_Air-Sea_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
+<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/June2019/DL_June_Air_Sea_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 
 
 <!-- ACTIVITY INTRODUCTION -->

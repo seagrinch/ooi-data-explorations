@@ -41,9 +41,9 @@
   <li>March: Profiles of DO and Chlorophyll-a in the Open Ocean</li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
   <li>March: Seafloor Deformation</li>
-  <li>June: <a href="thermohaline.php">Thermohaline Circulation and NADW Formation in the Irminger Sea</a> (1 widget)</li>
+  <li>June: <a href="thermohaline.php">Thermohaline Circulation and NADW Formation in the Irminger Sea</a> (1 widget) ***</li>
   <li>June: <a href="airsea.php">Dynamic Air-Sea Interactions</a> (3)</li>
-  <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a> (2)</li>
+  <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a> (2) ***</li>
   <li>July: CO2 Exchange Between Air and Sea (2 widgets)</li>
   <li>July: Factors affecting Primary Production (2)</li>
   <li>July: Magma Movement and the Shape of the Seafloor (1)</li>
