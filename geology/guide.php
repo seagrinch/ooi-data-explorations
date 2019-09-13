@@ -205,8 +205,9 @@
 <h3>Subject / Topics</h3>
 <ul>
   <li>Introduction to Oceanography</li>
-  <li></li>
-  <li></li>
+  <li>Earthquakes and Seismicity</li>
+  <li>Underwater Volcanism</li>
+  <li>Hydrothermal Vent Communities</li>
 </ul>
 
 <h3>Grade Level</h3>
