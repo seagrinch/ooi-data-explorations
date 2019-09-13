@@ -41,19 +41,25 @@
   <li>March: Profiles of DO and Chlorophyll-a in the Open Ocean</li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
   <li>March: Seafloor Deformation</li>
-  <li>June: <a href="thermohaline.php">The Thermohaline Circulation (conveyor belt) and NADW Formation in the Irminger Sea</a></li>
-  <li>June: <a href="airsea.php">Dynamic Air-Sea Interactions</a></li>
-  <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a></li>
-  <li>July: CO2 Exchange Between Air and Sea</li>
-  <li>July: Factors affecting Primary Production</li>
-  <li>July: Magma Movement and the Shape of the Seafloor</li>
-  <li>July: Tectonics and Tsunamis</li>
-  <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break</li>
+  <li>June: <a href="thermohaline.php">Thermohaline Circulation and NADW Formation in the Irminger Sea</a> (1 widget)</li>
+  <li>June: <a href="airsea.php">Dynamic Air-Sea Interactions</a> (3)</li>
+  <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a> (2)</li>
+  <li>July: CO2 Exchange Between Air and Sea (2 widgets)</li>
+  <li>July: Factors affecting Primary Production (2)</li>
+  <li>July: Magma Movement and the Shape of the Seafloor (1)</li>
+  <li>July: Tectonics and Tsunamis (1)</li>
+  <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break (1)</li>
+  <li>August: Drivers of Seawater Density (1 widget)</li>
+  <li>August: Seasonal Variability In The Mixed Layer (3)</li>
+  <li>August: Impacts of Ocean Acidification on Shellfish in the Pacific Northwest (2)</li>  
+  <li>August: Our Dynamic Ocean: Surface and Subsurface Interactions from Coast-to-Coast (3)</li>
+  <li>August: Climate Patterns at Station Papa in the Gulf of Alaska (1)</li>
   <li>Other: <a href="../productivity/silke1.php">Chlorophyll-a and Nitrate</a></li>
   <li>Other: Irminger Sea</li>
 </ul>
 
 <h3>EPE Investigations</h3>
+<p>These are prototype activities developed several years ago as port of the early OOI Education effort.  They feature a more complex format, wherein students piece together several datasets (or other pieces of "evidence") to answer an overarching challenge question.</p>
 <ul>
   <li>The Spatial Response from Hurricane Sandy</li>
   <li><a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
@@ -63,7 +69,7 @@
   <li>Questioning Ocean Productivity and Temperature</li>
 </ul>
 
-<p>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</p>
+<p><em>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</em></p>
 
 <?php 
   include_once('../footer.php'); 
