@@ -39,9 +39,88 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
+<style>
+  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-y2label {color:#DBA53A;}
+</style>
+<?php if ($level=='exploration'): ?>
+<div id="chart1" style="width:800px; height: 400px;"></div>
 
-<p class="text-right"><a href="data/airsea.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<?php elseif ($level=='application1'): ?>
+<div id="chart1" style="width:800px; height: 220px;"></div>
+<div id="chart2" style="width:723px; height: 160px; margin-top: 20px;"></div>
+<div id="chart3" style="width:723px; height: 160px; margin-top: 20px;"></div>
+<div class="row" style="margin-top:10px;">
+  <div class="col-md-2">
+    <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
+  </div>
+  <div class="col-md-8">
+    <p id="btext" class="text-center">Click the next button to view winds.</p>
+  </div>
+  <div class="col-md-2">
+    <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>
+  </div>
+</div>
+
+<?php elseif ($level=='application2'): ?>
+<style>
+  #chart2 .dygraph-ylabel {color:#008100;}
+  #chart2 .dygraph-y2label {color:#00839C;}
+</style>
+
+<div id="chart1" style="width:800px; height: 200px;"></div>
+<div id="chart2" style="width:800px; height: 130px; margin-top: 20px;"></div>
+<div id="chart3" style="width:723px; height: 130px; margin-top: 20px;"></div>
+<div id="chart4" style="width:723px; height: 160px; margin-top: 20px;"></div>
+<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Rain dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<div class="row" style="margin-top:10px;">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-4">
+    <label style="font-weight: normal;"><input type="checkbox" id="showObs" onclick="show_obs(this)"> Check Prediction</label>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-default" id="clearprediction" onclick="clear_prediction(this)">Clear Prediction</button>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><strong>Are you ready to show the actual measured observations?</strong></p>
+        <p>If you haven't made a prediction yet, please click "Cancel" and draw your prediction on the graph before showing the results.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="modal_cancel();">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="modal_confirm();">Show Observations</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<?php endif; ?>
+
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+.dygraph-legend {
+  left: 544px !important;
+}
+</style>
+<?php 
+  $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
+  $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
+  if ($level=='exploration') {
+    $scripts[] = "javascript/airsea_exploration.js";
+  } elseif ($level=='application1') {
+    $scripts[] = "javascript/airsea_application1.js";
+  } elseif ($level=='application2') {
+    $scripts[] = "../js/moment.js";
+    $scripts[] = "javascript/airsea_application2.js";
+  }
+?>  
 
 
 <h3>Data Tips</h3>
@@ -148,6 +227,8 @@
   <li><a href="https://oceanobservatories.org/site/CP03ISSM/">Inshore Surface Mooring</a>, <a href="https://oceanobservatories.org/instrument-class/metbk/">Bulk Meteorology Instrument Package</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP03ISSM-SBD11-06-METBKA000">CP03ISSM-SBD11-06-METBKA000</a>)</li>
   <?php endif; ?>
 </ul>
+
+<p class="pull-right"><a href="data/airsea.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 <p>Recovered datasets were downloaded from the OOI data portal, and then hourly mean averages were calculated and merged together into a single file for use in this activity.  Hourly rain rate was calculated by differencing the hourly precipitation measurements.</p>
 
