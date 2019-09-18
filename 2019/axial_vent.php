@@ -37,7 +37,7 @@
 
 <!-- DATA CHART -->
 <div id="chart1" style="width:800px; height: 250px;"></div>
-<div id="chart2" style="width:730px; height: 210px; margin-top: 20px;"></div>
+<div id="chart2" style="width:745px; height: 210px; margin-top: 20px;"></div>
 
 
 <?php 
