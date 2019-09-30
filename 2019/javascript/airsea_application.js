@@ -4,7 +4,7 @@
 */
 $(document).ready(function () {
   $.ajax({
-    url: "data/airsea_app2.csv",
+    url: "data/airsea_app.csv",
   })
   .done(function(data) {
     var isDrawing = false;
@@ -44,7 +44,7 @@ $(document).ready(function () {
           if (tool == 'pencil') {
             var val = lastDrawValue + coeff * (row - lastDrawRow);
             val = Math.max(valueRange[0], Math.min(val, valueRange[1]));
-            if(data[row][0] > new Date("1/4/2018 08:00").getTime()) {
+            if(data[row][0] > new Date("1/3/2018 23:00").getTime()) {
               data[row][9] = val; //Column 9 for Predicted value
             }
             if (val === null || value === undefined || isNaN(val)) {

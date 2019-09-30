@@ -17,7 +17,7 @@
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration','application1','application2'))): ?>
+<?php if (in_array($level, array('exploration','concept_invention','application'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -29,10 +29,10 @@
 <?php if ($level=='exploration'): ?>
 <p>How do atmospheric processes affect surface oceanographic conditions?</p>
 
-<?php elseif ($level=='application1'): ?>
+<?php elseif ($level=='concept_invention'): ?>
 <p>How do atmospheric processes affect surface oceanographic conditions?</p>
 
-<?php elseif ($level=='application2'): ?>
+<?php elseif ($level=='application'): ?>
 <p>How do atmospheric processes affect surface oceanographic conditions?</p>
 
 <?php endif; ?>
@@ -46,7 +46,7 @@
 <?php if ($level=='exploration'): ?>
 <div id="chart1" style="width:800px; height: 400px;"></div>
 
-<?php elseif ($level=='application1'): ?>
+<?php elseif ($level=='concept_invention'): ?>
 <div id="chart1" style="width:800px; height: 220px;"></div>
 <div id="chart2" style="width:723px; height: 160px; margin-top: 20px;"></div>
 <div id="chart3" style="width:723px; height: 160px; margin-top: 20px;"></div>
@@ -62,7 +62,7 @@
   </div>
 </div>
 
-<?php elseif ($level=='application2'): ?>
+<?php elseif ($level=='application'): ?>
 <style>
   #chart2 .dygraph-ylabel {color:#008100;}
   #chart2 .dygraph-y2label {color:#00839C;}
@@ -114,11 +114,11 @@
   $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
   if ($level=='exploration') {
     $scripts[] = "javascript/airsea_exploration.js";
-  } elseif ($level=='application1') {
-    $scripts[] = "javascript/airsea_application1.js";
-  } elseif ($level=='application2') {
+  } elseif ($level=='concept_invention') {
+    $scripts[] = "javascript/airsea_invention.js";
+  } elseif ($level=='application') {
     $scripts[] = "../js/moment.js";
-    $scripts[] = "javascript/airsea_application2.js";
+    $scripts[] = "javascript/airsea_application.js";
   }
 ?>  
 
@@ -128,10 +128,10 @@
 <?php if ($level=='exploration'): ?>
 <p>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings.</p>
 
-<?php elseif ($level=='application1'): ?>
+<?php elseif ($level=='concept_invention'): ?>
 <p>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings. You can interact with the data by clicking on the "Next" button to display additional data sets.</p>
 
-<?php elseif ($level=='application2'): ?>
+<?php elseif ($level=='application'): ?>
 <p>When the site loads you are able to the previous figures displaying maximum wave height, peak wave period, wind speed, and surface current speed data from the Coastal Pioneer Central and Surface Moorings. You will also see a new figure showing barometric pressure and precipitation during the same time period. The precipitation data are incomplete. You can interact with the data by:</p>
 <ul>
   <li>Using your cursor to make a prediction of what the precipitation data would look like during this event.</li>
@@ -163,7 +163,7 @@
   </div>
 </div>
 
-<?php elseif ($level=='application1'): ?>
+<?php elseif ($level=='concept_invention'): ?>
 <div class="row">
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
@@ -181,7 +181,7 @@
   </div>
 </div>
 
-<?php elseif ($level=='application2'): ?>
+<?php elseif ($level=='application'): ?>
 <div class="row">
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
@@ -220,15 +220,14 @@
 
 
 <h3>Dataset Information</h3>
+<p class="pull-right"><a href="data/airsea.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <p>The data for this activity was obtained from the following <a href="">Coastal Pioneer</a> instruments:</p>
 <ul>
   <li><a href="https://oceanobservatories.org/site/CP01CNSM/">Central Surface Mooring</a>, <a href="https://oceanobservatories.org/instrument-class/wavss/">Surface Wave Spectra</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP01CNSM-SBD12-05-WAVSSA000">CP01CNSM-SBD12-05-WAVSSA000</a>)</li>
-  <?php if (($level=='application1') || ($level=='application2')): ?>
-  <li><a href="https://oceanobservatories.org/site/CP03ISSM/">Inshore Surface Mooring</a>, <a href="https://oceanobservatories.org/instrument-class/metbk/">Bulk Meteorology Instrument Package</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP03ISSM-SBD11-06-METBKA000">CP03ISSM-SBD11-06-METBKA000</a>)</li>
+  <?php if (($level=='concept_invention') || ($level=='application')): ?>
+  <li><a href="https://oceanobservatories.org/site/CP01CNSM/">Central Surface Mooring</a>, <a href="https://oceanobservatories.org/instrument-class/metbk/">Bulk Meteorology Instrument Package</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP01CNSM-SBD11-06-METBKA000">CP01CNSM-SBD11-06-METBKA000</a>)</li>
   <?php endif; ?>
 </ul>
-
-<p class="pull-right"><a href="data/airsea.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 <p>Recovered datasets were downloaded from the OOI data portal, and then hourly mean averages were calculated and merged together into a single file for use in this activity.  Hourly rain rate was calculated by differencing the hourly precipitation measurements.</p>
 
@@ -252,19 +251,19 @@
         <h4 class="list-group-item-heading">Exploration</h4>
         <p class="list-group-item-text">Students will explore and analyze wave height and wave period using graphs, and hypothesize possible causation.</p>
       </a>
-      <a href="airsea.php?level=application1" class="list-group-item">
-        <h4 class="list-group-item-heading">Application #1</h4>
+      <a href="airsea.php?level=concept_invention" class="list-group-item">
+        <h4 class="list-group-item-heading">Concept Invention</h4>
         <p class="list-group-item-text">Students will explore and analyze wave properties, in addition to surface current speed and wind speed, using graphs, and hypothesize possible correlation and causation.</p>
       </a>
-      <a href="airsea.php?level=application2" class="list-group-item">
-        <h4 class="list-group-item-heading">Application #2</h4>
+      <a href="airsea.php?level=application" class="list-group-item">
+        <h4 class="list-group-item-heading">Application</h4>
         <p class="list-group-item-text">Students will explore and analyze wave properties, surface current speed, wind speed, and atmospheric pressure using graphs, and hypothesize possible correlation and causation. Students will predict precipitation amounts in relation to atmospheric pressure and reflect on impacts of episodic events on coastal communities.</p>
       </a>
     </div>
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 
