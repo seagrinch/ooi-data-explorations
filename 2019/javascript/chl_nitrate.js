@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-g = new Dygraph(document.getElementById("chart"), "data/silke1.csv", {
+g = new Dygraph(document.getElementById("chart"), "data/chl_nitrate.csv", {
   //title: 'Fluorometric Chlorophyll A Concentration',
   // xlabel
   ylabel: 'Chlorophyll-a Concentration (&micro;g/L)',
@@ -8,10 +8,11 @@ g = new Dygraph(document.getElementById("chart"), "data/silke1.csv", {
   //labels : ["Date","Endurance","Pioneer"],
   legend: 'always',
   labelsDivStyles: { 'textAlign': 'right' },
-  labelsDivWidth : 600,
+  labelsDivWidth : 250,
+  labelsSeparateLines: true,
   labelsUTC : true,
   colors : ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"],
-  strokeWidth: 0,
+  strokeWidth: 0.5,
   drawPoints: true,
   pointSize: 2,
   highlightCircleSize: 6,

@@ -54,7 +54,7 @@
   <li>August: Impacts of Ocean Acidification on Shellfish in the Pacific Northwest (2)</li>  
   <li>August: Our Dynamic Ocean: Surface and Subsurface Interactions from Coast-to-Coast (3)</li>
   <li>August: Climate Patterns at Station Papa in the Gulf of Alaska (1)</li>
-  <li>Other: <a href="../productivity/silke1.php">Chlorophyll-a and Nitrate</a></li>
+  <li>Other: <a href="chl_nitrate.php">Chlorophyll-a and Nitrate</a></li>
   <li>Other: Irminger Sea</li>
 </ul>
 
