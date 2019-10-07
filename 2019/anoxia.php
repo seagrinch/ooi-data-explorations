@@ -157,7 +157,7 @@
     <div class="list-group">
       <a href="anoxia.php?level=exploration" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Explore the relationship between atmospheric processes (wind), oceanic processes (currents and upwelling) and how these processes affect benthic organisms and our ability to fish for them.</p>
+        <p class="list-group-item-text">Explore the relationship between atmospheric processes (wind) and oceanic processes (currents and upwelling), and how these processes affect benthic organisms and our ability to fish for them.</p>
       </a>
     </div>
   </div>
