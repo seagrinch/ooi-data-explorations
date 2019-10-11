@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Thermohaline Circulation ';
+  $lesson_title = 'Thermohaline Circulation';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -17,7 +17,7 @@
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration'))): ?>
+<?php if (in_array($level, array('exploration','exploration2','invention'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -35,12 +35,57 @@
   <li>Make a prediction about how the surface water moves in response to changes in its density.</li>
   <li>Explore the data below to see what you can observe.</li>
 </ol>
-
+<?php elseif ($level=='exploration2'): ?>
+TBD
+<?php elseif ($level=='invention'): ?>
+TBD
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
 <?php if ($level=='exploration'): ?>
+<div id="chart1" style="width:800px; height: 210px;"></div>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-4">
+    <p class="text-right">Specify temperatures to plot:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="checkbox" id="30m" onclick="toggle_lines()" checked> 
+      30m</label> &nbsp;&nbsp;
+    <label style="font-weight: normal;"><input type="checkbox" id="air" onclick="toggle_air()"> 
+      Model Air Temperature</label>
+  </div>
+</div>
+
+<?php elseif ($level=='exploration2'): ?>
+<div id="chart1" style="width:800px; height: 210px;"></div>
+<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-4">
+    <p class="text-right">Specify CTD depths to plot:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="checkbox" id="30m" onclick="toggle_lines()" checked> 
+      30m</label> &nbsp;&nbsp;
+    <label style="font-weight: normal;"><input type="checkbox" id="90m" onclick="toggle_lines()" > 
+      90m</label> &nbsp;&nbsp;
+    <label style="font-weight: normal;"><input type="checkbox" id="350m" onclick="toggle_lines()" > 
+      350m</label> &nbsp;&nbsp;
+    <label style="font-weight: normal;"><input type="checkbox" id="1000m" onclick="toggle_lines()" > 
+      1000m</label> 
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-4">
+    <p class="text-right">Show:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="checkbox" id="air" onclick="toggle_air()" checked> 
+      Model Air Temperature</label>
+  </div>
+</div>
+
+<?php elseif ($level=='invention'): ?>
 <div id="chart1" style="width:800px; height: 210px;"></div>
 <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 <div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
@@ -61,24 +106,17 @@
 </div>
 <div class="row">
   <div class="col-xs-4">
-    <p class="text-right">Select one:</p>
-  </div>
-  <div class="col-xs-8">
-    <label style="font-weight: normal;"><input type="radio" name="density" value="den" onclick="toggle_lines()" > 
-      Density</label> &nbsp;&nbsp;
-    <label style="font-weight: normal;"><input type="radio" name="density" value="pden" onclick="toggle_lines()" checked> 
-      Potential Density</label> 
-  </div>
-</div>
-<div class="row">
-  <div class="col-xs-4">
     <p class="text-right">Show:</p>
   </div>
   <div class="col-xs-8">
     <label style="font-weight: normal;"><input type="checkbox" id="air" onclick="toggle_air()" > 
-      Model Air Temperature</label>
+      Model Air Temperature</label><br />
+    <label style="font-weight: normal;"><input type="checkbox" id="mld" onclick="toggle_mld()" > 
+      Mixed Layer Time Highlights</label>
   </div>
 </div>
+
+<?php endif; ?>
 
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
@@ -88,17 +126,21 @@
 .dygraph-label.dygraph-ylabel {
   margin-top: -14px;
 }
-
 </style>
+
 <?php 
   $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
   $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
-  $scripts[] = "javascript/thermohaline.js";
+  if ($level=='exploration') {
+    $scripts[] = "javascript/thermohaline_exploration.js";    
+  } elseif ($level=='exploration2') {
+    $scripts[] = "javascript/thermohaline_exploration2.js";
+  } elseif ($level=='invention') {
+    $scripts[] = "javascript/thermohaline_invention.js";
+  }
 ?>  
 
 <p class="text-right"><a href="data/thermohaline.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
-
-<?php endif; ?>
 
 
 <h3>Data Tips</h3>
@@ -110,6 +152,10 @@
   <li>Zoom in and out of the data to highlight particular sections of the seasonal cycle.  Site loads with all data highlighted, change highlighted width with zoom. </li>
 </ul>
 
+<?php elseif ($level=='exploration2'): ?>
+TBD
+<?php elseif ($level=='invention'): ?>
+TBD
 <?php endif; ?>
 
 
@@ -143,6 +189,10 @@
   </div>
 </div>
 
+<?php elseif ($level=='exploration2'): ?>
+TBD
+<?php elseif ($level=='invention'): ?>
+TBD
 <?php endif; ?>
 
 
@@ -179,7 +229,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>The Thermohaline Circulation (conveyor belt) and NADW Formation in the Irminger Sea</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore the Thermohaline Circulation (conveyor belt) and NADW Formation in the Irminger Sea</small></h2>
 </div>
 
 <p>&nbsp;</p>
@@ -189,16 +239,34 @@
     <p>Select the question your instructor has assigned:</p>
     <div class="list-group">
       <a href="thermohaline.php?level=exploration" class="list-group-item">
-        <h4 class="list-group-item-heading">Exploration</h4>
-        <p class="list-group-item-text">Explore ocean and atmospheric processes that produce the cold, dense seawater in the Irminger Sea which drives the conveyor belt of the thermohaline circulation.</p>
+        <h4 class="list-group-item-heading">Exploration #1</h4>
+        <p class="list-group-item-text">How does the ocean respond to the atmosphere?</p>
+      </a>
+    </div>
+    <div class="list-group">
+      <a href="thermohaline.php?level=exploration2" class="list-group-item">
+        <h4 class="list-group-item-heading">Exploration #2</h4>
+        <p class="list-group-item-text">How does the ocean temperature signal change with depth?</p>
+      </a>
+    </div>
+    <div class="list-group">
+      <a href="thermohaline.php?level=invention" class="list-group-item">
+        <h4 class="list-group-item-heading">Invention</h4>
+        <p class="list-group-item-text">Explore ocean and atmospheric processes that produce the cold, dense seawater in the Irminger Sea which drives the conveyor belt of the thermohaline circulation</p>
       </a>
     </div>
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" usemap="#lcmap" />
   </div>
 </div>
+
+<map name="lcmap">
+  <area shape="rect" coords="244,36,379,129" href="thermohaline.php?level=exploration" alt="Exploration">
+  <area shape="rect" coords="257,152,392,245" href="thermohaline.php?level=invention" alt="Invention">
+<!--   <area shape="rect" coords="116,211,251,304" href="thermohaline.php?level=application" alt="Application"> -->
+</map>
 
 <div class="row">
   <div class="col-md-3">

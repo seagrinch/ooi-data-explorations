@@ -1,4 +1,4 @@
-/* Thermohaline Widget
+/* Thermohaline - Exploration #2 Widget
   OOI Data Labs 2019
   Written by Sage Lichtenwalner, Rutgers Univeristy 
 */
@@ -30,10 +30,7 @@ $(document).ready(function () {
     showRangeSelector: true,
     rangeSelectorHeight: 30,
     animatedZooms : false,
-    series: {
-      'Dissolved Oxygen': { showInRangeSelector: true}
-    },
-    visibility: [1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    visibility: [1,0,0,0,0,0,0,0,0,0,0,0,0,1],
   });
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/thermohaline.csv", {
@@ -50,24 +47,8 @@ $(document).ready(function () {
     animatedZooms : true,
     visibility: [0,0,0,0,0,0,0,0,1,0,0,0,0,0],
   });
-  
-  g3 = new Dygraph(document.getElementById("chart3"), "data/thermohaline.csv", {
-    title: 'ECMWF Model Winds',
-    ylabel: 'Wind Speed (m/s)',
-    //legend: 'always', //onmouseover
-    labelsSeparateLines: true,
-    labelsUTC : false,
-    colors : colors, 
-    strokeWidth: 2,
-    drawPoints: false,
-    pointSize: 2,
-    highlightCircleSize: 6,
-    showRangeSelector: false,
-    animatedZooms : true,
-    visibility: [0,0,0,0,0,0,0,0,0,0,0,0,1,0],
-  });
-  
-  var sync = Dygraph.synchronize(g1, g2, g3, {
+    
+  var sync = Dygraph.synchronize(g1, g2, {
     selection: true,
     zoom: true,
     range: false
@@ -77,33 +58,14 @@ $(document).ready(function () {
 
 
 function toggle_lines() {
-  
   g1.setVisibility(0, $('#30m').is(':checked'));
   g1.setVisibility(1, $('#90m').is(':checked'));
   g1.setVisibility(2, $('#350m').is(':checked'));
   g1.setVisibility(3, $('#1000m').is(':checked'));
-  
-  density = $('input[name=density]:checked').val();
-  if (density=='den') {
-    g2.setVisibility({8:0,9:0,10:0,11:0});
-    g2.setVisibility(4, $('#30m').is(':checked'));
-    g2.setVisibility(5, $('#90m').is(':checked'));
-    g2.setVisibility(6, $('#350m').is(':checked'));
-    g2.setVisibility(7, $('#1000m').is(':checked'));
-    g2.updateOptions({
-      ylabel: 'Density (kg/m^3)',
-    })
-  } else {
-    g2.setVisibility({4:0,5:0,6:0,7:0});
-    g2.setVisibility(8, $('#30m').is(':checked'));
-    g2.setVisibility(9, $('#90m').is(':checked'));
-    g2.setVisibility(10, $('#350m').is(':checked'));
-    g2.setVisibility(11, $('#1000m').is(':checked'));    
-    g2.updateOptions({
-      ylabel: 'Potential Density (kg/m^3)',
-    })
-  }
-
+  g2.setVisibility(8, $('#30m').is(':checked'));
+  g2.setVisibility(9, $('#90m').is(':checked'));
+  g2.setVisibility(10, $('#350m').is(':checked'));
+  g2.setVisibility(11, $('#1000m').is(':checked'));    
 } // End toggle_lines
 
 function toggle_air(el) {
