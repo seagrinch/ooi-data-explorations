@@ -223,6 +223,8 @@ TBD
 <p>Recovered datasets were downloaded from the OOI data portal, and then daily (mean) averages of temperature and density were calculated and merged together into a single file.  Potential temperature and potential density were calculated using the seawater toolbox.</p>
 <p>Because the meteorological data from the Irminger Surface Mooring is rather sparse, wind speed and air temperature data was obtained from the ECMWF reanalysis at the closest grid points (between 59-61&deg;N and 40-38&deg;W).</p>
 
+<p>The highlighted boxes represent those time periods where the difference between the 350m and 30m potential density is less than 0.05 km/m<sup>3</sup>.  This effectively highlights those time periods when the mixed layer depth reaches far below the surface.</p>
+
 <p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/June2019/DL_June_Thermohaline_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 
 <!-- ACTIVITY INTRODUCTION -->
