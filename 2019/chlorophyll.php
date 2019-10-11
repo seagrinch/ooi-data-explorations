@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Chlorophyll-a in upwelling vs. stratified temperate regions';
+  $lesson_title = 'Chlorophyll-a in Upwelling and Stratified Temperate Regions';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -225,7 +225,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore seawater characteristics that are correlated with changes in primary productivity, particularly during the summer in the North Pacific vs. the North Atlantic.</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore seawater characteristics that are correlated with changes in primary productivity, particularly during the summer in the North Pacific vs. the North Atlantic</small></h2>
 </div>
 
 <p>&nbsp;</p>

@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>How do changing weather conditions and ocean circulation patterns affect our ability to fish for benthic organisms like crabs?</p>
@@ -146,7 +144,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>The impact of interaction between the mid-depth ocean and coastal waters on fisheries</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore the impact and interaction between the mid-depth ocean and coastal waters on fisheries</small></h2>
 </div>
 
 <p>&nbsp;</p>

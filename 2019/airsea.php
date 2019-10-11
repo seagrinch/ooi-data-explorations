@@ -238,7 +238,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small></small></h2>
+<h2><?= $lesson_title ?><br><small>Explore dynamic air-sea interactions from an interesting event</small></h2>
 </div>
 
 <p>&nbsp;</p>

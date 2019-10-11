@@ -7,44 +7,83 @@
 
 <h2>OOI Data Labs - 2019 Collection</h2>
 
-<h4 style="color:red;">These Data Explorations are currently in development!</h4>
 <p>These Data Explorations were developed by participants to the <a href="https://datalab.marine.rutgers.edu/workshops/development-workshops/">2019 OOI Data Labs Development Workshops</a>.  Each topic has 1-3 activities that can be used with students to augment your teaching of the concept.  Each activity generally focus on one phase of the Learning Cycle, so you can select the variations that work best with your teaching sequence and content/skill goals.  An Instructors' Guide is also available for each topic below, which includes additional information and suggestions for how to incorporate the activities into your courses.</p>
 
 <div class="media">
   <div class="media-left">
     <a href="anoxia.php">
-      <img class="media-object" data-src="holder.js/250x150?text=Anoxic Events" alt="Generic placeholder image" width="250" height="150">
+      <img class="media-object thumbnail" src="screenshots/anoxia_sm.png" alt="Anoxic Events" width="250" height="150">
     </a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="anoxia.php">Anoxic Events</a> <small>March 2019</small></h4>
-    <p>TBD</p>
+    <p>Explore the impact and interaction between the mid-depth ocean and coastal waters on fisheries</p>
     <p><a href="anoxia_guide.php">Instructors' Guide</a></p>
   </div>
 </div>
+
 <div class="media">
   <div class="media-left">
     <a href="salinity.php">
-      <img class="media-object" data-src="holder.js/250x150?text=Changes in Salinity" alt="Generic placeholder image" width="250" height="150">
+      <img class="media-object thumbnail" src="screenshots/salinity2_sm.png" alt="Changes in Salinity" width="250" height="150">
     </a>
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="salinity.php">Changes in Salinity</a> <small>March 2019</small></h4>
-    <p>TBD</p>
+    <p>Explore processes the might affect sea surface salinity</p>
     <p><a href="salinity_guide.php">Instructors' Guide</a></p>
   </div>
 </div>
 
+
+<div class="media">
+  <div class="media-left">
+    <a href="chlorophyll.php">
+      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Chlorophyll-a in Upwelling and Stratified Temperate Regions" alt="Chlorophyll-a in Upwelling and Stratified Temperate Regions" width="250" height="150">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a> <small>June 2019</small></h4>
+    <p>Explore seawater characteristics that are correlated with changes in primary productivity, particularly during the summer in the North Pacific vs. the North Atlantic</p>
+    <p><a href="chlorophyll_guide.php">Instructors' Guide</a></p>
+  </div>
+</div>
+
+<div class="media">
+  <div class="media-left">
+    <a href="airsea.php">
+      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Dynamic Air-Sea Interactions" alt="Dynamic Air-Sea Interactions" width="250" height="150">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="airsea.php">Dynamic Air-Sea Interactions</a> <small>June 2019</small></h4>
+    <p>Explore dynamic air-sea interactions from an interesting event</p>
+    <p><a href="airsea_guide.php">Instructors' Guide</a></p>
+  </div>
+</div>
+
+<div class="media">
+  <div class="media-left">
+    <a href="thermohaline.php">
+      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Thermohaline Circulation" alt="Thermohaline Circulation" width="250" height="150">
+    </a>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><a href="thermohaline.php">Thermohaline Circulation</a> <small>June 2019</small></h4>
+    <p>Explore the Thermohaline Circulation (conveyor belt) and NADW Formation in the Irminger Sea</p>
+    <p><a href="thermohaline_guide.php">Instructors' Guide</a></p>
+  </div>
+</div>
+
+
 <h3>Rough Drafts</h3>
+<h4 style="color:red;">These Data Explorations are currently in development!</h4>
 <ul>
   <li>March: Ecosystem Vertical Structure</li>
   <li>March: Profiles of DO and Chlorophyll-a in the Open Ocean</li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
   <li>March: Seafloor Deformation</li>
-  <li>June: <a href="thermohaline.php">Thermohaline Circulation and NADW Formation in the Irminger Sea</a> (1 widget) ***</li>
-  <li>June: <a href="airsea.php">Dynamic Air-Sea Interactions</a> (3)</li>
-  <li>June: <a href="chlorophyll.php">Chlorophyll-a in Upwelling and Stratified Temperate Regions</a> (2) ***</li>
-  <li>July: CO2 Exchange Between Air and Sea (2 widgets)</li>
+  <li>July: CO2 Exchange Between Air and Sea (2)</li>
   <li>July: Factors affecting Primary Production (2)</li>
   <li>July: Magma Movement and the Shape of the Seafloor (1)</li>
   <li>July: Tectonics and Tsunamis (1)</li>
@@ -55,11 +94,11 @@
   <li>August: Our Dynamic Ocean: Surface and Subsurface Interactions from Coast-to-Coast (3)</li>
   <li>August: Climate Patterns at Station Papa in the Gulf of Alaska (1)</li>
   <li>Other: <a href="chl_nitrate.php">Chlorophyll-a and Nitrate</a></li>
-  <li>Other: Irminger Sea</li>
+  <li>Other: Irminger Sea Jigsaw</li>
 </ul>
 
 <h3>EPE Investigations</h3>
-<p>These are prototype activities developed several years ago as port of the early OOI Education effort.  They feature a more complex format, wherein students piece together several datasets (or other pieces of "evidence") to answer an overarching challenge question.</p>
+<p>These are prototype activities developed several years ago as port of the early OOI Education effort.  They feature a more complex format, wherein students piece together several datasets (i.e. pieces of "evidence") to answer an overarching challenge question.</p>
 <ul>
   <li>The Spatial Response from Hurricane Sandy</li>
   <li><a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>

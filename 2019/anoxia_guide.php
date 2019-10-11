@@ -18,7 +18,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="anoxia.php"><img data-src="holder.js/250x150?text=Anoxic Events" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="anoxia.php"><img class="pull-right thumbnail" src="screenshots/anoxia_sm.png" alt="Anoxic Events" width="250" height="150"></a>
 <p>This exercise is a case study that, if used in full, takes students through the entire learning cycle from invitation to reflection as applied to a dead zone on the Oregon continental shelf.  Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Several ideas are given for having students access their previous learning on dead zones, or give students enough background knowledge to start the exercise (invitation).</li>
@@ -67,6 +67,7 @@
     <h3 class="panel-title">Exploration</h3>
   </div>
   <div class="panel-body">
+    <a href="anoxia.php?level=exploration"><img class="pull-right thumbnail" src="screenshots/anoxia_sm.png" alt="Anoxic Events Exploration Widget" width="250" height="150"></a>
     <ul>
       <li>Have students examine the dissolved oxygen record, summarize patterns they see in the data, and estimate the number of days in a month where organisms were likely stressed by low oxygen conditions.  Then discuss whether the chemical changes might be a problem.</li>
       <li>Have students work in pairs or small groups to examine the plot of longshore wind speed and a map of the Oregon coast to make sure they understand how the graphical data translates to the geographical setting.   Ask them to describe the different aspects of the visualizations and patterns in the data they detect.  Then ask what questions they think they might be able to answer with this data. Do the patterns they identify reveal something about the setting that their prior knowledge might be useful to explain?  Is there anything they are wondering about having studied the data that they might not yet be able to explain?  What more information do they want or need?</li>

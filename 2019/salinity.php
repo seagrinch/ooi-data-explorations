@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Use sea surface salinity data from the North Pacific Ocean to identify patterns over time. 
@@ -296,7 +294,7 @@ Explore salinity data at one location over time.</p>
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Processes that Change Salinity</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore processes the might affect sea surface salinity</small></h2>
 </div>
 
 <p>&nbsp;</p>

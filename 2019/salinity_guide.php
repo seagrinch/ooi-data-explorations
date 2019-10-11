@@ -18,7 +18,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="salinity.php"><img data-src="holder.js/250x150?text=Changes in Salinity" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="salinity.php"><img src="screenshots/salinity2_sm.png" alt="Changes in Salinity" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This collection consists of 3 sets of activities. Part One is focused on data exploration activities, to be used during the Exploration phase of the Learning Cycle. Part Two is focused on the Concept Invention phase of the Learning Cycle.  Part Three is focused on the Application phase of the Learning Cycle.</p>
 <p>These activities were developed to assist with students' understanding of various concepts of sea surface salinity and variables that affect salinity.  Ideas are provided to assist students with visualizing data collection stations, reading graphs of salinity and other parameters, and relating salinity to other parameters between locations. The Exploration phase introduces students to time-series data and allows for the interpretation of data trends, focusing on sea surface salinity at a single station in the North Pacific Ocean. The Concept Invention phase introduces atmospheric and oceanic processes as additional data points. The inclusion of these data prompt the student to find patterns and make connections between the various parameters. The Application phase is similar to the Concept Invention phase in that it examines changes in sea surface salinity and oceanic/atmospheric parameters over time, yet this exploration also includes data from other OOI arrays allowing students to view changes over both temporal and spatial scales. This set of data explorations takes students from a very basic introduction to data, data visualizations, and data interpretation, through more complex examinations of ocean/atmospheric connections, and eventually comparisons of these parameters and trends at large-scale spatial levels.</p>
 
@@ -60,6 +60,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong> To help students recognize that salinity changes over time you can:</h3>
   </div>
   <div class="panel-body">
+    <a href="salinity.php?level=exploration"><img src="screenshots/salinity1_sm.png" alt="Changes in Salinity Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Use the data to identify any patterns in salinity over time (months, seasons) from 2015 to 2018 as a guided activity, or</li>
       <li>Use the data to complement something else that you are already doing.</li>
@@ -72,6 +73,7 @@
     <h3 class="panel-title"><strong>Concept Invention:</strong> To help students understand the processes that affect salinity you could:</h3>
   </div>
   <div class="panel-body">
+    <a href="salinity.php?level=invention"><img src="screenshots/salinity2_sm.png" alt="Changes in Salinity Concept Invention Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Engage in a discussion about the factors that control salinity.</li>
       <li>Direct the students or groups to predict how each of the non-salinity variables might affect the salinity; then test their hypothesis by toggling the non-salinity variable buttons, and then follow up with a discussion about their results.</li>
@@ -86,6 +88,7 @@
     <h3 class="panel-title"><strong>Application:</strong> To help students link their observations of salinity changes in one location to global changes, you could:</h3>
   </div>
   <div class="panel-body">
+    <a href="salinity.php?level=application"><img src="screenshots/salinity3_sm.png" alt="Changes in Salinity Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Compare and contrast the trends or patterns identified in the exploration and concept areas to other locations and discuss any similarities or differences observed, or</li>
       <li>Jigsaw activity where students or groups are assigned one other location to compare to the Oregon location and discuss their findings (pooling data to see the big picture).</li>
