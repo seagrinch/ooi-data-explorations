@@ -10,7 +10,7 @@ var parameters = [
   {title:"Salinity"},
 ];
 
-var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
+var colors = ["#008100","#00457C","#DBA53A","#00839C"]; //#00C6B0
 
 $(document).ready(function () {
 

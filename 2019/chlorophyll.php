@@ -17,7 +17,7 @@
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration','application'))): ?>
+<?php if (in_array($level, array('exploration','application','application2'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -30,7 +30,7 @@
 <p>What trends do you observe as primary productivity, temperature, salinity, and dissolved oxygen varies over time in the North Pacific Ocean?</p>
 <p>Look for patterns in how the chlorophyll-a concentration, temperature, salinity, and/or oxygen data varies over time in the Northern Pacific Ocean (Coastal Endurance Array).</p>
 
-<?php elseif ($level=='application'): ?>
+<?php elseif ($level=='application' || $level=='application2'): ?>
 <p>How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
 <p>Compare patterns in chlorophyll-a concentration, salinity, and/or oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array). Make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>
 
@@ -38,9 +38,8 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
-
 <?php if ($level=='exploration'): ?>
+<div id="chart" style="width:800px; height: 400px;"></div>
 <style>
   #chart .dygraph-ylabel {color:#00457C;}
   #chart .dygraph-y2label {color:#DBA53A;}
@@ -77,6 +76,7 @@
 ?>  
 
 <?php elseif ($level=='application'): ?>
+<div id="chart" style="width:800px; height: 400px;"></div>
 <style>
   #chart .dygraph-ylabel {color:#00457C;}
   #chart .dygraph-y2label {color:#DBA53A;}
@@ -123,6 +123,66 @@
   $scripts[] = "javascript/chlorophyll_application.js";
 ?>  
 
+<?php elseif ($level=='application2'): ?>
+<div id="chart1" style="width:800px; height: 200px;"></div>
+<div id="chart2" style="width:800px; height: 130px; margin-top: 20px;"></div>
+<div id="chart3" style="width:800px; height: 130px; margin-top: 20px;"></div>
+<div id="chart4" style="width:800px; height: 160px; margin-top: 20px;"></div>
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+.dygraph-legend {
+  left: 58px !important;
+}
+</style>
+
+<div class="row">
+  <div class="col-xs-3">
+    <p class="text-right">Select locations:</p>
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="checkbox" id="CE" onclick="toggle_lines()" checked> 
+      Coastal Endurance - Oregon Offshore Surface Mooring)</label><br>
+    <label style="font-weight: normal;"><input type="checkbox" id="CP" onclick="toggle_lines()" checked> 
+      Coastal Pioneer - Offshore Surface Mooring</label><br>
+  </div>
+</div>
+
+<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Pioneer Temperature dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<div class="row" style="margin-top:10px;">
+  <div class="col-md-3">
+  </div>
+  <div class="col-md-4">
+    <label style="font-weight: normal;"><input type="checkbox" id="showObs" onclick="show_obs(this)"> Check Prediction</label>
+  </div>
+  <div class="col-md-4">
+    <button class="btn btn-default" id="clearprediction" onclick="clear_prediction(this)">Clear Prediction</button>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><strong>Are you ready to show the actual measured observations?</strong></p>
+        <p>If you haven't made a prediction yet, please click "Cancel" and draw your prediction on the graph before showing the results.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="modal_cancel();">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="modal_confirm();">Show Observations</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<?php 
+  $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
+  $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
+  $scripts[] = "../js/moment.js";
+  $scripts[] = "javascript/chlorophyll_application2.js";
+?>  
+
 <?php endif; ?>
 
 <p class="text-right"><a href="data/chlorophyll.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
@@ -133,7 +193,7 @@
 <?php if ($level=='exploration'): ?>
 <p>Select another variable (in addition to the green plotted Chlorophyll-a Concentration data) to explore the data in ways to investigate the different variables of primary production. Zoom in and out of the data to look at different time scales to investigate patterns across the year.</p>
 
-<?php elseif ($level=='application'): ?>
+<?php elseif ($level=='application' || $level=='application2'): ?>
 <p>Select the different locations to explore relationships and patterns in the data. Start by comparing each of the same variables at the two locations before looking at multiples. Zoom in and out of the data to look at different time scales across time to see if it changes the relationships or patterns you observe.</p>
 
 <?php endif; ?>
@@ -160,7 +220,7 @@
   </div>
 </div>
 
-<?php elseif ($level=='application'): ?>
+<?php elseif ($level=='application' || $level=='application2'): ?>
 <div class="row">
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
@@ -206,7 +266,7 @@
       <li><a href="https://oceanobservatories.org/instrument-class/FLUOR/">3-Wavelength Fluorometer</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CE04OSSM-RID27-02-FLORTD000">CE04OSSM-RID27-02-FLORTD000</a>)</li>
     </ul>
   </li>
-  <?php if ($level=='application'): ?>
+  <?php if ($level=='application' || $level=='application2'): ?>
   <li>Coastal Pioneer <a href="https://oceanobservatories.org/site/CP04OSSM/">Offshore Surface Mooring</a>
     <ul>
       <li><a href="https://oceanobservatories.org/instrument-class/do2/">Dissolved Oxygen</a> (<a href="https://ooinet.oceanobservatories.org/plot/#CP04OSSM-RID27-04-DOSTAD000">CP04OSSM-RID27-04-DOSTAD000</a>)</li>
@@ -240,6 +300,10 @@
       </a>
       <a href="chlorophyll.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
+        <p class="list-group-item-text">How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
+      </a>
+      <a href="chlorophyll.php?level=application2" class="list-group-item">
+        <h4 class="list-group-item-heading">Application (with Prediction)</h4>
         <p class="list-group-item-text">How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
       </a>
     </div>

@@ -11,11 +11,12 @@ var parameters = {
 };
 
 var colors = {
-  'chlorophyll':"#00457C",
-  'do':"#DBA53A",
-  'sst':"#008100",
+  'chlorophyll':"#008100",
+  'do':"#00457C",
+  'sst':"#DBA53A",
   'salinity':"#00839C",
 };
+
 
 // Helpful color picker https://www.w3schools.com/colors/colors_picker.asp
 
@@ -31,10 +32,10 @@ $(document).ready(function () {
     labelsSeparateLines: true,
     labelsUTC : true,
     colors : [
-      "#003866","#563f10","#006600","#005566",
-      "#008cff","#d79d28","#00ff00","#00d5ff",
-      "#99d1ff","#efd8a9","#99ff99","#99eeff"],
-    strokeWidth: 0,
+      "#006600","#003866","#563f10","#005566",
+      "#00ff00","#008cff","#d79d28","#00d5ff",
+      "#99ff99","#99d1ff","#efd8a9","#99eeff"],
+    strokeWidth: 1,
     drawPoints: true,
     pointSize: 2,
     highlightCircleSize: 6,
