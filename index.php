@@ -11,21 +11,7 @@
 
 <p class="lead">Interactive activities to connect undergraduates with data from the Ocean Observatories Initiative (OOI)</p>
 
-<div class="well">
-  <div class="row">
-    <div class="col-md-8">
-      <h3 style="margin-top:0px;">What are Data Explorations?</h3>
-      <p>Data Explorations are quick (15-20 minute) explorations that are designed to be easily integrated into your current classroom teaching. This site provides a range of interactive activities that incorporate raw data from the OOI that is relevant to concepts you are already teaching in your undergraduate courses.  These explorations were developed and reviewed by faculty to help deepen students' understanding of key oceanographic concepts with real data.</p> 
-    </div>
-    <div class="col-md-4">
-      <h4>Learn More:</h4>
-      <p><a href="instructors.php" class="btn btn-primary">Instructor's Guide</a></p>
-      <p><a href="about.php" class="btn btn-primary">Project Info</a></p>
-    </div>
-  </div>
-</div>
-
-<h3>New Collections</h3>
+<h3>Activity Collections</h3>
 <div class="row">
   <div class="col-md-4">
     <a href="productivity/index.php"><img src="productivity/screenshots/ConceptMap1_14366437299_sm.png" alt="Chlorophyll colored water off the coast of Brazil" width="250" height="150" class="img-rounded"></a>
@@ -76,8 +62,24 @@
 
 <hr>
 
+<div class="well">
+  <div class="row">
+    <div class="col-md-8">
+      <h3 style="margin-top:0px;">What are Data Explorations?</h3>
+      <p>Data Explorations are quick (15-20 minute) explorations that are designed to be easily integrated into your current classroom teaching. This site provides a range of interactive activities that incorporate raw data from the OOI that is relevant to concepts you are already teaching in your undergraduate courses.  These explorations were developed and reviewed by faculty to help deepen students' understanding of key oceanographic concepts with real data.</p> 
+    </div>
+    <div class="col-md-4">
+      <h4>Learn More:</h4>
+      <p><a href="instructors.php" class="btn btn-primary">Instructor's Guide</a></p>
+      <p><a href="about.php" class="btn btn-primary">Project Info</a></p>
+    </div>
+  </div>
+</div>
+
+<hr>
+
 <h3>Faculty Workshops</h3>
-<p>Faculty interested in using these activities or getting involved in future pilot projects should check out our upcoming and past <a href="https://datalab.marine.rutgers.edu/workshops/">workshops</a>.</p>
+<p>Faculty interested in using these activities or getting involved in future pilot projects should check out our upcoming and past <a href="https://datalab.marine.rutgers.edu/workshops/">workshops</a> and <a href="https://datalab.marine.rutgers.edu/webinars/">webinars</a>.</p>
 
 <?php 
   include_once('footer.php'); 
