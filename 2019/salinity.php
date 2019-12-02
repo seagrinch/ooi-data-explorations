@@ -294,7 +294,7 @@ Explore salinity data at one location over time.</p>
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore processes the might affect sea surface salinity</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore processes that might affect sea surface salinity.</small></h2>
 </div>
 
 <p>&nbsp;</p>

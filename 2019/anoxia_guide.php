@@ -167,6 +167,11 @@
 
 <p>For more information on using quantitative skills in higher ed, please see: <a href="https://serc.carleton.edu/quantskills/issues/issues.html">Teaching Quantitative Skills in the Geosciences</a></p>
 
+
+<h3>Science Explanation</h3>
+<p>TBD</p>
+
+
 <?php 
   include_once('../footer.php'); 
 ?>
