@@ -27,13 +27,13 @@
 
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
-<p>How do atmospheric processes affect surface oceanographic conditions?</p>
+<p>Your objective for this activity is to examine how atmospheric processes affect surface oceanographic conditions. In this section, you will analyze the relationship between wave height and wave period, and speculate on the processes that can influence wave properties.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
-<p>How do atmospheric processes affect surface oceanographic conditions?</p>
+<p>Your objective for this activity is to examine how atmospheric processes affect surface oceanographic conditions. In this section, you will link the wave data from the previous activity to wind and current data, to investigate the interaction between the oceans and atmosphere.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>How do atmospheric processes affect surface oceanographic conditions?</p>
+<p>Your objective for this activity is to examine how atmospheric processes affect surface oceanographic conditions. In this section, you will link the data from the previous activities to atmospheric pressure, and make some predictions about rainfall.</p>
 
 <?php endif; ?>
 
@@ -55,7 +55,7 @@
     <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
   </div>
   <div class="col-md-8">
-    <p id="btext" class="text-center">Click the next button to view winds.</p>
+    <p id="btext" class="text-center">Click the Next button to add wind speed data to the visualization.</p>
   </div>
   <div class="col-md-2">
     <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>
@@ -126,14 +126,24 @@
 <h3>Data Tips</h3>
 
 <?php if ($level=='exploration'): ?>
-<p>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings.</p>
+<ul>
+  <li>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings. </li>
+  <li>Move your cursor over the plots to reveal the values for each data point. </li>
+  <li>Zoom in and out by dragging the slider bars to select the time period of interest.</li>
+</ul>
 
 <?php elseif ($level=='concept_invention'): ?>
-<p>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings. You can interact with the data by clicking on the "Next" button to display additional data sets.</p>
+<ul>
+  <li>When the site loads you are able to see maximum wave height and peak wave period data from the Coastal Pioneer Central and Surface Moorings. </li>
+  <li>Move your cursor over the plots to reveal the values for each data point. </li>
+  <li>Zoom in and out by dragging the slider bars to select the time period of interest.</li>
+  <li>You can interact with the data by clicking on the "Next" button to display additional data sets.</li>
+</ul>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads you are able to the previous figures displaying maximum wave height, peak wave period, wind speed, and surface current speed data from the Coastal Pioneer Central and Surface Moorings. You will also see a new figure showing barometric pressure and precipitation during the same time period. The precipitation data are incomplete. You can interact with the data by:</p>
+<p>When the site loads you are able to view the previous graphs displaying maximum wave height, peak wave period, wind speed, and surface current speed data from the Coastal Pioneer Central and Surface Moorings. You will also see a new figure showing barometric pressure and precipitation during the same time period. The precipitation data are incomplete. You can interact with the data by:</p>
 <ul>
+  <li>Moving your cursor over the plots to reveal the values for each data point.</li>
   <li>Using your cursor to make a prediction of what the precipitation data would look like during this event.</li>
   <li>You can then click on the "Next" button to display the actual precipitation data and check your prediction.</li>
 </ul>
@@ -150,14 +160,14 @@
     <ul>
       <li>Across what time period are you able to see wave data in this graph?</li>
       <li>What are the minima and maxima of these variables?</li>
-      <li>Are the minima/maxima of the variables coincident?</li>
+      <li>Do the minimum values of each variable occur at around the same time? What about the maximum values?</li>
     </ul>
   </div>
   <div class="col-md-6">
     <strong>Interpretation Questions</strong>
     <ul>
       <li>What is the relationship between wave height and wave period?</li>
-      <li>Do the maximum data seem anomalous to the rest of the data?</li>
+      <li>Do the maximum values of each variable seem anomalous (unusual) compared to the rest of the data?</li>
       <li>Hypothesize some factors that could lead to the changes in wave properties that you observed.</li>
     </ul>
   </div>
@@ -168,7 +178,7 @@
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
     <ul>
-      <li>Click through and examine these data sets: wind height, wave period, wind speed, and surface current speed, and explore how they change through time. What patterns do you see for each individual data set over the course of a week?</li>
+      <li>Click through and examine each data set one at a time: wave height, wave period, wind speed, and surface current speed, and explore how they change through time. What patterns do you see for each individual data set over the course of a week?</li>
       <li>Compare the datasets and describe any correlations you see among the datasets.</li>
     </ul>
   </div>
@@ -176,6 +186,7 @@
     <strong>Interpretation Questions</strong>
     <ul>
       <li>What effect does wind speed have on waves and surface currents?</li>
+      <li>The current speed data show significant fluctuations throughout the sample period. What could be causing these daily fluctuations?</li>
       <li>What natural process may have been responsible for the collective air-sea changes you observed?</li>
     </ul>
   </div>

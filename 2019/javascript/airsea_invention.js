@@ -129,17 +129,17 @@ function goto_step(step) {
     case 1: // Waves
       $('#chart2').hide()
       $('#chart3').hide()
-      $('#btext').text("Click the next button to view winds.")
+      $('#btext').text("Click the Next button to add wind speed data to the visualization.")
       break;
     case 2: // Winds
       $('#chart2').show(1000)
       $('#chart3').hide()
-      $('#btext').text("Click the next button to view currents.")
+      $('#btext').text("Click the Next button to add current speed data to the visualization.")
       break;
     case 3: // Show all 3 graphs
       $('#chart2').show(1000)
       $('#chart3').show(1000)
-      $('#btext').text("Now take a look.")
+      $('#btext').text("Now consider the questions below before moving on to the Application stage of this activity.")
       break;
   }
 }
