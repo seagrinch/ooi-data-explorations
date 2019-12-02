@@ -30,7 +30,7 @@
   </div>
   <div class="media-body">
     <h4 class="media-heading"><a href="salinity.php">Changes in Salinity</a> <small>March 2019</small></h4>
-    <p>Explore processes the might affect sea surface salinity</p>
+    <p>Explore processes that might affect sea surface salinity</p>
     <p><a href="salinity_guide.php">Instructors' Guide</a></p>
   </div>
 </div>
@@ -80,13 +80,13 @@
 <h4 style="color:red;">These Data Explorations are currently in development!</h4>
 <ul>
   <li>March: Ecosystem Vertical Structure</li>
-  <li>March: Profiles of DO and Chlorophyll-a in the Open Ocean</li>
+  <li>March: <a href="profiles.php">Profiles of DO and Chlorophyll-a in the Open Ocean</a></li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
   <li>March: Seafloor Deformation</li>
-  <li>July: CO2 Exchange Between Air and Sea (2)</li>
-  <li>July: Factors affecting Primary Production (2)</li>
-  <li>July: Magma Movement and the Shape of the Seafloor (1)</li>
-  <li>July: Tectonics and Tsunamis (1)</li>
+  <li>July: <a href="co2.php">CO<sub>2</sub> Exchange Between Air and Sea</a> (2)</li>
+  <li>July: <a href="production.php">Factors affecting Primary Production</a> (2)</li>
+  <li>July: <a href="magma.php">Magma Movement and the Shape of the Seafloor</a> (1)</li>
+  <li>July: <a href="techtonics.php">Tectonics and Tsunamis</a> (1)</li>
   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break (1)</li>
   <li>August: Drivers of Seawater Density (1 widget)</li>
   <li>August: Seasonal Variability In The Mixed Layer (3)</li>
