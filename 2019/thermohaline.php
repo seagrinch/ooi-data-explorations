@@ -29,22 +29,30 @@
 <?php if ($level=='exploration'): ?>
 <p>How does the atmosphere influence the ocean to drive large-scale vertical circulation (ocean conveyor)?</p>
 <ol>
-  <li>Make a prediction about how the SST(using 30 m depth as a proxy for the surface) responds to seasonal changes in wind forcing.</li>
-  <li>Make a prediction about how the ocean surface water density changes in response to changes in the wind forcing.</li>
-  <li>Make a prediction about how the water  temperature changes at various depths over the seasonal cycle.</li>
-  <li>Make a prediction about how the surface water moves in response to changes in its density.</li>
   <li>Explore the data below to see what you can observe.</li>
+  <li>Make a prediction about how the SST (using 30 m depth as a proxy for the surface) responds to seasonal changes in wind forcing.</li>
+  <li>Make a prediction about how the ocean surface water density changes in response to changes in the wind forcing.</li>
+  <li>Make a prediction about how the surface water moves in response to changes in its density.</li>
 </ol>
 <?php elseif ($level=='exploration2'): ?>
-TBD
+<p>How does the ocean temperature change by season and how is that change represented at different depths?</p>
+<ol>
+  <li>Make a prediction about how the temperature changes as you go deeper  into the water column.</li>
+  <li>Make a prediction about how the temperature change at depth compares to that at the surface.</li>
+</ol>
 <?php elseif ($level=='invention'): ?>
-TBD
+<p>Identify the processes that produce the cold, dense seawater in the Irminger Sea and which drives the thermohaline circulation.</p>
+<ol>
+  <li>Make a prediction about the relationship between surface wind speed and near-surface water temperature.</li>
+  <li>Make a prediction about the relationship between near-surface water temperature and water density.</li>
+</ol>
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
 <?php if ($level=='exploration'): ?>
 <div id="chart1" style="width:800px; height: 210px;"></div>
+<div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-4">
     <p class="text-right">Specify temperatures to plot:</p>
@@ -145,18 +153,11 @@ TBD
 
 <h3>Data Tips</h3>
 
-<?php if ($level=='exploration'): ?>
 <p>When the site loads, you are able to see the full dataset of wind speed, seawater temperature, and seawater density for the POR of 2014-09-21 to 2018-06-17 from the Irminger Sea Flanking Mooring B and ECMWF reanalysis grid point. You can interact with the data by:</p>
 <ul>
   <li>Turning on and off the various layers of temperature, density, and speed. If a reference layer is needed, I suggest the ECMWF wind speed OR the 30m temperature.</li>
   <li>Zoom in and out of the data to highlight particular sections of the seasonal cycle.  Site loads with all data highlighted, change highlighted width with zoom. </li>
 </ul>
-
-<?php elseif ($level=='exploration2'): ?>
-TBD
-<?php elseif ($level=='invention'): ?>
-TBD
-<?php endif; ?>
 
 
 <h3>Questions for Thought</h3>
@@ -182,17 +183,65 @@ TBD
       <li>What changes or patterns did you observe in the surface temperature graph?</li>
       <li>Does this change correlate with the surface wind speed data?</li>
       <li>What is the relationship between ocean water temperature and ocean water density?</li>
-      <li>Is the seasonal change in ocean water temperature the same magnitude (size) at each level?</li>
-      <li>What happens to the water density as you move down through the water column?</li>
       <li>What does the seasonal change in surface density imply about the initiation of the thermohaline circulation at the Irminger Sea area?</li>
     </ul>
   </div>
 </div>
 
 <?php elseif ($level=='exploration2'): ?>
-TBD
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>What oceanic and atmospheric variables are displayed in the graphs?  What are the units associated with each variable?</li>
+      <li>What time period does the graphs cover?
+        <ul>
+          <li>What is the starting date?</li>
+          <li>What is the ending date?</li>
+          <li>How many complete years of data are represented?</li>
+        </ul></li>
+      <li>What graph type is this?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What changes or patterns did you observe in the temperature graphs at each depth?</li>
+      <li>At the surface, what month has the highest temperatures and what month has the lowest temperatures.  What is the range of temperatures (highest - lowest) observed.</li>
+      <li>As you go deeper in the water column does the highest and lowest observed temperatures occur in the same months as at the surface?</li>
+      <li>Calculate the temperature range for the 90m, 350m, and 1000m depths.</li>
+      <li>Examine the temperature ranges for the surface and each depth.  What happens to the range as you move deeper into the water column?</li>
+    </ul>
+  </div>
+</div>
+
 <?php elseif ($level=='invention'): ?>
-TBD
+<div class="row">
+  <div class="col-md-6">
+    <strong>Orientation Questions</strong>
+    <ul>
+      <li>What oceanic and atmospheric variables are displayed in the graphs?  What are the units associated with each variable?</li>
+      <li>What time period does the graphs cover?
+        <ul>
+          <li>What is the starting date?</li>
+          <li>What is the ending date?</li>
+          <li>How many complete years of data are represented?</li>
+        </ul></li>
+      <li>What graph type is this?</li>
+    </ul>
+  </div>
+  <div class="col-md-6">
+    <strong>Interpretation Questions</strong>
+    <ul>
+      <li>What happens to the near-surface temperature as the wind speed increases in the winter?</li>
+      <li>Cooling temperatures imply a loss of heat energy from the water.  Where does this heat go?</li>
+      <li>What happens to the water density as the temperatures cool?</li>
+      <li>Examine the potential density plots for all depths.  Are they similar? What does this imply about the vertical movement of the water?</li>
+      <li>Describe in your own words how the wintertime conditions in the Irminger Sea produce the deep water which forms part of the thermohaline circulation.</li>
+    </ul>
+  </div>
+</div>
+
 <?php endif; ?>
 
 
@@ -244,14 +293,10 @@ TBD
         <h4 class="list-group-item-heading">Exploration #1</h4>
         <p class="list-group-item-text">How does the ocean respond to the atmosphere?</p>
       </a>
-    </div>
-    <div class="list-group">
       <a href="thermohaline.php?level=exploration2" class="list-group-item">
         <h4 class="list-group-item-heading">Exploration #2</h4>
         <p class="list-group-item-text">How does the ocean temperature signal change with depth?</p>
       </a>
-    </div>
-    <div class="list-group">
       <a href="thermohaline.php?level=invention" class="list-group-item">
         <h4 class="list-group-item-heading">Invention</h4>
         <p class="list-group-item-text">Explore ocean and atmospheric processes that produce the cold, dense seawater in the Irminger Sea which drives the conveyor belt of the thermohaline circulation</p>

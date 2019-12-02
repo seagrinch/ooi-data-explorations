@@ -33,6 +33,28 @@ $(document).ready(function () {
     visibility: [1,0,0,0,0,0,0,0,0,0,0,0,0,0],
   });
   
+  g3 = new Dygraph(document.getElementById("chart3"), "data/thermohaline.csv", {
+    title: 'ECMWF Model Winds',
+    ylabel: 'Wind Speed (m/s)',
+    //legend: 'always', //onmouseover
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    colors : colors, 
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    animatedZooms : true,
+    visibility: [0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+  });
+  
+  var sync = Dygraph.synchronize(g1, g3, {
+    selection: true,
+    zoom: true,
+    range: false
+  });
+
 }); //document.ready
 
 
