@@ -59,7 +59,7 @@
 
 <?php elseif ($level=='application'): ?>
 
-<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Rain dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<p style="font-style: italic">Take a look at the above chart.  Use your mouse to draw your prediction for what the rest of the Irradiance dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
 <div class="row" style="margin-top:10px;">
   <div class="col-md-3">
   </div>
@@ -89,7 +89,7 @@
 </div><!-- /.modal -->
 
 <div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
-<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Rain dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Nitrate dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
 <div class="row" style="margin-top:10px;">
   <div class="col-md-3">
   </div>
