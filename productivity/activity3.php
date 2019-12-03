@@ -53,19 +53,43 @@
 
 <?php if ($level=='exploration'): ?>
 
-<p>Explore the "Chlorophyll-a Concentration" data to see what you can observe among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+<p>Explore the "Chlorophyll-a Concentration" data to see what you can observe among the six stations during the Fall season: </p>
+<ul>
+  <li>northern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>)</li>
+  <li>northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>)</li>
+  <li>southern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>)</li>
+  <li>northern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>)</li>
+  <li>northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>)</li>
+  <li>southern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>)</li>
+</ul>
 
 <p><strong>Data Tip:</strong> Select different locations in the ocean to explore the data in ways that interest you. Zoom in and out of the data to look at different time scales that interest you.</p>
 
 <?php elseif ($level=='concept_invention'): ?>
 
-<p>Look for patterns in the "Chlorophyll-a Concentration" data among the six stations during the Fall season: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+<p>Look for patterns in the "Chlorophyll-a Concentration" data among the six stations during the Fall season: </p>
+<ul>
+  <li>northern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>)</li>
+  <li>northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>)</li>
+  <li>southern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>)</li>
+  <li>northern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>)</li>
+  <li>northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>)</li>
+  <li>southern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>)</li>
+</ul>
 
 <p><strong>Data Tip:</strong> Select each location to explore the data from around the globe. Zoom in and out of the data to look at different time scales to investigate patterns across time.</p>
 
 <?php elseif ($level=='application'): ?>
 
-<p>Investigate the "Chlorophyll-a Concentration" data to determine if there is an regional relationship to primary production during the Fall season and how the data vary among the six stations: northern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>); northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>); southern near polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>); northern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>); northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>); southern near polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>).</p>
+<p>Investigate the "Chlorophyll-a Concentration" data to determine if there is an regional relationship to primary production during the Fall season and how the data vary among the six stations: </p>
+<ul>
+  <li>northern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-station-papa/">Station Papa Array</a>)</li>
+  <li>northern temperate Pacific Ocean (<a href="http://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance Array</a>)</li>
+  <li>southern near-polar Pacific Ocean (<a href="http://oceanobservatories.org/array/global-southern-ocean/">Southern Ocean Array</a>)</li>
+  <li>northern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-irminger-sea/">Irminger Sea Array</a>)</li>
+  <li>northern temperate Atlantic Ocean (<a href="http://oceanobservatories.org/array/coastal-pioneer/">Coastal Pioneer Array</a>)</li>
+  <li>southern near-polar Atlantic Ocean (<a href="http://oceanobservatories.org/array/global-argentine-basin/">Argentine Basin Array</a>)</li>
+</ul>
 
 <p><strong>Data Tip:</strong> Select the different locations to explore relationships and patterns in the data. Zoom in and out of the data to look at different time scales across the Fall to see if it changes the relationships or patterns you observe.</p>
 
