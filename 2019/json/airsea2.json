@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI_Arrays_201905509_CP.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> Array (red box)."
+  },
+  {
+    "title": "Central Surface Mooring",
+    "file": "CEV-OOI-Coastal-Pioneer-Array_0103.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer</a> is located  in the Mid-Atlantic off the coast of Rhode Island and Massachusetts. Data in this activity were collected from the <a href=\"http://oceanobservatories.org/site/CP01CNSM/\">Central</a> Surface Mooring."
+  },
+  {
+    "title": "Mooring Diagram",
+    "file": "CP_Central_Surface_Mooring_surface.png",
+    "caption": "The Surface Buoy (red box) at the Central Surface Mooring location contains the instruments used to collect these data. Data for this activity were collected using bulk meteorology and surface wave spectra instruments."
+  },
+  {
+    "title": "Surface Mooring",
+    "file": "pioneer_4.jpg",
+    "caption": "This is a picture of the Surface Buoy in the water.  The wind sensors are the little claw-like objects sticking out at the top. The propellers in the middle of the picture are actually used to generate electricity to power the mooring."
+  },
+  {
+    "title": "Surface Mooring",
+    "file": "wave_diagram.png",
+    "caption": "Wave height is the distance between the highest point (the crest) and the lowest point (the trough) of a single wave. Wave period is the amount of time that elapses between two successive waves"
+  },
+  {
+    "title": "Early January 2018 Nor'easter",
+    "file": "Early_January_2018_Noreaster_2018-01-04_1345Z.jpg",
+    "caption": "Satellite image of the 2018 bomb cyclone, taken on January 4, 2018. Bombogenesis (formation of a bomb cyclone) occurs when a midlatitude cyclone rapidly intensifies, dropping at least 24 millibars (a measure of atmospheric pressure) over 24 hours. In the 2018 bomb cyclone, pressure dropped by 53 millibars in 21 hours, one of the fastest ever recorded in the Atlantic. This can happen when a cold air mass collides with a warm air mass, such as air over warm ocean waters. (<a href=\"https://commons.wikimedia.org/wiki/File:Early_January_2018_Nor%27easter_2018-01-04_1345Z.jpg\">source</a>)"
+  }
+]

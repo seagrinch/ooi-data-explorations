@@ -18,7 +18,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="anoxia.php"><img data-src="holder.js/250x150?text=Dynamic Air-Sea Interactions" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="airsea.php"><img src="images_airsea/thumb/Early_January_2018_Noreaster_2018-01-04_1345Z.jpg" alt="Dynamic Air-Sea Interactions" width="350" class="pull-right thumbnail"></a>
 <p>This exercise is a case study that, if used in full, takes students through the parts of the learning cycle from exploration to application as applied to an episodic atmospheric event on the New England continental shelf. Pieces of the exercise can be used as appropriate for the instructor goals. Several ideas are given for having students access and connect to their previous learning on ocean surface conditions (invitation). The tie-in to societal impacts is compelling. Some wave properties data are presented and students are asked to draw some conclusions (exploration). Several types of data are presented as time series data with an interactive widget, and students are asked to speculate on the relationships between the wave properties and different water and atmospheric conditions (concept invention). Students are then presented with barometric pressure data and asked to predict precipitation. After their prediction, students can compare to the actual precipitation data (application). </p>
 
 <p>Once students come to a conclusion as to the cause of the event, students are invited to reflect on how this oceanic event affects their life. This case requires students to think of the interaction between atmospheric and sea surface conditions, and the impacts to coastal societies (reflection).</p>

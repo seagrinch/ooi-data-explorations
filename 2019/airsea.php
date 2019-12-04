@@ -218,7 +218,11 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
-  $json_file = file_get_contents('json/airsea.json');  
+  if ($level=='application') {
+    $json_file = file_get_contents('json/airsea2.json');  
+  } else {
+    $json_file = file_get_contents('json/airsea.json');    
+  }
   $images = json_decode($json_file);
 ?>
 <div class="row">
