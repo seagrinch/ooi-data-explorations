@@ -14,7 +14,7 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published ???, 2019</small></h2>
+    <small>Published December, 2019</small></h2>
 </div>
 
 <h3>Summary</h3>
@@ -81,6 +81,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="airsea.php?level=exploration"><img src="screenshots/airsea1_sm.png" alt="Dynamic Air-Sea Interactions Exploration Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Have the students examine the atmospheric and oceanographic data and summarize patterns they see. What could cause these patterns?</li>
       <li>Have students work in pairs or small groups to examine the plots. Ask them to describe the different aspects of the visualizations and patterns in the data they detect. Then ask what questions they think they might be able to answer with these data. 
@@ -99,6 +100,7 @@
     <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="airsea.php?level=concept_invention"><img src="screenshots/airsea2_sm.png" alt="Dynamic Air-Sea Interactions Concept Invention Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Lead students in discussion of their answers after each data activity, calling on students to provide the evidence that led them to their conclusion.</li>
       <li>Have students identify the link between atmospheric and oceanic processes in a coastal area that may lead to coastal storms.</li>
@@ -113,6 +115,7 @@
     <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="airsea.php?level=application"><img src="screenshots/airsea1_sm.png" alt="Dynamic Air-Sea Interactions Application Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Students now have the opportunity to investigate changes in atmospheric pressure and use what they've learned to hypothesize about what natural process is causing the collective air-sea changes they observed. Students support their hypothesis with evidence gathered from the various data widgets.</li>
       <li>Students are provided with barometric pressure data and asked to predict precipitation. Students respond to the prompt:

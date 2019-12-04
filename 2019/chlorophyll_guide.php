@@ -14,11 +14,11 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published ??, 2019</small></h2>
+    <small>Published December, 2019</small></h2>
 </div>
 
 <h3>Summary</h3>
-<a href="chlorophyll.php"><img data-src="holder.js/250x150?text=Chlorophyll-a in upwelling vs. stratified temperate regions" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="chlorophyll.php"><img src="screenshots/chlorophyll1_sm.png" alt="Chlorophyll-a in Upwelling and Stratified Temperate Regions" width="250" height="150" class="pull-right thumbnail"></a>
 <p>Students can explore how primary production, temperature, salinity, and dissolved oxygen varies in an area that experiences upwelling (North Pacific - Coastal Endurance Array) and an area that does not (South Pacific - Coastal Pioneer Array) for a time period extending May 2016-Oct 2017.</p>
 <p>Students will be able to explore patterns in how the chlorophyll-a concentration, temperature, salinity, and/or oxygen data varies over time in the Northern Pacific Ocean.</p>
 <p>They will apply this knowledge by comparing patterns in chlorophyll-a concentration, salinity, and oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array). Using what they learned from the North Pacific Ocean they will make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>
@@ -52,6 +52,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="chlorophyll.php?level=exploration"><img src="screenshots/chlorophyll1_sm.png" alt="Chlorophyll Exploration Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li></li>
     </ul>
@@ -74,6 +75,13 @@
     <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
+    <p><strong>Application #1</strong></p>
+    <a href="chlorophyll.php?level=application"><img src="screenshots/chlorophyll2_sm.png" alt="Chlorophyll Application #1 Widget" width="250" class="pull-right thumbnail" /></a>
+    <ul>
+      <li></li>
+    </ul>
+    <p><strong>Application #2</strong></p>
+    <a href="chlorophyll.php?level=application2"><img src="screenshots/chlorophyll3_sm.png" alt="Chlorophyll Application #2 Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li></li>
     </ul>

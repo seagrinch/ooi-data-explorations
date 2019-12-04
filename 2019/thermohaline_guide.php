@@ -14,11 +14,11 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published ???, 2019</small></h2>
+    <small>Published December, 2019</small></h2>
 </div>
 
 <h3>Summary</h3>
-<img src="images_thermohaline/large/OOI_Arrays_201905509_GI.jpg" alt="OOI_Arrays_201905509_GI" width="350" class="pull-right thumbnail" />
+<img src="images_thermohaline/large/OOI_Arrays_201905509_GI.jpg" alt="OOI Arrays with Irminger Sea highlighted" width="350" class="pull-right thumbnail" />
 <p>This exercise is a case study that takes students through the entire learning cycle from invitation to reflection as applied to the development of North Atlantic Deep Water in the Irminger Sea. Several types of  data are presented and students are asked to draw some conclusions (exploration). Students are asked to speculate on the relationship between the wind and different water properties and to identify the seasonal cycle in water temperature (concept invention). Students are challenged to apply what they have learned to another situation (application). This case study requires students to think about the interactions among wind, circulation, and water properties, so at the conclusion students are asked to think about what they have learned about this complexity (reflection).</p>
 
 
@@ -62,6 +62,7 @@
   </div>
   <div class="panel-body">
     <p><strong>Exploration #1</strong></p>
+    <a href="thermohaline.php?level=exploration"><img src="screenshots/thermohaline1_sm.png" alt="Thermohaline Circulation Exploration #1 Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Students use the widget to examine the ocean and air temperature plots in relation to the seasonal cycle.  During this exploration, allow students to explore with a partner, make predictions, and try to explain their reasoning.</li>
       <li>Have students turn to the person next to them and describe any pattern(s) they observe in how the ocean surface temperature changes as the seasons change and what might cause this pattern. [Students should be able to identify seasonal changes in the temperature along with the time lag associated with this warming or cooling, as well as the impacts on temperature of periods of sustained high winds.]</li>
@@ -73,6 +74,7 @@
       </li>
     </ul>
     <p><strong>Exploration #2</strong></p>
+    <a href="thermohaline.php?level=exploration2"><img src="screenshots/thermohaline2_sm.png" alt="Thermohaline Circulation Exploration #2 Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Students use the widget to examine a stacked set of temperature plots as well as a stacked set of density plots. During this exploration, allow students to explore with a partner, make predictions, and try to explain their reasoning.  During the exercise, have students respond to the following prompts:
         <ul>
@@ -97,6 +99,7 @@
     <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="thermohaline.php?level=invention"><img src="screenshots/thermohaline3_sm.png" alt="Thermohaline Circulation Concept Invention Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Lead a whole group discussion about what students have observed so far in the two exploration widgets. Encourage them to share their explanations of the plots and observations, and what questions they have. Help students come to a more accurate scientific explanations of the concepts covered by these widgets.</li>
       <li>Students use the widget to examine the surface wind speed plot and compare it to the near-surface temperature plot to investigate the relationship between wind speed and winter cooling. Have students discuss the following prompts, first with a partner/small group, and then whole group:

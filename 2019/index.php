@@ -39,7 +39,7 @@
 <div class="media">
   <div class="media-left">
     <a href="chlorophyll.php">
-      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Chlorophyll-a in Upwelling and Stratified Temperate Regions" alt="Chlorophyll-a in Upwelling and Stratified Temperate Regions" width="250" height="150">
+      <img class="media-object thumbnail" src="screenshots/chlorophyll1_sm.png" alt="Chlorophyll-a in Upwelling and Stratified Temperate Regions" width="250" height="150">
     </a>
   </div>
   <div class="media-body">
@@ -52,7 +52,7 @@
 <div class="media">
   <div class="media-left">
     <a href="airsea.php">
-      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Dynamic Air-Sea Interactions" alt="Dynamic Air-Sea Interactions" width="250" height="150">
+      <img class="media-object thumbnail" src="screenshots/airsea2_sm.png" alt="Dynamic Air-Sea Interactions" width="250" height="150">
     </a>
   </div>
   <div class="media-body">
@@ -65,7 +65,7 @@
 <div class="media">
   <div class="media-left">
     <a href="thermohaline.php">
-      <img class="media-object thumbnail" data-src="holder.js/250x150?text=Thermohaline Circulation" alt="Thermohaline Circulation" width="250" height="150">
+      <img class="media-object thumbnail" src="screenshots/thermohaline2_sm.png" alt="Thermohaline Circulation" width="250" height="150">
     </a>
   </div>
   <div class="media-body">
