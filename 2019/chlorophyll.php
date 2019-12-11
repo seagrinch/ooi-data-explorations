@@ -225,7 +225,8 @@
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
     <ul>
-      <li></li>
+      <li>How is temperature, salinity, and dissolved oxygen different during winter and spring?</li>
+      <li>How should these water characteristics change when upwelling occurs?</li>
     </ul>
   </div>
   <div class="col-md-6">
@@ -235,6 +236,7 @@
       <li>How do the non-chl water characteristics in the North Pacific compare to the North Atlantic in the summer and fall?</li>
       <li>What are your predictions for temperature during this time period in the North Atlantic?</li>
       <li>What questions do you still have about what drives changes in chl (PP) at the ocean surface over time?</li>
+      <?php if ($level=='application2') { ?><li>What do you predict the temperature profile to be in July 2017 based on the data from July 2016?</li> <?php } ?>
     </ul>
   </div>
 </div>
