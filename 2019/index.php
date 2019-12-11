@@ -35,6 +35,7 @@
   </div>
 </div>
 
+<hr>
 
 <div class="media">
   <div class="media-left">
@@ -75,6 +76,7 @@
   </div>
 </div>
 
+<hr>
 
 <h3>Rough Drafts</h3>
 <h4 style="color:red;">These Data Explorations are currently in development!</h4>

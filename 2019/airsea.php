@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Your objective for this activity is to examine how atmospheric processes affect surface oceanographic conditions. In this section, you will analyze the relationship between wave height and wave period, and speculate on the processes that can influence wave properties.</p>

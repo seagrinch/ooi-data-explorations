@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>How does the atmosphere influence the ocean to drive large-scale vertical circulation (ocean conveyor)?</p>
