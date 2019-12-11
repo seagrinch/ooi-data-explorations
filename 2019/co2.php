@@ -23,6 +23,8 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
+<h4 style="color:red;">This activity is under construction!</h4>
+
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Use atmospheric conditions and water properties across three years in the North Pacific and North Atlantic to identify drivers of CO<sub>2</sub> flux between the atmosphere and ocean.</p>

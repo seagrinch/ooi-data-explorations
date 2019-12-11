@@ -23,6 +23,8 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
+<h4 style="color:red;">This activity is under construction!</h4>
+
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Use earthquake and bathymetry data from before and after an underwater eruption to see how they are related.</p>
