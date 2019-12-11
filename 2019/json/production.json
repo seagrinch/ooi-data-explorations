@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI_Arrays_201905509_GS.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at data collected from the <a href=\"http://oceanobservatories.org/array/global-southern-ocean/\">Southern Ocean Array</a> (red box)."
+  },
+  {
+    "title": "Global Southern Ocean Array",
+    "file": "Global_Southern_2015-10-07_ver_5-00_apexsurfhighlighted.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-southern-ocean/\">Global Southern Ocean Array</a> is a combination of fixed platforms (moorings), moored profilers to address the requirement to sample the full water column, and mobile platforms (gliders) that provide simultaneous spatial and temporal sampling capabilities. The array is composed of a Surface Mooring (green box) containing fixed instruments situated on the buoy and through the upper 1500 m of the water column, a subsurface Global Profiler Mooring made up of two wire-following profilers, one operating from ~300 m to 2500 m and the second from ~2500 m to 4600 m, and two Flanking Moorings that form a triangular array ~50 km on a side. These Flanking Moorings have their uppermost flotation at ~30 m depth and instruments at discrete depths along the mooring line to a depth of 1500 m."
+  },
+  {
+    "title": "What is a Mooring?",
+    "file": "GS01SUMO_Southern_Apex_Surface_Mooring_highlighted.png",
+    "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument on the moorings around the world that collected data in this activity are included in the Instrument Package (highlighted in red), which is attached to the cable 12m below the water surface. Image is of the Southern Ocean Surface Mooring."
+  },
+  {
+    "title": "What is a Fluorometer?",
+    "file": "3WavelengthFluorometer_Image_Diagram.jpg",
+    "caption": "A fluorometer measures how much light is emitted by things in the water that previously absorbed light. In other words, by looking at how much light is given off in the water, scientists can determine who is in the water and how much of it there is. They are looking for the presence and amount of microscopic algae (phytoplankton)."
+  },
+  {
+    "title": "How Do We Measure Nitrate Concentrations?",
+    "file": "suna_instrument.png",
+    "caption": "Sea-Bird provides dissolved nitrates instruments for the Ocean Observatories Initiative. Shown above is a SUNA sensor able to provide real-time chemical free nitrate calculations in deep ocean environments. (Photo provided by Satlantic, Inc.)"
+  }
+]
