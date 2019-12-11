@@ -1,0 +1,222 @@
+<html>
+<body>
+
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<style>
+.area {
+  fill: steelblue;
+  clip-path: url(#clip);
+}
+.zoom {
+  cursor: move;
+  fill: none;
+  pointer-events: all;
+}
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width:2;
+  clip-path: url(#clip);  
+}
+</style>
+
+<svg id="chart" width="800" height="400"></svg>
+
+
+<script>
+//Adapted from https://bl.ocks.org/mbostock/34f08d5e11952a80609169b7917d4172
+// Source data MJ03F-NANO-15min-Jan15-Aug15-2015.csv
+
+//https://observablehq.com/@d3/line-chart-with-tooltip
+//https://www.d3-graph-gallery.com/graph/line_cursor.html
+// https://www.d3-graph-gallery.com/graph/custom_legend.html
+// https://observablehq.com/@vega/vega-lite-annotated-time-series
+
+var svg = d3.select("svg"),
+    margin1 = {top: 20, right: 20, bottom: 250, left: 50},
+    margin2 = {top: 170, right: 20, bottom: 100, left: 50},
+    margin3 = {top: 330, right: 20, bottom: 30, left: 50},
+    width = +svg.attr("width") - margin1.left - margin1.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom,
+    height3 = +svg.attr("height") - margin3.top - margin3.bottom;  //Bottom (context) graph
+
+var parseDate = d3.timeParse("%Y-%m-%d %H:%M");
+
+var x = d3.scaleTime().range([0, width]),
+    x3 = d3.scaleTime().range([0, width]),
+    y1 = d3.scaleLinear().range([height1, 0]),
+    y2 = d3.scaleLinear().range([height2, 0]),
+    y3 = d3.scaleLinear().range([height3, 0]);
+
+var xAxis = d3.axisBottom(x),
+    xAxis3 = d3.axisBottom(x3),
+    yAxis1 = d3.axisLeft(y1).ticks(4),
+    yAxis2 = d3.axisLeft(y2).ticks(4);
+
+var brush = d3.brushX()
+    .extent([[0, 0], [width, height3]])
+    .on("brush end", brushed);
+
+var zoom = d3.zoom()
+    .scaleExtent([1, Infinity])
+    .translateExtent([[0, 0], [width, height1]])
+    .extent([[0, 0], [width, height1]])
+    .on("zoom", zoomed);
+
+var line1 = d3.line()
+    .curve(d3.curveMonotoneX)
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y1(d.pressure); });
+
+var line1b = d3.line()
+    .curve(d3.curveMonotoneX)
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y1(d.depth); });
+
+var line2 = d3.line()
+    .curve(d3.curveMonotoneX)
+    .x(function(d) { return x(d.date); })
+    .y(function(d) { return y2(d.depth); });
+
+var area3 = d3.area()
+    .curve(d3.curveMonotoneX)
+    .x(function(d) { return x3(d.date); })
+    .y0(height3)
+    .y1(function(d) { return y3(d.depth); });
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width)
+    .attr("height", height1);
+
+var focus1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+
+var focus2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+var context = svg.append("g")
+    .attr("class", "context")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+d3.csv("../data/magma_botpt.csv", parse_botpt, function(error, data) {
+  if (error) throw error;
+  
+  d3.csv("../data/magma_earthquakes.csv", parse_earthquakes, function(error2, data1) {
+    if (error2) throw error2;
+
+  x.domain(d3.extent(data, function(d) { return d.date; }));
+  x3.domain(x.domain());
+
+  y1.domain(d3.extent(data, function(d) { return d.pressure; }).reverse()).nice();
+  y2.domain(d3.extent(data, function(d) { return d.depth; }).reverse()).nice();
+  y3.domain(y2.domain());
+
+  focus1.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line1);
+
+  focus1.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height1 + ")")
+      .call(xAxis);
+
+  focus1.append("g")
+      .attr("class", "axis axis--y")
+      .call(yAxis1);
+
+  focus1.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line1b)
+      .style("stroke","red");
+
+  focus2.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("d", line2);
+
+  focus2.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height2 + ")")
+      .call(xAxis);
+
+  focus2.append("g")
+      .attr("class", "axis axis--y")
+      .call(yAxis2);
+
+  context.append("path")
+      .datum(data)
+      .attr("class", "area")
+      .attr("d", area3);
+
+  context.append("g")
+      .attr("class", "axis axis--x")
+      .attr("transform", "translate(0," + height3 + ")")
+      .call(xAxis3);
+
+  context.append("g")
+      .attr("class", "brush")
+      .call(brush)
+      .call(brush.move, x3.range());
+
+  svg.append("rect")
+      .attr("class", "zoom")
+      .attr("width", width)
+      .attr("height", height1 + height2 + 20)
+      .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")")
+      .call(zoom);
+
+  });
+
+});
+
+
+function brushed() {
+  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "zoom") return; // ignore brush-by-zoom
+  var s = d3.event.selection || x3.range();
+  x.domain(s.map(x3.invert, x3));
+  focus1.select(".line").attr("d", line1);
+  focus1.select(".axis--x").call(xAxis);
+  focus2.select(".line").attr("d", line2);
+  focus2.select(".axis--x").call(xAxis);
+  svg.select(".zoom").call(zoom.transform, d3.zoomIdentity
+      .scale(width / (s[1] - s[0]))
+      .translate(-s[0], 0));
+}
+
+function zoomed() {
+  if (d3.event.sourceEvent && d3.event.sourceEvent.type === "brush") return; // ignore zoom-by-brush
+  var t = d3.event.transform;
+  x.domain(t.rescaleX(x3).domain());
+  focus1.select(".line").attr("d", line1);
+  focus1.select(".axis--x").call(xAxis);
+  focus2.select(".line").attr("d", line2);
+  focus2.select(".axis--x").call(xAxis);
+  context.select(".brush").call(brush.move, x.range().map(t.invertX, t));
+}
+
+function parse_botpt(d) {
+  d.date = parseDate(d.time);
+  d.pressure = +d['Pressure (psi)'] /14.6959*101325/1024/9.81 -37// 6894.76 * 1024/9.81  // 1atm=14.69595psi
+  d.depth = +d['Depth (m)']
+  return d;
+}
+
+function parse_earthquakes(d) {
+  d.date = d3.isoParse(d.time);
+  d.latitude = +d.latitude;
+  d.longitude = +d.longitude;
+  d.depth = +d.depth;
+  d.mag = +d.mag;
+  return d;
+}
+</script>
+</body>
+</html>
