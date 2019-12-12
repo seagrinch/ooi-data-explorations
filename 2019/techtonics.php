@@ -38,13 +38,57 @@
 
 
 <!-- DATA CHART -->
-<div id="chart" style="width:800px; height: 400px;"></div>
 
-<?php if ($level=='exploration'): ?>
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+  integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+  crossorigin=""/>   
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+  integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+  crossorigin=""></script>
+<!-- Leaflet MiniMap Plugin -->
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
+<link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' />
+<!-- Leaflet Draw Plugin -->
+<script src='../js/leaflet-draw/leaflet.draw.js'></script>
+<link rel="stylesheet" href='../js/leaflet-draw/leaflet.draw.css' />
 
-<?php endif; ?>
+<style type="text/css">
+  .circle { visibility: hidden; }
+  .circle.selected { visibility: visible; }
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+</style>
 
-<p class="text-right"><a href="data/salinity_application.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5" data-days="365"></div>
+<div id="map2"></div>
+
+
+
+<?php 
+  $scripts[] = "https://d3js.org/d3.v4.min.js";
+  $scripts[] = "https://d3js.org/d3-scale-chromatic.v1.min.js";
+  $scripts[] = "javascript/techtonics.js";
+?>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-6">
+    <p>Automatically select: 
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(180)">6 Months</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(365)">1 Year</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_zoom(365*3)">3 Years</button>
+    </p>
+  </div>
+  <div class="col-xs-6">
+    <label style="font-weight: normal;"><input type="checkbox" id="earthquakes" onclick="mainscript.toggle_dots(this)" > 
+      Show Earthquakes</label>
+  </div>
+</div>
+
+<p class="text-right"><a href="data/usgs_earthquakes.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Data Tips</h3>
