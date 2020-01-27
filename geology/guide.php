@@ -88,7 +88,7 @@
       <li><strong>Invitation:</strong> You could...
       <ul>
         <li>Engage your students in a discussion about what they know about different kinds of seamounts, or</li>
-        <li>Watch the <a href="https://www.youtube.com/watch?v=RXPe82F5o6w&list=PLgxHFq3fMoN_C84DULsWyYsDEU80ip52P&index=16">Earth-Oceans Interaction Program Axial 2015 Video Blog #2 Monitoring</a> to learn more about why and how scientists are monitoring the active volcano of the Axial Seamount, or</li>
+        <li>Watch the <a href="https://www.youtube.com/watch?v=nDaWUO6FHIU">Earth-Oceans Interaction Program Axial 2015 Video Blog #2 Monitoring</a> to learn more about why and how scientists are monitoring the active volcano of the Axial Seamount, or</li>
         <li>Something else that you are doing already</li>
       </ul></li>
       <li><strong>Exploration:</strong> You could...
