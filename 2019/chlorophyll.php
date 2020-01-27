@@ -30,9 +30,14 @@
 <p>What trends do you observe as primary productivity, temperature, salinity, and dissolved oxygen varies over time in the North Pacific Ocean?</p>
 <p>Look for patterns in how the chlorophyll-a concentration, temperature, salinity, and/or oxygen data varies over time in the Northern Pacific Ocean (Coastal Endurance Array).</p>
 
-<?php elseif ($level=='application' || $level=='application2'): ?>
+<?php elseif ($level=='application'): ?>
 <p>How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
-<p>Compare patterns in chlorophyll-a concentration, salinity, and/or oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array). Make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>
+<p>Compare patterns in chlorophyll-a concentration, salinity, and/or oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array).</p>
+
+<?php elseif ($level=='application2'): ?>
+<p>How does primary productivity, temperature, salinity and dissolved oxygen in the North Pacific Ocean Compare to the North Atlantic Ocean?</p>
+<p>Compare patterns in chlorophyll-a concentration, salinity, and/or oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array).</p>
+<p>Make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>
 
 <?php endif; ?>
 
@@ -141,13 +146,15 @@
   </div>
   <div class="col-xs-9">
     <label style="font-weight: normal;"><input type="checkbox" id="CE" onclick="toggle_lines()" checked> 
-      Coastal Endurance - Oregon Offshore Surface Mooring)</label><br>
+      Coastal Endurance - Oregon Offshore Surface Mooring</label><br>
     <label style="font-weight: normal;"><input type="checkbox" id="CP" onclick="toggle_lines()" checked> 
-      Coastal Pioneer - Offshore Surface Mooring</label><br>
+      Coastal Pioneer - Massachusetts Offshore Surface Mooring</label><br>
   </div>
 </div>
 
-<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Pioneer Temperature dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<p>&nbsp;</p>
+
+<p style="font-style: italic">Take a look at the above charts.  Then, use your mouse to draw your prediction for what the rest of the Pioneer Sea Surface Temperature dataset should look like for May-August 2017.  After you have made your estimate, click the "Check Prediction" box.</p>
 <div class="row" style="margin-top:10px;">
   <div class="col-md-3">
   </div>
@@ -206,16 +213,17 @@
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
     <ul>
-      <li></li>
+      <li>How is temperature, salinity, and dissolved oxygen different during winter and spring?</li>
+      <li>How should these water characteristics change when upwelling occurs?</li>
     </ul>
   </div>
   <div class="col-md-6">
     <strong>Interpretation Questions</strong>
     <ul>
-      <li>What is the data range and units for Chlorophyll a on the y-axis?</li>
+      <li>What is the data range and units for chlorophyll a on the y-axis?</li>
       <li>What changes or patterns did you observe at the surface in other variables (temperature, salinity, and dissolved oxygen) as chlorophyll changes over this time period off of Oregon?</li>
       <li>When (which months on the x-axis) did you see these changes or patterns taking place?</li>
-      <li>What questions do you still have about what drives changes in chlorophyll (PP) at the ocean surface over time?</li>
+      <li>What questions do you still have about what drives changes in chlorophyll (primary production) at the ocean surface over time?</li>
     </ul>
   </div>
 </div>
@@ -232,11 +240,11 @@
   <div class="col-md-6">
     <strong>Interpretation Questions</strong>
     <ul>
-      <li>How does chl in the North Pacific compare to the North Atlantic in the summer and fall?</li>
-      <li>How do the non-chl water characteristics in the North Pacific compare to the North Atlantic in the summer and fall?</li>
+      <li>How does chlorophyll in the North Pacific compare to the North Atlantic in the summer and fall?</li>
+      <li>How do the non-chlorophyll water characteristics in the North Pacific compare to the North Atlantic in the summer and fall?</li>
       <li>What are your predictions for temperature during this time period in the North Atlantic?</li>
-      <li>What questions do you still have about what drives changes in chl (PP) at the ocean surface over time?</li>
-      <?php if ($level=='application2') { ?><li>What do you predict the temperature profile to be in July 2017 based on the data from July 2016?</li> <?php } ?>
+      <li>What questions do you still have about what drives changes in chlorophyll (primary production) at the ocean surface over time?</li>
+      <?php if ($level=='application2') { ?><li>What do you predict the temperature timeseries should look like from May-August 2017, based on the data from 2016?</li> <?php } ?>
     </ul>
   </div>
 </div>

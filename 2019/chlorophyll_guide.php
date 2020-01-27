@@ -19,7 +19,7 @@
 
 <h3>Summary</h3>
 <a href="chlorophyll.php"><img src="screenshots/chlorophyll1_sm.png" alt="Chlorophyll-a in Upwelling and Stratified Temperate Regions" width="250" height="150" class="pull-right thumbnail"></a>
-<p>Time series data is utilized to connect lecture discussion on ocean currents, upwelling/downwelling, seasonal variability, ocean chemistry, and productivity. Students are given the opportunity to explore these learning outcomes and to draw their own predictions on the graphs and view if their predictions resemble the observed data. Students contrast and compare selected time series data from the Coastal Endurance (Pacific Ocean) and Coastal Pioneer (Atlantic Ocean) Array and determine if the data follows predicted patterns. They examine the Array time series data and identify time frames where the data does follow expected trends and make predictions about these time frames. This exercise is a case study that, if used in full, takes students through the entire learning cycle from invitation to reflection as applied to continental margins in temperate environments that either do or do not experience seasonal upwelling. Pieces of the exercise can be used as appropriate to meet instructor goals.</p>
+<p>Time series data is utilized to connect lecture discussion on ocean currents, upwelling/downwelling, seasonal variability, ocean chemistry, and productivity. Students are given the opportunity to explore these learning outcomes and to draw their own predictions on the graphs and view if their predictions resemble the observed data. Students contrast and compare selected time series data from the Coastal Endurance (Pacific Ocean) and Coastal Pioneer (Atlantic Ocean) Array and determine if the data follows predicted patterns. They examine the Array time series data and identify time frames where the data follow expected trends and make predictions about these time frames. This exercise is a case study that, if used in full, takes students through the entire learning cycle from invitation to reflection as applied to continental margins in temperate environments that either do or do not experience seasonal upwelling. Pieces of the exercise can be used as appropriate to meet instructor goals.</p>
 <ul>
   <li>Students access their previous learning on primary production through images depicting varying ocean color (Invitation). (See Teaching Notes below for concepts your students should be familiar with before starting this exercise.)</li>
   <li>Some time series data from the Oregon Shelf are presented and students are asked to speculate on the relationships between variables. (Exploration)</li>
@@ -28,8 +28,9 @@
   <li>Students are asked to reflect on the interaction between wind, water properties, and biology, and about what they have learned about this complexity. (Reflection)</li>
 </ul>
 
+
 <h3>Enduring Understandings</h3>
-<p>Students should ultimately understand that </p>
+<p>Students should ultimately understand that:</p>
 <ol>
   <li>Increases in dissolved oxygen are a consequence, not a cause of primary productivity.</li>
   <li>Density stratification works to separate phytoplankton from the two things they need for primary productivity: light and nutrients.</li>
@@ -42,7 +43,7 @@
   <li>Compare time-series sea surface temperature, salinity, dissolved oxygen, and chlorophyll data at a Pacific Ocean coastal site and Atlantic Ocean coastal site over time to explore the data for changes and patterns both temporally and spatially.</li>
   <li>Discuss the role of water chemistry (dissolved oxygen, temperature, and salinity) on the amount of phytoplankton. [The amount of chlorophyll is heightened at times of cooler temperatures and higher salinities.]</li>
   <li>Mechanistically explain the relationship between sea surface temperature, salinity, dissolved oxygen, and chlorophyll during late summer - early fall at a Pacific Ocean coastal site and Atlantic Ocean coastal site.</li>
-  <li>Explain the driving mechanism and relationship between primary productivity and temperature. [Temperature influences density and thus stratigraphy.] </li>
+  <li>Explain the driving mechanism and relationship between primary productivity and temperature. [Temperature influences density and thus stratification.]</li>
   <li>Explain the role of upwelling/downwelling, longshore transport, and density stratification on phytoplankton abundance.</li>
   <li>Describe the importance of proxy data and predict phytoplankton concentrations using proxy data as a tool.</li>
 </ul>
@@ -53,7 +54,7 @@
 
 
 <h3>Teaching Notes</h3>
-<p>Students will need to be familiar with concepts from earlier in the semester including: density stratification; the vertical distribution of oxygen, carbon dioxide, and nutrients, and what affects them; Ekman Transport, longshore transport and upwelling.</p>
+<p>Students will need to be familiar with concepts from earlier in the semester including: density stratification; the vertical distribution of oxygen, carbon dioxide, and nutrients, and what affects them; Ekman Transport and upwelling.</p>
 <p>At any level, this activity requires synthesis of a variety of concepts that may not have been considered together previously. While the hope is to guide students to a more scientifically accurate understanding, the broader learning goal is in making these connections. </p>
 <p>The Data Exploration activities require access to an internet-ready computer or tablet. Ideally each student or pairs of students would have a computer or tablet to use to engage with the activity. Alternatively, if no internet access is available for each student or pairs of students, graphs of the specific time periods of interest and variables could be printed onto plastic overlays for each student or group of students. Note, the Data Explorations use authentic raw data. Many of the datasets have been downsampled for simplicity and to ensure that the interactives load quickly in your browser.</p>
 
@@ -90,13 +91,13 @@
   <div class="panel-body">
     <a href="chlorophyll.php?level=exploration"><img src="screenshots/chlorophyll1_sm.png" alt="Chlorophyll Exploration Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
-      <li>Students use the widget to interactively toggle on and off the non-chl variables (dissolved oxygen, sea surface temperatures, and salinity), as well as zoom in and out of the data to explore it more. </li>
+      <li>Students use the widget to interactively toggle on and off the non-chl variables (dissolved oxygen, sea surface temperatures, and salinity), as well as zoom in and out of the data to explore it more.</li>
       <li>Students engage with the data to identify patterns in chlorophyll over time (months, seasons) focusing on the summer and early fall time periods in each of the years off the Oregon coast. Optional: students provided with a map of the Oregon coast study site to provide context.</li>
-      <li>Students make predictions and discuss ideas about how the chlorophyll patterns relate to the patterns seen in temperature, salinity, and dissolved oxygen over the same time period. </li>
+      <li>Students make predictions and discuss ideas about how the chlorophyll patterns relate to the patterns seen in temperature, salinity, and dissolved oxygen over the same time period.</li>
       <li>Other extended activities for students to explore might include:
         <ul>
           <li>Students use google earth/ocean to locate the Array sites and continental shelf in proximity to the Array sites.</li>
-          <li>Students use bathymetry to explore its role on upwelling events.</li>
+          <li>Students use bathymetry to explore its role in upwelling events.</li>
           <li>Students use earth null school or NOAA sites to explore the role of warm water eddies.</li>
         </ul>
       </li>
@@ -112,8 +113,8 @@
     <ul>
       <li>Have students identify the links between chlorophyll and water temperature, salinity, and dissolved oxygen, and decide whether or not it makes sense. Students review the evidence they gathered as they explored the data to generate and support their explanations. Instructor may decide to lead a whole group discussion to encourage students to make evidence-based explanations and to summarize key points.</li>
       <li>Optional: You may want to have students also explore a graphical representation of static data to draw conclusions between chlorophyll and water chemistry.</li>
-      <li>Show the static time series figure from the same time and place of the relationship between wind direction and water temperature. Discuss correlations between these variables and ask students to discuss with a partner what they think might be going on here. Lead a whole group discussion and ask guiding questions as needed to help them make the connection with coastal upwelling.</li>
-      <li>Review coastal upwelling at this point to help students develop the understanding needed before the next step. (This video of Ekman transport generated upwelling may be useful)</li>
+      <li>Show the <a href="images_chlorophyll/Endurance_wind_temp_timeseries3.png">static time series figure</a> from the same time and place of the relationship between wind direction and water temperature. Discuss correlations between these variables and ask students to discuss with a partner what they think might be going on here. Lead a whole group discussion and ask guiding questions as needed to help them make the connection with coastal upwelling.</li>
+      <li>Review coastal upwelling at this point to help students develop the understanding needed before the next step. (This <a href="https://www.whoi.edu/multimedia/v-coastal-upwelling/">video of Ekman transport</a> generated upwelling may be useful)</li>
     </ul>
   </div>
 </div>
@@ -123,26 +124,19 @@
     <h3 class="panel-title"><strong>Application</strong></h3>
   </div>
   <div class="panel-body">
-    <div class="row">
-      <div class="col-md-6">
-        <p class="text-center">
-          <a href="chlorophyll.php?level=application"><img src="screenshots/chlorophyll2_sm.png" alt="Chlorophyll Application #1 Widget" width="250" class="img-thumbnail"/></a><br>
-          <strong>Application</strong>
-        </p>
-      </div>
-      <div class="col-md-6">
-        <p class="text-center">
-          <a href="chlorophyll.php?level=application2"><img src="screenshots/chlorophyll3_sm.png" alt="Chlorophyll Application #2 Widget" width="250" class="img-thumbnail" /></a><br>
-            <strong>Application (with prediction)</strong>
-        </p>
-      </div>
-    </div>
+    <strong>Application with Prediction</strong>
+    <a href="chlorophyll.php?level=application2"><img src="screenshots/chlorophyll3_sm.png" alt="Chlorophyll Application #2 Widget" width="250" class="pull-right thumbnail" /></a>
     <ul>
       <li>Students use the widget to compare this temperate, coastal area to another one (that does not experience upwelling). A worksheet is provided to help students navigate through the data, make predictions, and explain their reasoning.</li>
-      <li<li>Students are asked to predict seasonal changes in temperature off the coast of Massachusetts given the chlorophyll levels.</li>
-      <li>Students can then see the full temperature time series and interactively toggle on and off the non-chl variables, toggle on and off the two locations, and zoom in and out of the data to explore it more.</li>
+      <li>Students are asked to predict seasonal changes in temperature off the coast of Massachusetts given the chlorophyll levels.</li>
+    </ul>
+
+    <strong>Application without Prediction</strong>
+    <a href="chlorophyll.php?level=application"><img src="screenshots/chlorophyll2_sm.png" alt="Chlorophyll Application #1 Widget" width="250" class="pull-right thumbnail"/></a>
+    <ul>
+      <li>Students can now see the full temperature time series and interactively toggle on and off the non-chl variables, toggle on and off the two locations, and zoom in and out of the data to explore it more.</li>
       <li>Revisit concepts focused on spring bloom initiation and termination in temperate environments.</li>
-      <li>In the context of previous exercises, examine the relationship between sea surface temperature and primary production. 
+      <li>In the context of previous exercises, examine the relationship between sea surface temperature and primary production.
         <ul>
           <li>Use this Earth Observatory <a href="https://earthobservatory.nasa.gov/global-maps/MY1DMM_CHLORA/MYD28M">Chlorophyll & Sea Surface Temperature animation</a> to describe how upwelling influences regional primary productivity in other areas of the world.</li>
           <li>How do you expect other water characteristics (not only the dissolved oxygen and salinity already discussed, but also other water properties like pH, turbidity, and various nutrient levels) to change in conjunction with variations in sea surface temperature and chlorophyll concentrations? </li>
@@ -164,7 +158,7 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li>Ask the students to consider how they learned and how much they learned and applied their learning through one or more of the following:
+      <li>Ask the students to consider how they learned, how much they learned, and how they applied their learning through one or more of the following:
         <ul>
           <li>What new skills did you learn that helped you to explain the patterns you observed in the data?</li>
           <li>What concepts did you need to learn more about in order to make an explanation?</li>
@@ -190,7 +184,7 @@
 </ul>
 
 
-<h3>Grade Level (2 options)</h3>
+<h3>Grade Level</h3>
 <p>Undergraduate students in Introduction to Oceanography courses (for either marine science majors or non-science majors)</p>
 
 
