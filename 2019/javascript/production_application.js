@@ -102,7 +102,7 @@ $(document).ready(function () {
     
     g1 = new Dygraph(document.getElementById("chart1"), data, {
       labels: firstRow,
-      title: 'Global Souther Ocean Surface Mooring',
+      title: 'Global Southern Ocean Surface Mooring',
       ylabel: 'Chlorophyll (ug/L)',
       labelsSeparateLines: true,
       labelsUTC : false,
@@ -119,6 +119,25 @@ $(document).ready(function () {
       visibility: [1,0,0,0,0,0,0],
     }); //Dygraph1
       
+    g1b = new Dygraph(document.getElementById("chart1b"), data, {
+      labels: firstRow,
+      title: 'Global Southern Ocean Surface Mooring',
+      ylabel: 'Chlorophyll (ug/L)',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : false,
+      series: {
+        'Chlorophyll': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      },
+      visibility: [1,0,0,0,0,0,0],
+    }); //Dygraph1b
+
     g2 = new Dygraph(document.getElementById("chart2"), data, { 
       labels: firstRow,
       ylabel: 'Irradiance (uW cm-2 nm-1)',
@@ -239,7 +258,7 @@ $(document).ready(function () {
       },
     }); //Dygraph3
         
-    var sync = Dygraph.synchronize(g1, g2, g3, {
+    var sync = Dygraph.synchronize(g1, g2, g1b, g3, {
       selection: true,
       zoom: true,
       range: false
@@ -287,6 +306,8 @@ function show_obs3(el) {
 function modal_confirm3() {
   $('#confirmModal3').modal('hide')    
   g3.setVisibility(5, true);
+  $('#note3').collapse('show')    
+  
 }
 
 function modal_cancel3() {

@@ -30,21 +30,17 @@
 <p>What can you observe about the relationship between light, nutrients, temperature, and primary production in the Southern Hemisphere Polar Pacific Ocean?</p>
 
 <?php elseif ($level=='application'): ?>
-<p>Can you predict the pattern of nutrients and light availability, based on the primary productivity data in the Southern Hemisphere Polar Pacific Ocean?</p>
-<ul>
-  <li>Explore the data below to see what you can observe about how primary productivity varies over three years.</li>
-  <li>On Graph 1, use your cursor to draw your prediction of how nutrient concentration would vary over the same time frame.</li>
-  <li>On Graph 2, use your cursor to draw your prediction of how light availability would vary over the same time frame.</li>
-</ul>
+<p>Can you predict the pattern of light availability and nutrients based on the primary productivity data in the Southern Hemisphere Polar Pacific Ocean?</p>
+<p>Explore the data below to see what you can observe about how primary productivity varies over three years.</p>
 
 <?php endif; ?>
 
 
 <!-- DATA CHART -->
-<div id="chart1" style="width:800px; height: 210px;"></div>
-<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 
 <?php if ($level=='invention'): ?>
+<div id="chart1" style="width:800px; height: 210px;"></div>
+<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 <div class="row" style="margin-top:10px;">
   <div class="col-xs-3">
     <p class="text-right">Select a parameter:</p>
@@ -56,20 +52,23 @@
       Light</label><br>
     <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
       Nutrients</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
+      Salinity</label><br>
   </div>
 </div>
 
 <?php elseif ($level=='application'): ?>
+<h4>Variable 1 - Light</h4>
+<p>Use your cursor to draw your prediction of how light availability would vary over the same time frame.</p>
+<div id="chart1" style="width:800px; height: 210px;"></div>
+<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 
-<p style="font-style: italic">Take a look at the above chart.  Use your mouse to draw your prediction for what the rest of the Irradiance dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+<p style="font-style: italic; margin-top:16px;">Take a look at the above chart.  Use your mouse to draw your prediction for what the rest of the Irradiance dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
 <div class="row" style="margin-top:10px;">
+  <div class="col-md-8">
+  </div>
   <div class="col-md-3">
-  </div>
-  <div class="col-md-4">
     <label style="font-weight: normal;"><input type="checkbox" id="showObs" onclick="show_obs2(this)"> Check Prediction</label>
-  </div>
-  <div class="col-md-4">
-    <button class="btn btn-default" id="clearprediction" onclick="clear_prediction2(this)">Clear Prediction</button>
   </div>
   <div class="col-md-1">
   </div>
@@ -90,20 +89,22 @@
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
+<h4>Variable 2 - Nutrients</h4>
+<p>Use your cursor to draw your prediction of how nutrient concentration would vary over the same time frame.</p>
+<div id="chart1b" style="width:800px; height: 210px;"></div>
 <div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
-<p style="font-style: italic">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Nitrate dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
+
+<p style="font-style: italic; margin-top:16px;">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Nitrate dataset should look like.  After you have made your estimate, click the "Check Prediction" box.</p>
 <div class="row" style="margin-top:10px;">
+  <div class="col-md-8">
+  </div>
   <div class="col-md-3">
-  </div>
-  <div class="col-md-4">
     <label style="font-weight: normal;"><input type="checkbox" id="showObs" onclick="show_obs3(this)"> Check Prediction</label>
-  </div>
-  <div class="col-md-4">
-    <button class="btn btn-default" id="clearprediction" onclick="clear_prediction3(this)">Clear Prediction</button>
   </div>
   <div class="col-md-1">
   </div>
 </div>
+<p id="note3" class="alert alert-warning collapse">Unfortunately, due to an instrument issue, we do not have a complete record of nitrate data for this location.  However, based on what you can see from the relationship between chlorophyll and nitrate for the periods where we do have data, can you explain your reasoning for your prediction?</p>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="confirmModal3">
   <div class="modal-dialog" role="document">
@@ -139,10 +140,7 @@
     $scripts[] = "../js/moment.js";
     $scripts[] = "javascript/production_application.js";    
   }
-?>  
-
-<p class="text-right"><a href="data/production_invention.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
-
+?>
 
 <h3>Data Tips</h3>
 
@@ -251,6 +249,7 @@
 
 
 <h3>Dataset Information</h3>
+<p class="pull-right"><a href="data/production_invention.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <p>TBD</p>
 
 <!-- ACTIVITY INTRODUCTION -->

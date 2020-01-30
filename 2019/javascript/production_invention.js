@@ -4,9 +4,9 @@
 */
 
 var parameters = [
-  {title:"Chlorophyll"},
+  {title:"Chlorophyll (ug/L)"},
   {title:"Water Temperature (&deg;C)"},
-  {title:"Salinity"},
+  {title:"Salinity (psu)"},
   {title:"Nitrate (uMol/L)"},
   {title:"Irradiance (uW cm-2 nm-1)"}
 ];
@@ -60,6 +60,7 @@ $(document).ready(function () {
 
 function toggle_radio(el) {
   g2.setVisibility(1, false);
+  g2.setVisibility(2, false);
   g2.setVisibility(3, false);
   g2.setVisibility(4, false);
   if (el.value) {
