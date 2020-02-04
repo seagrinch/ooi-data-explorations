@@ -166,7 +166,7 @@
     <strong>Orientation Questions</strong>
     <ul>
       <li>What oceanic and atmospheric variables are displayed in the graphs?  What are the units associated with each variable?</li>
-      <li>What time period does the graphs cover?
+      <li>What time period does the graph cover?
         <ul>
           <li>What is the starting date?</li>
           <li>What is the ending date?</li>
@@ -192,7 +192,7 @@
     <strong>Orientation Questions</strong>
     <ul>
       <li>What oceanic and atmospheric variables are displayed in the graphs?  What are the units associated with each variable?</li>
-      <li>What time period does the graphs cover?
+      <li>What time period does the graph cover?
         <ul>
           <li>What is the starting date?</li>
           <li>What is the ending date?</li>
@@ -205,7 +205,7 @@
     <strong>Interpretation Questions</strong>
     <ul>
       <li>What changes or patterns did you observe in the temperature graphs at each depth?</li>
-      <li>At the surface, what month has the highest temperatures and what month has the lowest temperatures.  What is the range of temperatures (highest - lowest) observed.</li>
+      <li>At the surface, what month has the highest temperatures and what month has the lowest temperatures?  What is the range of temperatures (highest - lowest) observed?</li>
       <li>As you go deeper in the water column does the highest and lowest observed temperatures occur in the same months as at the surface?</li>
       <li>Calculate the temperature range for the 90m, 350m, and 1000m depths.</li>
       <li>Examine the temperature ranges for the surface and each depth.  What happens to the range as you move deeper into the water column?</li>
@@ -219,7 +219,7 @@
     <strong>Orientation Questions</strong>
     <ul>
       <li>What oceanic and atmospheric variables are displayed in the graphs?  What are the units associated with each variable?</li>
-      <li>What time period does the graphs cover?
+      <li>What time period does the graph cover?
         <ul>
           <li>What is the starting date?</li>
           <li>What is the ending date?</li>
@@ -296,14 +296,14 @@
         <p class="list-group-item-text">How does the ocean temperature signal change with depth?</p>
       </a>
       <a href="thermohaline.php?level=invention" class="list-group-item">
-        <h4 class="list-group-item-heading">Invention</h4>
+        <h4 class="list-group-item-heading">Concept Invention</h4>
         <p class="list-group-item-text">Explore ocean and atmospheric processes that produce the cold, dense seawater in the Irminger Sea which drives the conveyor belt of the thermohaline circulation</p>
       </a>
     </div>
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" usemap="#lcmap" />
+    <img src="../images/Learning_Cycle_EC.png" alt="Learning Cycle Diagram" usemap="#lcmap" />
   </div>
 </div>
 

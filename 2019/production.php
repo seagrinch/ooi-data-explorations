@@ -277,7 +277,7 @@
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_CA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 
