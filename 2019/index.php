@@ -91,8 +91,8 @@
   <li>July: <a href="techtonics.php">Tectonics and Tsunamis</a> (1)</li>
   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break (1)</li>
   <li>August: Drivers of Seawater Density (1 widget)</li>
-  <li>August: Seasonal Variability In The Mixed Layer (3)</li>
   <li>August: Impacts of Ocean Acidification on Shellfish in the Pacific Northwest (2)</li>  
+  <li>August: <a href="seasonal.php">Seasonal Variability In The Mixed Layer</a> (3)</li>
   <li>August: Our Dynamic Ocean: Surface and Subsurface Interactions from Coast-to-Coast (3)</li>
   <li>August: Climate Patterns at Station Papa in the Gulf of Alaska (1)</li>
   <li>Other: <a href="chl_nitrate.php">Chlorophyll-a and Nitrate</a></li>
