@@ -50,7 +50,7 @@
 <hr>
 <div class="row">
   <div class="col-md-4">
-    <a href="2019/index.php"><img data-src="holder.js/250x150?text=2019 Collection" alt="Generic placeholder image" width="250" height="150" class="img-rounded"></a>
+    <a href="2019/index.php"><img src="images/mbaq_shrimp_sm.jpg" alt="2019 Data Explorations Collection" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
     <h4><a href="2019/index.php">2019 Collection &ndash; In Development</a></h4>
