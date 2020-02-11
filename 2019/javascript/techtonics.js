@@ -290,7 +290,8 @@ var mainscript = (function () {
         x.domain(d3.extent(d, get_x)); //.nice();
         x_axis.call(d3.axisBottom(x));
 
-        y.domain(d3.extent(d, get_y)).nice();
+        //y.domain(d3.extent(d, get_y)).nice();
+        y.domain([2.5,7]);
         y_axis.call(d3.axisLeft(y).ticks(5));
         
         //color.domain(d3.extent(d, function (d) { return d.depth; }));
