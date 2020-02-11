@@ -1,4 +1,4 @@
-/* Seasonal Variability In The Mixed Layer  - Exploration Widget
+/* Seasonal Variability In The Mixed Layer - Exploration Widget
   OOI Data Labs 2019
   Written by Sage Lichtenwalner, Rutgers Univeristy 
 */

@@ -107,10 +107,10 @@
     <p class="text-right">Show:</p>
   </div>
   <div class="col-xs-8">
-    <label style="font-weight: normal;"><input type="checkbox" id="GP" onclick="toggle_station('GP')" > 
-      Station Papa (North Pacific)</label><br />
-    <label style="font-weight: normal;"><input type="checkbox" id="GI" onclick="toggle_station('GI')" > 
-      Irminger Sea (North Atlantic)</label>
+    <label style="font-weight: normal;"><input type="checkbox" id="GI" onclick="toggle_lines('GI')" checked> 
+      Irminger Sea (North Atlantic)</label><br />
+    <label style="font-weight: normal;"><input type="checkbox" id="GP" onclick="toggle_lines('GP')" > 
+      Station Papa (North Pacific)</label>
   </div>
 </div>
 
