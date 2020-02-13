@@ -63,6 +63,10 @@ var mainscript = (function () {
           color: 'black'
         },
       },
+      circlemarker: false,
+      circle: false,
+      rectangle: false,
+      polygon: false,
     },
     edit: {
       featureGroup: drawnItems

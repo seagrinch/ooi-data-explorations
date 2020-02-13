@@ -39,27 +39,19 @@
 
 <!-- DATA CHART -->
 <div id="chart1" style="width:800px; height: 250px;"></div>
-<style>
-  #chart .dygraph-ylabel {color:#00457C;}
-  #chart .dygraph-y2label {color:#DBA53A;}
-</style>
-<div class="row">
-  <div class="col-xs-12">
-    <p class="text-left">Show: 
-    <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_lines(this)" checked> 
-      Pressure</label> 
-    <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_lines(this)" checked> 
-      Depth</label></p>
-  </div>
-</div>
 <div id="chart2" style="width:723px; height: 120px; margin-top: 20px;"></div>
-<div id="chart3" style="width:723px; height: 120px; margin-top: 20px;"></div>
+<!-- <div id="chart3" style="width:723px; height: 120px; margin-top: 20px;"></div> -->
 
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
-.dygraph-legend {
-  left: 544px !important;
-}
+  .dygraph-legend {
+    left: 468px !important;
+  }
+  .dygraph-label.dygraph-ylabel {
+    margin-top: -14px;
+  }
+  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-y2label {color:#DBA53A;}
 </style>
 <?php 
   $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
@@ -67,7 +59,23 @@
   $scripts[] = "javascript/magma.js";
 ?>
 
-<p class="text-right">Download: <a href="data/magma_botpt.csv" class="btn btn-sm btn-primary">Depth Data</a> <a href="data/magma_earthquakes.csv" class="btn btn-sm btn-primary">Earthquake Data</a></p>
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-5">
+    <p><strong>Zoom:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('eruption')">Eruption</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('all')">All Data</button>
+    </p>
+  </div>
+  <div class="col-xs-1">
+    <p class="text-left"><strong>Show:</strong></p>
+  </div>
+  <div class="col-xs-6">
+    <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_lines(this)" checked> 
+      Measured Pressure</label> <br>
+    <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_lines(this)" checked> 
+      Calculated Depth</label></p>
+  </div>
+</div>
 
 
 <h3>Data Tips</h3>
@@ -133,6 +141,7 @@
 
 
 <h3>Dataset Information</h3>
+<p class="text-right">Download: <a href="data/magma_botpt.csv" class="btn btn-sm btn-primary">Depth Data</a> <a href="data/magma_earthquakes.csv" class="btn btn-sm btn-primary">Earthquake Data</a></p>
 <p>TBD</p>
 
 

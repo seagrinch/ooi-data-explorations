@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Tectonics and Tsunamis';
+  $lesson_title = 'Plate Tectonics and the Seafloor ';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);
@@ -66,8 +66,6 @@
 <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes.csv" data-zoom="5" data-days="365"></div>
 <div id="map2"></div>
 
-
-
 <?php 
   $scripts[] = "https://d3js.org/d3.v4.min.js";
   $scripts[] = "https://d3js.org/d3-scale-chromatic.v1.min.js";
@@ -84,9 +82,10 @@
   </div>
   <div class="col-xs-6">
     <label style="font-weight: normal;"><input type="checkbox" id="earthquakes" onclick="mainscript.toggle_dots(this)" > 
-      Show Earthquakes</label>
+      Show Earthquake Epicenters</label>
   </div>
 </div>
+<p class='small'><em>Note, colors represent earthquake depths: reds are shallow (0km), yellows are mid-range (25km) and blues are deep (50km).  Most dots are in the orangish range, approximately 10km below the seafloor.  Circles in the map are sized by earthquake magnitude, from 2.5-6.8.</em>
 
 <p class="text-right"><a href="data/usgs_earthquakes.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
@@ -183,7 +182,7 @@
 
 <div class="row">
   <div class="col-md-3">
-    <a href="salinity_guide.php" class="btn btn-primary">Instructor's Guide</a>
+    <a href="techtonics_guide.php" class="btn btn-primary">Instructor's Guide</a>
   </div>
   <div class="col-md-9">
     <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>

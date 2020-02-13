@@ -10,16 +10,13 @@ $(document).ready(function () {
     ylabel: 'Pressure (psi)',
     y2label: 'Depth (m)',
     labelsSeparateLines: true,
-    labelsUTC : false,
+    labelsUTC : true,
     strokeWidth: 2,
     drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: true,
     //rangeSelectorHeight: 30,
-    axes: {
-      y2: {axisLabelWidth: 70}
-    },
     animatedZooms : false,
     axes: {
       y: {valueRange: [2260,2250]},
@@ -51,7 +48,7 @@ $(document).ready(function () {
   g2 = new Dygraph(document.getElementById("chart2"), "data/magma_earthquakes.csv", {
     ylabel: 'Earthquake Magnitude',
     labelsSeparateLines: true,
-    labelsUTC : false,
+    labelsUTC : true,
     strokeWidth: 0,
     drawPoints: true,
     pointSize: 1.5,
@@ -59,17 +56,19 @@ $(document).ready(function () {
     showRangeSelector: false,
     animatedZooms : true,
     visibility: [0,0,1,0],
+    color: '#f26f43',
     //series: {
     //  'mag': {axis: 'y', color:'#DBA53A'},
     //  'depth': {axis: 'y2', color:'#00457C'},
     //},
-    //drawPointCallback: customPoint,
+    //drawPointCallback: circle,
   });
 
+/*
   g3 = new Dygraph(document.getElementById("chart3"), "data/magma_earthquakes.csv", {
     ylabel: 'Earthquake Depth (km)',
     labelsSeparateLines: true,
-    labelsUTC : false,
+    labelsUTC : true,
     strokeWidth: 0,
     drawPoints: true,
     pointSize: 1.5,
@@ -78,8 +77,9 @@ $(document).ready(function () {
     animatedZooms : true,
     visibility: [0,0,0,1],
   });
+*/
   
-  var sync = Dygraph.synchronize(g1, g2, g3, {
+  var sync = Dygraph.synchronize(g1, g2, {
     selection: true,
     zoom: true,
     range: false
@@ -90,5 +90,16 @@ $(document).ready(function () {
 
 function toggle_lines(el) {
   g1.setVisibility(el.id, el.checked);  
+}
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season=='eruption') {
+    new_range = [new Date(Date.UTC(2015,3,20)).valueOf(), new Date(Date.UTC(2015,3,28)).valueOf()];
+  } else {
+    new_range = [new Date(Date.UTC(2015,2,15)).valueOf(), new Date(Date.UTC(2015,4,24)).valueOf()];
+  }
+  //console.log(new_range);
+  g1.updateOptions({dateWindow: new_range});
 }
 

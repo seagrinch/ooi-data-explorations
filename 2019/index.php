@@ -88,7 +88,7 @@
   <li>July: <a href="co2.php">CO<sub>2</sub> Exchange Between Air and Sea</a> (2)</li>
   <li>July: <a href="production.php">Factors affecting Primary Production</a> (2)</li>
   <li>July: <a href="magma.php">Magma Movement and the Shape of the Seafloor</a> (1)</li>
-  <li>July: <a href="techtonics.php">Tectonics and Tsunamis</a> (1)</li>
+  <li>July: <a href="techtonics.php">Plate Tectonics and the Seafloor</a> (1)</li>
   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break (1)</li>
   <li>August: Impacts of Ocean Acidification on Shellfish in the Pacific Northwest (2)</li>  
   <li>August: <a href="density.php">Drivers of Seawater Density</a> (1 widget)</li>
