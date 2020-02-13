@@ -18,7 +18,7 @@ var colors = ["#00457C","#DBA53A","#008100","#00839C","#00C6B0"];
 $(document).ready(function () {
 
   g1 = new Dygraph(document.getElementById("chart1"), "data/production_invention.csv", {
-    title: 'Global Souther Ocean Surface Mooring',
+    title: 'Global Southern Ocean Surface Mooring',
     ylabel: 'Chlorophyll (ug/L)',
     //legend: 'always', //onmouseover
     labelsSeparateLines: true,
