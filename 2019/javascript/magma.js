@@ -64,7 +64,6 @@ $(document).ready(function () {
     //drawPointCallback: circle,
   });
 
-/*
   g3 = new Dygraph(document.getElementById("chart3"), "data/magma_earthquakes.csv", {
     ylabel: 'Earthquake Depth (km)',
     labelsSeparateLines: true,
@@ -77,9 +76,8 @@ $(document).ready(function () {
     animatedZooms : true,
     visibility: [0,0,0,1],
   });
-*/
   
-  var sync = Dygraph.synchronize(g1, g2, {
+  var sync = Dygraph.synchronize(g1, g2, g3, {
     selection: true,
     zoom: true,
     range: false

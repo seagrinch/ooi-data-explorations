@@ -40,7 +40,7 @@
 <!-- DATA CHART -->
 <div id="chart1" style="width:800px; height: 250px;"></div>
 <div id="chart2" style="width:723px; height: 120px; margin-top: 20px;"></div>
-<!-- <div id="chart3" style="width:723px; height: 120px; margin-top: 20px;"></div> -->
+<div id="chart3" style="width:723px; height: 120px; margin-top: 20px;"></div>
 
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
