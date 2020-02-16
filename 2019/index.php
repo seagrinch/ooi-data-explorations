@@ -85,7 +85,7 @@
   <li>March: <a href="profiles.php">Profiles of DO and Chlorophyll-a in the Open Ocean</a></li>
   <li>March: <a href="axial_vent.php">Changes in a hydrothermal vent community over time</a></li>
   <li>March: Seafloor Deformation</li>
-  <li>July: <a href="co2.php">CO<sub>2</sub> Exchange Between Air and Sea</a> (2)</li>
+  <li>July: <a href="co2.php">CO<sub>2</sub> Exchange Between Air and Sea</a> (2) - <a href="co2_v1.php">Old Version</a></li>
   <li>July: <a href="production.php">Factors affecting Primary Production</a> (2)</li>
   <li>July: <a href="magma.php">Magma Movement and the Shape of the Seafloor</a> (1)</li>
   <li>July: <a href="techtonics.php">Plate Tectonics and the Seafloor</a> (1)</li>

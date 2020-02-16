@@ -12,12 +12,12 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="co2.php"><?= $lesson_title ?></a></li>
+  <li><a href="co2_v1.php"><?= $lesson_title ?></a></li>
   <?php echo ($level_title ? '<li>'.$level_title.'</li>' : '') ?>
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration1','exploration2','invention1','invention2','application'))): ?>
+<?php if (in_array($level, array('exploration','application'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -26,7 +26,7 @@
 <h4 style="color:red;">This activity is under construction!</h4>
 
 <h3>Your Objective</h3>
-<?php if (($level=='exploration1') || ($level=='exploration2') || ($level=='invention1') || ($level=='invention2')): ?>
+<?php if ($level=='exploration'): ?>
 <p>Use atmospheric conditions and water properties across three years in the North Pacific and North Atlantic to identify drivers of CO<sub>2</sub> flux between the atmosphere and ocean.</p>
 <ul>
   <li>Identify periods of time during which the ocean is a source or a sink of CO<sub>2</sub> or at equilibrium</li>
@@ -48,21 +48,12 @@
 
 <!-- DATA CHART -->
 
-<?php if ($level=='exploration1' || $level=='exploration2'): ?>
-
-<div id="chart1" style="width:800px; height: 250px;"></div>
-<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
-
-<?php endif; ?>
-
-
-<?php if ($level=='invention1' || $level=='invention2' || $level=='application'): ?>
-
+<?php if ($level=='exploration'): ?>
 <div id="chart1" style="width:800px; height: 250px;"></div>
 <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 <div id="chart3" style="width:800px; height: 180px; margin-top: 20px;"></div>
 
-<div class="row" id="div_parameter" style="margin-top:10px;">
+<div class="row" id="div_parameter">
   <div class="col-xs-3">
     <p class="text-right">Select a parameter:</p>
   </div>
@@ -74,36 +65,21 @@
     <label style="font-weight: normal;"><input type="radio" name="parameter" value="wind" onclick="toggle_lines()" > 
       Wind Speed</label><br>
     <label style="font-weight: normal;"><input type="radio" name="parameter" value="chl" onclick="toggle_lines()" > 
-      Chlorophyll</label><br>
-    <label style="font-weight: normal;"><input type="radio" name="parameter" value="cdom" onclick="toggle_lines()" > 
-      CDOM</label>
+      Chlorophyll</label>
   </div>
 </div>
 
-<?php endif; ?>
-
-<?php if ($level=='exploration2' || $level=='invention2' || $level=='application'): ?>
-
-<div class="row" id="div_mooring" style="margin-top:10px;">
+<div class="row" id="div_mooring">
   <div class="col-xs-3">
     <p class="text-right">Select location:</p>
   </div>
   <div class="col-xs-9">
-    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CE03" onclick="toggle_lines()" checked> 
+    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CE" onclick="toggle_lines()" checked> 
       Washington Shelf Surface Mooring</label><br>
-    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CP01" onclick="toggle_lines()" > 
-      Pioneer Centra Profiler Mooring</label><br>
-    <?php if ($level=='application'): ?>
-    <label style="font-weight: normal;"><input type="radio" name="mooring" value="mystery" onclick="toggle_lines()" > 
-      Mystery Site</label><br>
-    <?php endif; ?>
-
+    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CP" onclick="toggle_lines()" > 
+      Pioneer Inshore Surface Mooring</label>
   </div>
 </div>
-
-<?php endif; ?>
-
-<?php if ($level=='invention1' || $level=='invention2'): ?>
 
 <div class="row" style="margin-top:10px;">
   <div class="col-md-2">
@@ -117,8 +93,25 @@
   </div>
 </div>
 
-<?php endif; ?>
+<?php elseif ($level=='application'): ?>
+<div id="chart1" style="width:800px; height: 250px;"></div>
+<div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
 
+<div class="row" id="div_mooring">
+  <div class="col-xs-3">
+    <p class="text-right">Select location:</p>
+  </div>
+  <div class="col-xs-9">
+    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CE" onclick="toggle_lines()" checked> 
+      Washington Shelf Surface Mooring</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="mooring" value="CP" onclick="toggle_lines()" > 
+      Pioneer Inshore Surface Mooring</label><br>
+    <label style="font-weight: normal;"><input type="radio" name="mooring" value="mystery" onclick="toggle_lines()" > 
+      Mystery Site</label><br>
+  </div>
+</div>
+
+<?php endif; ?>
 
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
@@ -129,27 +122,20 @@
 <?php 
   $scripts[] = "../js/dygraph-2.1.0/dygraph.js";
   $scripts[] = "../js/dygraph-2.1.0/synchronizer.js";
-  if ($level=='exploration1') {
-    $scripts[] = "javascript/co2_exploration1.js";    
-  }
-  if ($level=='exploration2') {
-    $scripts[] = "javascript/co2_exploration2.js";    
-  }
-  if ($level=='invention1') {
-    $scripts[] = "javascript/co2_invention1.js";    
-  }
-  if ($level=='invention2') {
-    $scripts[] = "javascript/co2_invention2.js";    
+  if ($level=='exploration') {
+    $scripts[] = "javascript/co2_v1_exploration.js";    
   }
   if ($level=='application') {
-    $scripts[] = "javascript/co2_application.js";    
+    $scripts[] = "javascript/co2_v1_application.js";    
   }
 ?>  
+
+<p class="text-right"><a href="data/co2.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Data Tips</h3>
 
-<?php if ($level=='exploration1' || $level=='exploration2' || $level=='invention1' || $level=='invention2'): ?>
+<?php if ($level=='exploration'): ?>
 <p>When the site loads, you are able to see the full dataset of pCO<sub>2</sub> in air and water from the Oregon Shelf Surface Buoy in the Coastal Endurance Array. As you proceed through the exploration, you will be able to see similar data from the ??? Surface Buoy in the Pioneer Array. You can interact with the data by:</p>
 <ul>
   <li>Clicking "next" to reveal annotations and additional data</li>
@@ -172,7 +158,7 @@
 
 <h3>Questions for Thought</h3>
 
-<?php if ($level=='exploration1' || $level=='exploration2' || $level=='invention1' || $level=='invention2'): ?>
+<?php if ($level=='exploration'): ?>
 <div class="row">
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
@@ -237,7 +223,6 @@
 
 
 <h3>Dataset Information</h3>
-<p class="text-right"><a href="data/co2.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <p>TBD</p>
 
 
@@ -254,23 +239,11 @@
   <div class="col-md-6">
     <p>Select the question your instructor has assigned:</p>
     <div class="list-group">
-      <a href="co2.php?level=exploration1" class="list-group-item">
-        <h4 class="list-group-item-heading">Exploration 1</h4>
-        <p class="list-group-item-text">Explore the exchange of CO<sub>2</sub> between the ocean and atmosphere at one site.</p>
-      </a>
-      <a href="co2.php?level=invention1" class="list-group-item">
-        <h4 class="list-group-item-heading">Concept Invention 1</h4>
+      <a href="co2_v1.php?level=exploration" class="list-group-item">
+        <h4 class="list-group-item-heading">Exploration</h4>
         <p class="list-group-item-text">Explore factors that control the concentration of CO<sub>2</sub> in the ocean and exchanges of CO<sub>2</sub> between the ocean and atmosphere.</p>
       </a>
-      <a href="co2.php?level=exploration2" class="list-group-item">
-        <h4 class="list-group-item-heading">Exploration 2</h4>
-        <p class="list-group-item-text">Explore the exchange of CO<sub>2</sub> between the ocean and atmosphere at 2 sites.</p>
-      </a>
-      <a href="co2.php?level=invention2" class="list-group-item">
-        <h4 class="list-group-item-heading">Concept Invention 2</h4>
-        <p class="list-group-item-text">Explore factors that control the concentration of CO<sub>2</sub> in the ocean and exchanges of CO<sub>2</sub> between the ocean and atmosphere.</p>
-      </a>
-      <a href="co2.php?level=application" class="list-group-item">
+      <a href="co2_v1.php?level=application" class="list-group-item">
         <h4 class="list-group-item-heading">Application</h4>
         <p class="list-group-item-text">Evaluate whether a mystery site is a source or a sink of CO<sub>2</sub>, discuss the environmental factors that determine this, and predict the location of the mystery site by comparing to known regions.</p>
       </a>
@@ -278,7 +251,7 @@
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_ECA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" />
   </div>
 </div>
 

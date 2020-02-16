@@ -1,4 +1,4 @@
-/* CO2 Exchange - Application Widget
+/* CO2 Exchange - Invention #2 Widget
   OOI Data Labs 2019
   Written by Sage Lichtenwalner, Rutgers Univeristy 
 */
@@ -77,7 +77,98 @@ $(document).ready(function () {
     range: false
   });
   
+  // Setup default state
+  $('#chart2').hide()
+  $('#chart3').hide()
+  $('#div_parameter').hide()
+  $('#div_mooring').hide()
+
 }); //document.ready
+
+
+// Stepper code adapted from 
+// http://arnicas.github.io/interactive-vis-course/Week12/stepper_buttons.html
+
+var totalStages = 4;
+var stage = 1;
+
+function changeState(clicked) {
+  if (clicked == "prev") {
+    handlePrev();
+  }
+  if (clicked == "next") {
+    handleNext();
+  }
+  updateButtonLook(stage, totalStages);
+  goto_step(stage)
+  //console.log("Step: ", stage);
+} // end changeState
+
+
+function handlePrev(button) {
+  if (stage !== 0) {
+    stage -= 1;
+  }
+}
+
+
+function handleNext(button) {
+  if (stage !== totalStages) {
+    stage += 1;
+  }
+}
+
+
+function updateButtonLook(stage, totalStages) {
+  if (stage == totalStages) {
+    $('#prev').removeClass("disabled");
+    $('#next').addClass("disabled");
+    return;
+  }
+  if (stage == 1) {
+    $('#prev').addClass("disabled");
+    $('#next').removeClass("disabled");
+    return;
+  }
+  // otherwise, enable both:
+  $('#prev').removeClass("disabled");
+  $('#next').removeClass("disabled");
+}
+ 
+/* Interactive Script
+1. Show PCO2 Air/Water (graph 1)
+2. Show Flux (graph 2)
+3. Show Temp/Sal/Wind/Chl (graph 3)
+4. Allow toggle between CE and CP
+*/
+function goto_step(step) {
+  switch(step) {
+    case 1: 
+      $('#chart2').hide()
+      $('#chart3').hide()
+      $('#btext').text("This graph shows the partial pressure of CO2 in both the Atmosphere and Ocean.  Click the next button to see the resultant CO2 flux across the air-sea interface.")
+      break;
+    case 2: 
+      $('#chart2').show(1000)
+      $('#chart3').hide()
+      $('#btext').text("The CO2 Flux shows the flow of CO2 from the Ocean to the Atmosphere.  Do you notice how the sign of the flux corresponds to the CO2 measurements in the first graph?  Click the next button when you're ready.")
+      break;
+    case 3: 
+      $('#chart2').show(1000)
+      $('#chart3').show(1000)
+      $('#div_parameter').show(1000)
+      $('#div_mooring').hide(1000)
+      $('#btext').text("Looking at these additional datasets, do you see any relationships between these graphs and the flux measurements?  When you're ready to look at another dataset, click the next button.")
+      break;
+    case 4: 
+      $('#chart2').show(1000)
+      $('#chart3').show(1000)
+      $('#div_parameter').show(1000)
+      $('#div_mooring').show(1000)
+      $('#btext').text("Now you can check out the same measurements from another site in the Mid-Atlantic. How does this site compare with what you found for the Washington site?")
+      break;
+  }
+}
 
 
 function toggle_lines() {

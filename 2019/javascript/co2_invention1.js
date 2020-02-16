@@ -1,4 +1,4 @@
-/* CO2 Exchange - Application Widget
+/* CO2 Exchange - Invention #1 Widget
   OOI Data Labs 2019
   Written by Sage Lichtenwalner, Rutgers Univeristy 
 */
@@ -17,7 +17,6 @@ var parameters = {
   'chl':"Chlorophyll (µg/L)",
   'cdom':"CDOM (ppb)"
 };
-
 
 $(document).ready(function () {
 
@@ -77,47 +76,99 @@ $(document).ready(function () {
     range: false
   });
   
+  // Setup default state
+  $('#chart2').hide()
+  $('#chart3').hide()
+  $('#div_parameter').hide()
+
 }); //document.ready
+
+
+// Stepper code adapted from 
+// http://arnicas.github.io/interactive-vis-course/Week12/stepper_buttons.html
+
+var totalStages = 3;
+var stage = 1;
+
+function changeState(clicked) {
+  if (clicked == "prev") {
+    handlePrev();
+  }
+  if (clicked == "next") {
+    handleNext();
+  }
+  updateButtonLook(stage, totalStages);
+  goto_step(stage)
+  //console.log("Step: ", stage);
+} // end changeState
+
+
+function handlePrev(button) {
+  if (stage !== 0) {
+    stage -= 1;
+  }
+}
+
+
+function handleNext(button) {
+  if (stage !== totalStages) {
+    stage += 1;
+  }
+}
+
+
+function updateButtonLook(stage, totalStages) {
+  if (stage == totalStages) {
+    $('#prev').removeClass("disabled");
+    $('#next').addClass("disabled");
+    return;
+  }
+  if (stage == 1) {
+    $('#prev').addClass("disabled");
+    $('#next').removeClass("disabled");
+    return;
+  }
+  // otherwise, enable both:
+  $('#prev').removeClass("disabled");
+  $('#next').removeClass("disabled");
+}
+ 
+/* Interactive Script
+1. Show PCO2 Air/Water (graph 1)
+2. Show Flux (graph 2)
+3. Show Temp/Sal/Wind/Chl (graph 3)
+*/
+function goto_step(step) {
+  switch(step) {
+    case 1: 
+      $('#chart2').hide()
+      $('#chart3').hide()
+      $('#btext').text("This graph shows the partial pressure of CO2 in both the Atmosphere and Ocean.  Click the next button to see the resultant CO2 flux across the air-sea interface.")
+      break;
+    case 2: 
+      $('#chart2').show(1000)
+      $('#chart3').hide()
+      $('#btext').text("The CO2 Flux shows the flow of CO2 from the Ocean to the Atmosphere.  Do you notice how the sign of the flux corresponds to the CO2 measurements in the first graph?  Click the next button when you're ready.")
+      break;
+    case 3: 
+      $('#chart2').show(1000)
+      $('#chart3').show(1000)
+      $('#div_parameter').show(1000)
+      $('#btext').text("Looking at these additional datasets, do you see any relationships between these graphs and the flux measurements?")
+      //Reset selection when going backwards
+      break;
+  }
+}
 
 
 function toggle_lines() {
   parameter = $('input[name=parameter]:checked').val();
-  mooring = $('input[name=mooring]:checked').val();
 
-  g1.setVisibility(0, mooring=='CE03');
-  g1.setVisibility(1, mooring=='CE03');
-  g2.setVisibility(2, mooring=='CE03');
-  g3.setVisibility(3, parameter=='sst' && mooring=='CE03');
-  g3.setVisibility(4, parameter=='salinity' && mooring=='CE03');
-  g3.setVisibility(5, parameter=='wind' && mooring=='CE03');
-  g3.setVisibility(6, parameter=='chl' && mooring=='CE03');
-  g3.setVisibility(7, parameter=='cdom' && mooring=='CE03');
-
-  g1.setVisibility(8, mooring=='CP01');
-  g1.setVisibility(9, mooring=='CP01');
-  g2.setVisibility(10, mooring=='CP01');  
-  g3.setVisibility(11, parameter=='sst' && mooring=='CP01');
-  g3.setVisibility(12, parameter=='salinity' && mooring=='CP01');
-  g3.setVisibility(13, parameter=='wind' && mooring=='CP01');
-  g3.setVisibility(14, parameter=='chl' && mooring=='CP01');
-  g3.setVisibility(15, parameter=='cdom' && mooring=='CP01');
-
-  g1.setVisibility(16, mooring=='mystery');
-  g1.setVisibility(17, mooring=='mystery');  
-  g2.setVisibility(18, mooring=='mystery');
-  g3.setVisibility(19, parameter=='sst' && mooring=='mystery');
-  g3.setVisibility(20, parameter=='salinity' && mooring=='mystery');
-  g3.setVisibility(21, parameter=='wind' && mooring=='mystery');
-  g3.setVisibility(22, parameter=='chl' && mooring=='mystery');
-  g3.setVisibility(23, parameter=='cdom' && mooring=='mystery');
-  
-  if (mooring=='CE02') {
-    g1.updateOptions({title:'Washington Shelf Surface Mooring'});
-  } else if (mooring=='CP01') {
-    g1.updateOptions({title:'Pioneer Central Profiler'});
-  } else if (mooring=='mystery') {
-    g1.updateOptions({title:'Mystery Site'});
-  }
+  g3.setVisibility(3, parameter=='sst');
+  g3.setVisibility(4, parameter=='salinity');
+  g3.setVisibility(5, parameter=='wind');
+  g3.setVisibility(6, parameter=='chl');
+  g3.setVisibility(7, parameter=='cdom');
 
   if (parameter) {
     g3.updateOptions({
