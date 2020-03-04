@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Lab 5.2B</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div id="chart1" style="width:800px; height: 320px;"></div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel, .dygraph-y2label {
+    font-size: 14px;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+  
+  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-y2label {color:#008100;}
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart1"), "../2019/data/airsea.csv", {
+    title: 'Coastal Pioneer Array - Central Surface Mooring',
+    ylabel: 'Max Wave Height (m) ',
+    y2label: 'Wind Speed (m/s)',
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    strokeWidth: 2,
+    drawPoints: true,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    axes: {
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'Max Wave Height': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Wind Speed': {axis: 'y2', color:'#008100'},
+    },
+    visibility: [1,0,1,0,0,0,0],
+  });
+
+}); //document.ready
+  
+</script>
+
+
+  </body>
+</html>
