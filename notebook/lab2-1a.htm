@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Lab 2.1A</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div id="chart1" style="width:800px; height: 325px;"></div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel, .dygraph-y2label {
+    font-size: 14px;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+  
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart1"), "data/CP04OSSM_hourly.csv", {
+    title: 'Coastal Pioneer Array - Offshore Surface Mooring',
+    ylabel: 'Temperature (¡C)',
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    series: {
+      'Air Temperature': {axis: 'y', color:'#DBA53A', showInRangeSelector: true},
+    },
+    visibility: [1,0,0],
+  });
+
+}); //document.ready
+  
+</script>
+
+
+  </body>
+</html>
