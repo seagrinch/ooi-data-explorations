@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='invention'): ?>
 <p>What can you observe about the relationship between light, nutrients, temperature, and primary production in the Southern Hemisphere Polar Pacific Ocean?</p>
@@ -256,7 +254,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore... ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore the effect of abiotic factors on primary production.</small></h2>
 </div>
 
 <p>&nbsp;</p>
