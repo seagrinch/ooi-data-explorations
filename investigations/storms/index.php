@@ -252,13 +252,10 @@
                 <p></p>
 
                 <div class="well well-sm">
-                    <p><br>
-                    During Hurricane Irene and Superstorm Sandy, scientists from Rutgers University sent out gliders, underwater robots, to take measurements in the ocean before, during, and after the storms. The gliders collected many types of data, including water temperature, salinity, and the number of particles dissolved in the water (backscatter) and sent it back via an iridium phone to Rutgers scientists safe on the shore.</p>
-
-                    <p>Check out the link below to watch a short video explaining how gliders work and how they have revolutionized oceanographic data collection:</p>
-
-                    <p><a href="http://www.nytimes.com/video/scienc/100000002525812/exploring-the-ocean.html?src=vidm" target="_blank">Click here for New York Times video.</a></p>Image: A free floating glider with diver for scale.<br>
-                    <br>
+                  <p>Image: A free floating glider with diver for scale.</p>
+                  <p>During Hurricane Irene and Superstorm Sandy, scientists from Rutgers University sent out gliders, underwater robots, to take measurements in the ocean before, during, and after the storms. The gliders collected many types of data, including water temperature, salinity, and the number of particles dissolved in the water (backscatter) and sent it back via an iridium phone to Rutgers scientists safe on the shore.</p>
+                  <p>Check out the link below to watch a short video explaining how gliders work and how they have revolutionized oceanographic data collection:</p>
+                  <p>For more, check out <a href="https://www.nytimes.com/2013/11/12/science/earth/ocean-drones-plumb-new-depths.html">NY Times: Ocean Drones Plumb New Depths</a>, and this <a href="https://www.nytimes.com/video/science/100000002525812/exploring-the-ocean.html?action=click&gtype=vhs&version=vhs-heading&module=vhs&region=title-area&cview=true&t=57" target="_blank">NY Times Video: Exploring the Ocean.</a></p>
                 </div>
             </div>
 
