@@ -1,5 +1,5 @@
 <?php 
-  $lesson_title = 'Factors affecting Primary Production';
+  $lesson_title = 'Factors Affecting Primary Production';
   $level = filter_input(INPUT_GET, 'level', FILTER_SANITIZE_SPECIAL_CHARS);
   $level_title = ucwords(str_replace('_', ' ', $level));
   $page_title = ($level_title ? $lesson_title.' - '.$level_title : $lesson_title);

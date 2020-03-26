@@ -1,7 +1,8 @@
 <?php 
+  $lesson_title = 'Factors Affecting Primary Production';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $title = 'Factors affecting Primary Production';
-  $page_title = $title . 'Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -9,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="production.php"><?=$title?></a></li>
+  <li><a href="production.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -19,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$title?>" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
 <p>These activities were developed to assist with students' understanding of how primary productivity varies throughout the year in the Southern Ocean, and examines how multiple abiotic factors correlate with primary production.</p>
 <p>This collection consists of 2 sets of activities. Part One is focused on the Concept Invention phase of the Learning Cycle.  The Concept Invention phase introduces abiotic factors, including light levels, nutrient concentrations and temperature, that may influence primary productivity. This set of data includes a six-month period spanning December 2018 to July 2019. Students are able to view patterns in primary productivity in conjunction with single abiotic factors or multiple abiotic factors in combination to find patterns and make connections between the parameters.</p>
 <p>Part Two is focused on the Application phase of the Learning Cycle. The Application phase prompts students to use the knowledge gained in the Concept Invention phase to predict how two abiotic factors will vary over a three year period of primary productivity data. </p>
@@ -29,7 +30,8 @@
 <ul>
   <li>Interpret the provided data to describe patterns in individual data sets and correlations between the different sets of data (light levels, chlorophyll a, nitrate levels) shown on the graphs. Explain the relationship between primary productivity, nutrient concentration, light availability, and temperature in the Southern Ocean using evidence and relevant scientific concepts to support  hypotheses.</li>
   <li>Describe the spatial and temporal variation in nutrient (nitrate) concentrations and explain possible causes.</li>
-  <li>Predict how phytoplankton abundance will change based on changes in nutrient concentrations and available lightApply knowledge gained from a small subset of data to make predictions over longer time series and to support those predictions with a rationale.</li>
+  <li>Predict how phytoplankton abundance will change based on changes in nutrient concentrations and available light</li>
+  <li>Apply knowledge gained from a small subset of data to make predictions over longer time series and to support those predictions with a rationale.</li>
 </ul>
 
 

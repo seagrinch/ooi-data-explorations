@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Drivers of Seawater Density';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Drivers of Seawater Density - Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="density.php">Drivers of Seawater Density </a></li>
+  <li><a href="density.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -18,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="density.php"><img data-src="holder.js/250x150?text=<?=$page_title?>" alt="<?=$page_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="density.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This activity explores three data sets consisting of density, salinity and temperature from three different marine stations: Station Papa, the Coastal Endurance Array, and the Global Irminger Sea Array.  Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Several ideas are given for having students access their previous learning on Temperature, Salinity and Density, or give students enough background knowledge to start the exercise (invitation).</li>
@@ -26,6 +28,7 @@
   <li>Several types of data are presented, some as time series data with an interactive widget, and students are asked to speculate on the relationships between the Temperature, Salinity and Density (concept invention).</li>
   <li>After coming to a conclusion of the cause of the density variation students are challenged to apply what they have learned to another situation (application).</li>
   <li>This case requires students to reflect on the interaction between Temperature, Salinity, Density, Stratification, and Mixing, so at the conclusion students are asked to think about what they have learned about this complexity (reflection).</li>
+</ul>
 
 
 <h3>Learning Goals</h3>

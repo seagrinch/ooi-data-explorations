@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Seasonal Variability In The Mixed Layer';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Seasonal Variability In The Mixed Layer - Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="seasonal.php">Impacts of Ocean Acidification on Shellfish in the Pacific Northwest</a></li>
+  <li><a href="seasonal.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -18,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="seasonal.php"><img data-src="holder.js/250x150?text=<?=$page_title?>" alt="<?=$page_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="seasonal.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise is designed to facilitate learning about surface mixing in the ocean. Pieces of the exercise can be used as appropriate for the instructor goals.  The collection consists of 3 sets of activities. Part One is focused on data exploration activities, to be used during the Exploration phase of the Learning Cycle. Part Two is focused on the Concept Invention phase of the Learning Cycle. Part Three is focused on the Application phase of the Learning CycleThese activities were developed to assist with students' understanding of mixed layer dynamics, in part because surface ocean dynamics are foundational in Oceanography and cut across numerous Ocean Literacy principles, and also because wind-driven surface mixing in particular is widespread, easily observed in a variety of systems and with tractable dynamics that make it suitable for introductory oceanography instruction. We have also focused the data lab on a location distant from the coast, and specifically on temperature variations that are driven by mechanical surface mixing (due to wind) and solar irradiance. The influence of salinity on mixed layer dynamics (due to buoyancy) is not considered.</p>
 <p>The Exploration phase introduces students to time-series data and allows for the interpretation of data patterns, focusing on wind, solar irradiation and water temperature at a single station in the North Atlantic Ocean. The Concept Invention phase asks students to consider the same atmospheric data types and predict the resulting water temperature patterns for a location in the North Pacific. The use of a different location prompts the student to find patterns and make connections between the various parameters. The Application phase asks the students to connect the physical processes that they've explored in the Exploration phase to primary production.  </p>
 <p>This data exploration takes students from a very basic introduction to time-series data, through more complex examinations of ocean/atmospheric connections, and eventually application of the conceptual model they have developed at other locations, and to other processes.</p>

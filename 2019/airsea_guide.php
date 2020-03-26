@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Dynamic Air-Sea Interactions';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Dynamic Air-Sea Interactions Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="airsea.php">Dynamic Air-Sea Interactions</a></li>
+  <li><a href="airsea.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 

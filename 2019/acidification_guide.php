@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Impacts of Ocean Acidification on Shellfish in the Pacific Northwest';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Impacts of Ocean Acidification on Shellfish in the Pacific Northwest - Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="acidification.php">Impacts of Ocean Acidification on Shellfish in the Pacific Northwest</a></li>
+  <li><a href="acidification.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -18,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="acidification.php"><img data-src="holder.js/250x150?text=<?=$page_title?>" alt="<?=$page_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="acidification.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise is a case study that, if used in full, takes students through the entire learning cycle from invitation to reflection. Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Students are invited to learn about the importance of shellfish aquaculture in the Pacific Northwest and how changing ocean conditions are threatening the success of the industry. </li>

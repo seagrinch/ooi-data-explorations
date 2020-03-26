@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Plate Tectonics and the Seafloor';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Plate Tectonics and the Seafloor';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="acidification.php">Plate Tectonics and the Seafloor</a></li>
+  <li><a href="acidification.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -18,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="techtonics.php"><img data-src="holder.js/250x150?text=<?=$page_title?>" alt="<?=$page_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="techtonics.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise introduces students to the connection between seafloor features and plate tectonic processes.  It invites and encourages students to make their own observations, first by general identification of seafloor features, followed by application of plate tectonic principles to relate those features to the type of plate tectonic environment that generated them.  Students will then use earthquake data to explore and interpret processes occurring within each tectonic environment.  Lastly, students tie all of their observations together to propose a hypothesis about geologic and oceanographic hazards that may be present.</p>
 <p>The lab exercise is set up in steps that progress from simpler concepts to more difficult ones.  It is up to you how far to go with your students.</p>
 

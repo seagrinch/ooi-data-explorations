@@ -1,6 +1,8 @@
 <?php 
+  $lesson_title = 'Magma Movement and the Shape of the Seafloor';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $page_title = 'Impacts of Ocean Acidification on Shellfish in the Pacific Northwest';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -8,17 +10,17 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="acidification.php">Impacts of Ocean Acidification on Shellfish in the Pacific Northwest</a></li>
+  <li><a href="acidification.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published December, 2019</small></h2>
+    <small>Published ???</small></h2>
 </div>
 
 <h3>Summary</h3>
-<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$title?>" alt="<?=$title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>Students can explore how primary production, temperature, salinity, and dissolved oxygen varies in an area that experiences upwelling (North Pacific - Coastal Endurance Array) and an area that does not (South Pacific - Coastal Pioneer Array) for a time period extending May 2016-Oct 2017.</p>
 <p>Students will be able to explore patterns in how the chlorophyll-a concentration, temperature, salinity, and/or oxygen data varies over time in the Northern Pacific Ocean.</p>
 <p>They will apply this knowledge by comparing patterns in chlorophyll-a concentration, salinity, and oxygen data between the Northern Pacific Ocean (Coastal Endurance Array) and the Northern Atlantic Ocean (Coastal Pioneer Array). Using what they learned from the North Pacific Ocean they will make a prediction for temperature in the Northern Atlantic Ocean by drawing your own lines on the graph.</p>

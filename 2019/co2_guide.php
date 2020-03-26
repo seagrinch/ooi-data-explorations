@@ -1,7 +1,8 @@
 <?php 
+  $lesson_title = 'CO2 Exchange Between Air and Sea';
+  $page_title = $lesson_title.' - Instructor\'s Guide';
   $page = 'instructors';
-  $title = 'CO2 Exchange Between Air and Sea';
-  $page_title = $title . 'Instructor\'s Guide';
+
   $base_url = '../';
   include_once('../header.php'); 
 ?>
@@ -9,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="co2.php"><?=$title?></a></li>
+  <li><a href="co2.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -19,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$title?>" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
 <p>TBD</p>
 
 <h3>Learning Goals</h3>
