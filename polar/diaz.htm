@@ -3,7 +3,7 @@
 
 <html>
   <head>
-    <title>Diaz Polar Data Activity</title>
+    <title>Life in Antarctic soils</title>
     <style format="text/css">
       body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -20,7 +20,7 @@
   </head>
 
   <body>
-    <h3>Sampling data from Antarctic Glaciers</h3>
+    <h3>Life in Antarctic soils</h3>
     <!-- Create a div where the graph will take place -->
     <div id="my_dataviz"></div>
     
@@ -29,6 +29,7 @@
     <p>Horizontal Axis: <select id="xButton"></select></p>
 
     <p><small><em>Data for this visualization was provided by Melisa Diaz, and was created to support her Polar Literacy activity.</em></small></p>
+    <p><small>&copy; 2020 Rutgers University <a href="https://polar-ice.org">Polar Literacy Project</a></small></p>
   </body>
 
 <!-- Load d3.js -->
@@ -62,10 +63,10 @@ svg.append("rect")
     .style("fill", "EBEBEB")
 
 // Specify data columns to use
-var xOptions = ["Scottnema lindsayae (# organisms)","Eudorylaimus sp. (# organisms)","Longitude"]
+var xOptions = ["Scottnema lindsayae (# organisms)","Eudorylaimus sp. (# organisms)","Distance from glacier (m)"]
 var yOptions = ["Soil moisture (%)","N:P ratio (molar)","Total salt (microg/g)","Latitude"]
 
-var xDefault = "Eudorylaimus sp. (# organisms)"
+var xDefault = "Scottnema lindsayae (# organisms)"
 var yDefault = "N:P ratio (molar)"
 
 // Add the options to the pulldowns
@@ -99,7 +100,7 @@ var color = d3.scaleOrdinal()
 svg.append("text")
   .attr("x", width + 13)
   .attr("y", margin.top)
-  .text('Glacier')
+  .text('Sampling site')
   .attr("text-anchor", "left")
   .style("alignment-baseline", "middle")
   .style('font-weight','bold')
@@ -163,8 +164,9 @@ d3.csv("diaz.csv", function(data) {
     .append("circle")
       .attr("cx", function (d) { return x(+d[xDefault]); } )
       .attr("cy", function (d) { return y(+d[yDefault]); } )
-      .attr("r", 5)
+      .attr("r", 7)
       .style("fill", function (d) { return color(d.Location) } )
+      .style('stroke','grey')
       .attr('class','datadot')
 
   function update() {
@@ -174,7 +176,7 @@ d3.csv("diaz.csv", function(data) {
     var selectedOptionY = d3.select('#yButton').property("value")
 
     // Select new variables to plot
-    var dataFilter = data.map(function(d){return {x: +d[selectedOptionX], y:+d[selectedOptionY]} })
+    var dataFilter = data.map(function(d){return { x: +d[selectedOptionX], y:+d[selectedOptionY], Location:d.Location } })
 
     // Update Axes
     x.domain(d3.extent(dataFilter, function(d) { return d.x; })).nice()
@@ -188,11 +190,12 @@ d3.csv("diaz.csv", function(data) {
  
     // Update chart
     svg.selectAll(".datadot")
-       .data(dataFilter)
-       .transition()
-       .duration(1000)
-       .attr("cx", function (d) { return x(d.x); } )
-       .attr("cy", function (d) { return y(d.y); } )
+      .data(dataFilter)
+      .transition()
+      .duration(1000)
+      .attr("cx", function (d) { return x(d.x); } )
+      .attr("cy", function (d) { return y(d.y); } )
+      .style("fill", function (d) { return color(d.Location) } )
 
   }
   
