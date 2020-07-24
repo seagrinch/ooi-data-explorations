@@ -64,7 +64,7 @@ svg.append("rect")
     .style("fill", "EBEBEB")
 
 // Specify data columns to use
-var xOptions = ["Scottnema lindsayae (# organisms)","Eudorylaimus sp. (# organisms)","Distance from glacier (m)"]
+var xOptions = ["Scottnema lindsayae (# organisms)","Eudorylaimus sp. (# organisms)","Distance from glacier (m)","Elevation (m)"]
 var yOptions = ["Soil moisture (%)","N:P ratio (molar)","Total salt (microg/g)"]
 
 var xDefault = "Scottnema lindsayae (# organisms)"
@@ -143,7 +143,7 @@ d3.csv("diaz.csv", function(data) {
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x))
   var yAxis = svg.append("g")
-    .call(d3.axisLeft(y).ticks(12,"~s"))
+    .call(d3.axisLeft(y).ticks(7,"~s"))
 
   // Add labels
   xLabel = svg.append("text")
@@ -195,7 +195,7 @@ d3.csv("diaz.csv", function(data) {
         .domain(d3.extent(dataFilter, function(d) { return d.y; }))
         .range([ height, 0])
         .nice()
-      yAxis.transition().duration(1000).call(d3.axisLeft(y).ticks(12,"~s"))        
+      yAxis.transition().duration(1000).call(d3.axisLeft(y).ticks(7,"~s"))
     }
 
     
