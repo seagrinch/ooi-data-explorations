@@ -289,7 +289,7 @@ function modal_confirm2() {
   g2.setVisibility(2, true);
 }
 
-function modal_cancel() {
+function modal_cancel2() {
   $('#confirmModal2').modal('hide')    
   g2.setVisibility(2, false);
   $('#showObs2').attr('checked',false);
