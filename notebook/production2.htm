@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Primary Production Lab #2</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">
+  <div id="chart" style="width:800px; height: 320px;"></div>
+
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+      <p class="text-right">Include Chlorophyll-a?</p>
+    </div>
+    <div class="col-xs-9">
+      <label style="font-weight: normal;"><input type="checkbox" id="chlorophyll" onclick="toggle_chl(this)" checked> 
+        Chlorophyll-a</label>
+    </div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+      <p class="text-right">Select a second parameter:</p>
+    </div>
+    <div class="col-xs-9">
+      <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
+        Temperature</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" > 
+        Salinity</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="5" onclick="toggle_radio(this)" > 
+        Irradiance</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+        Nitrate</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
+        None</label>
+    </div>
+  </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+    color:008100;
+  }
+
+  .dygraph-y2label {
+    font-size: 14px;
+    font-weight: bold;
+    color:#d3596d;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+
+var parameters = [
+  {title:"Salinity"},
+  {title:"Temperature (&deg;C)"},
+  {title:"Chlorophyll (µg/L)"},
+  {title:"Nitrate (µmol/L)"},
+  {title:"Longwave Irradiance (W/m^2)"},
+  {title:"Shortwave Irradiance (W/m^2)"},
+];
+
+var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A"];
+
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart"), "data/production2019.csv", {
+    title: 'Coastal Pioneer Array Data',
+    ylabel: 'Chlorophyll (µg/L)',
+    y2label: '',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    colors : colors,
+    strokeWidth: 2,
+    drawPoints: true,
+    pointSize: 3,
+    highlightCircleSize: 6,
+    //logscale : true,
+    showRangeSelector: true,
+    //rangeSelectorPlotFillColor : "#00839C",
+    //rangeSelectorPlotStrokeColor : "#008100",
+    //animatedZooms : true,
+    axes: {
+    //   y: {valueRange: [0, null]},
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'Salinity': {axis: 'y2'},
+      'Temperature': {axis: 'y2'},
+      'Chlorophyll_a': {axis: 'y', showInRangeSelector: true},
+      'Nitrate': {axis: 'y2'},
+      'Shortwave Irradiance': {axis: 'y2'},
+    },
+    visibility: [0,0,1,0,0,0],
+  });
+
+}); //document.ready
+
+function toggle_chl(el) {
+  g.setVisibility(2, el.checked);
+}
+
+function toggle_radio(el) {
+  g.setVisibility(0, false);
+  g.setVisibility(1, false);
+  g.setVisibility(3, false);
+  g.setVisibility(4, false);
+  g.setVisibility(5, false);
+  if (el.value) {
+    g.setVisibility(parseInt(el.value), el.checked);
+    g.updateOptions({
+      y2label: parameters[el.value].title,
+    })
+    var cols = document.getElementsByClassName('dygraph-y2label');
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.color = colors[el.value];
+    }
+  } else {
+    g.updateOptions({
+      y2label: '',
+    })
+    cols = document.getElementsByClassName('dygraph-axis-label-y2');
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.color = '#fff';
+    }
+  }
+}
+
+</script>
+
+
+  </body>
+</html>

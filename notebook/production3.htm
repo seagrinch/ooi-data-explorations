@@ -1,0 +1,425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Primary Production Lab #3</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px; margin: 10px;">
+  <div id="chart1" style="width:800px; height: 180px;"></div>
+  <div id="chart2" style="width:800px; height: 140px; margin-top: 10px;"></div>
+  <div id="chart3" style="width:800px; height: 140px; margin-top: 10px;"></div>
+  <p style="font-style: italic; margin-top:16px;">Take a look at the above charts.  Use your mouse to draw your prediction for what the rest of the Chlorophyll-a dataset should look like.  After you have made your estimate, click the box.</p>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-3">
+      <label style="font-weight: normal;"><input type="checkbox" id="showObs3" onclick="show_obs3(this)"> Check Prediction</label>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+
+  <div id="chart4" style="width:800px; height: 140px; margin-top: 10px;"></div>
+  <p style="font-style: italic; margin-top:16px;">Take a look at the above chart.  Use your mouse to draw your prediction for what the rest of the Nitrate dataset should look like before 2019.  After you have made your estimate, click the box.</p>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-md-8">
+    </div>
+    <div class="col-md-3">
+      <label style="font-weight: normal;"><input type="checkbox" id="showObs4" onclick="show_obs4(this)"> Check Prediction</label>
+    </div>
+    <div class="col-md-1">
+    </div>
+  </div>
+  <p id="note4" class="alert alert-warning collapse">Unfortunately, we do not have a complete record of nitrate data for this location.  These are real-world data collected with equipment that does not always function properly.  However, based on the relationship between chlorophyll and nitrate for the periods where we do have data, can you explain your reasoning for your prediction?</p>
+
+</div>
+
+<!-- CONFIRMATION MODALS -->
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal3">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><strong>Are you ready to show the actual measured observations?</strong></p>
+        <p>If you haven't made a prediction yet, please click "Cancel" and draw your prediction on the graph before showing the results.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="modal_cancel3();">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="modal_confirm3();">Show Observations</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div class="modal fade" tabindex="-1" role="dialog" id="confirmModal4">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <p><strong>Are you ready to show the actual measured observations?</strong></p>
+        <p>If you haven't made a prediction yet, please click "Cancel" and draw your prediction on the graph before showing the results.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" onclick="modal_cancel4();">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="modal_confirm4();">Show Observations</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- MAIN CODE -->
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .dygraph-legend {
+    left: 544px !important;
+  }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+<script type="text/javascript" src="../js/moment.js"></script>
+<script type="text/javascript" src="../js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+//Salinity,Irradiance,Temperature,Chlorophyll,Chlorophyll2,Prediction1,Nitrate,Nitrate2,Prediction2
+var colors = ["#00457C","#DBA53A","#d3596d","#008100","#333","#777","#00839C","#333","#777"];
+
+$(document).ready(function () {
+  $.ajax({
+    url: "data/production_predict.csv",
+  })
+  .done(function(data) {
+    var isDrawing = false;
+    var lastDrawRow = null, lastDrawValue = null;
+    var tool = 'pencil';
+    var valueRange = [0, 30];
+  
+    function setPoint(event, g, context, scol) {
+      var graphPos = Dygraph.findPos(g.graphDiv);
+      var canvasx = Dygraph.pageX(event) - graphPos.x;
+      var canvasy = Dygraph.pageY(event) - graphPos.y;
+      var xy = g.toDataCoords(canvasx, canvasy);
+      var x = xy[0], value = xy[1];
+      var rows = g.numRows();
+      var closest_row = -1;
+      var smallest_diff = -1;
+      // TODO(danvk): binary search
+      for (var row = 0; row < rows; row++) {
+        var date = g.getValue(row, 0);  // millis
+        var diff = Math.abs(date - x);
+        if (smallest_diff < 0 || diff < smallest_diff) {
+          smallest_diff = diff;
+          closest_row = row;
+        }
+      }
+  
+      if (closest_row != -1) {
+        if (lastDrawRow === null) {
+          lastDrawRow = closest_row;
+          lastDrawValue = value;
+        }
+        var coeff = (value - lastDrawValue) / (closest_row - lastDrawRow);
+        if (closest_row == lastDrawRow) coeff = 0.0;
+        var minRow = Math.min(lastDrawRow, closest_row);
+        var maxRow = Math.max(lastDrawRow, closest_row);
+        for (var row = minRow; row <= maxRow; row++) {
+          if (tool == 'pencil') {
+            var val = lastDrawValue + coeff * (row - lastDrawRow);
+            val = Math.max(valueRange[0], Math.min(val, valueRange[1]));
+            if(data[row][0] < new Date("1/1/2019 00:00").getTime()) {
+              data[row][scol] = val; //Column for Predicted value
+            }
+            if (val === null || value === undefined || isNaN(val)) {
+              console.log(val);
+            }
+          } else if (tool == 'eraser') {
+            //data[row][9] = null;
+          }
+        }
+        lastDrawRow = closest_row;
+        lastDrawValue = value;
+        g.updateOptions({ file: data });
+        g.setSelection(closest_row);  // prevents the dot from being finnicky.
+      }
+    }
+  
+    function finishDraw() {
+      isDrawing = false;
+      lastDrawRow = null;
+      lastDrawValue = null;
+    }
+  
+    function toArray(data) {
+      var lines = data.split("\n");
+      var arry = [];
+      for (var idx = 0; idx < lines.length; idx++) {
+        var line = lines[idx];
+        // Oftentimes there's a blank line at the end. Ignore it.
+        if (line.length == 0) {
+          continue;
+        }
+        var row = line.split(",");
+        // Special processing for every row except the header.
+        if (idx > 0) {
+          //row[0] = new Date(row[0]).getTime(); // Turn the string date into a Date.
+          row[0] = moment(row[0]).toDate();
+          for (var rowIdx = 1; rowIdx < row.length; rowIdx++) {
+            // Turn "123" into 123.
+            row[rowIdx] = parseFloat(row[rowIdx]);
+          }     
+        }     
+        arry.push(row);
+      }     
+      return arry;
+    }
+
+    // Parse data array
+    var arry = toArray(data);
+    var firstRow = arry[0];
+    var data = arry.slice(1); //Remove first element (labels)
+    saved_data = $.extend(true,[],data); //Save array so it can be reset later
+    
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      labels: firstRow,
+      title: 'Coastal Pioneer Array Data',
+      ylabel: 'Irradiance (W/m^2)',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : false,
+      series: {
+        'Irradiance': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      },
+      visibility: [0,1,0,0,0,0,0,0,0],
+    }); //Dygraph1
+      
+    g2 = new Dygraph(document.getElementById("chart2"), data, {
+      labels: firstRow,
+      ylabel: 'Temperature (&deg;C)',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : true,
+      series: {
+        'Temperature': {axis: 'y', color:'#DBA53A'},
+      },
+      visibility: [0,0,1,0,0,0,0,0,0],
+    }); //Dygraph2
+
+    g3 = new Dygraph(document.getElementById("chart3"), data, { 
+      labels: firstRow,
+      ylabel: 'Chlorophyll (µg/L)',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : true,
+      series: {
+        'Chlorophyll': {axis: 'y', color:'#d3596d'},
+        'Chlorophyll2': {axis: 'y', color:'#777'},
+        'Prediction1': {axis: 'y1', strokeWidth:4, drawPoints:false, pointSize:0, color:"#333"},
+      },
+      visibility: [0,0,0,1,0,1,0,0,0],
+      //valueRange: valueRange,
+      interactionModel: {
+        mousedown: function (event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mousedown(event, g, context);
+          } else {
+            // prevents mouse drags from selecting page text.
+            if (event.preventDefault) {
+              event.preventDefault();  // Firefox, Chrome, etc.
+            } else {
+              event.returnValue = false;  // IE
+              event.cancelBubble = true;
+            }
+            isDrawing = true;
+            setPoint(event, g, context, 6);
+          }
+        },
+        mousemove: function (event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mousemove(event, g, context);
+          } else {
+            if (!isDrawing) return;
+            setPoint(event, g, context, 6);
+          }
+        },
+        mouseup: function(event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mouseup(event, g, context);
+          } else {
+            finishDraw();
+          }
+        },
+        mouseout: function(event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mouseout(event, g, context);
+          }
+        },
+        dblclick: function(event, g, context) {
+          Dygraph.defaultInteractionModel.dblclick(event, g, context);
+        },
+      },
+    }); //Dygraph3
+    
+    g4 = new Dygraph(document.getElementById("chart4"), data, { 
+      labels: firstRow,
+      ylabel: 'Nitrate (µmol/L)',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : true,
+      series: {
+        'Nitrate': {axis: 'y', color:'#00839C'},
+        'Nitrate2': {axis: 'y', color:'#777'},
+        'Prediction2': {axis: 'y1', strokeWidth:4, drawPoints:false, pointSize:0, color:"#333"},
+      },
+      visibility: [0,0,0,0,0,0,1,0,1],
+      //valueRange: valueRange,
+      interactionModel: {
+        mousedown: function (event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mousedown(event, g, context);
+          } else {
+            // prevents mouse drags from selecting page text.
+            if (event.preventDefault) {
+              event.preventDefault();  // Firefox, Chrome, etc.
+            } else {
+              event.returnValue = false;  // IE
+              event.cancelBubble = true;
+            }
+            isDrawing = true;
+            setPoint(event, g, context, 9);
+          }
+        },
+        mousemove: function (event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mousemove(event, g, context);
+          } else {
+            if (!isDrawing) return;
+            setPoint(event, g, context, 9);
+          }
+        },
+        mouseup: function(event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mouseup(event, g, context);
+          } else {
+            finishDraw();
+          }
+        },
+        mouseout: function(event, g, context) {
+          if (tool == 'zoom') {
+            Dygraph.defaultInteractionModel.mouseout(event, g, context);
+          }
+        },
+        dblclick: function(event, g, context) {
+          Dygraph.defaultInteractionModel.dblclick(event, g, context);
+        },
+      },
+    }); //Dygraph4
+        
+    var sync = Dygraph.synchronize(g1, g2, g3, g4, {
+      selection: true,
+      zoom: true,
+      range: false
+    });
+  
+    window.onmouseup = finishDraw;
+    
+  }); //done
+  
+}); //document.ready
+
+
+/* References for the drawing tool
+  http://dygraphs.com/gallery/#g/drawing
+  http://blog.dygraphs.com/2012/04/how-to-download-and-parse-data-for.html
+*/
+
+function show_obs3(el) {
+  if (el.checked) {
+    $('#confirmModal3').modal('show')    
+  } else {
+    g3.setVisibility(4, el.checked);  
+  }
+}
+
+function modal_confirm3() {
+  $('#confirmModal3').modal('hide')    
+  g3.setVisibility(4, true);
+}
+
+function modal_cancel3() {
+  $('#confirmModal3').modal('hide')    
+  g3.setVisibility(4, false);
+  $('#showObs3').attr('checked',false);
+}
+
+function show_obs4(el) {
+  if (el.checked) {
+    $('#confirmModal4').modal('show')    
+  } else {
+    g4.setVisibility(7, el.checked);  
+  }
+}
+
+function modal_confirm4() {
+  $('#confirmModal4').modal('hide')    
+  g4.setVisibility(7, true);
+  $('#note4').collapse('show')
+}
+
+function modal_cancel4() {
+  $('#confirmModal4').modal('hide')    
+  g4.setVisibility(7, false);
+  $('#showObs4').attr('checked',false);
+}
+
+// These do not work
+function clear_prediction3() {
+  g3.updateOptions({ file: saved_data });
+}
+
+function clear_prediction4() {
+  g4.updateOptions({ file: saved_data });
+}
+
+</script>
+
+
+  </body>
+</html>
