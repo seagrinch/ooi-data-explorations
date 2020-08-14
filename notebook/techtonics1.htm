@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Techtonics Lab #1</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+  integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+  crossorigin=""/>   
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+  integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+  crossorigin=""></script>
+<!-- Leaflet MiniMap Plugin -->
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
+<link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' />
+<!-- Leaflet Draw Plugin -->
+<script src='../js/leaflet-draw/leaflet.draw.js'></script>
+<link rel="stylesheet" href='../js/leaflet-draw/leaflet.draw.css' />
+
+<style type="text/css">
+  .circle { visibility: hidden; }
+  .circle.selected { visibility: visible; }
+  .axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+  }
+</style>
+
+<div style="width: 800px; margin:20px">
+
+  <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="../2019/data/usgs_earthquakes.csv" data-zoom="5" data-days="365"></div>
+  <div id="map2"></div>
+
+  <p class='small'><em>Note, colors represent earthquake depths: reds are shallow (0km), yellows are mid-range (25km) and blues are deep (50km).  Most dots are in the orangish range, approximately 10km below the seafloor.  Circles in the map are sized by earthquake magnitude, from 2.5-6.8.</em>
+  
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-6">
+      <p>Automatically select: 
+        <button class="btn btn-primary btn-sm" onclick="graph_zoom(180)">6 Months</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_zoom(365)">1 Year</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_zoom(365*3)">3 Years</button>
+      </p>
+    </div>
+    <div class="col-xs-6">
+      <label style="font-weight: normal;"><input type="checkbox" id="earthquakes" onclick="mainscript.toggle_dots(this)" > 
+        Show Earthquake Epicenters</label>
+    </div>
+  </div>
+
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+<script type="text/javascript" src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script type="text/javascript" src="techtonics1.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Seafloor Lab #1b</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px; margin:20px">
+
+<div id="chart1" style="width:800px; height: 250px;"></div>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-6">
+    <p class="text-right"><strong>Show:</strong> 
+      <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_lines(this)" checked> 
+        Measured Pressure</label>
+      <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_lines(this)" checked> 
+        Calculated Depth</label>
+    </p>
+  </div>
+  <div class="col-xs-5">
+    <p class="text-right"><strong>Zoom:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('eruption')">Eruption</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('all')">All Data</button>
+    </p>
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+
+<p class="small">Note, sometimes the y-axis on this graph will flip when zooming out. To reset it, click the "All Data" button.</p>
+
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  .dygraph-ylabel {
+    font-size: 14px;
+  }  
+  .dygraph-legend {
+    left: 468px !important;
+  }
+  .dygraph-label.dygraph-ylabel {
+    margin-top: -14px;
+  }
+  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-y2label {color:#DBA53A;}
+  
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+  
+  
+$(document).ready(function () {
+
+  g1 = new Dygraph(document.getElementById("chart1"), "../2019/data/magma_botpt.csv", {
+    title: 'Axial Seamount Central Caldera',
+    ylabel: 'Pressure (psi)',
+    y2label: 'Depth (m)',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    //rangeSelectorHeight: 30,
+    animatedZooms : false,
+    axes: {
+      y: {valueRange: [2260,2250]},
+      y2: {valueRange: [1514,1507.5], axisLabelWidth: 70}
+    },
+    series: {
+      'Pressure (psi)': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Depth (m)': {axis: 'y2', color:'#DBA53A', showInRangeSelector: false},
+    },
+    visibility: [1,1,0],
+  });
+
+}); //End document.ready
+
+
+function toggle_lines(el) {
+  g1.setVisibility(el.id, el.checked);  
+}
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season=='eruption') {
+    new_range = [new Date(Date.UTC(2015,3,20)).valueOf(), new Date(Date.UTC(2015,3,28)).valueOf()];
+  } else {
+    new_range = [new Date(Date.UTC(2015,2,15)).valueOf(), new Date(Date.UTC(2015,4,24)).valueOf()];
+  }
+  //console.log(new_range);
+  g1.updateOptions({dateWindow: new_range});
+}
+
+</script>
+
+
+  </body>
+</html>

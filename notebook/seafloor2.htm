@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Seafloor Lab #2</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px; margin:20px">
+
+<div id="chart1" style="width:800px; height: 250px;"></div>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-11">
+    <p class="text-right"><strong>Show:</strong> 
+      <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_lines(this)" checked> 
+        Measured Pressure</label>
+      <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_lines(this)" checked> 
+        Calculated Depth</label>
+    </p>
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+
+<div id="chart2" style="width:723px; height: 120px; margin-top: 20px;"></div>
+<div id="chart3" style="width:723px; height: 120px; margin-top: 20px;"></div>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-6">
+    <p class="small">Note, sometimes the y-axes on these graphs flip when zooming out. To reset them, click the "All Data" button.</p>
+  </div>
+  <div class="col-xs-5">
+    <p class="text-right"><strong>Zoom:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('eruption')">Eruption</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('all')">All Data</button>
+    </p>
+  </div>
+  <div class="col-xs-1"></div>
+</div>
+
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  .dygraph-ylabel {
+    font-size: 14px;
+  }  
+  .dygraph-legend {
+    left: 468px !important;
+  }
+  .dygraph-label.dygraph-ylabel {
+    margin-top: -14px;
+  }
+  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-y2label {color:#DBA53A;}
+  
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+  
+  
+$(document).ready(function () {
+
+  g1 = new Dygraph(document.getElementById("chart1"), "../2019/data/magma_botpt.csv", {
+    title: 'Axial Seamount Central Caldera',
+    ylabel: 'Pressure (psi)',
+    y2label: 'Depth (m)',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    //rangeSelectorHeight: 30,
+    animatedZooms : false,
+    axes: {
+      y: {valueRange: [2260,2250]},
+      y2: {valueRange: [1514,1507.5], axisLabelWidth: 70}
+    },
+    series: {
+      'Pressure (psi)': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Depth (m)': {axis: 'y2', color:'#DBA53A', showInRangeSelector: false},
+    },
+    visibility: [1,1,0],
+  });
+
+  var interp2 = function(a,b,c,d,y) {
+    return (y-c)*(b-a)/(d-c) + a;
+  }
+
+  var customPoint = function(g, series, ctx, cx, cy, color, radius, idx) {
+    var y = g2.getValue(idx, 3);
+    var pointColor = y>3 ? 'green' : 'blue';
+    var pointSize = interp2(.1,4,0,3,y)
+    //ctx.save();
+    ctx.fillStyle = pointColor;
+    ctx.beginPath();
+    ctx.arc(cx, cy, pointSize, 2*Math.PI, false);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  g2 = new Dygraph(document.getElementById("chart2"), "../2019/data/magma_earthquakes.csv", {
+    ylabel: 'Earthquake Depth (km)',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    strokeWidth: 0,
+    drawPoints: true,
+    pointSize: 1.5,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    animatedZooms : true,
+    visibility: [0,0,1,0],
+    color: '#f26f43',
+    //drawPointCallback: customPoint,
+    drawHighlightPointCallback: bigcircle,
+    axes: {
+      y: {valueRange: [6,0]},
+    },
+    //series: {
+    //  'mag': {axis: 'y', color:'#DBA53A', drawHighlightPointCallback: bigcircle},
+    //  'depth': {axis: 'y2', color:'#00457C', drawHighlightPointCallback: bigcircle},
+    //},
+  });
+
+  g3 = new Dygraph(document.getElementById("chart3"), "../2019/data/magma_earthquakes.csv", {
+    ylabel: 'Earthquake Magnitude',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    strokeWidth: 0,
+    drawPoints: true,
+    pointSize: 1.5,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    animatedZooms : true,
+    visibility: [0,0,0,1],
+    drawHighlightPointCallback: bigcircle
+  });
+  
+  var sync = Dygraph.synchronize(g1, g2, g3, {
+    selection: true,
+    zoom: true,
+    range: false
+  });
+
+}); //End document.ready
+
+
+function toggle_lines(el) {
+  g1.setVisibility(el.id, el.checked);  
+}
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season=='eruption') {
+    new_range = [new Date(Date.UTC(2015,3,20)).valueOf(), new Date(Date.UTC(2015,3,28)).valueOf()];
+  } else {
+    new_range = [new Date(Date.UTC(2015,2,15)).valueOf(), new Date(Date.UTC(2015,4,24)).valueOf()];
+  }
+  //console.log(new_range);
+  g1.updateOptions({dateWindow: new_range});
+}
+
+var bigcircle = function(g, name, ctx, canvasx, canvasy, color, radius) {
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "#000000";
+  ctx.fillStyle = "#FFFF00";
+  ctx.beginPath();
+  ctx.arc(canvasx, canvasy, radius, 0, 2 * Math.PI, false);
+  ctx.closePath();
+  ctx.stroke();
+  ctx.fill();
+};
+
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Seafloor Lab #1a</title>
+</head>
+
+<body>
+
+<!-- Leaflet -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+  integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+  crossorigin=""/>   
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+  integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+  crossorigin=""></script>
+<!-- Leaflet MiniMap Plugin -->
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
+<link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' />
+<!-- Leaflet.awesome-markers -->
+<link rel="stylesheet" href="../js/awesome-markers/leaflet.awesome-markers.css">
+<script src="../js/awesome-markers/leaflet.awesome-markers.js"></script>
+
+<!-- DATA CHART -->
+<div style="width: 800px; margin:20px">
+  <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;"></div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+
+  var container = L.DomUtil.get('map');
+  var zoomlevel = 3;
+  var mapcenter = [50, -138]; 
+
+  // Basemap
+  var myMap = L.map(container).setView(mapcenter, zoomlevel);
+  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+    // maxZoom: 12,
+    // minZoom: 2.6,
+    attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
+    layers: 'topo',
+    format: 'image/png',
+    transparent: true,
+    // bounceAtZoomLimits: true,
+    // crs: L.CRS.EPSG4326,
+    crs: L.CRS.EPSG3857
+  }).addTo(myMap);
+  
+  // Overlay Minimap
+  var osm2 = new L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+    maxZoom: 13,
+    minZoom: 0,
+    attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
+    layers: 'topo',
+    format: 'image/png',
+    transparent: true,
+    // bounceAtZoomLimits: true,
+    // crs: L.CRS.EPSG4326,
+    crs: L.CRS.EPSG3857
+  });
+  var miniMap = new L.Control.MiniMap(osm2, { toggleDisplay: true, zoomLevelOffset: -3}).addTo(myMap);
+
+  // Markers
+  var redMarker = L.AwesomeMarkers.icon({
+    icon: 'glyphicon-star',
+    markerColor: 'darkred',
+  });    
+  L.marker([46.06, -130], {icon: redMarker}).addTo(myMap).bindPopup('Axial Seamount')
+  L.marker([46.040, -130.460], {icon: redMarker}).addTo(myMap).bindPopup('Brown Bear Volcano')
+  L.marker([46.733, 130.783], {icon: redMarker}).addTo(myMap).bindPopup('Cobb Seamount')
+  L.marker([47.14, -131.46], {icon: redMarker}).addTo(myMap).bindPopup('Gluttony')
+  L.marker([47.62, -131.70], {icon: redMarker}).addTo(myMap).bindPopup('Sloth')
+  L.marker([47.50, -131.51], {icon: redMarker}).addTo(myMap).bindPopup('Lust')
+  L.marker([48.00, -132.50], {icon: redMarker}).addTo(myMap).bindPopup('Warwick')
+  L.marker([48.29, -133.23], {icon: redMarker}).addTo(myMap).bindPopup('Eickelberg')
+  L.marker([53.54, -144.37], {icon: redMarker}).addTo(myMap).bindPopup('Miller')
+  L.marker([53.94, -148.53], {icon: redMarker}).addTo(myMap).bindPopup('Murray')
+  L.marker([54.580, -150.440], {icon: redMarker}).addTo(myMap).bindPopup('Patton Seamount')
+
+/*
+  // Dataset boundary
+  var data_bounds = [[40.0563333, -131.1226], [48.5676667, -124.6731667]];
+
+  var data_rect = L.rectangle(data_bounds, {
+    color: 'grey', 
+    weight: 2,
+    fill: false
+  }).addTo(myMap);
+*/
+
+</script>
+
+  </body>
+</html>
