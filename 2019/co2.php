@@ -237,7 +237,7 @@
 
 
 <h3>Dataset Information</h3>
-<p class="text-right"><a href="data/co2.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+<p class="text-right"><a href="data/co2_data.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 <p>TBD</p>
 
 
