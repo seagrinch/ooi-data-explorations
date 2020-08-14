@@ -46,7 +46,7 @@ $(document).ready(function () {
   }
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/magma_earthquakes.csv", {
-    ylabel: 'Earthquake Magnitude',
+    ylabel: 'Earthquake Depth (km)',
     labelsSeparateLines: true,
     labelsUTC : true,
     strokeWidth: 0,
@@ -65,7 +65,7 @@ $(document).ready(function () {
   });
 
   g3 = new Dygraph(document.getElementById("chart3"), "data/magma_earthquakes.csv", {
-    ylabel: 'Earthquake Depth (km)',
+    ylabel: 'Earthquake Magnitude',
     labelsSeparateLines: true,
     labelsUTC : true,
     strokeWidth: 0,
