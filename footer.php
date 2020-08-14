@@ -3,7 +3,7 @@
 
       <footer>
         <p><small>This site was developed with the support of the National Science Foundation under Grants OCE-1550207, OCE-1649637, and OCE-1831625. Any opinions, findings, and conclusions or recommendations expressed in this material are those of the authors and do not necessarily reflect the views of the National Science Foundation.</small></p>
-        <p align="center">&copy; 2016-2019<?php //echo date("Y")?> Rutgers University</p
+        <p align="center">&copy; 2016-2020<?php //echo date("Y")?> Rutgers University</p
       </footer>
 
     </div> <!-- /container -->
