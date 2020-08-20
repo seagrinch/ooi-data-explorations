@@ -1,7 +1,9 @@
 /* 
-  Techtonics and Plate Movement - Exploration Widget
+  OOI Data Labs Notebook
+  Written by Sage Lichtenwalner, 8/14/2020
+  
+  Originally adapted from the Techtonics and Plate Movement - Exploration Widget
   OOI Data Labs 2019
-  Written by Sage Lichtenwalner, Rutgers Univeristy 
   
 This code was adapted from the following references
 http://bl.ocks.org/tnightingale/4718717
