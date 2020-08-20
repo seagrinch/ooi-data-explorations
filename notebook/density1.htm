@@ -197,6 +197,13 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .style("fill", function(d){ return color(d)})
       .style('stroke','grey')
       .attr("class", function(d){ return 'line'+d })
+      .on("click", function(d){
+        // is the element currently visible ?
+        currentOpacity = d3.selectAll(".line" + d).style("opacity")
+        // Change the opacity: from 0 to 1 or from 1 to 0
+        d3.selectAll(".line" + d).transition().style("opacity", currentOpacity == 1 ? 0:1) //Hide line
+        d3.selectAll(".circle" + d).transition().style("display", currentOpacity == 1 ? "none":"inline") //Remove circles so tooltip works on earlier dots
+      })
   svg.selectAll("legendLabels")
     .data(months)
     .enter()
@@ -209,12 +216,11 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .style("alignment-baseline", "middle")
       .style('font-weight','bold')
       .on("click", function(d){
-        console.log(d)
         // is the element currently visible ?
         currentOpacity = d3.selectAll(".line" + d).style("opacity")
         // Change the opacity: from 0 to 1 or from 1 to 0
-        d3.selectAll(".line" + d).transition().style("opacity", currentOpacity == 1 ? 0:1)
-        d3.selectAll(".circle" + d).transition().style("visibility", currentOpacity == 1 ? "hidden":"visible")
+        d3.selectAll(".line" + d).transition().style("opacity", currentOpacity == 1 ? 0:1) //Hide line
+        d3.selectAll(".circle" + d).transition().style("display", currentOpacity == 1 ? "none":"inline") //Remove circles so tooltip works on earlier dots
       })
 
   // Create a tooltip div
@@ -228,6 +234,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
     .style("border-radius", "5px")
     .style("padding", "5px")
     .style("position", "absolute")
+    .style("display", "block")
 
     // Three function that change the tooltip when user hover / move / leave a cell
     var mouseover = function(d) {
@@ -238,10 +245,12 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
     var mousemove = function(d) {
       Tooltip
         .html("Month: " + d.month + '<br> Pressure: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
-        //.style("left", (event.pageX) + 10 + "px")
-        //.style("top",(event.pageY) + "px")
-        .style("left", legendX + 20 + "px")
-        .style("top","350px")
+        .style("left", (event.pageX) + 10 + "px")
+        .style("top",(event.pageY) + "px")
+        //.style("left", legendX + 20 + "px")
+        //.style("top","350px")
+        //.style("left", (d3.mouse(this)[0]+70) + "px")
+        //.style("top", (d3.mouse(this)[1]) + "px")
     }
     var mouseleave = function(d) {
       Tooltip
@@ -255,7 +264,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .data(data)
       .enter()
       .append("circle")
-        .attr("class", "myCircle " + function(d){ return 'circle'+d.month })
+        .attr("class", function(d){ return 'circle'+d.month })
         .attr("cx", function(d) { return x1(+d.seawater_temperature); } )
         .attr("cy", function(d) { return y(+d.pressure_bins); } )
         .attr("r", 4)
@@ -273,7 +282,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .data(data)
       .enter()
       .append("circle")
-        .attr("class", "myCircle " + function(d){ return 'circle'+d.month })
+        .attr("class", function(d){ return 'circle'+d.month })
         .attr("cx", function(d) { return x2(+d.practical_salinity); } )
         .attr("cy", function(d) { return y(+d.pressure_bins); } )
         .attr("r", 4)
