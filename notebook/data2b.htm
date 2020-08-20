@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>Data Skills Lab #2B</title>
+    <style format="text/css">
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+      }
+      h3 {
+        margin: 0px;
+        color: #494949;
+        font-size: 16px;
+      }
+      small {
+        color: #808080;
+      }
+      .myCircle:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div style="width: 600px; margin:10px">
+      <div id="chart"></div>
+      <p class="text-center">
+        <label style="font-weight: normal;"><input type="checkbox" id="match_temp"> 
+          Match temperature limits</label> &nbsp;&nbsp;&nbsp;
+        <label style="font-weight: normal;"><input type="checkbox" id="match_depth"> 
+          Match depth limits</label>
+      </p>
+      <p>The data for these two profiles was collected on August 18, 2018.</p>
+      <p><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
+    </div>
+
+  </body>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs Notebook
+// Written by Sage Lichtenwalner, 8/20/2020
+// Adapted from the following examples
+// https://www.d3-graph-gallery.com/graph/line_cursor.html
+// https://www.d3-graph-gallery.com/graph/line_brushZoom.html
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",600)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 20, right: 320, bottom: 40, left: 40},
+    margin2 = {top: 20, right: 20, bottom: 40, left: 340},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    width2 = +svg.attr("width") - margin2.left - margin2.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom;
+
+// Add subplots
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+var graph2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+
+// Define clip-paths
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background that makes ggplot2 famous
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "EBEBEB")
+graph2.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height2)
+    .attr("width", width2)
+    .style("fill", "EBEBEB")
+
+// Load data Files
+d3.queue()
+    .defer(d3.csv, "data/profile_data_Pioneer.csv", format_data)
+    .defer(d3.csv, "data/profile_data_Irminger.csv", format_data)
+    .await(function(error, file1, file2) {
+      if (error) {
+        console.error('Oh dear, something went wrong: ' + error);
+      } else {
+        drawGraph(file1, file2);
+      }
+    });
+
+// Draw the graphs
+drawGraph = function(data1,data2) {
+
+  // Setup axis calculations
+   var x1 = d3.scaleLinear()
+    //.domain(d3.extent(data1, function(d) { return d.temperature; }))
+    .domain([11.5,17.5])
+    .range([ 0, width1 ])
+   var x2 = d3.scaleLinear()
+    //.domain(d3.extent(data2, function(d) { return d.temperature; }))
+    .domain([2,9])
+    .range([ 0, width2 ])
+   var y1 = d3.scaleLinear()
+    //.domain(d3.extent(data1, function(d) { return d.depth; }).reverse())
+    .domain([100,34])
+    .range([ height1, 0 ])
+   var y2 = d3.scaleLinear()
+    //.domain(d3.extent(data2, function(d) { return d.depth; }).reverse())
+    .domain([2420,0])
+    .range([ height2, 0 ])
+
+  // Add Graph Axes
+  var xAxis1 = graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .call(d3.axisBottom(x1).ticks(7));
+  var xAxis2 = graph2.append("g")
+    .attr("transform", "translate(0," + height2 + ")")
+    .call(d3.axisBottom(x2).ticks(7));
+    
+  var yAxis1 = graph1.append("g")
+    .call(d3.axisLeft(y1));
+  var yAxis2 = graph2.append("g")
+    .call(d3.axisLeft(y2));
+
+  // Add labels
+  title1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width1/2)
+      .attr("y", -4)
+      .text("Coastal Pioneer");
+  title2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width2/2)
+      .attr("y", -4)
+      .text("Irminger Sea");
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 32)
+      .text("Temperature (C)");
+  xLabel2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Temperature (C)");
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Depth (m)")
+
+  // This allows to find the closest index of the mouse
+  var bisect = d3.bisector(function(d) { return d.depth; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 4.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+  
+  // Draw the lines
+  var line1 = graph1.append('g')
+      .attr("clip-path", "url(#clip)")
+  line1.append("path")
+    .datum(data1)
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 2)
+    .attr("d", d3.line()
+      .x(function(d) { return x1(d.temperature); })
+      .y(function(d) { return y1(d.depth); })
+    )
+  
+  var line2 = graph2.append('g')
+    .attr("clip-path", "url(#clip)")
+  line2.append("path")
+    .datum(data2)
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#800000") /* Maroon (web colors) */
+    .attr("stroke-width", 2)
+    .attr("d", d3.line()
+      .x(function(d) { return x2(d.temperature); })
+      .y(function(d) { return y2(d.depth); })
+    )
+  
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  graph1
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width1)
+    .attr('height', height1)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove1)
+    .on('mouseout', mouseout);
+  graph2
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width2)
+    .attr('height', height2)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove2)
+    .on('mouseout', mouseout);
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus.style("opacity", 1)
+    focusText.style("opacity",1)
+  }
+
+  function mousemove1() {
+    // recover coordinate we need
+    var y0 = y1.invert(d3.mouse(this)[1]);
+    var i = bisect(data1, y0, 1);
+    selectedData = data1[i]
+    focus
+      .attr("cx", x1(selectedData.temperature) + margin1.left)
+      .attr("cy", y1(selectedData.depth) + margin1.top)
+    focusText
+      .html("Temp: " + f(selectedData.temperature))
+      .attr("x", x1(selectedData.temperature) + 15 + margin1.left)
+      .attr("y", y1(selectedData.depth) + margin1.top)
+    }
+
+  function mousemove2() {
+    // recover coordinate we need
+    var y0 = y2.invert(d3.mouse(this)[1]);
+    var i = bisect(data2, y0, 1);
+    selectedData = data2[i]
+    focus
+      .attr("cx", x2(selectedData.temperature) + margin2.left)
+      .attr("cy", y2(selectedData.depth) + margin2.top)
+    focusText
+      .html("Temp: " + f(selectedData.temperature))
+      .attr("x", x2(selectedData.temperature) + 15 + margin2.left)
+      .attr("y", y2(selectedData.depth) + margin2.top)
+    }
+
+  function mouseout() {
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+  }
+
+  // Match X Axes
+  d3.select("#match_temp").on("change", function(d) {
+    var isChecked = d3.select(this).property("checked")
+    if (isChecked) {    
+      x1.domain([2,17.5]);
+      x2.domain([2,17.5]);
+    } else {
+      x1.domain([11.5,17.5]);
+      x2.domain([2,9]);
+    }
+    xAxis1.transition().call(d3.axisBottom(x1).ticks(7))
+    line1
+      .select('.line')
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x1(d.temperature); })
+        .y(function(d) { return y1(d.depth); })
+      )
+    xAxis2.transition().call(d3.axisBottom(x2).ticks(7))
+    line2
+      .select('.line')
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x2(d.temperature); })
+        .y(function(d) { return y2(d.depth); })
+      )
+
+  })
+
+  // Match Y Axes
+  d3.select("#match_depth").on("change", function(d) {
+    var isChecked = d3.select(this).property("checked")
+    if (isChecked) {    
+      y1.domain([2420,0]);
+      y2.domain([2420,0]);
+    } else {
+      y1.domain([100,34]);
+      y2.domain([2420,0]);
+    }
+    yAxis1.transition().call(d3.axisLeft(y1))
+    line1
+      .select('.line')
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x1(d.temperature); })
+        .y(function(d) { return y1(d.depth); })
+      )
+    yAxis2.transition().call(d3.axisLeft(y2))
+    line2
+      .select('.line')
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x2(d.temperature); })
+        .y(function(d) { return y2(d.depth); })
+      )
+
+  })
+
+}
+
+function format_data(d) {
+  d.depth = +d.depth_m;
+  d.temperature = +d.ctdpf_ckl_seawater_temperature;
+  return d;
+}
+
+var f = d3.format(".2f");
+
+</script>
+
+</html>

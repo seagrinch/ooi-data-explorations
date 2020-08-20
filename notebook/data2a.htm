@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>Data Skills Lab #2A</title>
+    <style format="text/css">
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+      }
+      h3 {
+        margin: 0px;
+        color: #494949;
+        font-size: 16px;
+      }
+      small {
+        color: #808080;
+      }
+      .myCircle:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div style="width: 600px; margin:10px">
+      <div id="chart"></div>
+      <p><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
+    </div>
+
+  </body>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs Notebook
+// Written by Sage Lichtenwalner, 8/20/2020
+// Adapted from the following examples
+// https://www.d3-graph-gallery.com/graph/line_cursor.html
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",600)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 20, right: 320, bottom: 40, left: 40},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom;
+
+// Add subplots
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+
+// Define clip-paths
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background that makes ggplot2 famous
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "EBEBEB")
+
+//Read the data
+d3.csv("data/profile_data_Pioneer.csv", format_data, function(data1) {
+
+  // Setup axis calculations
+   x1 = d3.scaleLinear()
+    //.domain(d3.extent(data1, function(d) { return d.temperature; })).nice()
+    .domain([11,18])
+    .range([ 0, width1 ])
+   y1 = d3.scaleLinear()
+    .domain(d3.extent(data1, function(d) { return d.depth; }).reverse()).nice()
+    .domain([102,30])
+    .range([ height1, 0 ])
+
+  // Add Graph Axes
+  var xAxis1 = graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .call(d3.axisBottom(x1).ticks(7));
+  var yAxis1 = graph1.append("g")
+    .call(d3.axisLeft(y1));
+
+  // Add labels
+  title1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width1/2)
+      .attr("y", -4)
+      .text("Coastal Pioneer");
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 32)
+      .text("Temperature (C)");
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Depth (m)")
+
+  // This allows to find the closest index of the mouse
+  var bisect = d3.bisector(function(d) { return d.depth; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 4.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+
+  // Draw the lines
+  var line1 = graph1.append("path")
+    .datum(data1)
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 2)
+    .attr("d", d3.line()
+      .x(function(d) { return x1(d.temperature); })
+      .y(function(d) { return y1(d.depth); })
+    )
+      
+  // Add Clip-paths
+  line1.attr("clip-path", "url(#clip)")
+
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  graph1
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width1)
+    .attr('height', height1)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove1)
+    .on('mouseout', mouseout);
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus.style("opacity", 1)
+    focusText.style("opacity",1)
+  }
+
+  function mousemove1() {
+    // recover coordinate we need
+    var y0 = y1.invert(d3.mouse(this)[1]);
+    var i = bisect(data1, y0, 1);
+    selectedData = data1[i]
+    focus
+      .attr("cx", x1(selectedData.temperature) + margin1.left)
+      .attr("cy", y1(selectedData.depth) + margin1.top)
+    focusText
+      .html("Temp: " + f(selectedData.temperature))
+      .attr("x", x1(selectedData.temperature) + 15 + margin1.left)
+      .attr("y", y1(selectedData.depth) + margin1.top)
+    }
+
+  function mouseout() {
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+  }
+
+})
+
+function format_data(d) {
+  d.depth = +d.depth_m;
+  d.temperature = +d.ctdpf_ckl_seawater_temperature;
+  return d;
+}
+
+var f = d3.format(".2f");
+
+</script>
+
+</html>
