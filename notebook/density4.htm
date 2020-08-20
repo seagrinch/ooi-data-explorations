@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Density Lab #4</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px; margin: 20px;">
+
+<div id="chart1" style="width:800px; height: 160px;"></div>
+<div id="chart2" style="width:800px; height: 160px; margin-top: 20px;"></div>
+<div id="chart3" style="width:800px; height: 190px; margin-top: 20px;"></div>
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  .dygraph-legend {
+    left: 544px !important;
+  }
+  .dygraph-label.dygraph-ylabel {
+    margin-top: -14px;
+  }
+</style>
+
+<div class="row" style="margin-top:10px;">
+  <div class="col-xs-4">
+    <p class="text-right">Show calculated density:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="checkbox" id="constantT" onclick="toggle_lines()" > 
+      Hold Temperature Constant</label><br>
+    <label style="font-weight: normal;"><input type="checkbox" id="constantS" onclick="toggle_lines()" > 
+      Hold Salinity Constant</label>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <p class="text-right">Select which location to show:</p>
+  </div>
+  <div class="col-xs-8">
+    <label style="font-weight: normal;"><input type="radio" name="site" id="GI" value='GI' onclick="toggle_lines()" checked > 
+      Irminger Sea Flanking Mooring A (30m)</label><br />
+    <label style="font-weight: normal;"><input type="radio" name="site" id="CP" value='CP' onclick="toggle_lines()" > 
+      Coastal Pioneer Offshore Surface Mooring (7m)</label>
+  </div>
+</div>
+
+  <p class="text-right"><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+  
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+
+colors = ['#3c3c3c','#3c3c3c','#000000','#3c3c3c',
+'#3c3c3c','#3c3c3c','#000000','#3c3c3c',
+'#4169E1','#B22222','#4169E1','#B22222',
+'#4169E1','#B22222','#4169E1','#B22222']
+
+// Columns
+// 0-3 GI Salinity,GI Temperature,GI Pressure,GI Density,
+// 4-7 CP04 Salinity,CP04 Temperature,CP04 Pressure,CP04 Density,
+// 8-11 GI DenCS,GI DenCT,CP04 DenCS,CP04 DenCT,
+// 12-15 GI MeanS,GI MeanT,CP04 MeanS,CP04 MeanT
+
+
+$(document).ready(function () {
+
+  g1 = new Dygraph(document.getElementById("chart1"), "data/chem_ctd_density.csv", {
+    //title: 'Irminger Sea Flanking Mooring B',
+    ylabel: 'Temperature (¡C)',
+    //legend: 'always', //onmouseover
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    colors : colors, 
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    showRangeSelector: false,
+    highlightCircleSize: 6,
+    animatedZooms : true,
+    visibility: [0,1,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+  });
+
+  g2 = new Dygraph(document.getElementById("chart2"), "data/chem_ctd_density.csv", {
+    ylabel: 'Salinity (psu)',
+    //legend: 'always', //onmouseover
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    colors : colors, 
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    animatedZooms : true,
+    visibility: [1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+  });
+  
+  g3 = new Dygraph(document.getElementById("chart3"), "data/chem_ctd_density.csv", {
+    ylabel: 'Density (kg/m^3)',
+    //legend: 'always', //onmouseover
+    labelsSeparateLines: false,
+    labelsUTC : false,
+    colors : colors, 
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: true,
+    rangeSelectorHeight: 30,
+    animatedZooms : false,
+    visibility: [0,0,0,1, 0,0,0,0, 0,0,0,0, 0,0,0,0],
+  });
+  
+  var sync = Dygraph.synchronize(g1, g2, g3, {
+    selection: true,
+    zoom: true,
+    range: false
+  });
+  
+}); //document.ready
+
+
+function toggle_lines() {
+  site = $('input[name=site]:checked').val();
+  console.log(site)
+  g1.setVisibility(1, site=='GI');
+  g1.setVisibility(5, site=='CP');
+
+  g2.setVisibility(0, site=='GI');
+  g2.setVisibility(4, site=='CP');
+
+  g3.setVisibility(3, site=='GI');
+  g3.setVisibility(7, site=='CP');
+
+  g1.setVisibility(13, site=='GI' && $('#constantT').is(':checked'));
+  g1.setVisibility(15, site=='CP' && $('#constantT').is(':checked'));
+
+  g2.setVisibility(12, site=='GI' && $('#constantS').is(':checked'));
+  g2.setVisibility(14, site=='CP' && $('#constantS').is(':checked'));
+
+  g3.setVisibility(9, site=='GI' && $('#constantT').is(':checked'));
+  g3.setVisibility(11, site=='CP' && $('#constantT').is(':checked'));
+
+  g3.setVisibility(8, site=='GI' && $('#constantS').is(':checked'));
+  g3.setVisibility(10, site=='CP' && $('#constantS').is(':checked'));
+
+} // End toggle_lines
+
+</script>
+
+
+  </body>
+</html>
