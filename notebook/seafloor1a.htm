@@ -15,11 +15,14 @@
   integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
   crossorigin=""></script>
 <!-- Leaflet MiniMap Plugin -->
-<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
 <link rel='stylesheet' href='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.css' />
+<script src='//api.tiles.mapbox.com/mapbox.js/plugins/leaflet-minimap/v1.0.0/Control.MiniMap.js'></script>
 <!-- Leaflet.awesome-markers -->
 <link rel="stylesheet" href="../js/awesome-markers/leaflet.awesome-markers.css">
 <script src="../js/awesome-markers/leaflet.awesome-markers.js"></script>
+<!-- Leaflet.PolylineMeasure -->
+<link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
+<script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
 
 <!-- DATA CHART -->
 <div style="width: 800px; margin:20px">
@@ -83,6 +86,20 @@
   L.marker([53.54, -144.37], {icon: redMarker}).addTo(myMap).bindPopup('Miller')
   L.marker([53.94, -148.53], {icon: redMarker}).addTo(myMap).bindPopup('Murray')
   L.marker([54.580, -150.440], {icon: redMarker}).addTo(myMap).bindPopup('Patton Seamount')
+
+  // Add Scale Bar
+  L.control.scale ({maxWidth:240, metric:true, imperial:false, position:'bottomleft'}).addTo(myMap);
+  
+  // Add measuring tool
+  L.control.polylineMeasure({
+    position:'topleft', 
+    unit:'nauticalmiles', 
+    showBearings:false, 
+    clearMeasurementsOnStop:false, 
+    showClearControl:true, 
+    showUnitControl:false, 
+    fixedLine:{color:'#111',weight:3}
+  }).addTo(myMap);
 
 /*
   // Dataset boundary
