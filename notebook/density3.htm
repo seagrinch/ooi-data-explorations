@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>Density Lab #3</title>
+    <style format="text/css">
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+      }
+      h3 {
+        margin: 0px;
+        color: #494949;
+        font-size: 16px;
+      }
+      small {
+        color: #808080;
+      }
+      .myCircle:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="width: 800px; margin: 10px">
+      <div id="chart"></div>
+      <div style="margin: 14px;" align="center" class="form-inline">
+        <label>Select a Site: <select id="selectSite" class="form-control"></select></label> &nbsp;&nbsp;&nbsp;&nbsp;
+        <label>And a Month: <select id="selectMonth" class="form-control"></select></label>
+      </div>
+      <p style="float: right"><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
+    </div>
+  </body>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs Notebook
+// Written by Sage Lichtenwalner, 8/24/2020
+// References:
+// https://www.d3-graph-gallery.com/graph/line_filter.html
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",800)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 20, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 20, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 20, right: 20, bottom: 40, left: 560},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    width2 = +svg.attr("width") - margin2.left - margin2.right,
+    width3 = +svg.attr("width") - margin3.left - margin3.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom,
+    height3 = +svg.attr("height") - margin3.top - margin3.bottom;
+
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+var graph2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+var graph3 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background that makes ggplot2 famous
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "EBEBEB")
+graph2.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height2)
+    .attr("width", width2)
+    .style("fill", "EBEBEB")
+graph3.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height3)
+    .attr("width", width3)
+    .style("fill", "EBEBEB")
+
+function parseData(d){
+  d.pressure_bin = +d.pressure_bin;
+  d.seawater_temperature = +d.seawater_temperature;
+  d.practical_salinity = +d.practical_salinity;
+  d.density = +d.density;
+  return d;
+}
+
+//Read the data
+d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
+  
+  // Setup selector options
+  var siteNames = [{'id':'CP','title':'Coastal Pioneer'},{'id':'GA','title':'Global Argentine'}];
+  var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  // Add options to the buttons
+  d3.select("#selectSite")
+    .selectAll('myOptions')
+   	.data(siteNames)
+    .enter()
+  	.append('option')
+    .text(function (d) { return d.title; })
+    .attr("value", function (d) { return d.id; })
+  d3.select("#selectMonth")
+    .selectAll('myOptions')
+   	.data(monthNames)
+    .enter()
+  	.append('option')
+    .text(function (d,i) { return d; })
+    .attr("value", function (d,i) { return i+1; })
+
+  // Initialize the axes
+  var x1 = d3.scaleLinear().range([ 0, width1 ])
+  var x2 = d3.scaleLinear().range([ 0, width2 ])
+  var x3 = d3.scaleLinear().range([ 0, width3 ])
+  var y = d3.scaleLinear().range([ 0, height1 ]) // Flip axis
+
+  var xAxis1 = d3.axisBottom().scale(x1).ticks(5)
+  var xAxis2 = d3.axisBottom().scale(x2).ticks(5)
+  var xAxis3 = d3.axisBottom().scale(x3).ticks(4)
+  var yAxis = d3.axisLeft().scale(y).ticks(7)
+
+  graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .attr("class","myXaxis1")
+  graph2.append("g")
+    .attr("transform", "translate(0," + height2 + ")")
+    .attr("class","myXaxis2")
+  graph3.append("g")
+    .attr("transform", "translate(0," + height3 + ")")
+    .attr("class","myXaxis3")
+  graph1.append("g")
+    .attr("class","myYaxis1")
+  graph2.append("g")
+    .attr("class","myYaxis2")
+  graph3.append("g")
+    .attr("class","myYaxis3")
+
+  // Add labels
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 32)
+      .text("Temperature (C)");
+  xLabel2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Salinity (psu)");
+  xLabel3 = graph3.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Density (kg/m^3)");
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Pressure (dbar)")
+  title2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width1/2)
+      .attr("y", -4)
+      .text("Site");
+
+  // Initialize lines
+  var line1 = graph1.append('g')
+    //.attr("clip-path", "url(#clip)")
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+  var line2 = graph2.append('g')
+    //.attr("clip-path", "url(#clip)")
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+  var line3 = graph3.append('g')
+    //.attr("clip-path", "url(#clip)")
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+
+  // This allows to find the closest index of the mouse
+  var bisect = d3.bisector(function(d) { return d.pressure_bin; }).left;
+  
+  // Specify decimal format
+  var f = d3.format(".2f");
+
+  // Create the circle that travels along the curve of chart
+  var focus1 = graph1
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+  var focus2 = graph2
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+  var focus3 = graph3
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText1 = graph1
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "end")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 200).attr("y", height1-10)
+  var focusText2 = graph2
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10)
+  var focusText3 = graph3
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10)
+
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  var g1 = graph1
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width1)
+    .attr('height', height1)
+  var g2 = graph2
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width2)
+    .attr('height', height2)
+  var g3 = graph3
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width3)
+    .attr('height', height3)
+
+  // Function to update graph with specified options
+  function updageGraph(site,month) {
+    
+    var dataSelected = data.filter(function(d){return ((d.site==site) & (d.month==month)) })
+
+    x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
+    graph1.selectAll(".myXaxis1").transition().call(xAxis1);
+    x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
+    graph2.selectAll(".myXaxis2").transition().call(xAxis2);
+    x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
+    graph3.selectAll(".myXaxis3").transition().call(xAxis3);
+    
+    y.domain([0, d3.max(dataSelected, function(d) { return d.pressure_bin }) ]);
+    graph1.selectAll(".myYaxis1").transition().call(yAxis);
+    graph2.selectAll(".myYaxis2").transition().call(yAxis);
+    graph3.selectAll(".myYaxis3").transition().call(yAxis);
+
+    // Update the lines
+    line1
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x1(d.seawater_temperature) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+    line2
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x2(d.practical_salinity) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+    line3
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x3(d.density) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+      
+    title2.text(siteNames.find(el => el.id==site).title)
+  
+    g1
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+    g2
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+    g3
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+    // What happens when the mouse move -> show the annotations at the right positions.
+    function mouseover() {
+      focus1.style("opacity", 1)
+      focusText1.style("opacity",1)
+      focus2.style("opacity", 1)
+      focusText2.style("opacity",1)
+      focus3.style("opacity", 1)
+      focusText3.style("opacity",1)
+    }
+  
+    function mousemove() {
+      // recover coordinate we need
+      var y0 = y.invert(d3.mouse(this)[1]);
+      var i = bisect(dataSelected, y0);
+      dataPoint = dataSelected[i]
+      focus1
+        .attr("cx", x1(dataPoint.seawater_temperature) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText1
+        .html("Temperature: " + f(dataPoint.seawater_temperature))
+        //.attr("x", x1(dataPoint.seawater_temperature) + 15 )
+        //.attr("y", y(dataPoint.pressure_bin) )
+      focus2
+        .attr("cx", x2(dataPoint.practical_salinity) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText2
+        .html("Salinity: " + f(dataPoint.practical_salinity))
+      focus3
+        .attr("cx", x3(dataPoint.density) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText3
+        .html("Density: " + f(dataPoint.density))
+      }
+  
+    function mouseout() {
+      focus1.style("opacity", 0)
+      focusText1.style("opacity", 0)
+      focus2.style("opacity", 0)
+      focusText2.style("opacity", 0)
+      focus3.style("opacity", 0)
+      focusText3.style("opacity", 0)
+    }
+
+  }
+
+  updageGraph('CP',1)
+  
+  d3.select("#selectSite").on("change", function(d) {
+    var site = d3.select("#selectSite").property("value")
+    var month = d3.select("#selectMonth").property("value")
+    console.log(site,month)
+    updageGraph(site,month)
+  })
+  d3.select("#selectMonth").on("change", function(d) {
+    var site = d3.select("#selectSite").property("value")
+    var month = d3.select("#selectMonth").property("value")
+    console.log(site,month)
+    updageGraph(site,month)
+  })
+
+})
+
+</script>
+
+</html>
