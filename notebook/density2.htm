@@ -3,7 +3,7 @@
 
 <html>
   <head>
-    <title>Density Lab #3</title>
+    <title>Density Lab #2</title>
     <style format="text/css">
       body {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -26,9 +26,8 @@
   <body>
     <div style="width: 800px; margin: 10px">
       <div id="chart"></div>
-      <div style="margin: 14px;" align="center" class="form-inline">
-        <label>Select a Site: <select id="selectSite" class="form-control"></select></label> &nbsp;&nbsp;&nbsp;&nbsp;
-        <label>And a Month: <select id="selectMonth" class="form-control"></select></label>
+      <div style="margin: 8px;" align="right" class="form-inline">
+        <label><input type="checkbox" id="showDensity"></select> Show Density</label>
       </div>
       <p style="float: right"><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
     </div>
@@ -43,9 +42,12 @@
 
 <script>
 // OOI Data Labs Notebook
-// Written by Sage Lichtenwalner, 8/24/2020
+// Written by Sage Lichtenwalner, 8/26/2020
 // References:
 // https://www.d3-graph-gallery.com/graph/line_filter.html
+// Draggable line https://bl.ocks.org/denisemauldin/538bfab8378ac9c3a32187b4d7aed2c2
+// You-draw-it example https://observablehq.com/@cjdd3b/you-draw-it-example
+// Interactive Line Chart https://observablehq.com/@sergeyobodovskiy/interactive-line-chart
 
 // Setup initial SVG
 var svg = d3.select("#chart").append("svg")
@@ -113,7 +115,7 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
   // Setup selector options
   var siteNames = [{'id':'CP','title':'Coastal Pioneer'},{'id':'GA','title':'Global Argentine'}];
   var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-
+  
   // Add options to the buttons
   d3.select("#selectSite")
     .selectAll('myOptions')
@@ -209,6 +211,14 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
     .attr("fill", "none")
     .attr("stroke", "#00008B") /* DarkBlue (web colors) */
     .attr("stroke-width", 3)
+  var line4 = graph3.append('g')
+    //.attr("clip-path", "url(#clip)")
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#696969") /* DimGray (web colors) */
+    .attr("stroke-width", 3)
+    .attr("stroke-dasharray","5,5")
 
   // This allows to find the closest index of the mouse
   var bisect = d3.bisector(function(d) { return d.pressure_bin; }).left;
@@ -284,9 +294,9 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
     .style("pointer-events", "all")
     .attr('width', width3)
     .attr('height', height3)
-
+  
   // Function to update graph with specified options
-  function updageGraph(site,month) {
+  function updageGraph(site,month,showDensity) {
     
     var dataSelected = data.filter(function(d){return ((d.site==site) & (d.month==month)) })
 
@@ -324,9 +334,16 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
         .x(function(d) { return x3(d.density) })
         .y(function(d) { return y(d.pressure_bin) })
       )
-      
+    if (showDensity) {
+      line3.attr('opacity',1)
+    } else {
+      line3.attr('opacity',0)
+    }
+    
+    // Graph Title
     title2.text(siteNames.find(el => el.id==site).title + ' - ' + monthNames[+month-1])
   
+    // Setup mouseovers to show data values
     g1
       .on('mouseover', mouseover)
       .on('mousemove', mousemove)
@@ -340,14 +357,15 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
       .on('mousemove', mousemove)
       .on('mouseout', mouseout);
 
-    // What happens when the mouse move -> show the annotations at the right positions.
     function mouseover() {
       focus1.style("opacity", 1)
       focusText1.style("opacity",1)
       focus2.style("opacity", 1)
       focusText2.style("opacity",1)
-      focus3.style("opacity", 1)
-      focusText3.style("opacity",1)
+      if (showDensity){
+        focus3.style("opacity", 1)
+        focusText3.style("opacity",1)
+      }
     }
   
     function mousemove() {
@@ -385,19 +403,57 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
 
   }
 
-  updageGraph('CP',1)
+  // Initialize graph with default settings
+  updageGraph('CP',10,false)
   
-  d3.select("#selectSite").on("change", function(d) {
-    var site = d3.select("#selectSite").property("value")
-    var month = d3.select("#selectMonth").property("value")
-    console.log(site,month)
-    updageGraph(site,month)
-  })
-  d3.select("#selectMonth").on("change", function(d) {
-    var site = d3.select("#selectSite").property("value")
-    var month = d3.select("#selectMonth").property("value")
-    console.log(site,month)
-    updageGraph(site,month)
+  // Default points for draggable line
+  let points = d3.range(15, 416, 50).map(function(i) {return [i,1027]});
+  console.log(points)
+
+  // Draggable Line
+  var drawline = d3.line()
+    .x(function(d) { return x3(d[1]); })
+    .y(function(d) { return y(d[0]); })
+    .curve(d3.curveMonotoneY); //curveNatural
+
+  line4
+    .datum(points)
+    .transition()
+    .attr("d", drawline)
+
+  graph3.selectAll('.drawCircle')
+    .data(points)
+    .enter()
+    .append('circle')
+    .attr("class", "drawCircle")
+    .attr('r', 5.0)
+    .attr('cx', function(d) { return x3(d[1]);  })
+    .attr('cy', function(d) { return y(d[0]); })
+    .style('cursor', 'pointer')
+    .style('fill', 'steelblue');
+
+  function clamp(a, b, c){ return Math.max(a, Math.min(b, c)) }
+
+  function dragged(d) {
+    d[1] = clamp(x3.domain()[0],x3.domain()[1], x3.invert(d3.event.x));
+    //d[0] = y.invert(d3.event.y); // Only allow x moves
+    d3.select(this)
+        .attr('cx', x3(d[1]))
+        .attr('cy', y(d[0]))
+    line4.attr('d', drawline);
+  }
+
+  let drag = d3.drag()
+    .on('drag', dragged)
+
+  graph3.selectAll('.drawCircle')
+        .call(drag);
+
+  // Add callback to checkbox
+  d3.select("#showDensity").on("change", function(d) {
+    var showDensity = d3.select("#showDensity").property('checked')
+    //console.log(showDensity)
+    updageGraph('CP',10,showDensity)
   })
 
 })
