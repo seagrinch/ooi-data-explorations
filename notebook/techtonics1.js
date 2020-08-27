@@ -105,6 +105,7 @@ var mainscript = (function () {
   
   // Hide map dots by default
   svg.attr("visibility", "hidden");
+  svg.attr("opacity", 0);
 
   d3.csv(container.dataset.source, type, function(error, data) {
   //d3.json("data/us-states.json", function(error, geoData) {
@@ -408,13 +409,16 @@ var mainscript = (function () {
   }
   
   return {
-    toggle_dots: function(el) {
-      if (el.checked) {
+    toggle_dots: function() {
+      var showEarthquakes = d3.select("#showEarthquakes").property('checked')
+      if (showEarthquakes) {
         console.log('checked')
         svg.attr("visibility", "visible");
+        svg.attr("opacity", 1);
       } else {
         console.log('unchecked')
         svg.attr("visibility", "hidden");
+        svg.attr("opacity", 0);
       }
     }
   }
