@@ -76,8 +76,8 @@
 var parameters = [
   {title:"Salinity"},
   {title:"Temperature (&deg;C)"},
-  {title:"Chlorophyll (µg/L)"},
-  {title:"Nitrate (µmol/L)"},
+  {title:"Chlorophyll (&micro;g/L)"},
+  {title:"Nitrate (&micro;mol/L)"},
   {title:"Longwave Irradiance (W/m^2)"},
   {title:"Shortwave Irradiance (W/m^2)"},
 ];
@@ -88,7 +88,7 @@ $(document).ready(function () {
 
   g = new Dygraph(document.getElementById("chart"), "data/production2019.csv", {
     title: 'Coastal Pioneer Array Data',
-    ylabel: 'Chlorophyll (µg/L)',
+    ylabel: 'Chlorophyll (&micro;g/L)',
     y2label: '',
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always',

@@ -24,6 +24,7 @@
   </div>
 
   <div id="chart4" style="width:800px; height: 140px; margin-top: 10px;"></div>
+  <p id="note4" class="alert alert-warning collapse" style="margin-top:16px;">Unfortunately, we do not have a complete record of nitrate data for this location.  These are real-world data collected with equipment that does not always function properly.  However, based on the relationship between chlorophyll and nitrate for the periods where we do have data, can you explain your reasoning for your prediction?</p>
   <p style="font-style: italic; margin-top:16px;">Take a look at the above chart.  Use your mouse to draw your prediction for what the rest of the Nitrate dataset should look like before 2019.  After you have made your estimate, click the box.</p>
   <div class="row" style="margin-top:10px;">
     <div class="col-md-8">
@@ -34,7 +35,6 @@
     <div class="col-md-1">
     </div>
   </div>
-  <p id="note4" class="alert alert-warning collapse">Unfortunately, we do not have a complete record of nitrate data for this location.  These are real-world data collected with equipment that does not always function properly.  However, based on the relationship between chlorophyll and nitrate for the periods where we do have data, can you explain your reasoning for your prediction?</p>
   <p><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
 </div>
 
@@ -101,7 +101,7 @@
 // Written by Sage Lichtenwalner, 8/12/2020
 
 //Salinity,Irradiance,Temperature,Chlorophyll,Chlorophyll2,Prediction1,Nitrate,Nitrate2,Prediction2
-var colors = ["#00457C","#DBA53A","#d3596d","#008100","#333","#777","#00839C","#333","#777"];
+var colors = ["#00457C","#DBA53A","#D3596D","#008100","#777","#333","#00839C","#777","#333"];
 
 $(document).ready(function () {
   $.ajax({
@@ -212,7 +212,7 @@ $(document).ready(function () {
       rangeSelectorHeight: 30,
       animatedZooms : false,
       series: {
-        'Irradiance': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+        'Irradiance': {axis: 'y', color:'#DBA53A', showInRangeSelector: true},
       },
       visibility: [0,1,0,0,0,0,0,0,0],
     }); //Dygraph1
@@ -229,14 +229,14 @@ $(document).ready(function () {
       showRangeSelector: false,
       animatedZooms : true,
       series: {
-        'Temperature': {axis: 'y', color:'#DBA53A'},
+        'Temperature': {axis: 'y', color:'#D3596D'},
       },
       visibility: [0,0,1,0,0,0,0,0,0],
     }); //Dygraph2
 
     g3 = new Dygraph(document.getElementById("chart3"), data, { 
       labels: firstRow,
-      ylabel: 'Chlorophyll (µg/L)',
+      ylabel: 'Chlorophyll (&micro;g/L)',
       labelsSeparateLines: true,
       labelsUTC : false,
       strokeWidth: 2,
@@ -246,9 +246,9 @@ $(document).ready(function () {
       showRangeSelector: false,
       animatedZooms : true,
       series: {
-        'Chlorophyll': {axis: 'y', color:'#d3596d'},
+        'Chlorophyll': {axis: 'y', color:'#008100'},
         'Chlorophyll2': {axis: 'y', color:'#777'},
-        'Prediction1': {axis: 'y1', strokeWidth:4, drawPoints:false, pointSize:0, color:"#333"},
+        'Prediction1': {axis: 'y1', color:"#333", strokeWidth:4, drawPoints:false, pointSize:0},
       },
       visibility: [0,0,0,1,0,1,0,0,0],
       //valueRange: valueRange,
@@ -296,7 +296,7 @@ $(document).ready(function () {
     
     g4 = new Dygraph(document.getElementById("chart4"), data, { 
       labels: firstRow,
-      ylabel: 'Nitrate (µmol/L)',
+      ylabel: 'Nitrate (&micro;mol/L)',
       labelsSeparateLines: true,
       labelsUTC : false,
       strokeWidth: 2,
@@ -308,7 +308,7 @@ $(document).ready(function () {
       series: {
         'Nitrate': {axis: 'y', color:'#00839C'},
         'Nitrate2': {axis: 'y', color:'#777'},
-        'Prediction2': {axis: 'y1', strokeWidth:4, drawPoints:false, pointSize:0, color:"#333"},
+        'Prediction2': {axis: 'y1', color:"#333", strokeWidth:4, drawPoints:false, pointSize:0},
       },
       visibility: [0,0,0,0,0,0,1,0,1],
       //valueRange: valueRange,

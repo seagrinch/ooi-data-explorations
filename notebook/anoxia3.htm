@@ -32,7 +32,7 @@
   }
   
   .dygraph-legend {
-    left: 544px !important;
+    left: 600px !important;
   }
   
 </style>
@@ -72,6 +72,7 @@ $(document).ready(function () {
   g2 = new Dygraph(document.getElementById("chart2"), "../2019/data/anoxia2017b.csv", {
     ylabel: 'Seawater Temperature (&deg;C)',
     //legend: 'always', //onmouseover
+    valueRange: [6,16.5],
     labelsSeparateLines: true,
     labelsUTC : false,
     colors : colors, 
