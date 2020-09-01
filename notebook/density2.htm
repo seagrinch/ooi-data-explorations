@@ -26,8 +26,16 @@
   <body>
     <div style="width: 800px; margin: 10px">
       <div id="chart"></div>
-      <div style="margin: 8px;" align="right" class="form-inline">
-        <label><input type="checkbox" id="showDensity"></select> Show Density</label>
+      <div class="row form-inline">
+        <div class="col-md-6 text-right">
+          <label>Select Month: <select id="selectMonth" class="form-control">
+            <option value='4'>April</option>
+            <option value='10' selected>October</option>
+          </select></label>
+        </div>
+        <div class="col-md-6 text-right">
+          <label><input type="checkbox" id="showDensity"> Show Density</label>
+        </div>
       </div>
       <p style="float: right"><small>&copy; 2020 Rutgers University <a href="https://https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
     </div>
@@ -116,22 +124,6 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
   var siteNames = [{'id':'CP','title':'Coastal Pioneer'},{'id':'GA','title':'Global Argentine'}];
   var monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   
-  // Add options to the buttons
-  d3.select("#selectSite")
-    .selectAll('myOptions')
-   	.data(siteNames)
-    .enter()
-  	.append('option')
-    .text(function (d) { return d.title; })
-    .attr("value", function (d) { return d.id; })
-  d3.select("#selectMonth")
-    .selectAll('myOptions')
-   	.data(monthNames)
-    .enter()
-  	.append('option')
-    .text(function (d,i) { return d; })
-    .attr("value", function (d,i) { return i+1; })
-
   // Initialize the axes
   var x1 = d3.scaleLinear().range([ 0, width1 ])
   var x2 = d3.scaleLinear().range([ 0, width2 ])
@@ -401,6 +393,15 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
       focusText3.style("opacity", 0)
     }
 
+
+  graph3.selectAll('.drawCircle')
+    .transition()
+    .attr('cx', function(d) { return x3(d[1]);  })
+    .attr('cy', function(d) { return y(d[0]); })
+  line4
+    .transition()
+    .attr("d", drawline)
+
   }
 
   // Initialize graph with default settings
@@ -408,7 +409,6 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
   
   // Default points for draggable line
   let points = d3.range(15, 416, 50).map(function(i) {return [i,1027]});
-  console.log(points)
 
   // Draggable Line
   var drawline = d3.line()
@@ -449,11 +449,16 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
   graph3.selectAll('.drawCircle')
         .call(drag);
 
-  // Add callback to checkbox
+  // Add callbacks
   d3.select("#showDensity").on("change", function(d) {
+    var month = d3.select("#selectMonth").property("value")
     var showDensity = d3.select("#showDensity").property('checked')
-    //console.log(showDensity)
-    updageGraph('CP',10,showDensity)
+    updageGraph('CP',month,showDensity)
+  })
+  d3.select("#selectMonth").on("change", function(d) {
+    var month = d3.select("#selectMonth").property("value")
+    var showDensity = d3.select("#showDensity").property('checked')
+    updageGraph('CP',month,showDensity)
   })
 
 })
