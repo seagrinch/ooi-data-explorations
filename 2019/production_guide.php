@@ -20,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="co2.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="Generic placeholder image" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="production.php"><img src="screenshots/production1_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>These activities were developed to assist with students' understanding of how primary productivity varies throughout the year in the Southern Ocean, and examines how multiple abiotic factors correlate with primary production.</p>
 <p>This collection consists of 2 sets of activities. Part One is focused on the Concept Invention phase of the Learning Cycle.  The Concept Invention phase introduces abiotic factors, including light levels, nutrient concentrations and temperature, that may influence primary productivity. This set of data includes a six-month period spanning December 2018 to July 2019. Students are able to view patterns in primary productivity in conjunction with single abiotic factors or multiple abiotic factors in combination to find patterns and make connections between the parameters.</p>
 <p>Part Two is focused on the Application phase of the Learning Cycle. The Application phase prompts students to use the knowledge gained in the Concept Invention phase to predict how two abiotic factors will vary over a three year period of primary productivity data. </p>
@@ -73,7 +73,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Exploration:</strong> To help students recognize that salinity changes over time you can:</h3>
+    <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
     <ul>
@@ -93,10 +93,10 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Concept Invention:</strong> To help students understand the processes that affect salinity you could:</h3>
+    <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="production.php?level=exploration"><img data-src="holder.js/250x150?text=Concept Invention" alt="Concept Invention Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="production.php?level=exploration"><img src="screenshots/production1_sm.png" alt="Concept Invention Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <p>At the end of each exercise, once the students have had a chance to explore it and formulate answers to the questions, bring the class back together and ask them questions about what they discovered or learned.  </p>
     <ul>
       <li>In small groups, have students discuss the factors they explored in terms of how and why they affect primary productivity, and what other factors may influence it.</li>
@@ -110,10 +110,10 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Application:</strong> To help students link their observations of salinity changes in one location to global changes, you could:</h3>
+    <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="production.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="production.php?level=application"><img src="screenshots/production2_sm.png" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Use the second widget to predict seasonal patterns of light availability and nutrient concentrations when given primary productivity data.</li>
       <li>Lead a class discussion about how their predicted patterns for nutrient concentration, light availability, and primary production compared to actual patterns.</li>
@@ -125,7 +125,7 @@
 
 <div class="panel panel-primary">
   <div class="panel-heading">
-    <h3 class="panel-title"><strong>Reflection:</strong> You could...</h3>
+    <h3 class="panel-title"><strong>Reflection:</strong></h3>
   </div>
   <div class="panel-body">
     <ul>

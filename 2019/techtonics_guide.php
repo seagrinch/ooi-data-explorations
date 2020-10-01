@@ -10,7 +10,7 @@
 <ol class="breadcrumb">
   <li><a href="../index.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
   <li><a href="index.php">2019 Collection</a></li>
-  <li><a href="acidification.php"><?=$lesson_title?></a></li>
+  <li><a href="techtonics.php"><?=$lesson_title?></a></li>
   <li>Instructor's Guide</li>
 </ol>
 
@@ -20,7 +20,7 @@
 </div>
 
 <h3>Summary</h3>
-<a href="techtonics.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="techtonics.php"><img src="screenshots/techtonics_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise introduces students to the connection between seafloor features and plate tectonic processes.  It invites and encourages students to make their own observations, first by general identification of seafloor features, followed by application of plate tectonic principles to relate those features to the type of plate tectonic environment that generated them.  Students will then use earthquake data to explore and interpret processes occurring within each tectonic environment.  Lastly, students tie all of their observations together to propose a hypothesis about geologic and oceanographic hazards that may be present.</p>
 <p>The lab exercise is set up in steps that progress from simpler concepts to more difficult ones.  It is up to you how far to go with your students.</p>
 
@@ -80,7 +80,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="techtonics.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="techtonics.php?level=exploration"><img src="screenshots/techtonics_sm.png" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Have students access the exploration exercises either as individuals or in groups of 2 to 3.  Give them time to work through each exploration exercise, one at a time.  You can choose to work through them all, or just the ones you choose.</li>
       <li>Give the students opportunity to work without promptings or suggestions.  Allow them to just explore a bit on their own.  After this time, or if it is apparent that students are becoming confused or frustrated, pause the exercise and open the class up for questions.</li>

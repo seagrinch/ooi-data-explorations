@@ -193,7 +193,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Gerken, S., Greengrove, C., Nuwer, M., &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Gerken, S., Greengrove, C., Nuwer, M., &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 

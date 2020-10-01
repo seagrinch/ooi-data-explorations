@@ -159,7 +159,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore... ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore the relationship between seafloor features, earthquakes, and plate tectonics</small></h2>
 </div>
 
 <p>&nbsp;</p>
@@ -191,7 +191,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Jordan, B. &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Jordan, B. &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 

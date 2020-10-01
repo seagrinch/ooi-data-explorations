@@ -143,17 +143,17 @@
 <h3>Data Tips</h3>
 
 <?php if ($level=='invention'): ?>
-<p>When the site loads, you will be able to see the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring (12/2018 - 07/2019). You can interact with your data by turning on and off different factors to see if they correlate to the chlorophyll data.</p>
+<p>When the site loads, you will be able to see the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring (12/2018 - 10/2019). You can interact with your data by turning on and off different factors to see if they correlate to the chlorophyll data.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads, Graph 1 will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015-July 2019. On the same graph, the light availability for December 2018 to July 2019 is also shown.</p>
+<p>When the site loads, the graph for <strong>Variable 1 - Light</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the same graph, the light availability for December 2018 to October 2019 is also shown.</p>
 <ul>
-  <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015 to December 2018.</li>
-  <li>Select "Show Actual Observations" to compare your predictions against the actual change in light availability data from December 2015 to December 2018.</li>
+  <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015 to November 2018.</li>
+  <li>Select "Show Actual Observations" to compare your predictions against the actual change in light availability data from December 2015 to November 2018.</li>
 </ul>
-<p>When the site loads, Graph 2 will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015-July 2019. On the same graph, the nutrient concentration for December 2018 to July 2019 is also shown.</p>
+<p>When the site loads, the graph for <strong>Variable 2 - Nutrients</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the same graph, the nutrient concentration for December 2018 to October 2019 is also shown.</p>
 <ul>
-  <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015- December 2018.</li>
+  <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015 to November 2018.</li>
   <li>Since nutrient concentration data was not available for the selected time frame, check with your instructor for an estimation of the correct pattern.</li>
 </ul>
 
@@ -181,7 +181,7 @@
           <li>Primary Production (chlorophyll a)</li>
           <li>Nutrients (nitrates)</li>
           <li>Light (spectral irradiance)</li>
-          <li>Temperature (0 C)</li>
+          <li>Temperature (&deg;C)</li>
         </ul>
       </li>
     </ul>
@@ -290,7 +290,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Anastasia, J., DiSantis, D., Iacchei, M., &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Anastasia, J., DiSantis, D., Iacchei, M., &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 

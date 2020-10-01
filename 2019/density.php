@@ -176,7 +176,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Kumar, A., Rudio, K., Shull, D. &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Kumar, A., Rudio, K., Shull, D. &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 
