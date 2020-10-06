@@ -146,12 +146,12 @@
 <p>When the site loads, you will be able to see the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring (12/2018 - 10/2019). You can interact with your data by turning on and off different factors to see if they correlate to the chlorophyll data.</p>
 
 <?php elseif ($level=='application'): ?>
-<p>When the site loads, the graph for <strong>Variable 1 - Light</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the same graph, the light availability for December 2018 to October 2019 is also shown.</p>
+<p>When the site loads, the graph for <strong>Variable 1 - Light</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the graph below, the light availability for December 2018 to October 2019 is also shown.</p>
 <ul>
   <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015 to November 2018.</li>
   <li>Select "Show Actual Observations" to compare your predictions against the actual change in light availability data from December 2015 to November 2018.</li>
 </ul>
-<p>When the site loads, the graph for <strong>Variable 2 - Nutrients</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the same graph, the nutrient concentration for December 2018 to October 2019 is also shown.</p>
+<p>When the site loads, the graph for <strong>Variable 2 - Nutrients</strong> will show the chlorophyll a concentration dataset from the Global Southern Ocean Apex surface Mooring from December 2015 to October 2019. On the graph below, the nutrient concentration for December 2018 to October 2019 is also shown.</p>
 <ul>
   <li>Using your cursor to make a prediction of what the light availability data would look like from December 2015 to November 2018.</li>
   <li>Since nutrient concentration data was not available for the selected time frame, check with your instructor for an estimation of the correct pattern.</li>
@@ -248,7 +248,18 @@
 
 <h3>Dataset Information</h3>
 <p class="pull-right"><a href="data/production_invention.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
-<p>TBD</p>
+
+<p>The data for this activity was obtained from the following instruments on the <a href="https://oceanobservatories.org/site/gs01sumo/">Global Souther Ocean Surface Mooring</a>.</p>
+<ul>
+  <li><a href="https://oceanobservatories.org/instrument-class/fluor/">Fluorometer</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GS01SUMO-RID16-02-FLORTD000">GS01SUMO-RID16-02-FLORTD000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/nutnr/">Nitrate</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GS01SUMO-RID16-07-NUTNRB000">GS01SUMO-RID16-07-NUTNRB000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/spkir/">Spectral Irradiance</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GS01SUMO-RID16-08-SPKIRB000">GS01SUMO-RID16-08-SPKIRB000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/ctd/">CTD</a> (<a href="https://ooinet.oceanobservatories.org/plot/#GS01SUMO-RID16-03-CTDBPF000">GS01SUMO-RID16-03-CTDBPF000</a>)</li>
+</ul>
+
+<p>Telemetered datasets were downloaded from the OOI data portal, and then daily (mean) averages of temperature, salinity, chlorophyll-a, salinity-corrected-nitrate and downwelling spectral irradiance were calculated and merged together into a single file.</p>
+
+<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/July2019/DL_July_Productivity_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>

@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Use earthquake and bathymetry data to make observations about seafloor features and potential tsunami hazards.</p>
@@ -86,8 +84,6 @@
   </div>
 </div>
 <p class='small'><em>Note, colors represent earthquake depths: reds are shallow (0km), yellows are mid-range (25km) and blues are deep (50km).  Most dots are in the orangish range, approximately 10km below the seafloor.  Circles in the map are sized by earthquake magnitude, from 2.5-6.8.</em>
-
-<p class="text-right"><a href="data/usgs_earthquakes.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
 
 <h3>Data Tips</h3>
@@ -152,8 +148,9 @@
 
 
 <h3>Dataset Information</h3>
-<p>TBD</p>
+<p class="pull-right"><a href="data/usgs_earthquakes.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
 
+<p>The earthquake dataset for this activity was downloaded from the <a href="https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquake Catalog</a>.</p>
 
 <!-- ACTIVITY INTRODUCTION -->
 <?php else: ?>

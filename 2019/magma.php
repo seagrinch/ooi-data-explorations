@@ -23,8 +23,6 @@
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
 </div>
 
-<h4 style="color:red;">This activity is under construction!</h4>
-
 <h3>Your Objective</h3>
 <?php if ($level=='exploration'): ?>
 <p>Use earthquake and bathymetry data from before and after an underwater eruption to see how they are related.</p>
@@ -141,8 +139,19 @@
 
 
 <h3>Dataset Information</h3>
-<p class="text-right">Download: <a href="data/magma_botpt.csv" class="btn btn-sm btn-primary">Depth Data</a> <a href="data/magma_earthquakes.csv" class="btn btn-sm btn-primary">Earthquake Data</a></p>
-<p>TBD</p>
+<p class="pull-right">Download: <a href="data/magma_botpt.csv" class="btn btn-sm btn-primary">Depth Data</a> <a href="data/magma_earthquakes.csv" class="btn btn-sm btn-primary">Earthquake Data</a></p>
+<p>The pressure/depth data in this activity was provided by William Chadwick at NOAA PMEL and was collected by the Central Caldera <a href="http://oceanobservatories.org/instrument-class/botpt/">Bottom Pressure and Tilt</a> instrument (<a href="https://ooinet.oceanobservatories.org/data_access/?search=RS03CCAL-MJ03F-05-BOTPTA301#RS03CCAL-MJ03F-05-BOTPTA301/streamed_botpt-nano-sample-15s">RS03CCAL-MJ03F-05-BOTPTA301</a>) on the <a href="http://oceanobservatories.org/array/cabled-axial-seamount/">Cabled Axial Seamount Array</a>.</p>
+<ul>
+  <li>The following <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/July2019/DL_July_Magma_v1.ipynb">Jupyter Notebook</a> demonstrates how you can (crudely) process this dataset yourself.</li>
+  <li>To see the latest data from this instrument, you can check out <a href="https://www.pmel.noaa.gov/eoi/rsn/index.html">Bottom Pressure and Tilt</a> page at NOAA PMEL.  They also provide a blog that chronicles past and future<a href="https://www.pmel.noaa.gov/eoi/axial_blog.html"> diking-eruption event forecasts at Axial Seamount</a>.</li>
+  <li>Nooner, S. L., and W. W. Chadwick, Jr. (2016), <a href="http://science.sciencemag.org/content/354/6318/1399">Inflation-predictable behavior and co-diking-eruption event deformation at Axial Seamount</a>, Science, 354(6318), 1399-1403, doi:10.1126/science.aah4666</li>
+</ul>
+
+<p>The earthquake data was provided by William Wilcock via the <a href="http://axial.ocean.washington.edu">Axial Seamount Earthquake Catalog</a>.</p>
+<ul>
+  <li>Wilcock, W., Waldhauser, F., & Tolstoy, M. (2016). Catalogs of earthquake recorded on Axial Seamount from January, 2015 through November, 2015 (investigators William Wilcock, Maya Tolstoy, Felix Waldhauser). (Version 1) [Data set]. Integrated Earth Data Applications (IEDA). <a href="https://doi.org/10.1594/ieda/323843">https://doi.org/10.1594/ieda/323843</a>. The earthquake catalog data are publicly available in the <a href="http://www.marine-geo.org/tools/search/Files.php?data_set_uid=23843">Marine Geoscience Data System</a>.  The data used are from the file Axial_DD_n12.dat.</li>
+  <li>To learn more about this diking-eruptive event, see Wilcock, W., M. Tolstoy, F. Waldhauser, C. Garcia1, Y. Joe Tan, D. Bohnenstiehl, J. Caplan-Auerbach, R. Dziak, A. Arnulf, and M. Mann. (2016) Seismic constraints on caldera dynamics from the 2015 Axial Seamount eruption. Science. 354(6318): 1395-1399. <a href="https://doi.org/10.1126/science.aah5563">https://doi.org/10.1126/science.aah5563</a></li>
+</ul>
 
 
 <!-- ACTIVITY INTRODUCTION -->

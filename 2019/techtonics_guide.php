@@ -217,7 +217,7 @@
 
 <p>The Theory of Plate Tectonics is the grand, unifying theory of earth science.  The basic idea is that the outermost, physical layer of the earth, the lithosphere, is brittle and thus broken into sections called tectonic plates, much like the thin shell of an egg is brittle and can be broken (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics1.png" alt="techtonics1" width="974" height="381" class="img-responsive" />
+  <img src="images_techtonics/techtonics1.png" alt="techtonics1" class="img-responsive" />
   <div class="caption">
     <p>Much like the shell of the egg in this image, the outer layer of the earth, or lithosphere, is a brittle layer that is broken is sections.  These sections are called tectonic plates (image copyright: Benjamin R. Jordan, used with permission; Earth images after Google Earth).</p>
   </div>
@@ -225,7 +225,7 @@
 
 <p>These plates float on top of a more fluid, but still solid, layer called the asthenosphere.  The plates of the lithosphere ride on top of the asthenosphere and move due to convection within the earth (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics2.png" alt="techtonics2" width="675" height="470" class="img-responsive" />
+  <img src="images_techtonics/techtonics2.png" alt="techtonics2" class="img-responsive" />
   <div class="caption">
     <p>The lithosphere is the outermost layer of the earth.  It sits on another, softer (but still solid) layer, called the asthenosphere.  Although solid, the rocks within the earth still move in slow convection cycles.  This movement is directly connected to the movement of the lithosphere's tectonic plates (image copyright: Benjamin R. Jordan, used with permission).</p>
   </div>
@@ -233,7 +233,7 @@
 
 <p>These plates move relative to each other, sometimes colliding (forming mountains and explosive volcanoes), sometimes pulling apart (forming rift valleys and mid-ocean ridges), and sometimes sliding past each other (forming strike/slip faults and transform zones between mid-ocean ridge segments) (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics3.png" alt="techtonics3" width="847" height="479" class="img-responsive" />
+  <img src="images_techtonics/techtonics3.png" alt="techtonics3" class="img-responsive" />
   <div class="caption">
     <p>Tectonic plates interact in three main ways: divergence, convergence, and transform motion (image copyright: Benjamin R. Jordan, used with permission; right image after USGS).</p>
   </div>
@@ -241,7 +241,7 @@
 
 <p>These interactions are directly related to many of the features that we find on the seafloor, such as volcanic seamounts, mid-ocean ridges, transform and fracture zones, and deep sea trenches (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics4.png" alt="techtonics4" width="831" height="472" class="img-responsive" />
+  <img src="images_techtonics/techtonics4.png" alt="techtonics4" class="img-responsive" />
   <div class="caption">
     <p>The most obvious example of a boundary between plates occur at mid-ocean ridges, where plates move apart from each other (image copyright: Benjamin R. Jordan, used with permission; upper images after map imagery from the Global Multi-Resolution Topography (GMRT) Synthesis, funded by the National Science Foundation (NSF).</p>
   </div>
@@ -249,7 +249,7 @@
 
 <p>These interactions between tectonic plates lead to earthquakes as tremendous amounts of energy are built-up and then released, much like energy is built up within a pencil as it is bent.  Eventually the strength of the wood will be overcome by the energy and the pencil will break (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics5.png" alt="techtonics5" width="733" height="410" class="img-responsive" />
+  <img src="images_techtonics/techtonics5.png" alt="techtonics5" class="img-responsive" />
   <div class="caption">
     <p>Much like bending a pencil will eventually lead to it breaking, Tectonic forces within the lithosphere will lead to the breaking of rock, forming an earthquake (image copyright: Benjamin R. Jordan, used with permission).</p>
   </div>
@@ -257,7 +257,7 @@
 
 <p>By examining the size and location earthquakes, we learn something about the behavior of tectonic plates.  For example, the deepest earthquakes occur in convergent settings, where one plate subducts beneath another (see figure).</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics6.png" alt="techtonics6" width="939" height="581" class="img-responsive" />
+  <img src="images_techtonics/techtonics6.png" alt="techtonics6" class="img-responsive" />
   <div class="caption">
     <p>Because earthquakes occur within the brittle lithosphere, the depth and location of an earthquake tells us something about the geometry of a subduction zone (image copyright: Benjamin R. Jordan, used with permission; left figures after USGS).</p>
   </div>
@@ -265,21 +265,21 @@
 
 <p>If, as part of the earthquake, the seafloor is disturbed, either by direction movement of the seafloor, or by the generation of a underwater landslide, the energy from this disturbance can be transferred to ocean itself, forming a tsunami (see figures).  Thus, areas of active plate tectonic interactions within the ocean present a significant natural disaster hazard.</p>
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics7.png" alt="techtonics7" width="933" height="447" class="img-responsive" />
+  <img src="images_techtonics/techtonics7.png" alt="techtonics7" class="img-responsive" />
   <div class="caption">
     <p>If the surface of the seafloor is displaced, its motion will transfer energy into the overlying water, forming a tsunami wave (image copyright: Benjamin R. Jordan, used with permission).</p>
   </div>
 </div>
 
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics8.png" alt="techtonics8" width="974" height="541" class="img-responsive" />
+  <img src="images_techtonics/techtonics8.png" alt="techtonics8" class="img-responsive" />
   <div class="caption">
     <p>A tsunami wave moves radially out from its source, much like the ripples from a rock tossed into a pond.  A tsunami usually consists of multiple waves, not just one.  In fact, the largest wave of a tsunami is often NOT the first one that reaches land (image copyright: Benjamin R. Jordan, used with permission; bottom right image after USGS; upper right image after NOAA/PMEL/Center for Tsunami Research).</p>
   </div>
 </div>
 
 <div class="thumbnail">
-  <img src="images_techtonics/techtonics9.png" alt="techtonics9" width="974" height="522" class="img-responsive" />
+  <img src="images_techtonics/techtonics9.png" alt="techtonics9" class="img-responsive" />
   <div class="caption">
     <p>Once a tsunami wave reaches shore, it can arrive as a massive surge of water, several meters high.  The bottom, center image denotes the height of the tsunami wave that is shown in the other two images.  This wave hit Hilo, Hawaii in 1946 (image copyright: Benjamin R. Jordan, used with permission; top left image courtesy of NOAA; top right image courtesy of USGS).</p>
   </div>

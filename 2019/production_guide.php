@@ -22,8 +22,9 @@
 <h3>Summary</h3>
 <a href="production.php"><img src="screenshots/production1_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>These activities were developed to assist with students' understanding of how primary productivity varies throughout the year in the Southern Ocean, and examines how multiple abiotic factors correlate with primary production.</p>
-<p>This collection consists of 2 sets of activities. Part One is focused on the Concept Invention phase of the Learning Cycle.  The Concept Invention phase introduces abiotic factors, including light levels, nutrient concentrations and temperature, that may influence primary productivity. This set of data includes a six-month period spanning December 2018 to July 2019. Students are able to view patterns in primary productivity in conjunction with single abiotic factors or multiple abiotic factors in combination to find patterns and make connections between the parameters.</p>
-<p>Part Two is focused on the Application phase of the Learning Cycle. The Application phase prompts students to use the knowledge gained in the Concept Invention phase to predict how two abiotic factors will vary over a three year period of primary productivity data. </p>
+<p>This collection consists of 2 sets of activities.</p>
+<p><strong>Part One</strong> is focused on the <strong>Concept Invention</strong> phase of the Learning Cycle.  The Concept Invention phase introduces abiotic factors, including light levels, nutrient concentrations and temperature, that may influence primary productivity. This set of data includes a six-month period spanning July 2019 to October 2019 . Students are able to view patterns in primary productivity in conjunction with single abiotic factors to find patterns and make connections between the parameters.</p>
+<p><strong>Part Two</strong> is focused on the <strong>Application</strong> phase of the Learning Cycle. The Application phase prompts students to use the knowledge gained in the Concept Invention phase to predict how two abiotic factors will vary over a three year period of primary productivity data. </p>
 
 <h3>Learning Goals</h3>
 <p>After engaging with this Data Exploration a student will be able to: </p>
@@ -80,8 +81,8 @@
       <li>Depending on student's prior knowledge and your teaching objective, have students (in pairs or small groups) use the widgets to explore variations in primary production:
         <ul>
           <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity3.php">Across latitudes</a></li>
-          <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity5.php">Within Climactic Zones - Temperate</a></li>
-          <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity4.php">Within Climactic Zones - Polar</a></li>
+          <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity4.php">Within Climactic Zones - Temperate</a></li>
+          <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity5.php">Within Climactic Zones - Polar</a></li>
           <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity2.php">Across a year at one location</a></li>
           <li><a href="https://datalab.marine.rutgers.edu/explorations/productivity/activity6.php">Inshore versus offshore</a></li>
           <li>After exploring the widgets, ask students which of their questions have been answered and what additional questions were raised for them by each of the widgets? What more do they need/want to know?</li>
@@ -171,7 +172,13 @@
 
 
 <h3>Science Explanation</h3>
-<p>TBD</p>
+<p>By examining the chlorophyll-a data,  students should observe that primary productivity is low in early December but then increases throughout the month and into January.  It reaches a peak in mid-January and then begins to decline to low levels by early February and stays at those low levels for the rest of the time.  Many students believe that temperature is the main factor that affects primary productivity.  By using the data exploration and toggling on the temperature data, they should come to realize that phytoplankton peak in January before the temperature is the warmest and they actually decline as temperature is still rising.  Temperature, therefore, is not the main factor affecting primary productivity.</p>
+
+<p>By toggling on the light levels, students should see increasing light levels in the summertime lead to increasing primary productivity in the water and a bloom of phytoplankton.  When there are high amounts of phytoplankton in the water, they actually make the water less transparent since all of the cells block the light and color the water.  Therefore, less light can get through the water when there is a high number of phytoplankters in the water.  So light levels decrease during a bloom of phytoplankton. Light levels decrease after the bloom is over as this region in the Southern Ocean heads into their winter and receives much less solar radiation.</p>
+
+<p>By toggling on the nutrient levels, students should observe that nutrient levels are naturally high in high latitudes (polar regions) because there is no thermocline and no layering of the water column so nutrients can easily mix up from the bottom.  When the primary productivity peaks in January, the growth of all that phytoplankton causes a decrease in nutrient levels as the phytoplankton use the nutrients for growth and reproduction.  Once the bloom of phytoplankton is over (primary productivity decreases), nutrient levels increase again.</p>
+
+<p>To summarize, by working through this data exploration activity, students should conclude that light and nutrient levels are the main factors affecting primary productivity.  Nutrient levels are naturally high in high latitudes (polar regions) because there is no thermocline and no layering of the water column so nutrients can easily mix up from the bottom.  Light levels are low in high latitudes throughout the winter (June, July, and August) but increase through the fall and peak in December.  This increase in light triggers the growth of phytoplankton and causes primary productivity to increase and peak in January.  The peak of primary productivity means there is a great deal of phytoplankton in the water and this blocks the light and light levels decrease.  The growth of phytoplankton during the peak in primary productivity also uses up the nutrients in the water, so nutrient levels decrease. The depletion of nutrients along with the decreasing light levels as summer ends, causes the phytoplankton growth to slow and ends the peak in primary productivity in this region.</p>
 
 
 <?php 
