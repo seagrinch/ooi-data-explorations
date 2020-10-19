@@ -21,10 +21,10 @@
 
 <h3>Summary</h3>
 <a href="seasonal.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
-<p>This exercise is designed to facilitate learning about surface mixing in the ocean. Pieces of the exercise can be used as appropriate for the instructor goals.  The collection consists of 3 sets of activities. Part One is focused on data exploration activities, to be used during the Exploration phase of the Learning Cycle. Part Two is focused on the Concept Invention phase of the Learning Cycle. Part Three is focused on the Application phase of the Learning CycleThese activities were developed to assist with students' understanding of mixed layer dynamics, in part because surface ocean dynamics are foundational in Oceanography and cut across numerous Ocean Literacy principles, and also because wind-driven surface mixing in particular is widespread, easily observed in a variety of systems and with tractable dynamics that make it suitable for introductory oceanography instruction. We have also focused the data lab on a location distant from the coast, and specifically on temperature variations that are driven by mechanical surface mixing (due to wind) and solar irradiance. The influence of salinity on mixed layer dynamics (due to buoyancy) is not considered.</p>
-<p>The Exploration phase introduces students to time-series data and allows for the interpretation of data patterns, focusing on wind, solar irradiation and water temperature at a single station in the North Atlantic Ocean. The Concept Invention phase asks students to consider the same atmospheric data types and predict the resulting water temperature patterns for a location in the North Pacific. The use of a different location prompts the student to find patterns and make connections between the various parameters. The Application phase asks the students to connect the physical processes that they've explored in the Exploration phase to primary production.  </p>
+<p>This exercise is designed to facilitate learning about surface mixing in the ocean. Pieces of the exercise can be used as appropriate for the instructor goals. The collection consists of 3 sets of activities. Part One is focused on data exploration activities, to be used during the Exploration phase of the Learning Cycle. Part Two is focused on the Concept Invention phase of the Learning Cycle. Part Three is focused on the Application phase of the Learning Cycle.</p>
+<p>These activities were developed to assist with students' understanding of mixed layer dynamics, in part because surface ocean dynamics are foundational in Oceanography and cut across numerous Ocean Literacy principles, and also because wind-driven surface mixing in particular is widespread, easily observed in a variety of systems and with tractable dynamics that make it suitable for introductory oceanography instruction. We have also focused the data lab on a location distant from the coast, and specifically on temperature variations that are driven by mechanical surface mixing (due to wind) and solar irradiance. The influence of salinity on mixed layer dynamics (due to buoyancy) is not considered.  </p>
+<p>The Exploration phase introduces students to time-series data and allows for the interpretation of data patterns, focusing on wind, solar irradiation and water temperature at a single station in the North Atlantic Ocean. The Concept Invention phase helps students to come to a deeper understanding of the interaction of wind and solar irradiance and the consequences for water temperature at different depths. There are two Application phase experiences: Application #1 asks students to consider the same atmospheric data types and predict the resulting water temperature patterns for a location in the North Pacific. The use of a different location prompts the student to find patterns and make connections between the various parameters. Application #2 asks the students to connect the physical processes that they’ve explored in the Exploration and Concept Invention phase to primary production.  </p>
 <p>This data exploration takes students from a very basic introduction to time-series data, through more complex examinations of ocean/atmospheric connections, and eventually application of the conceptual model they have developed at other locations, and to other processes.</p>
-
 
 <h3>Learning Goals</h3>
 <p>Students who complete this unit will be able to: </p>
@@ -42,7 +42,7 @@
   <li>Ocean Literacy Principle 1:  The Earth has one big ocean with many features, and in particular: <em>Throughout the ocean there is one interconnected circulation system powered by wind, tides, the force of the Earth's rotation (Coriolis effect), the Sun, and water density differences. The shape of ocean basins and adjacent land masses influence the path of circulation. This "global ocean conveyor belt" moves water throughout all of the ocean's basins, transporting energy (heat), matter, and organisms around the ocean. Changes in ocean circulation have a large impact on the climate and cause changes in ecosystems.</em></li>
   <li>Ocean Literacy Principle 3:  <em>The ocean is a major influence on weather and climate.</em></li>
 </ul>
-<p>Ultimately, the enduring understanding from this exploration is that the oceans are dynamic, and processes are interconnected and tractable, and these processes that we can investigate at a particular location roll-up into global scale climate controls and productivity controls</p>
+<p>Ultimately, the enduring understanding from this exploration is that the ocean is dynamic, and processes are interconnected and tractable, and these processes that we can investigate at a particular location roll-up into global scale climate controls and productivity controls.</p>
 
 
 <h3>Context for Use</h3>
@@ -52,11 +52,19 @@
 <h3>Teaching Notes</h3>
 <p>Students may benefit from familiarity with ancillary concepts, notably:</p>
 <ul>
-  <li>The processes that lead to variation in density in ocean water (perhaps using the <a href="">Drivers of Seawater Density</a> Data Exporation, </li>
+  <li>The processes that lead to variation in density in ocean water (perhaps using the <a href="">Drivers of Seawater Density</a> Data Exploration, </li>
   <li>patterns and controls on productivity in the ocean (perhaps using a Data Exploration from the <a href="../productivity/">Productivity collection</a>), </li>
-  <li>and patterns and processes of heat fluxes between the atmosphere and surface ocean (this <a href="https://earthobservatory.nasa.gov/global-maps/CERES_NETFLUX_M">animation</a> might be useful). </li>
+  <li>and patterns and processes of heat fluxes between the atmosphere and surface ocean (this <a href="https://earthobservatory.nasa.gov/global-maps/CERES_NETFLUX_M">animation from NASA Earth Observatory</a> might be useful). </li>
 </ul>
 <p>This activity requests that students consider the relative influence of a variety of processes on different depths in the water column.  While the hope is to guide students to the correct understanding of mixed layer dynamics, there is also benefit associated with conceptually understanding this interaction of processes.</p>
+
+<h5>Worksheets</h5>
+<p>The following worksheets can be used to assist students in these activities.</p>
+<ul>
+  <li><a href="docs/Seasonal%20MLD%20Worksheet1.docx">Example Exploration Worksheet</a></li>
+  <li><a href="docs/Seasonal%20MLD%20Worksheet2.docx">Example Concept Invention and Application #1 Worksheet</a></li>
+</ul>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -64,9 +72,9 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li>Show a picture of a cuddly seal, to emphasize that most of the productivity in the ocean occurs in the very surface "skim", and the dynamics there are important to understand</li>
-      <li>Show a clip of high sea state in the North Atlantic to raise interest in the problem.</li>
-      <li>Show or demonstrate in class the influence of mechanical wind mixing (youtube video) and encourage students to think about how mixing is most efficient in the mixed layer, since its density is uniform with depth</li>
+      <li>Show images such as: a school of fish with a sea lion swimming through the school capturing fish, or a humpback whale bubble netting and shooting up through a swarm of krill to emphasize that most of the productivity in the ocean occurs in the very surface layer of the ocean, and the dynamics there are important to understand.</li>
+      <li>Show a clip of high sea state in the North Atlantic to raise interest in the investigation.</li>
+      <li>Show or demonstrate in class the influence of mechanical wind mixing (youtube video) and encourage students to think about how mixing is most efficient in the mixed layer, since its density is uniform with depth.</li>
       <li>Show an animation of Chl in the N. Atl (<a href="https://www.cambridge.org/gb/files/8713/6680/6076/natl_chlvel_q5.mp4">option #1,</a>, <a href="https://www.youtube.com/watch?v=EKwiXWMDen0">option #2</a>,  or an <a href="https://www.nasa.gov/centers/goddard/images/content/94129main_Image2m.jpg">annual chlorophyll surface map of the globe</a>, to show how productive the North Atlantic is on a seasonal basis, and pose the question, "Why is that?"</li>
     </ul>
   </div>
@@ -79,35 +87,33 @@
   <div class="panel-body">
     <a href="seasonal.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
-      <li>Have the students examine a map of the data collection locations at the Irminger array.  Talk through some of the special considerations about this location - latitude, proximity to Greenland, overall climate, etc.  For example, something like <a href="https://upload.wikimedia.org/wikipedia/commons/6/60/Global_Annual_10m_Average_Wind_Speed.png">this wind speed picture</a>, to emphasize how unique the wind climate is at this location might be useful.</li>
+      <li>Have the students examine a map of the data collection locations at the Irminger array. Talk through some of the special considerations about this location - latitude, proximity to Greenland, overall climate, etc.  For example, something like <a href="https://upload.wikimedia.org/wikipedia/commons/6/60/Global_Annual_10m_Average_Wind_Speed.png">this wind speed picture</a>, to emphasize how unique the wind climate is at this location might be useful.</li>
       <li>Have the students examine stacked wind observations and solar irradiation data for the Irminger array, and in particular guide them towards recognizing the clear seasonal pattern by paying attention to the time labels on the x-axis.</li>
       <li>Have the students examine a stacked set of temperature time-series from different depths at the Irminger array. Emphasize to them that it is important to pay attention to, and think about, the depths at which these sensors are collected.  Possible reference the <a href="https://oceanobservatories.org/wp-content/uploads/2015/09/GI03FLMA_Irminger_Flanking_Mooring-1.jpg">mooring schematic</a>. </li>
-      <li>Encourage the students to turn off and on temperature time-series for different depths, to try to figure out how different combinations of wind forcing and solar forcing lead to changes in temperature at different depths.  </li>
-      <li>Do the patterns they identify reveal something about the mixed layer dynamics throughout the season?  Overall stratification of the water column?</li>
-      <li>You could choose to have students draw a depth profile of temperature for a representative winter month and a summer month, thus practicing translating the time-series of temperature at all depths to a snap-shot of stratification at two time points. This might help students understand and interpret the data and also how to read depth profiles. Do this before revealing the feature that allows them to scroll the time series and see the accompanying depth profile in the widget.</li>
-      <li>Encourage students to actually extract a mixed layer depth for a representative time period (weekly or monthly) and plot it as a time-series.</li>
+      <li>Encourage the students to turn off and on temperature time-series for different depths, to try to figure out how different combinations of wind forcing and solar forcing lead to changes in temperature at different depths.</li>
+      <li>Students should describe how the temperature, wind and irradiance observations relate to each other.</li>
       <li>Is there anything they are wondering about having studied the data that they might not yet be able to explain? What more information do they want or need?</li>
     </ul>
   </div>
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
+    <p>This phase of the investigation asks students to dive more deeply into the same data used in the Exploration, but with different questions.</p>
     <ul>
-      <li>The overall idea behind this concept invention step is to encourage students to examine a wind/solar irradiance time-series from a different location (Station Papa in the North Pacific Ocean), and make predictions about temperature patterns at different depths based on what they've learned from the North Atlantic.</li>
-      <li>Use the widget to examine and describe the relationship between wind speed and solar irradiance at this site.  Discuss correlations between these variables, and in particular if there are any notable differences between the patterns here and at the Irminger Array.</li>
-      <li>Encourage the students to make (i.e. draw) or verbally describe a conceptual model to a partner regarding the interaction of wind and solar irradiance and its consequences for water temperature at different depths.  
+      <li>Have students consider whether the patterns they identify reveal something about the mixed layer dynamics throughout the season?  Overall stratification of the water column?</li>
+      <li>You could choose to have students draw a depth profile of temperature for a representative winter month and a summer month, thus practicing translating the time-series of temperature at all depths to a snap-shot of stratification at two time points. This might help students understand and interpret the data and also how to read depth profiles. Do this before revealing the feature that allows them to scroll the time series and see the accompanying depth profile in the widget.</li>
+      <li>Encourage students to actually extract a mixed layer depth for a representative time period (weekly or monthly) and plot it as a time-series.</li>
+      <li>Have students summarize the relationship between wind and irradiance and mixed layer depth.  This could be communicated in words or in a conceptual diagram of the mixing processes. Encourage students to cite evidence from the visualization and to elaborate and clarify their understanding of the relationship.</li>
+      <li>Encourage the students to make (i.e. draw) or verbally describe a conceptual model to a partner regarding the interaction of wind and solar irradiance and its consequences for water temperature at different depths.  If possible, the instructor could then ask guiding questions and encourage them to support their model with evidence from the visualization.
         <ul>
           <li>One possible resource for visualizing complex systems is Loopy. Below is <a href="https://ncase.me/loopy/v1.1/?data=[[[1,319,138,0,%22Irradiance%22,2],[2,324,443,1,%22Wind%22,4],[3,524,443,1,%22MLD%22,1],[4,750,459,1,%22Nutrients%22,0],[5,1003,329,0,%22Chl%2520a%22,3],[8,745,159,0,%22Light%2520Availability%22,2]],[[1,3,87,-1,0],[2,3,-56,1,0],[3,4,-62,1,0],[4,5,58,1,0],[5,4,90,-1,0],[8,5,97,1,0],[1,8,91,1,0],[3,8,-30,-1,0]],[],13%5D">one version</a> based on this exercise. These concept maps can be made by students or provided to students for them to play with and explore. </li>
         </ul>
       </li>
-      <li>Encourage students to apply their conceptual model to predicting temperature patterns</li>
-      <li>Students then turn on and off temperature time-series at different locations to test their prediction.</li>
-      <li>You could prompt students to think about deepwater formation and thermohaline circulation as it relates to full water column mixing in winter at Irminger but not Papa.</li>
-      <li>As an extension, you could also choose to have students discuss similar data from the Southern Ocean Array published in <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017GL076909">Ogle et al, 2018</a></li>
     </ul>
   </div>
 </div>
@@ -118,6 +124,17 @@
   </div>
   <div class="panel-body">
     <a href="seasonal.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <p><strong>Application #1</strong></p>
+    <ul>
+      <li>The overall idea behind this step is to encourage students to examine a wind/solar irradiance time-series from a different location (Station Papa in the North Pacific Ocean), and make predictions about temperature patterns at different depths based on what they’ve learned from the North Atlantic.</li>
+      <li>Use the widget to examine and describe the relationship between wind speed and solar irradiance at this site.  Discuss correlations between these variables, and in particular if there are any notable differences between the patterns here and at the Irminger Array.</li>
+      <li>Encourage students to apply their conceptual model developed in the concept invention phase to predict temperature patterns.</li>  
+
+      <li>Students then turn on and off temperature time-series at different locations to test their prediction.</li>
+      <li>You could prompt students to think about deepwater formation and thermohaline circulation as it relates to full water column mixing in winter at Irminger but not Papa.</li>
+      <li>As an extension, you could also choose to have students discuss similar data from the Southern Ocean Array published in <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017GL076909">Ogle et al, 2018</a></li>
+    </ul>
+    <p><strong>Application #2</strong></p>
     <ul>
       <li>In the application step students will be asked to combine insights from this activity, and background information on primary production controls (top-down, bottom-up etc.) </li>
       <li>Remind students for this step that the deep ocean serves as a reservoir of nutrients, and mixing can bring those nutrients into the well-lit eutrophic zone</li>
@@ -125,11 +142,11 @@
       <li>Students examine a time-series of chla-concentration from the Irminger Sea, paying careful attention to when in the year productivity is high</li>
       <li>If nutrients data are available they could be added here</li>
       <li>Students then examine the time-series first introduced in the exploration segment (wind, solar irradiance and water temperature time-series, paying careful attention to seasonal patterns</li>
-      <li>Students are then asked to integrate primary production into their conceptual model - how might primary production at this site controlled by the physical interaction of wind and solar radiation and their interaction with the surface of the ocean?</li>
+      <li>Students are then asked to integrate primary production into their conceptual model - how might primary production at this site be controlled by the physical interaction of wind and solar irradiance and their interaction with the surface of the ocean?</li>
     </ul>
-    <p><srong>Possible Application 2:</srong></p>
+    <p><strong>Possible Application #3</strong></p>
     <ul>
-      <li>The Thermohaline Circulation activity (in development by a June group)  asks students to focus their attention on the winter mixing. If not yet earlier discussed, students could complete that exploration at this time to more explicitly consider deep water formation.</li>
+      <li>The Thermohaline Circulation activity (in development by a June group)  asks students to focus their attention on the winter mixing. If not yet previously discussed, students could complete that exploration at this time to more explicitly consider deep water formation.</li>
     </ul>
   </div>
 </div>
@@ -176,7 +193,7 @@
 <ul>
   <li>Students must articulate the seasonal pattern in the data presented by paying careful attention to the time (y-) axes.</li>
   <li>Students must compare parameters across sites, which requires them to consider ranges in different data patterns</li>
-  <li>With the help of the widget students will examine time series of ocean temperature, solar radiation and wind speed. They should see that there is a strong correlation among all three of these variables.</li>
+  <li>With the help of the widget students will examine time series of ocean temperature, solar irradiance and wind speed. They should see that there is a strong correlation among all three of these variables.</li>
   <li>Students will be able to interpret time-series of water temperature in order to identify and quantify a secondary parameter - mixed layer depth, and compare that derived parameter over time.</li>
 </ul>
 

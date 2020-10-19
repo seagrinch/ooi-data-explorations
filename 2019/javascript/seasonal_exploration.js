@@ -4,12 +4,17 @@
 */
 
 colors = ['#fdef9a','#dade97', '#b8ce93', '#95bd90', '#72ac8c', '#4d9b89', '#398785', '#377280', '#345d7b', '#314776', '#2e3172', '#2a186c',
-'#000000','#000000','#32CD32','#7fc4fb','#ffd86d']
+'#7fc4fb','#ffd86d',
+'#dddddd', '#c8c8c8', '#b3b3b3', '#9f9f9f', '#8b8b8b', '#787878', '#656565', '#535353', '#414141', '#313131', '#212121', '#111111',
+'#999','#999',
+'#dd0000','#0000dd','#32CD32']
 
-// Columns
-// time,Model SST,30m,40m,60m,90m,130m,180m,250m,350m,500m,750m,1000m,
-// met_relwind_speed,shortwave_irradiance,Chlorophyll a,Model Wind Speed,Model Irradiance
-
+// Datafile Columns
+// time,GI Model SST,GI 30m,GI 40m,GI 60m,GI 90m,GI 130m,GI 180m,GI 250m,GI 350m,GI 500m,GI 750m,GI 1000m,
+// GI Model Wind Speed,GI Model Irradiance,
+// GP Model SST,GP 30m,GP 40m,GP 60m,GP 90m,GP 130m,GP 180m,GP 250m,GP 350m,GP 500m,GP 750m,GP 1000m,
+// GP Model Wind Speed,GP Model Irradiance,
+// GI MLD,GP MLD,GI chl
 
 $(document).ready(function () {
 
@@ -26,7 +31,10 @@ $(document).ready(function () {
     showRangeSelector: false,
     highlightCircleSize: 6,
     animatedZooms : true,
-    visibility: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1],
+    visibility: [0,0,0,0,0,0,0,0,0,0,0,0, 0,1, 0,0,0,0,0,0,0,0,0,0,0,0, 0,0, 0,0,0],
+    axes: {
+      x: {axisLabelFormatter:function(){return ''}}
+    }
   });
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/seasonal.csv", {
@@ -41,7 +49,10 @@ $(document).ready(function () {
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : true,
-    visibility: [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0],
+    visibility: [0,0,0,0,0,0,0,0,0,0,0,0, 1,0, 0,0,0,0,0,0,0,0,0,0,0,0, 0,0, 0,0,0],
+    axes: {
+      x: {axisLabelFormatter:function(){return ''}}
+    }
   });
   
   g3 = new Dygraph(document.getElementById("chart3"), "data/seasonal.csv", {
@@ -57,7 +68,7 @@ $(document).ready(function () {
     showRangeSelector: true,
     rangeSelectorHeight: 30,
     animatedZooms : false,
-    visibility: [1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    visibility: [1,1,1,1,0,0,0,0,0,0,0,0, 0,0, 0,0,0,0,0,0,0,0,0,0,0,0, 0,0, 0,0,0],
   });
   
   var sync = Dygraph.synchronize(g1, g2, g3, {

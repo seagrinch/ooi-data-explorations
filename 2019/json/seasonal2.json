@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI_Arrays_GI.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from the Global Irminger Sea Array (highlighted in red) and the Global Station Papa Array (shown in green)."
+  },
+  {
+    "title": "Global Irminger Sea Array",
+    "file": "CEV-OOI-Global-Irminger-Sea.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-irminger-sea-array/\">Global Irminger Sea Array</a> is located of the coast of Greenland.  Data in this activity were collected from an instrument on <a href=\"http://oceanobservatories.org/site/GI03FLMA/\">Flanking Mooring B</a>."
+  },
+  {
+    "title": "Global Station Papa Array",
+    "file": "CEV-OOI-Global-Station-PAPA.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-station-papa-array/\">Station Papa Array</a> is located in the north Pacific, off the coast of Alaksa. Data in this activity were collected from an instrument on <a href=\"http://oceanobservatories.org/site/GP03FLMA/\">Flanking Mooring B</a>."
+  },
+  {
+    "title": "Mooring Diagram",
+    "file": "GI03FLMA_Irminger_Flanking_Mooring.jpg",
+    "caption": "The Flanking Moorings at both arrays contain a string of CTD instruments deployed at various depths from 30m down to 1,500m."
+  },
+  {
+    "title": "CTD Sensor",
+    "file": "CTD-PHOTO.jpg",
+    "caption": "A CTD sesnsor collectes conductivity, temperature and depth, which can be used to calculate salinity and temperature as well."
+  }
+]

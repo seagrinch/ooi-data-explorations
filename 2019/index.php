@@ -141,7 +141,7 @@
 <!--   <li>March: Seafloor Deformation</li> -->
 <!--   <li>July: Oceanographic Fingerprint of Hurricane Michael at the New England Shelf Break (1)</li> -->
   <li>August: <a href="density.php">Drivers of Seawater Density</a> (1 widget)</li>
-  <li>August: <a href="seasonal.php">Seasonal Variability In The Mixed Layer</a> (3)</li>
+  <li>August: <a href="seasonal.php">Seasonal Variability In The Mixed Layer</a> (3) <a href="seasonal_v1.php">Old Version</a></li>
   <li>August: <a href="acidification.php">Impacts of Ocean Acidification on Shellfish in the Pacific Northwest</a> (2)</li>  
 <!--
   <li>August: Our Dynamic Ocean: Surface and Subsurface Interactions from Coast-to-Coast (3)</li>
