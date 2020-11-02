@@ -54,7 +54,7 @@ $(document).ready(function () {
   g3 = new Dygraph(document.getElementById("chart3"), "data/density.csv", {
     ylabel: 'Density (kg/m^3)',
     //legend: 'always', //onmouseover
-    labelsSeparateLines: false,
+    labelsSeparateLines: true,
     labelsUTC : false,
     colors : colors, 
     strokeWidth: 2,

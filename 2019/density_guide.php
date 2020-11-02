@@ -21,7 +21,7 @@
 
 <h3>Summary</h3>
 <a href="density.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
-<p>This activity explores three data sets consisting of density, salinity and temperature from three different marine stations: Station Papa, the Coastal Endurance Array, and the Global Irminger Sea Array.  Pieces of the exercise can be used as appropriate for the instructor goals.</p>
+<p>This activity explores three data sets consisting of density, salinity, and temperature from four different marine stations: Station Papa, the Coastal Endurance Array, the Coastal Pioneer Array, and the Global Irminger Sea Array.  Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Several ideas are given for having students access their previous learning on Temperature, Salinity and Density, or give students enough background knowledge to start the exercise (invitation).</li>
   <li>The tie-in to stratification in the ocean is quite compelling. Some data are presented and students are asked to draw some conclusions (exploration).</li>
@@ -30,16 +30,15 @@
   <li>This case requires students to reflect on the interaction between Temperature, Salinity, Density, Stratification, and Mixing, so at the conclusion students are asked to think about what they have learned about this complexity (reflection).</li>
 </ul>
 
-
 <h3>Learning Goals</h3>
 <p>Enduring Understanding: Whereas temperature typically controls density offshore in the open ocean, salinity plays a larger role in coastal waters.</p>
 
 <p>Students who complete this unit will: </p>
 <ul>
   <li>Observe temperature, salinity and density data at three locations.</li>
-  <li>Make a prediction about whether density is controlled by temperature or salinity </li>
-  <li>Interpret the result of a numerical experiment</li>
-  <li>Describe how temperature and salinity controls density in coastal and open ocean locations.</li>
+  <li>Make a prediction and include a rationale about whether density is controlled by temperature or salinity </li>
+  <li>Interpret the result of a numerical experiment using a data visualization</li>
+  <li>Use evidence from the data visualization to describe how temperature and salinity control density in coastal and open ocean locations.</li>
 </ul>
 
 <h3>Context for Use</h3>
@@ -55,15 +54,22 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li>Prior to the start of the exercise, describe or revisit the way that temperature, salinity and density vary with depth. If these concepts have been covered already, ask students to describe vertical profiles of T, S, density and how they relate to each other.</li>
+      <li>Prior to the start of the exercise, ask students to briefly discuss with a partner or small group what they know about:
+        <ul>
+          <li>the way that temperature, salinity and density vary with depth and/or vertical profiles of T, S, density and how they relate to each other, </li>
+          <li>the concept of stratification and how it is influenced by density and mixing processes,</li>
+          <li>Then ask groups to share their discussions to reveal the collective knowledge the class holds.</li>
+        </ul>
+      </li>
+      <li>Have students make a concept map about their prior knowledge relating temperature, salinity, density, stratification, and mixing. (They will revisit and revise the concept map later in the activity.)</li>
+      <li>Ask students how they would expect these properties and processes would vary over the course of a year. This could occur as a think-pair-share activity, or as a larger group discussion as a prelude to looking at the data visualizations.</li>
       <li>Discuss how oceanographers measure salinity, temperature, and density. (Salinity is calculated from seawater conductivity. Temperature is measured using a thermistor. Density is calculated from temperature, salinity and pressure using a complicated formula called the Equation of State.)</li>
-      <li>Discuss or revisit the concept of stratification and how it is influenced by density and mixing processes</li>
-      <li>Ask students how they would expect these properties and processes would vary over the course of a year. This could occur as a think-pair-share activity, or as a larger group discussion.</li>
-      <li>Make a concept map relating temperature, salinity, density, stratification, and mixing.</li>
-      <li>Introduce students to the three regions in the activity and ask them to consider whether similar processes will occur at these different locations.</li>
+      <li>Introduce students to the three regions in the activity and ask them to consider whether similar processes will occur at these different locations. Ask them what they would need to know in order to answer the question.</li>
+      <li>You might consider showing a video or demonstration addressing the concepts to get them interested in finding out more.</li>
     </ul>
   </div>
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -72,12 +78,13 @@
   <div class="panel-body">
     <a href="density.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
-      <li>?	Have students examine the data sets from the three locations. And, based on the patterns they observe, make predictions about which factor (salinity or temperature) will be most important in determining density.</li>
-      <li>Working in groups, have students perform the numerical experiment in which one parameter (temperature or salinity) is fixed at the mean value and density is recalculated. Students should discuss the results of the experiment and share their interpretations. </li>
+      <li>Have students (preferably in pairs or small groups) examine the data sets from the three locations. And, based on the patterns they observe, make predictions and cite what evidence they are using to support their prediction about which factor (salinity or temperature) will be most important in determining density.</li>
+      <li>Working in groups, have students use the widget to explore and perform the numerical experiment in which one parameter (temperature or salinity) is fixed at the mean value and density is recalculated. Students should discuss the results of the experiment and share their interpretations. </li>
       <li>At the end of the activity, student groups share their interpretation of the experiment with the rest of the class.</li>
     </ul>
   </div>
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -85,16 +92,26 @@
   </div>
   <div class="panel-body">
     <ul>
-      <li>Ask students how the three stations differed. Then ask, "Why?"</li>
-      <li>Ask students how climate change might affect the three regions differently
+      <li>Have students discuss (preferably with a partner or small group) how the three stations (locations) differered geographically as well as in terms of physical parameters and what factors led to these differences. Then lead a whole group discussion about their ideas and add information, clarify as needed. You might decide to share some of the following information if it doesn’t arise from the student discussion.
+        <ul>
+          <li>Comparing the three locations of this study. The Station Papa site is an open ocean location compared to the Coastal Endurance Array that is influenced by coastal dynamics of the ocean. The Global Irminger Sea location represents a more polar water mass where ice melt dynamics play an important role.  </li>
+        </ul>
+      </li>
+      <li>Have students do a think-pair-share about how climate change might affect the three regions differently
         <ul>
           <li>Station Papa is thermally stratified whereas Coastal Oregon is salinity stratified. The Irminger Sea is close to the sub Arctic, where ice melt is increasing</li>
         </ul>
       </li>
-      <li>These would be a good questions for think-pair-share</li>
+      <li>Have students demonstrate their understanding (e.g. individual written explanation, drawing or other conceptual model, discussion with a partner, revise their original concept map) of the following concepts addressed in this experience to help them make meaning and realize where they still may have some missing pieces in their understanding. 
+        <ul>
+          <li>Compare and contrast the relative importance of temperature and salinity in influencing density stratification. </li>
+          <li>Discuss the various processes that cause changes in temperature and salinity and hence density. </li>
+        </ul>
+      </li>
     </ul>
   </div>
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
@@ -103,34 +120,29 @@
   <div class="panel-body">
     <a href="density.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
-      <li>Compare the three locations of this study. The Station Papa site is an open ocean location compared to the Coastal Endurance Array that is influenced by coastal dynamics of the ocean. The Global Irminger Sea location represents a more polar water mass where ice melt dynamics play an important role.  </li>
-      <li>Compare and contrast the relative importance of temperature and salinity in influencing density stratification. </li>
-      <li>Discuss the various processes that cause changes in temperature and salinity and hence density. </li>
       <li>Discuss the limitation of moored CTD observation versus a CTD profile in evaluating density variations.</li>
       <li>Consider the implications for marine productivity if temperature continues to increase and water becomes more density stratified, reducing mixing that brings nutrient rich waters to the surface. (May require some additional background either introduced here or prior to this exercise.)</li>
       <li>Consider what changes in stratification might occur with predicted changes to climate and human activities. (This may require some background either introduced here or prior to this exercise.)</li>
+      <li>Students might be curious about why some of the seawater properties vary so much during certain periods. If appropriate, you can discuss the importance of the vertical distribution of these properties and the way the mixed layer depth fluctuates over time. Since the data are from fixed-depth moorings (at 7 m and 50 m), much of the variability is likely due to the mixed layer moving above and below the depth of sensors at certain times of the year. This is particularly evident in the Station Papa dataset. </li>
     </ul>
   </div>
 </div>
+
 
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><strong>Reflection:</strong></h3>
   </div>
   <div class="panel-body">
+    <p>Students revisit the concept map they created at the beginning of the activity. Based on their discoveries, students can revise the relationships between variables or identify which connections are most important in coastal waters versus the open ocean.</p>
+    <p>Ask the students to consider how they learned and how much they learned and applied their learning through one or more of the following:</p>
     <ul>
-      <li>Students revisit the concept map they created at the beginning of the activity. Based on their discoveries, students can revise the relationships between variables or identify which connections are most important in coastal waters versus the open ocean.</li>
-      <li>Ask the students to consider how they learned and how much they learned and applied their learning through one or more of the following:
-        <ul>
-          <li>What new skills did you learn that helped you to figure out what was causing the observed density patterns?</li>
-          <li>What concepts did you need to learn more about in order to figure out the relative importance of salinity versus temperature?</li>
-          <li>What new connections between concepts did you make?</li>
-          <li>In what ways did these connections help you to understand the concepts better?</li>
-          <li>What was the most difficult part of this activity/unit/challenge for you? Why? What helped you to figure it out?</li>
-        </ul>
-      </li>
-      <li>Students might be curious about why some of the seawater properties vary so much during certain periods. If appropriate, you can discuss the importance of the vertical distribution of these properties and the way the mixed layer depth fluctuates over time. Since the data are from fixed-depth moorings (at 7 m and 50 m), much of the variability is likely due to the mixed layer moving above and below the depth of sensor at certain times of the year. This is particularly evident in the Station Papa dataset. </li>
-    </ul>
+      <li>What new skills did you learn that helped you to figure out what was causing the observed density patterns?</li>
+      <li>What concepts did you need to learn more about in order to figure out the relative importance of salinity versus temperature?</li>
+      <li>What new connections between concepts did you make?</li>
+      <li>In what ways did these connections help you to understand the concepts better?</li>
+      <li>What was the most difficult part of this activity/unit/challenge for you? Why? What helped you to figure it out?</li>
+    </ul>    
   </div>
 </div>
 

@@ -1,0 +1,32 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "OOI_Arrays_GPCECPGI.jpg",
+    "caption": "The Ocean Observatories Initiative (<a href=\"http://oceanobservatories.org/\">OOI</a>) has hundreds of instruments collecting data every minute of every day from locations (arrays) throughout the Pacific and Atlantic Oceans. Here we are looking at data from Station Papa (highlighted in red), Coastal Endurance (green), Coastal Pioneer (yellow), and Irminger Sea (purple)."
+  },
+  {
+    "title": "Global Station Papa Array",
+    "file": "CEV-OOI-Global-Station-PAPA.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-station-papa-array/\">Station Papa Array</a> is located in the north Pacific, off the coast of Alaksa. Data in this activity were collected from an instrument on <a href=\"http://oceanobservatories.org/site/GP03FLMA/\">Flanking Mooring A</a>."
+  },
+  {
+    "title": "Coastal Endurance Array",
+    "file": "Coastal-Endurance-Array.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-endurance/\">Coastal Endurance Array</a> is located of the Northwest coast of the US. Data in this activity were collected from an instrument on the <a href=\"http://oceanobservatories.org/site/CE06ISSM/\">Washington Inshore Surface Mooring</a>."
+  },
+  {
+    "title": "Coastal Pioneer Array",
+    "file": "CEV-OOI-Coastal-Pioneer-Array.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/coastal-pioneer/\">Coastal Pioneer Array</a> is located in the Mid-Atlantic off the coast of Rhode Island and Massachusetts.  Data in this activity were collected from an instrument on the <a href=\"http://oceanobservatories.org/site/CP04OSSM/\">Offshore Surface Mooring</a>."
+  },
+  {
+    "title": "Global Irminger Sea Array",
+    "file": "CEV-OOI-Global-Irminger-Sea.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/array/global-irminger-sea-array/\">Global Irminger Sea Array</a> is located of the coast of Greenland.  Data in this activity were collected from an instrument on <a href=\"http://oceanobservatories.org/site/GI03FLMA/\">Flanking Mooring A</a>."
+  },
+  {
+    "title": "CTD",
+    "file": "CTD-PHOTO.jpg",
+    "caption": "A CTD sesnsor collectes conductivity, temperature and depth, which can be used to calculate salinity and temperature as well."
+  }
+]
