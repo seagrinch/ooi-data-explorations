@@ -25,25 +25,25 @@
 
 <h3>Your Objective</h3>
 <?php if ($level=='version1'): ?>
-<p>Observe temperature, salinity and density data from four locations.</p>
+<p>Observe temperature, salinity, and density data from four locations.</p>
 <ol>
   <li>Make a prediction on whether temperature or salinity is more important in determining seawater density at each location.</li>
   <li>Test this prediction by observing how density changes when temperature or salinity is held constant at the mean value</li>
 </ol>
 <?php elseif ($level=='exploration'): ?>
-<p>Observe temperature, salinity and density data from Station Papa.</p>
+<p>Observe temperature, salinity, and density data from Station Papa.</p>
 <ol>
   <li>Make a prediction on whether temperature or salinity is more important in determining seawater density at this location.</li>
   <li>Test this prediction by observing how density changes when temperature or salinity is held constant at the mean value</li>
 </ol>
 <?php elseif ($level=='invention'): ?>
-<p>Observe temperature, salinity and density data from two stations.</p>
+<p>Observe temperature, salinity, and density data from two stations.</p>
 <ol>
   <li>Make a prediction on whether temperature or salinity is more important in determining seawater density at each location.</li>
   <li>Test this prediction by observing how density changes when temperature or salinity is held constant at the mean value</li>
 </ol>
 <?php elseif ($level=='application'): ?>
-<p>Observe temperature, salinity and density data from four different locations.</p>
+<p>Observe temperature, salinity, and density data from four different locations.</p>
 <ol>
   <li>Make a prediction on whether temperature or salinity is more important in determining seawater density at each location.</li>
   <li>Test this prediction by observing how density changes when temperature or salinity is held constant at the mean value</li>
@@ -233,7 +233,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Observe how temperature, salinity influence density at three locations.</small></h2>
+<h2><?= $lesson_title ?><br><small>Observe how temperature and salinity influence density at three locations.</small></h2>
 </div>
 
 <p>&nbsp;</p>
