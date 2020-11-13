@@ -30,7 +30,7 @@ $(document).ready(function () {
   });
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/acidification_exp.csv", {
-    ylabel: 'pCO2 (µatm)',
+    ylabel: 'pCO<sub>2</sub> (µatm)',
     //legend: 'always', //onmouseover
     labelsSeparateLines: true,
     labelsUTC : true,
@@ -41,7 +41,7 @@ $(document).ready(function () {
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : false,
-    visibility: [0,1,1,0,0,0,0,0,0,0],
+    visibility: [0,0,1,0,0,0,0,0,0,0],
   });
 
   g3 = new Dygraph(document.getElementById("chart3"), "data/acidification_exp.csv", {
@@ -57,7 +57,7 @@ $(document).ready(function () {
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : true,
-    visibility: [0,0,0,0,0,0,0,1,0,0],
+    visibility: [0,0,0,1,0,0,0,0,0,0],
   });
   
   g4 = new Dygraph(document.getElementById("chart4"), "data/acidification_exp.csv", {
@@ -159,7 +159,7 @@ function goto_step(step) {
       $('#chart2').show(1000)
       $('#chart3').hide()
       $('#chart4').hide()
-      $('#btext').text("Here is the Air and Sea pCO2 concentrations at this mooring. Click the next button when you're ready to take a look at another dataset.")
+      $('#btext').html("Here is the seawater pCO<sub>2</sub> concentration at this mooring. Click the next button when you're ready to take a look at another dataset.")
       break;
     case 3: // Add Temp (3 graphs)
       $('#chart2').show(1000)
@@ -171,7 +171,7 @@ function goto_step(step) {
       $('#chart2').show(1000)
       $('#chart3').show(1000)
       $('#chart4').show(1000)
-      $('#btext').text("This graph shows when winds blow to the North (Northward) or South (Southward).  Do you notice any relationship between the wind direction and dissolved oxygen or seawater temperature? Click the next button when you're ready")
+      $('#btext').text("This graph shows when winds blow to the North (Northward) or South (Southward).  Do you notice any relationship between the wind direction and seawater temperature? Click the next button when you're ready.")
       break;
     case 5: // Show wind boxes on just wind graph
       $('#chart2').show(1000)
@@ -213,7 +213,9 @@ var fill_rects = function(canvas, area, g) {
     var canvas_width = canvas_right_x - canvas_left_x;
     canvas.fillRect(canvas_left_x, area.y, canvas_width, area.h);
   }
-  canvas.fillStyle = "rgba(128, 128, 255, 0.3)"; //Blue
+  
+  //canvas.fillStyle = "rgba(128, 128, 255, 0.3)"; //Blue
+  canvas.fillStyle = "rgba(225,225,225,.3)"; //White
   highlight_period(new Date('2017-05-25T00:00'), new Date('2017-05-27T11:00')) 
   highlight_period(new Date('2017-05-27T20:00'), new Date('2017-05-28T02:00')) 
   highlight_period(new Date('2017-05-28T22:00'), new Date('2017-05-30T18:00')) 
@@ -223,7 +225,8 @@ var fill_rects = function(canvas, area, g) {
   highlight_period(new Date('2017-06-17T04:00'), new Date('2017-06-17T21:00')) 
   highlight_period(new Date('2017-06-18T19:00'), new Date('2017-06-25T00:00')) 
 
-  canvas.fillStyle = "rgba(244, 138, 160, 0.3)"; //Red
+  //canvas.fillStyle = "rgba(244, 138, 160, 0.3)"; //Red
+  canvas.fillStyle = "rgba(25,25,25,.3)"; //Grey
   highlight_period(new Date('2017-05-27T11:00'), new Date('2017-05-27T20:00'))
   highlight_period(new Date('2017-05-28T02:00'), new Date('2017-05-28T22:00')) 
   highlight_period(new Date('2017-05-30T18:00'), new Date('2017-05-31T00:00')) 

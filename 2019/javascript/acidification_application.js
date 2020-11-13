@@ -17,7 +17,7 @@ $(document).ready(function () {
     labelsUTC : false,
     colors : colors, 
     strokeWidth: 2,
-    drawPoints: true,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: true,
@@ -30,18 +30,18 @@ $(document).ready(function () {
   });
 
   g2 = new Dygraph(document.getElementById("chart2"), "data/acidification.csv", {
-    ylabel: 'pCO2 (µatm)',
+    ylabel: 'pCO<sub>2</sub> (µatm)',
     //legend: 'always', //onmouseover
     labelsSeparateLines: true,
     labelsUTC : false,
     colors : colors, 
     strokeWidth: 2,
-    drawPoints: true,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : false,
-    visibility: [0,1,1,0,0,0,0,0,0,0],
+    visibility: [0,0,1,0,0,0,0,0,0,0],
   });
 
   g3 = new Dygraph(document.getElementById("chart3"), "data/acidification.csv", {
@@ -52,12 +52,12 @@ $(document).ready(function () {
     labelsUTC : false,
     colors : colors, 
     strokeWidth: 2,
-    drawPoints: true,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : true,
-    visibility: [0,0,0,0,0,0,0,1,1,0],
+    visibility: [0,0,0,1,0,0,0,0,0,0],
   });
   
   g4 = new Dygraph(document.getElementById("chart4"), "data/acidification.csv", {
@@ -68,12 +68,13 @@ $(document).ready(function () {
     labelsUTC : false,
     colors : colors, 
     strokeWidth: 2,
-    drawPoints: true,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: false,
     animatedZooms : true,
     visibility: [0,0,0,0,0,0,1,0,0,0],
+    underlayCallback: function(canvas, area, g) { fill_rect(canvas, area, g) },
   });
   
   var sync = Dygraph.synchronize(g1, g2, g3, g4, {
@@ -82,4 +83,9 @@ $(document).ready(function () {
     range: false
   });
   
+  var fill_rect = function(canvas, area, g) {
+    canvas.fillStyle = "rgba(25,25,25,.2)"; //Grey
+    canvas.fillRect(area.x, 0, area.w, g.toDomYCoord(0));
+  }
+
 }); //document.ready

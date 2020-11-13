@@ -45,7 +45,7 @@
     <p class="text-center"><a class="btn btn-primary disabled" id="prev" onclick="changeState('prev')">Previous</a></p>
   </div>
   <div class="col-md-8">
-    <p id="btext" class="text-center">This pH data is from the subsurface (at 7m) at this location.</p>
+    <p id="btext" class="text-center">This pH data is from the subsurface (at 7m) at this location. Click next to add another dataset.</p>
   </div>
   <div class="col-md-2">
     <p class="text-center"><a class="btn btn-primary" id="next" onclick="changeState('next')">Next</a></p>
@@ -85,7 +85,7 @@
 <ul>
   <li>By clicking on the Next button you can add more data sets.</li>
   <li>Examine the different data sets to see if they have similar patterns.</li>
-  <li>Zoom in and out to see if changes in one type of data correlate with changes in another, or if there is a lag between the two. You can zoom by grabbing the sliders on the graph underneath the pH graph, or by clicking and dragging sliders on any of the subsequent graphs of pCO2, temperature or wind speed.</li>
+  <li>Zoom in and out to see if changes in one type of data correlate with changes in another, or if there is a lag between the two. You can zoom by grabbing the sliders on the graph underneath the pH graph, or by clicking and dragging sliders on any of the subsequent graphs of pCO<sub>2</sub>, temperature or wind speed.</li>
   <li>Note that the wind data shows only that part of the wind parallel to shore. Positive values indicate wind blowing to the north, negative values to the south</li>
 </ul>
 
@@ -93,7 +93,7 @@
 <p>Datasets for this activity come from the Coastal Endurance Array Oregon Shelf Surface Buoy and Oregon Inshore Surface Mooring (see background section below for details about these locations and instruments).You can interact with the data by:</p>
 <ul>
   <li>Examine the different data sets to see if they have similar patterns.</li>
-  <li>Zoom in and out to see if changes in one type of data correlate with changes in another, or if there is a lag between the two. You can zoom by grabbing the sliders on the graph underneath the pH graph, or by clicking and dragging sliders on any of the subsequent graphs of pCO2, temperature or wind speed.</li>
+  <li>Zoom in and out to see if changes in one type of data correlate with changes in another, or if there is a lag between the two. You can zoom by grabbing the sliders on the graph underneath the pH graph, or by clicking and dragging sliders on any of the subsequent graphs of pCO<sub>2</sub>, temperature or wind speed.</li>
   <li>Note that the wind data shows only that part of the wind parallel to shore. Positive values indicate wind blowing to the north, negative values to the south</li>
 </ul>
 
@@ -116,7 +116,7 @@
   <div class="col-md-6">
     <strong>Interpretation Questions</strong>
     <ul>
-      <li>Examine each data set (pH, seawater pCO2, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a month?</li>
+      <li>Examine each data set (pH, seawater pCO<sub>2</sub>, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a month?</li>
       <li>Do you see any similarities or differences in how these data vary?</li>
     </ul>
   </div>
@@ -128,8 +128,8 @@
     <strong>Orientation Questions</strong>
     <ul>
       <li>Zoom into May - July 2017. What trends do you see in the data. Compare this trend to May - July 2018. Do the trends match? (NOTE: Need to check these date ranges and make sure the trend is clear)</li>
-      <li>Zoom into January-December 2017, examine each data set (pH, seawater pCO2, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a year? Compare to the data sets from January-December 2018. How are they similar or different?</li>
-      <li>Examine each data set (pH, seawater pCO2, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a year? Season?</li>
+      <li>Zoom into January-December 2017, examine each data set (pH, seawater pCO<sub>2</sub>, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a year? Compare to the data sets from January-December 2018. How are they similar or different?</li>
+      <li>Examine each data set (pH, seawater pCO<sub>2</sub>, temperature and wind direction) and explore how it changes through time. What patterns do you see for each individual data set over the course of a year? Season?</li>
     </ul>
   </div>
   <div class="col-md-6">
@@ -146,11 +146,34 @@
 
 
 <h3>Background Information</h3>
-<p>TBD</p>
+<p>Click on the images below to learn more about where and how the dataset above was collected.</p>
+<?php
+  $json_file = file_get_contents('json/acidification.json');
+  $images = json_decode($json_file);
+?>
+<div class="row">
+  <?php foreach ($images as $image): ?>
+  <div class="col-xs-6 col-md-3">
+    <a href="images_acidification/thumb/<?= $image->file ?>" class="thumbnail" data-toggle="lightbox" data-gallery="gallery" data-title="<?= $image->title ?>" data-footer="<?= htmlspecialchars($image->caption . ' <br><small>[<a href="images_acidification/large/' . $image->file . '" target="_blank">Larger Image</a>]</small>') ?>" class=""><img src="images_acidification/thumb/<?= $image->file ?>" class="img-responsive" alt="" /></a>
+  </div>
+  <?php endforeach; ?>
+</div>
 
 
 <h3>Dataset Information</h3>
-<p>TBD</p>
+<p class="pull-right"><a href="data/production_invention.csv" class="btn btn-sm btn-primary">Download this Dataset</a></p>
+
+<p>The data for this activity was obtained from the following <a href="https://oceanobservatories.org/array/coastal-endurance/">Coastal Endurance</a> instruments:</p>
+<ul>
+  <li><a href="https://oceanobservatories.org/instrument-class/ph/">pH</a> (7m) @ Oregon Shelf Surface Mooring (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-RID26-06-PHSEND000">CE02SHSM-RID26-06-PHSEND000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/pco2a/">pCO<sub>2</sub></a> (1m) @ Oregon Shelf Surface Mooring (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD12-04-PCO2AA000">CE02SHSM-SBD12-04-PCO2AA000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/ctd/">Seawater Temperature</a> (25m) @ Oregon Inshore Surface Mooring (<a href="https://ooinet.oceanobservatories.org/plot/#CE01ISSM-MFD37-03-CTDBPC000">CE01ISSM-MFD37-03-CTDBPC000</a>)</li>
+  <li><a href="https://oceanobservatories.org/instrument-class/metbk/">Winds</a> (3m above sea-level) @ Oregon Shelf Surface Mooring (<a href="https://ooinet.oceanobservatories.org/plot/#CE02SHSM-SBD11-06-METBKA000">CE02SHSM-SBD11-06-METBKA000</a>)</li>
+</ul>  
+  
+<p>Datasets were downloaded from the OOI data portal, outliers were removed, and then hourly (mean) averages of seawater pH, pCO<sub>2</sub>, temperature, salinity and wind speeds were calculated and merged together into a single file.</p>
+
+<p>See this <a href="https://github.com/ooi-data-lab/data-lab-workshops/blob/master/August2019/DL_August_Ocean_Acidification_v1.ipynb">Jupyter Notebook</a> for details on how the data for this activity was processed.</p>
 
 
 <!-- ACTIVITY INTRODUCTION -->
@@ -193,7 +216,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Gerken, S., Greengrove, C., Nuwer, M., &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Gerken, S., Greengrove, C., Nuwer, M., Smith, S., &amp; Lichtenwalner, C. S. (2020). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 <?php 
   include_once('../footer.php'); 

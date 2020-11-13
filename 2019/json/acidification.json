@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Measuring the Ocean",
+    "file": "Array_Map.jpg",
+    "caption": " The Ocean Observatories Initiative (<a href=\"https://oceanobservatories.org\">OOI</a>) has hundreds of oceanographic instruments that are collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. For this activity we will be looking at the Coastal Endurance Array Oregon Shelf Surface Buoy and Oregon Inshore Surface Mooring."
+  },
+  {
+    "title": "The Endurance Array",
+    "file": "Endurance_Array_Location.jpg",
+    "caption": "The Endurance array collects oceanographic data along the Oregon and Washington coasts. The data used in this activity was collected at the <a href=\"https://oceanobservatories.org/site/ce02shsm/\">Oregon Shelf Surface Mooring</a>."
+  },
+  {
+    "title": "Endurance Oregon Line",
+    "file": "Endurance_Oregon_Line.png",
+    "caption": "Below the ocean surface off of Oregon and Washington are multiple oceanographic instruments attached along cables running from the surface down to the seafloor in the Coastal Endurance location. This is a drawing to represent where the different instruments are located in the ocean. Data in this activity were collected from instruments on the Shelf Surface Mooring in the center of the drawing."
+  },
+  {
+    "title": "Oregon Shelf Surface Mooring",
+    "file": "Oregon_Shelf_Surface_Mooring.png",
+    "caption": "The Oregon Shelf Surface Mooring collects data from the sea surface to 80m deep. This mooring is equipped with a variety of oceanographic sensors, including temperature, wind, pCO2, and pH, and is designed to withstand the large tidal fluctuations."
+  },
+  {
+    "title": "pH Scale",
+    "file": "pH_Scale.jpg",
+    "caption": "pH is a measurement of how acidic or basic a solution is. A pH of 7 is neutral. pH values below 7 are acidic and above 7 are basic. Photo credit: NOAA PMEL Carbon Program."
+  },
+  {
+    "title": "Ocean Acidification",
+    "file": "OA_Pathway.jpg",
+    "caption": "CO2 absorbed from the atmosphere into the ocean reduces the availability of carbonate, a key component in shell-building. Photo credit: NOAA PMEL Carbon Program. "
+  },
+  {
+    "title": "Oyster Spat",
+    "file": "Oyster_Spat.jpg",
+    "caption": "Oyster larvae, known as spat, are especially sensitive to ocean acidification. Shown above are one-day old oyster spat from the Taylor Shellfish hatchery on Dabob Bay, WA. On the left is an oyster spat reared in favorable pH. The spat on the right was reared under lower pH conditions. Image courtesy of George Waldbusser and Elizabeth Brunner, Oregon State University."
+  },
+  {
+    "title": "pH Profile",
+    "file": "pH_Depth.png",
+    "caption": "pH as a function of depth in the Atlantic and Pacific oceans. Figure from NOAA National Centers for Environmental Information."
+  }
+]
