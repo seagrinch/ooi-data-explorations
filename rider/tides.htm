@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Tides Data Lab - Rider University</title>
+</head>
+
+<body>
+  
+<!-- DATA CHART -->
+<div class="container" style="width: 800px;">
+  <div id="chart" style="width:800px; height: 320px;"></div>
+
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+      <p class="text-right"><strong>Select a Station</strong></p>
+    </div>
+    <div class="col-xs-9">
+      <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" checked> 
+        Endurance Array (<a href="https://oceanobservatories.org/site/CE07SHSM/">Washington Shelf Surface Mooring</a>)</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
+        Pioneer Array (<a href="https://oceanobservatories.org/site/cp03issm/">Inshore Surface Mooring</a>)</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
+        Pensacola, FL (<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8729840">station info</a>)</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+        Atlantic City, NJ (<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8534720">station info</a>)</label>
+    </div>
+  </div>
+  <div class="row" style="margin-top:20px;">
+    <div class="col-xs-3">
+      <p class="text-right"><strong>Quick Zooms</strong></p>
+    </div>
+    <div class="col-xs-9">
+      <p class="text-left">
+        <button class="btn btn-primary btn-sm" onclick="graph_range(1)">1 Day</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range(2)">2 Days</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range(7)">7 Days</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range(14)">14 Days</button>
+      </p>
+    </div>
+  </div>
+
+  <p class="text-right"><small>&copy; 2021 Rutgers University</p>
+</div>
+
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+/*
+    font-weight: bold;
+    color:008100;
+*/
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+// OOI Data Labs - Rider Widgets
+// Written by Sage Lichtenwalner, 1/12/2021
+
+var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A"];
+
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart"), "data/tides.csv", {
+    title: 'Observed Water Levels',
+    ylabel: 'Water Level (m)',
+    //y2label: '',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always',
+    labelsSeparateLines: true,
+    labelsUTC: true,
+    colors : colors,
+    strokeWidth: 2,
+    drawPoints: false,
+    pointSize: 3,
+    highlightCircleSize: 6,
+    //logscale : true,
+    showRangeSelector: true,
+    //rangeSelectorPlotFillColor : "#00839C",
+    //rangeSelectorPlotStrokeColor : "#008100",
+    //animatedZooms : true,
+    visibility: [1,0,0,0],
+  });
+
+}); //document.ready
+
+function toggle_radio(el) {
+  visibility =  [false,false,false,false];
+  visibility[el.value] = true;
+  g.setVisibility(visibility);
+  
+  /* Old Way
+  g.setVisibility(0, false);
+  g.setVisibility(1, false);
+  g.setVisibility(2, false);
+  g.setVisibility(3, false);
+  if (el.value) {
+    g.setVisibility(parseInt(el.value), el.checked);
+  } 
+  */
+}
+
+function graph_range(days) {
+  // Retrieve current x-axis limits
+  xlim = g.xAxisRange();  //returns millis since epoch
+  // Change range to specified number of days
+  xlim[1] = xlim[0] + 1000*60*60*24*days
+  g.updateOptions({dateWindow: xlim});
+
+  /* Old Way
+  // Remember, months must be specified between 0 and 11
+  if (days==1) {
+    new_range = [new Date(Date.UTC(2019,5,1)).valueOf(), new Date(Date.UTC(2019,5,2)).valueOf()];
+  } else if (days==2) {
+    new_range = [new Date(Date.UTC(2019,5,1)).valueOf(), new Date(Date.UTC(2019,5,3)).valueOf()];
+  }
+  //console.log(new_range);
+  g.updateOptions({dateWindow: new_range});
+  */
+
+}
+
+</script>
+
+  </body>
+</html>
