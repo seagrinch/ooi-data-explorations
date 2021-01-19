@@ -106,7 +106,8 @@
   var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds, {'opacity':.7});
   imageBounds = [[-72, -180-360], [89.999, 180-360]];
   var seafloor_age2 = L.imageOverlay(imageUrl, imageBounds, {'opacity':.7});
-  overlays['Seafloor Age'] = L.layerGroup([seafloor_age1,seafloor_age2]);
+  seafloor_age = L.layerGroup([seafloor_age1,seafloor_age2]);
+  myMapControl.addOverlay(seafloor_age,'Seafloor Age');
     
   // Plate Boundaries
   var plate_boundaries = L.layerGroup();
