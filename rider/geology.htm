@@ -2,70 +2,91 @@
 
 <html>
 <head>
-    <title>Seafloor Geology Data Lab - Rider University</title>
+  
+  <title>Seafloor Geology Data Lab - Rider University</title>
+    
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+     integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+     crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+     crossorigin=""></script>
+  <!-- Leaflet.PolylineMeasure -->
+  <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
+  <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+  <!-- Leaflet GeoCSV -->
+  <script src="js/leaflet.geocsv-src.js"></script>
+
 </head>
 
 <body>
-
-<!-- Leaflet -->
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-   crossorigin=""/>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-   crossorigin=""></script>
-<!-- Leaflet.PolylineMeasure -->
-<link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
-<script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
-<!-- Leaflet KML -->
-<script src="js/L.KML.js"></script>
-<!-- Leaflet GeoCSV -->
-<script src="js/leaflet.geocsv-src.js"></script>
-
-<!--
-<link rel="stylesheet" type="text/css" href="https://aris.marine.rutgers.edu/wizard/css/fontawesome-all.css">
-<style>
-  .volcanoIcon {
-    text-align: center;
-    line-height: 20px;
-    color: #8B0000; /* FireBrick (web colors) */
-    font-size: 12px;
-  }
-</style>
--->
 
 <!-- DATA CHART -->
 <div style="width: 720px; margin:20px">
   <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
 
+  <p><strong>Zoom to:</strong> 
+    <button class='btn btn-sm btn-default' onclick="zoomTo(-128, 45, 4)">Northeast Pacific</button> 
+    <button class='btn btn-sm btn-default' onclick="zoomTo(-80, -10, 3)">South America</button> 
+    <button class='btn btn-sm btn-default' onclick="zoomTo(120, 4, 3)">Southeast Asia</button>
+  </p>
+
   <div class="row">
-    <div class="col-md-8">
-
-      <p><strong>Zoom to:</strong> 
-        <button class='btn btn-sm btn-default' onclick="zoomTo(-128, 45, 4)">Northeast Pacific</button> 
-        <button class='btn btn-sm btn-default' onclick="zoomTo(-80, -10, 3)">South America</button> 
-        <button class='btn btn-sm btn-default' onclick="zoomTo(120, 4, 3)">Southeast Asia</button>
-      </p>
-
-      <h5>Data Sources:</h5>
-      <ul>
-        <li>Bathymetry and topography from Global Multi-Resolution Topography Data Synthesis (<a href="https://www.gmrt.org">GMRT</a>). </li>
-        <li>Seafloor Age (Muller et al, 1997). Provided by <a href="https://serc.carleton.edu/sp/library/google_earth/examples/49004.html">SERC</a>.</li>
-        <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/">NCEI Volcano Location Database</a>. 
-        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/">USGS Earthquakes</a>.  Dataset includes quakes greater than magnitude 6.0 from 1/1/2000 to 12/31/2020.</li>
-        <li>Tectonic plate boundary types from <a href="http://www-udc.ig.utexas.edu/external/plates/data.htm">The University of Texas Institute for Geophysics</a>. </li>
-        <li>Plate boundaries from Peter Bird (2003), Geochemistry Geophysics Geosystems.  Available on <a href="https://github.com/fraxen/tectonicplates/">GitHub</a>.</li>
-        </li>
+    <div class="col-sm-4">
+      <h4>Toggle Layers</h4>
+      <div id="custom-map-controls"></div>
     </div>
-    <div class="col-md-4">
+    <div class="col-sm-4">
+      <h4>Legend</h4>
+      <p><strong>Earthquake Depths</strong></p>
+      <p>
+        <svg height="12" width="12">
+          <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#DC143C" fill-opacity="0.8" fill-rule="evenodd" />
+        </svg> &lt;30 km<br>
+        <svg height="12" width="12">
+          <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFA500" fill-opacity="0.8" fill-rule="evenodd" />
+        </svg> 30-70 km <br>
+        <svg height="12" width="12">
+          <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#2E8B57" fill-opacity="0.8" fill-rule="evenodd" />
+        </svg> 70-300 km<br>
+        <svg height="12" width="12">
+          <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#00008B" fill-opacity="0.8" fill-rule="evenodd" />
+        </svg> 300+ km
+      </p>
+      <p><strong>Volcanoes </strong></p>
+      <p>
+        <svg height="12" width="12">
+          <circle cx="6" cy="6" r="5" stroke="#888" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#F5F5F5" fill-opacity="0.8" fill-rule="evenodd" />
+        </svg> Volcano
+      </p>
+      <p><strong>Bathymetry/Topography</strong></p>
+      <img src="data/gmrt_legend.png" width="100px">
+    </div>
+    <div class="col-sm-4">
       <img src="data/seafloorage_legend_1_8.png">
     </div>
   </div>
-		
-  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University</p>
+  
+  <div class="row">
+    <div class="col-md-8">    
+      <h5>Data Sources:</h5>
+      <ul>
+        <li>Bathymetry and topography from Global Multi-Resolution Topography Data Synthesis (<a href="https://www.gmrt.org" target="_blank">GMRT</a>). </li>
+        <li>Seafloor Age (Muller et al, 1997). Provided by <a href="https://serc.carleton.edu/sp/library/google_earth/examples/49004.html" target="_blank">SERC</a>.</li>
+        <!-- <li>Tectonic plate boundary types from <a href="http://www-udc.ig.utexas.edu/external/plates/data.htm" target="_blank">The University of Texas Institute for Geophysics</a>. </li> -->
+        <li>Plate boundaries from Peter Bird (2003), Geochemistry Geophysics Geosystems.  Available on <a href="https://github.com/fraxen/tectonicplates/" target="_blank">GitHub</a>.</li>
+        <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/" target="_blank">NCEI Volcano Location Database</a>. </li>
+        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  Dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021.</li>
+      </ul>
+    </div>
+  </div>
+
+  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+
 </div>
-
-
+</body>
+		
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -80,7 +101,7 @@
   var mapcenter = [10,-90]; 
   var myMap = L.map(container, {
     crs: L.CRS.EPSG4326,
-    maxBounds: [[-80, -180-180], [85, 180]],
+    maxBounds: [[-80, -180], [85, 180]],
     minZoom: 1,
     maxZoom: 8,
     //preferCanvas: true    
@@ -98,7 +119,7 @@
   // Add Layer Control Box
   var baselayers = {'GMRT Topography':baseMap};
   var overlays={};
-  var myMapControl = L.control.layers(baselayers,overlays,{'collapsed':false,'hideSingleBase':false}).addTo(myMap);
+  var myMapControl = L.control.layers(baselayers,overlays,{'collapsed':false,'hideSingleBase':true}).addTo(myMap);
   
   // Seafloor Age
   var imageUrl = 'data/seafloorage_1_8.png',
@@ -108,36 +129,8 @@
   var seafloor_age2 = L.imageOverlay(imageUrl, imageBounds, {'opacity':.7});
   seafloor_age = L.layerGroup([seafloor_age1,seafloor_age2]);
   myMapControl.addOverlay(seafloor_age,'Seafloor Age');
-    
-  // Plate Boundaries
-  var plate_boundaries = L.layerGroup();
-  fetch('data/utexas_ridge.kml')
-    .then(res => res.text())
-    .then(kmltext => {
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmltext, 'text/xml');
-      const track1 = new L.KML(kml);
-      plate_boundaries.addLayer(track1)
-    });
-  fetch('data/utexas_strikeslip.kml')
-    .then(res => res.text())
-    .then(kmltext => {
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmltext, 'text/xml');
-      const track2 = new L.KML(kml);
-      plate_boundaries.addLayer(track2)
-    });
-  fetch('data/utexas_trench.kml')
-    .then(res => res.text())
-    .then(kmltext => {
-      const parser = new DOMParser();
-      const kml = parser.parseFromString(kmltext, 'text/xml');
-      const track3 = new L.KML(kml);
-      plate_boundaries.addLayer(track3)
-    });
-  myMapControl.addOverlay(plate_boundaries,'Boundary Types');
   
-  // Plate Boundaries (again)
+  // Plate Boundaries
   var plate_boundaries2 = L.layerGroup();
   fetch('data/PB2002_boundaries.json')
     .then(res => res.json())
@@ -145,44 +138,16 @@
       plate_boundaries2.addLayer( L.geoJSON(plates, {color:'#333',weight:3}) );
     })
   myMapControl.addOverlay(plate_boundaries2,'Plate Boundaries');
-  
-  // Filled Plate Boundaries
-  var plate_boundaries3 = L.layerGroup();
-  fetch('data/PB2002_plates.json')
-    .then(res => res.json())
-    .then(plates => {
-      let colors = ['#8dd3c7','#ffffb3','#bebada','#fb8072','#80b1d3','#fdb462','#b3de69'];
-      let plate_layer = L.geoJSON(plates, {
-        style: function (feature) {
-          return {
-            color: '#333',
-            weight: 2,
-            fillColor: colors[Math.floor((Math.random()*7))],
-            fillOpacity: .2
-          };
-        }
-      })
-      .bindPopup(function (layer) {
-        return layer.feature.properties.PlateName;
-      })
-      plate_boundaries3.addLayer(plate_layer);
-    })
-  myMapControl.addOverlay(plate_boundaries3,'Tectonic Plates');
-  
+    
   // Volcanoes
   var volcanoMarker = {
-      radius: 3,
+      radius: 4,
       fillColor: "#F5F5F5", /* WhiteSmoke (web colors) */
       color: "#888",
       weight: 1,
       opacity: 1,
       fillOpacity: 0.8
   };
-  var volcanoIcon = L.divIcon({
-    html: '<i class="fad fa-volcano fa-1x"></i>',
-    //iconSize: [14,14],
-    className: 'volcanoIcon',
-  });
   fetch('data/volcanoes_20210113.csv')
     .then(res => res.text())
     .then(data => {
@@ -193,7 +158,6 @@
         longitudeTitle:'Longitude',
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, volcanoMarker);
-          //return L.marker(latlng, {icon: volcanoIcon});
         },
         onEachFeature: function (feature, layer) {
           if (feature.properties && feature.properties.volcano_name) {
@@ -211,14 +175,14 @@
 
   // Earthquakes
   var earthquakeMarker = {
-      //radius: 3,
+      radius: 5,
       fillColor: "#00FF7F", /* SpringGreen (web colors) */
       color: "#555",
       weight: 1,
       opacity: 1,
       fillOpacity: 0.8
   };
-  fetch('data/earthquakes_20210113.csv')
+  fetch('data/earthquakes_20210128_55.csv')
     .then(res => res.text())
     .then(data => {
       var geoLayer = L.geoCsv(data, {
@@ -228,7 +192,7 @@
         longitudeTitle:'longitude',
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, earthquakeMarker)
-            .setRadius((feature.properties.mag-4)**1.5); 
+            //.setRadius((feature.properties.mag-4)**1.5); //6=2.8px, 7=5.2, 8=8, 9=11.1
         },
         style: function(feature) {
           if (feature.properties.depth<30) {
@@ -273,88 +237,19 @@
   function zoomTo(longitude,latitude,zoomlevel) {
     myMap.setView([latitude,longitude], zoomlevel);
   }
+  
+  // Hack to move controls outside of map
+  // Adapted from https://stackoverflow.com/questions/29941794/placing-leaflet-controls-outside-map
+  $(document).ready(function () {
+    var newParent = document.getElementById('custom-map-controls');
+      var oldParent = document.getElementsByClassName("leaflet-top leaflet-right")
+      while (oldParent[0].childNodes.length > 0) {
+        newParent.appendChild(oldParent[0].childNodes[0]);
+      }
+   });
 
 </script>
 
-<!-- Leaflet.Legend -->
-<link rel="stylesheet" href="js/leaflet.legend.css" />
-<script type="text/javascript" src="js/leaflet.legend.js"></script>
-<script>
-var legend = L.control.Legend({
-        position: "bottomleft",
-        collapsed: true,
-        symbolWidth: 24,
-        opacity: 1,
-        column: 2,
-        legends: [{
-            label: "<30km",
-            type: "circle",
-            radius: 6,
-            color: "#555",
-            fillColor: "#DC143C",
-            fillOpacity: 0.6,
-            weight: 1,
-        },{
-            label: "30-70km",
-            type: "circle",
-            radius: 6,
-            color: "#555",
-            fillColor: "#FFA500",
-            fillOpacity: 0.6,
-            weight: 1,
-        },{
-            label: "70-300km",
-            type: "circle",
-            radius: 6,
-            color: "#555",
-            fillColor: "#2E8B57",
-            fillOpacity: 0.6,
-            weight: 1,
-        },{
-            label: "300+km",
-            type: "circle",
-            radius: 6,
-            color: "#555",
-            fillColor: "#00008B",
-            fillOpacity: 0.6,
-            weight: 1,
-        },
-        {
-            label: "Ridge",
-            type: "polyline",
-            color: "#FF0000",
-            fillColor: "#FF0000",
-            weight: 2,
-            //layers: polyline
-        }, {
-            label: "Strike Slip",
-            type: "polyline",
-            color: "#ffaa00",
-            fillColor: "#FF0000",
-            weight: 2,
-            //layers: polyline
-        }, {
-            label: "Trench",
-            type: "polyline",
-            color: "#00a9e6",
-            fillColor: "#FF0000",
-            weight: 2,
-            //layers: polyline
-        },{
-            label: "Volcano",
-            type: "circle",
-            radius: 6,
-            color: "#888",
-            fillColor: "#F5F5F5",
-            fillOpacity: 0.6,
-            weight: 1,
-        } ]
-    })
-    .addTo(myMap);
-</script>
-
-
-  </body>
 </html>
 
 <!--
