@@ -12,6 +12,24 @@
   <div id="chart" style="width:800px; height: 320px;"></div>
 
   <div class="row" style="margin-top:10px;">
+    
+    <div class="col-xs-3">
+      <p class="text-right">Select variables to show:</p>
+    </div>
+    <div class="col-xs-9">
+      <label style="font-weight: normal;"><input type="checkbox" name="pressure" value=0 onclick="toggle(this)" checked> 
+        Barometric Pressure (mbar)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" name="winds" value=1 onclick="toggle(this)" > 
+        Wind Speed (m/s)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" name="waves" value=2 onclick="toggle(this)" > 
+        Significant Wave Height (m)</label>
+    </div>
+  </div>
+
+
+<!--
+  <div class="row" style="margin-top:10px;">
+    
     <div class="col-xs-3">
       <p class="text-right">Include pressure:</p>
     </div>
@@ -33,7 +51,9 @@
         None</label>
     </div>
   </div>
-  <p class="text-right">Data from the Pioneer Array <a href="https://oceanobservatories.org/site/cp01cnsm/">Central Surface Mooring</a></p>
+-->
+  
+  <p class="text-right">This data is from the <a href="https://oceanobservatories.org/site/cp01cnsm/" target="_blank">Central Surface Mooring</a> at the OOI Pioneer Array. <br>View location on <a href="https://goo.gl/maps/jErmsZW5wJ7LVwAL7" target="_blank">Google Maps</a> or <a href="https://dataexplorer.oceanobservatories.org/#ooi/array/CP/subsite/CP01CNSM" target="_blank">OOI</a>.</p>
   <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 </div>
 
@@ -48,42 +68,39 @@
   .dygraph-ylabel {
     font-size: 14px;
     font-weight: bold;
-    color:#00457C;
+    color:008100;
   }
 
   .dygraph-y2label {
     font-size: 14px;
     font-weight: bold;
-    color:#d3596d;
+    color:#555;
   }
   
-  .dygraph-legend {
-    left: 544px !important;
-  }
-
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/crosshair.js"></script>
 
 <script type="text/javascript">
 // OOI Data Labs - Rider Widgets
 // Written by Sage Lichtenwalner, 1/12/2021
 
+// time,Barometric Pressure,Wind Speed,Significant Wave Height
 var parameters = [
-  {title:"Barometric Pressure (mbar)"},
-  {title:"Wind Speed (m/s)"},
-  {title:"Wave Height (m)"},
+  {title:"Barometric Pressure (mbar)", name:"Barometric Pressure"},
+  {title:"Wind Speed (m/s)", name:"Wind Speed"},
+  {title:"Wave Height (m)", name:"Significant Wave Height"},
 ];
-
-var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A"];
+var colors = ["#008100","#d3596d","#00457C"];
 
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart"), "data/weather.csv", {
+  g = new Dygraph(document.getElementById("chart"), "data/waves.csv", {
     title: 'Coastal Pioneer Central Surface Mooring',
     ylabel: 'Barometric Pressure (mbar)',
-    y2label: '',
+    y2label: 'Winds (m/s) & Waves (m)',
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always',
     labelsSeparateLines: true,
@@ -108,10 +125,20 @@ $(document).ready(function () {
       'Significant Wave Height': {axis: 'y2'},
     },
     visibility: [1,0,0],
+    plugins: [
+      new Dygraph.Plugins.Crosshair({
+        direction: "vertical"
+      })
+    ]
   });
 
 }); //document.ready
 
+function toggle(el) {
+  g.setVisibility(el.value, el.checked);
+}
+
+// Old code follows
 function toggle_one(el) {
   g.setVisibility(0, el.checked);
 }

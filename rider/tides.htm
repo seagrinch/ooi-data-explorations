@@ -17,13 +17,16 @@
     </div>
     <div class="col-xs-9">
       <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" checked> 
-        Endurance Array (<a href="https://oceanobservatories.org/site/CE07SHSM/">Washington Shelf Surface Mooring</a>)</label><br>
+        Washington Shelf (<a href="https://oceanobservatories.org/site/CE07SHSM/">OOI Endurance Array, Washington Shelf Surface Mooring</a>)</label><br>
       <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
-        Pioneer Array (<a href="https://oceanobservatories.org/site/cp03issm/">Inshore Surface Mooring</a>)</label><br>
+        Mid-Atlantic Shelf  (<a href="https://oceanobservatories.org/site/cp03issm/">OOI Pioneer Array, Inshore Surface Mooring</a>)</label><br>
       <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
-        Pensacola, FL (<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8729840">station info</a>)</label><br>
+        Pensacola, FL (<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8729840">NOS Station #8729840</a>)</label><br>
+<!--
       <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
         Atlantic City, NJ (<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8534720">station info</a>)</label>
+-->
+    <p class="text-right"><a href="tides_map.htm">Map of Station Locations</a></p>
     </div>
   </div>
   <div class="row" style="margin-top:20px;">
@@ -36,6 +39,7 @@
         <button class="btn btn-primary btn-sm" onclick="graph_range(2)">2 Days</button>
         <button class="btn btn-primary btn-sm" onclick="graph_range(7)">7 Days</button>
         <button class="btn btn-primary btn-sm" onclick="graph_range(14)">14 Days</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range(30)">30 Days</button>
       </p>
     </div>
   </div>
@@ -66,6 +70,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/crosshair.js"></script>
 
 <script type="text/javascript">
 // OOI Data Labs - Rider Widgets
@@ -94,7 +99,12 @@ $(document).ready(function () {
     //rangeSelectorPlotStrokeColor : "#008100",
     //animatedZooms : true,
     visibility: [1,0,0,0],
-  });
+    plugins: [
+      new Dygraph.Plugins.Crosshair({
+        direction: "vertical"
+      })
+    ]
+  });   
 
 }); //document.ready
 
