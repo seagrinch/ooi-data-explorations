@@ -25,11 +25,24 @@
 <!-- DATA CHART -->
 <div style="width: 720px; margin:20px">
   <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
-
+<!--   <div id="mapinfo"></div> -->
+  
   <p><strong>Zoom to:</strong> 
-    <button class='btn btn-sm btn-default' onclick="zoomTo(-128, 45, 4)">Northeast Pacific</button> 
-    <button class='btn btn-sm btn-default' onclick="zoomTo(-80, -10, 3)">South America</button> 
-    <button class='btn btn-sm btn-default' onclick="zoomTo(120, 4, 3)">Southeast Asia</button>
+    <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>, 
+    <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>, 
+    <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">South Atlantic</a>, 
+    <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>, 
+    <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>, 
+    <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>, 
+    <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>, 
+    <a class='' onclick="zoomTo(36.386719, -120.959473, 5)">San Andreas</a>, 
+    <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Mid Atlantic Transform</a>, 
+    <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesian Plate Boundary</a>, 
+    <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>, 
+    <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>, 
+    <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>, 
+    <a class='' onclick="zoomTo(30.27832, 84.594727, 4)">Himalayas</a>, 
+    <a class='' onclick="zoomTo(-14.677734, 68.598633, 4)">Central Indian Ocean</a>
   </p>
 
   <div class="row">
@@ -77,7 +90,7 @@
         <!-- <li>Tectonic plate boundary types from <a href="http://www-udc.ig.utexas.edu/external/plates/data.htm" target="_blank">The University of Texas Institute for Geophysics</a>. </li> -->
         <li>Plate boundaries from Peter Bird (2003), Geochemistry Geophysics Geosystems.  Available on <a href="https://github.com/fraxen/tectonicplates/" target="_blank">GitHub</a>.</li>
         <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/" target="_blank">NCEI Volcano Location Database</a>. </li>
-        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  Dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021.</li>
+        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  Large earthquakes dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021. All earthquakes dataset includes quakes greater than magnitude 0 from January, 2021 only.</li>
       </ul>
     </div>
   </div>
@@ -102,7 +115,7 @@
   var myMap = L.map(container, {
     crs: L.CRS.EPSG4326,
     maxBounds: [[-80, -180], [85, 180]],
-    minZoom: 1,
+    minZoom: 0,
     maxZoom: 8,
     //preferCanvas: true    
   }).setView(mapcenter, zoomlevel);
@@ -175,7 +188,7 @@
 
   // Earthquakes
   var earthquakeMarker = {
-      radius: 5,
+      radius: 4,
       fillColor: "#00FF7F", /* SpringGreen (web colors) */
       color: "#555",
       weight: 1,
@@ -216,8 +229,47 @@
         }
       })
       //geoLayer.addTo(myMap)
-      myMapControl.addOverlay(geoLayer,'Earthquakes');
+      myMapControl.addOverlay(geoLayer,'Large Earthquakes, 5.5+, 20 years');
     })
+
+  // 2nd Earthquake Layer
+  fetch('data/earthquakes_2021-01.csv')
+    .then(res => res.text())
+    .then(data => {
+      var geoLayer = L.geoCsv(data, {
+        firstLineTitles: true, 
+        fieldSeparator: ',', 
+        latitudeTitle:'latitude', 
+        longitudeTitle:'longitude',
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, earthquakeMarker)
+            //.setRadius((feature.properties.mag-4)**1.5); //6=2.8px, 7=5.2, 8=8, 9=11.1
+        },
+        style: function(feature) {
+          if (feature.properties.depth<30) {
+            return {fillColor: "#DC143C", fillOpacity:0.4}; /* Crimson (web colors) */
+          } else if (feature.properties.depth<70) {
+            return {fillColor: "#FFA500", fillOpacity:0.4}; /* Orange (web colors) */
+          } else if (feature.properties.depth<300) {
+            return {fillColor: "#2E8B57", fillOpacity:0.4}; /* SeaGreen (web colors) */
+          } else {
+            return {fillColor: "#00008B", fillOpacity:0.4}; /* DarkBlue (web colors) */
+          }
+        },         
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.mag) {
+            layer.bindPopup(
+            '<p><b>Time</b>: '+feature.properties.time+'<br>'+
+            '<b>Location</b>: '+feature.geometry.coordinates[0]+'E, '+feature.geometry.coordinates[1]+'N<br>'+
+            '<b>Depth</b>: '+feature.properties.depth+'<br>'+
+            '<b>Magnitude</b>: '+feature.properties.mag+'</p>');
+          }
+        }
+      })
+      //geoLayer.addTo(myMap)
+      myMapControl.addOverlay(geoLayer,'All Earthquakes, 0+, 30 days');
+    })
+
 
   // Add Scale Bar
   L.control.scale ({maxWidth:240, metric:true, imperial:false, position:'bottomleft'}).addTo(myMap);
@@ -234,8 +286,8 @@
   }).addTo(myMap);
 
   // Zoom Buttons
-  function zoomTo(longitude,latitude,zoomlevel) {
-    myMap.setView([latitude,longitude], zoomlevel);
+  function zoomTo(latitude,longitude,zoomlevel) {
+    myMap.setView([latitude,longitude], zoomlevel, {animate:true, duration:1});
   }
   
   // Hack to move controls outside of map
@@ -248,6 +300,14 @@
       }
    });
 
+  // Map zoom info based loosly on https://leafletjs.com/examples/zoom-levels/example-fractional.html
+/*
+  var gauge = L.DomUtil.get('mapinfo');
+	myMap.on('zoomend moveend', function(ev){
+		gauge.innerHTML = 'Zoom level: ' + myMap.getZoom() + '<br> Center: ' + myMap.getCenter();
+	})
+*/
+  
 </script>
 
 </html>
