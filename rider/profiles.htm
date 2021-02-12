@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+<head>
+  <title>Profiles Data Lab - Rider University</title>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <style format="text/css">
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 12px;
+    }
+    h3 {
+      margin: 0px;
+      color: #494949;
+      font-size: 16px;
+    }
+    small {
+      color: #808080;
+    }
+    .myCircle:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" style="width: 800px;">
+    <div id="chart"></div>
+    <div class="row" style="margin-top:10px;">
+      <div class="col-xs-3">
+        <p class="text-right"><strong>Select profiles to plot:</strong></p>
+      </div>
+      <div class="col-xs-9">
+        <label style="color: #4e79a7"><input type="checkbox" class="siteBox" value=1 > Near Polar (60&deg;N)</label> &nbsp;&nbsp;&nbsp;
+        <label style="color: #f28e2c"><input type="checkbox" class="siteBox" value=2 checked> Temperate (34&deg;N)</label> &nbsp;&nbsp;&nbsp;
+        <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (15&deg;N)</label> 
+      </div>
+    </div>
+    <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+  </div>
+</body>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs - Rider Widgets
+// Written by Sage Lichtenwalner, 2/12/2021
+// References
+// Checkboxes https://bl.ocks.org/johnnygizmo/531991a77047112b7ca89f78b840fba5
+// Toggles https://www.d3-graph-gallery.com/graph/bubblemap_buttonControl.html
+// Reusable charts https://www.toptal.com/d3-js/towards-reusable-d3-js-charts
+// Nesting https://www.d3-graph-gallery.com/graph/line_several_group.html
+// Mouseover https://bl.ocks.org/larsenmtl/e3b8b7c2ca4787f77d78f58d41c3da91
+// Line updates https://jonsadka.com/blog/how-to-create-live-updating-and-flexible-d3-line-charts-using-pseudo-data
+// Line id tweak https://stackoverflow.com/questions/40403454/dynamically-add-remove-lines-in-d3-v4-line-chart
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",800)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 20, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 20, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 20, right: 20, bottom: 40, left: 560},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    width2 = +svg.attr("width") - margin2.left - margin2.right,
+    width3 = +svg.attr("width") - margin3.left - margin3.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom,
+    height3 = +svg.attr("height") - margin3.top - margin3.bottom;
+
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+var graph2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+var graph3 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background that makes ggplot2 famous
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "#EBEBEB")
+graph2.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height2)
+    .attr("width", width2)
+    .style("fill", "#EBEBEB")
+graph3.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height3)
+    .attr("width", width3)
+    .style("fill", "#EBEBEB")
+
+function parseData(d){
+  d.pressure = +d.pressure;
+  d.seawater_temperature = +d.temperature;
+  d.practical_salinity = +d.salinity;
+  d.density = +d.sigma0 + 1000;
+  return d;
+}
+
+var siteNames = [
+  {'id':'1','title':'Irminger'},
+  {'id':'2','title':'Temperate'},
+  {'id':'3','title':'Tropical'}];
+
+//Read the data
+d3.csv("data/profiles.csv", parseData, function(data) {
+  
+  // Initialize the axes
+  var x1 = d3.scaleLinear().range([ 0, width1 ])
+  var x2 = d3.scaleLinear().range([ 0, width2 ])
+  var x3 = d3.scaleLinear().range([ 0, width3 ])
+  var y = d3.scaleLinear().range([ 0, height1 ]) // Flip axis
+
+  var xAxis1 = d3.axisBottom().scale(x1).ticks(5)
+  var xAxis2 = d3.axisBottom().scale(x2).ticks(5)
+  var xAxis3 = d3.axisBottom().scale(x3).ticks(4)
+  var yAxis = d3.axisLeft().scale(y).ticks(7)
+
+  var dataNest = d3.nest()
+        .key(function(d) {return d.site;})
+        .entries(data);
+  var dataKeys = dataNest.map(function(d){ return d.key })
+  var color = d3.scaleOrdinal()
+    .domain(dataKeys)
+    .range(["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#bab0ab"])
+
+  graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .attr("class","myXaxis1")
+  graph2.append("g")
+    .attr("transform", "translate(0," + height2 + ")")
+    .attr("class","myXaxis2")
+  graph3.append("g")
+    .attr("transform", "translate(0," + height3 + ")")
+    .attr("class","myXaxis3")
+  graph1.append("g")
+    .attr("class","myYaxis1")
+  graph2.append("g")
+    .attr("class","myYaxis2")
+  graph3.append("g")
+    .attr("class","myYaxis3")
+
+  // Add labels
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 32)
+      .text("Temperature (C)");
+  xLabel2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Salinity (psu)");
+  xLabel3 = graph3.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Potential Density (kg/m^3)");
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Pressure (dbar)")
+  title = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width1/2)
+      .attr("y", -4)
+      .text("CTD Profiles");
+
+  // Create a tooltip div
+  var Tooltip = d3.select("#chart")
+    .append("div")
+      .style("opacity", 0)
+      .attr("class", "tooltip")
+      .style("background-color", "white")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .style("padding", "5px")
+      .style("position", "absolute")
+      .style("display", "block")
+    
+  // Tooltip mouseover functions
+  var mouseover = function(d) {
+    Tooltip.style("opacity", 1)      
+  }
+  var mousemove = function(d) {
+    Tooltip
+      .html('Pressure: ' + d.pressure + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity + '<br>Density: ' + d.density)
+      .style("left", (event.pageX) + 10 + "px")
+      .style("top",(event.pageY) + "px")
+      //.style("left", legendX + 20 + "px")
+      //.style("top","350px")
+      //.style("left", (d3.mouse(this)[0]+70) + "px")
+      //.style("top", (d3.mouse(this)[1]) + "px")
+  }
+  var mouseleave = function(d) {
+    Tooltip.style("opacity", 0)
+  }
+
+  // Function to update graph with specified options
+  function updageGraph() {
+    
+    var choices = [];
+    d3.selectAll(".siteBox").each(function(d){
+      cb = d3.select(this);
+      if(cb.property("checked")){
+        choices.push(cb.property("value"));
+      }
+    });
+    dataSelected = data.filter(function(d,i){return choices.includes(d.site) });
+    dataNestSelected = dataNest.filter(function(d,i){return choices.includes(d.key) });
+        
+    var t = d3.transition().duration(1000)
+    
+    x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
+    graph1.selectAll(".myXaxis1").transition(t).call(xAxis1);
+    x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
+    graph2.selectAll(".myXaxis2").transition(t).call(xAxis2);
+    x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
+    graph3.selectAll(".myXaxis3").transition(t).call(xAxis3);
+    
+    y.domain([0, d3.max(dataSelected, function(d) { return d.pressure }) ]);
+    graph1.selectAll(".myYaxis1").transition(t).call(yAxis);
+    graph2.selectAll(".myYaxis2").transition(t).call(yAxis);
+    graph3.selectAll(".myYaxis3").transition(t).call(yAxis);
+
+    // Update the lines
+    function updateLine(graph,xvar,yvar) {
+      var lines = graph.selectAll(".line")
+        .data(dataNestSelected, function (d) {
+          return d.key;
+        })
+      lines.transition(t)
+          .attr("fill", "none")
+          .attr("stroke", function(d){ return color(d.key) })
+          .attr("stroke-width", 3)
+          .attr("d", function(d) {
+            return d3.line()
+              .x(xvar)
+              .y(yvar)
+              (d.values)
+          })
+      lines.enter()
+        .append("path")
+          .attr('class','line')
+          .attr("fill", "none")
+          .attr("stroke", function(d){ return color(d.key) })
+          .attr("stroke-width", 3)
+          .attr("d", function(d) {
+            return d3.line()
+              .x(xvar)
+              .y(yvar)
+              (d.values)
+          })
+      lines.exit().remove();
+
+      // Add dots for tooltips
+      var dots = graph.selectAll('.dot')
+        .data(dataSelected)
+      dots.transition(t)
+        .attr("cx", xvar )
+        .attr("cy", yvar )
+      dots.enter()
+        .append("circle")
+        .attr('class','dot')
+        .attr("cx", xvar )
+        .attr("cy", yvar )
+        .attr("r", 4)
+        //.style("stroke", "white")
+        //.style("stroke-width", 1)
+        //.style("fill", "69b3a2")
+        .attr('opacity',0) //Hide the dots!
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+      dots.exit().remove()
+      // Add Clip-paths
+      dots.attr("clip-path", "url(#clip)")
+
+    }
+    
+    updateLine(graph1, function(d) { return x1(d.seawater_temperature)}, function(d) { return y(d.pressure)})
+    updateLine(graph2, function(d) { return x2(d.practical_salinity)}, function(d) { return y(d.pressure)})
+    updateLine(graph3, function(d) { return x3(d.density)}, function(d) { return y(d.pressure)})
+         
+  }
+    
+  updageGraph()
+  d3.selectAll(".siteBox").on("change",updageGraph);
+  
+})
+
+</script>
+
+</html>
