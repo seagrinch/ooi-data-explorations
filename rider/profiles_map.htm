@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  
+  <title>Profiles Data Lab Map - Rider University</title>
+    
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
+    integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
+    crossorigin=""/>   
+  <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
+    integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
+    crossorigin=""></script>
+  <!-- Leaflet.awesome-markers -->
+  <link rel="stylesheet" href="../js/awesome-markers/leaflet.awesome-markers.css">
+  <script src="../js/awesome-markers/leaflet.awesome-markers.js"></script>
+
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 720px; margin:20px">
+  <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
+
+  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+
+</div>
+</body>
+		
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+// OOI Data Labs - Rider Widgets
+// Written by Sage Lichtenwalner, 1/13/2021
+
+  // Setup Map
+  var container = L.DomUtil.get('map');
+  var zoomlevel = 2;
+  var mapcenter = [33.79274137,-42.16154903];
+  var myMap = L.map(container, {
+    //crs: L.CRS.EPSG3857,
+     crs: L.CRS.EPSG4326,
+    maxBounds: [[-80, -180], [85, 180]],
+    minZoom: 1,
+    maxZoom: 8,
+    //preferCanvas: true    
+  }).setView(mapcenter, zoomlevel);
+  
+  // Basemap
+  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+    layers: 'topo',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'Topography data from Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
+    //noWrap: true,
+  }).addTo(myMap);
+  
+  // Markers
+  var redMarker = L.AwesomeMarkers.icon({
+    icon: 'glyphicon-star',
+    markerColor: 'darkred',
+  });    
+  L.marker([53.66086,-38.72479333], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Near Polar (54&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/6902811" target="_blank">6902811</a> <br>Cycle: 67');
+  L.marker([35.73336411,-55.79385376], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Temperate (36&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/4902393" target="_blank">4902393</a> <br>Cycle: 77');
+  L.marker([11.984,-31.966], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Tropics (12&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/3901635" target="_blank">3901635</a> <br>Cycle: 66');
+  
+  // Add Scale Bar
+  L.control.scale ({maxWidth:240, metric:true, imperial:false, position:'bottomleft'}).addTo(myMap);
+  
+</script>
+
+</html>

@@ -30,11 +30,12 @@
     <div class="row" style="margin-top:10px;">
       <div class="col-xs-3">
         <p class="text-right"><strong>Select profiles to plot:</strong></p>
+        <p class="text-right"><a href="profiles_map.htm">Map of Station Locations</a></p>
       </div>
       <div class="col-xs-9">
-        <label style="color: #4e79a7"><input type="checkbox" class="siteBox" value=1 > Near Polar (60&deg;N)</label> &nbsp;&nbsp;&nbsp;
-        <label style="color: #f28e2c"><input type="checkbox" class="siteBox" value=2 checked> Temperate (34&deg;N)</label> &nbsp;&nbsp;&nbsp;
-        <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (15&deg;N)</label> 
+        <label style="color: #4e79a7"><input type="checkbox" class="siteBox" value=1 > Near Polar (54&deg;N)</label> &nbsp;&nbsp;&nbsp;
+        <label style="color: #f28e2c"><input type="checkbox" class="siteBox" value=2 checked> Temperate (36&deg;N)</label> &nbsp;&nbsp;&nbsp;
+        <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (12&deg;N)</label> 
       </div>
     </div>
     <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
@@ -189,7 +190,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
       .attr("font-size", "16px")
       .attr("x", width1/2)
       .attr("y", -4)
-      .text("CTD Profiles");
+      .text("North Atlantic CTD Profiles");
 
   // Create a tooltip div
   var Tooltip = d3.select("#chart")
