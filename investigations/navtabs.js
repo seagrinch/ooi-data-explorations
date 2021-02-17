@@ -7,9 +7,7 @@ $(document).ready(function() {
   $('a[data-toggle="tab"]').on('click', function(e) {
     history.pushState(null, null, $(this).attr('href'));
   });
-  if (location.hash=='') {
-    $('#llbnav li:eq(0) a').tab('show');
-  }
+
   // navigate to a tab when the history changes
   window.addEventListener("popstate", function(e) {
     if (location.hash.length>0) {
@@ -23,4 +21,15 @@ $(document).ready(function() {
         $('#llbnav li:eq(0) a').tab('show');      
     }
   });
+
+  // Check for hash on load
+  if (location.hash.length>0) {
+    var activeTab = $('[href=' + location.hash + ']');
+    if (activeTab.length) {
+      activeTab.tab('show');
+    }
+  } else {
+    $('#llbnav li:eq(0) a').tab('show');    
+  }
+
 });
