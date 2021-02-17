@@ -51,6 +51,7 @@ if(!isset($base_url)) $base_url='./';
             <li class="dropdown <?php echo ($page=='activities' ? 'active' : '') ?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Collections <span class="caret"></span></a>
               <ul class="dropdown-menu">
+                <li><a href="<?=$base_url?>investigations/">EPE Investigations</a></li>
                 <li><a href="<?=$base_url?>productivity/">Primary Production</a></li>
                 <li><a href="<?=$base_url?>chemistry/">Properties of Seawater</a></li>
                 <li><a href="<?=$base_url?>geology/">Tectonics & Seamounts</a></li>

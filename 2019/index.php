@@ -151,17 +151,6 @@
 <!--   <li>Other: Irminger Sea Jigsaw</li> -->
 </ul>
 
-<h3>EPE Investigations Archive</h3>
-<p>These are prototype activities developed several years ago as port of the early OOI Education effort.  They feature a more complex format, wherein students piece together several datasets (i.e. pieces of "evidence") to answer an overarching challenge question.</p>
-<ul>
-  <li>The Spatial Response from Hurricane Sandy</li>
-  <li><a href="../investigations/storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
-  <li>Ocean Acidification </li>
-  <li>Is Overfishing Creating a Population Bottleneck?</li>
-  <li>Seasonality in the Ocean</li>
-  <li>Questioning Ocean Productivity and Temperature</li>
-</ul>
-
 <p><em>Special thanks to all of our 2019 development workshop participants and staff who helped make these activities possible.</em></p>
 
 <?php 
