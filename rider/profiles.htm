@@ -30,14 +30,14 @@
     <div class="row" style="margin-top:10px;">
       <div class="col-xs-3">
         <p class="text-right"><strong>Select profiles to plot:</strong></p>
-        <p class="text-right"><a href="profiles_map.htm">Map of Station Locations</a></p>
       </div>
       <div class="col-xs-9">
         <label style="color: #4e79a7"><input type="checkbox" class="siteBox" value=1 > Near Polar (54&deg;N)</label> &nbsp;&nbsp;&nbsp;
-        <label style="color: #f28e2c"><input type="checkbox" class="siteBox" value=2 checked> Temperate (36&deg;N)</label> &nbsp;&nbsp;&nbsp;
+        <label style="color: #edc949"><input type="checkbox" class="siteBox" value=2 checked> Temperate (36&deg;N)</label> &nbsp;&nbsp;&nbsp;
         <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (12&deg;N)</label> 
       </div>
     </div>
+    <p align="center">These profiles were collected on June 1-2, 2019.  You can also view a <a href="profiles_map.htm">map of profile locations</a>.</p>
     <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
   </div>
 </body>
@@ -65,9 +65,9 @@ var svg = d3.select("#chart").append("svg")
       .attr("height",500);
 
 // Specify coordinates for each graph
-var margin1 = {top: 20, right: 540, bottom: 40, left: 40},
-    margin2 = {top: 20, right: 280, bottom: 40, left: 300},
-    margin3 = {top: 20, right: 20, bottom: 40, left: 560},
+var margin1 = {top: 30, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 30, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 30, right: 20, bottom: 40, left: 560},
     width1 = +svg.attr("width") - margin1.left - margin1.right,
     width2 = +svg.attr("width") - margin2.left - margin2.right,
     width3 = +svg.attr("width") - margin3.left - margin3.right,
@@ -144,7 +144,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
   var dataKeys = dataNest.map(function(d){ return d.key })
   var color = d3.scaleOrdinal()
     .domain(dataKeys)
-    .range(["#4e79a7","#f28e2c","#e15759","#76b7b2","#59a14f","#edc949","#af7aa1","#ff9da7","#9c755f","#bab0ab"])
+    .range(["#4e79a7","#edc949","#e15759"])
 
   graph1.append("g")
     .attr("transform", "translate(0," + height1 + ")")
@@ -183,14 +183,14 @@ d3.csv("data/profiles.csv", parseData, function(data) {
       .attr("transform", "rotate(-90)")
       .attr("y", -30)
       .attr("x", 0)
-      .text("Pressure (dbar)")
+      .text("Depth (m)")
   title = graph2.append("text")
       .attr("text-anchor", "middle")
       .attr("font-weight", "bold")
       .attr("font-size", "16px")
       .attr("x", width1/2)
-      .attr("y", -4)
-      .text("North Atlantic CTD Profiles");
+      .attr("y", -10)
+      .text("North Atlantic Argo Float CTD Profiles");
 
   // Create a tooltip div
   var Tooltip = d3.select("#chart")
@@ -211,7 +211,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
   }
   var mousemove = function(d) {
     Tooltip
-      .html('Pressure: ' + d.pressure + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity + '<br>Density: ' + d.density)
+      .html('Depth: ' + d.pressure + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity + '<br>Density: ' + d.density)
       .style("left", (event.pageX) + 10 + "px")
       .style("top",(event.pageY) + "px")
       //.style("left", legendX + 20 + "px")
