@@ -53,7 +53,7 @@
     <a href="2019/index.php"><img src="images/mbaq_shrimp_sm.jpg" alt="2019 Data Explorations Collection" width="250" height="150" class="img-rounded"></a>
   </div>
   <div class="col-md-8">
-    <h4><a href="2019/index.php">2019 Collection &ndash; In Development</a></h4>
+    <h4><a href="2019/index.php">2019 Data Explorations Collection</a></h4>
     <p>These activities in this collection were developed by participants to the 2019 OOI Data Labs Development Workshops.</p>
     <a href="2019/index.php" class="btn btn-primary">Activities</a><br>
     <em>Instructors' Guides are available for each theme</em>
@@ -70,8 +70,8 @@
     </div>
     <div class="col-md-4">
       <h4>Learn More:</h4>
-      <p><a href="instructors.php" class="btn btn-primary">Instructor's Guide</a></p>
-      <p><a href="about.php" class="btn btn-primary">Project Info</a></p>
+      <p><a href="instructors.php" class="">Instructor's Guide</a></p>
+      <p><a href="about.php" class="">Project Background</a></p>
     </div>
   </div>
 </div>

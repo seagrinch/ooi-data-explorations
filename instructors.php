@@ -97,6 +97,16 @@
     <p>These activities explore characteristics of seamounts and tectonics in greater detail, to be used as Exploration or Application activities. The properties of seamounts and tectonics explored include: tectonic features and patterns found at divergent and transform boundaries, growth and decay of hydrothermal vents, and tectonic features and patterns of change at seamounts over time.</p>
   </div>
 </div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <a href="2019/index.php"><img src="images/mbaq_shrimp_sm.jpg" alt="2019 Data Explorations Collection" width="250" height="150" class="img-rounded"></a>
+  </div>
+  <div class="col-md-8">
+    <h4><a href="2019/index.php">2019 Data Explorations Collection</a></h4>
+    <p>These activities in this collection were developed by participants who attended the 2019 OOI Data Labs Development Workshops.  Each Data Exploration in this collection has its own Instructors' Guide, written by undergraduate faculty members who used the activities in their own classrooms.</p>
+  </div>
+</div>
 
 
 <?php 
