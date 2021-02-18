@@ -11,10 +11,10 @@
 <ul>
   <li>The Spatial Response from Hurricane Sandy</li>
   <li><a href="storms/index.php">Ocean-Atmosphere Interaction During Storms</a></li>
-  <li>Ocean Acidification </li>
   <li>Is Overfishing Creating a Population Bottleneck?</li>
   <li>Seasonality in the Ocean</li>
   <li>Questioning Ocean Productivity and Temperature</li>
+  <li><a href="ocean_acidification/index.php">Ocean Acidification</a></li>
 </ul>
 
 <?php 
