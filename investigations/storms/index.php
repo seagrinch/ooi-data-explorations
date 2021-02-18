@@ -30,7 +30,7 @@
                     <li><a href="#exploration" data-toggle="tab">Exploration</a></li>
                     <li><a href="#dataset0" data-toggle="tab">Gliders: Sea-going drones</a></li>
                     <li><a href="#dataset1" data-toggle="tab">Glider Data from Hurricane Irene</a></li>
-                    <li><a href="#dataset2" data-toggle="tab">Glider Day from Superstorm Sandy</a></li>
+                    <li><a href="#dataset2" data-toggle="tab">Glider Data from Superstorm Sandy</a></li>
                     <li><a href="#dataset3" data-toggle="tab">Buoys: Oceanic weather stations</a></li>
                     <li><a href="#dataset4" data-toggle="tab">NOAA buoy observations of Hurricane Irene</a></li>
                     <li><a href="#dataset5" data-toggle="tab">NOAA buoy observations of Superstorm Sandy</a></li>
@@ -70,7 +70,7 @@
                         </div>
 
                         <div class="item">
-                            <a href="images/intro4.png" target="_blank"><img src="images/intro4.png" width="480" height="320" alt="" title=""></a>
+                            <a href="images/intro4_lg.png" target="_blank"><img src="images/intro4.png" width="480" height="320" alt="" title=""></a>
 
                             <div class="carousel-caption">
                                 <p>Blackout in NJ and NY following Hurricane Sandy</p>
@@ -78,7 +78,7 @@
                         </div>
 
                         <div class="item">
-                            <a href="images/intro5.png" target="_blank"><img src="images/intro5.png" width="480" height="320" alt="" title=""></a>
+                            <a href="images/intro5_lg.png" target="_blank"><img src="images/intro5.png" width="480" height="320" alt="" title=""></a>
 
                             <div class="carousel-caption">
                                 <p>Damage to the barrier island by Hurricane Sandy in Mantoloking, NJ. Credit: <a href="http://earthobservatory.nasa.gov/NaturalHazards/view.php?id=79622">NASA</a></p>
@@ -107,7 +107,7 @@
 
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <a href="images/sandy_vir_2012302.jpg" target="_blank"><img src="images/sandy_vir_2012302.jpg" width="480" height="320" alt="" title=""></a>
+                                <a href="images/sandy_vir_2012302.jpg" target="_blank"><img src="images/sandy_vir_2012302_sm.jpg" width="480" height="320" alt="" title=""></a>
 
                                 <div class="carousel-caption">
                                     <p>The Length of Hurricane Sandy</p>
@@ -135,7 +135,7 @@
 
                         <div class="carousel-inner" role="listbox">
                             <div class="item active">
-                                <a href="images/challenge.png" target="_blank"><img src="images/challenge.png" width="480" height="320" alt="" title=""></a>
+                                <a href="images/challenge.png" target="_blank"><img src="images/challenge_sm.png" width="480" height="320" alt="" title=""></a>
 
                                 <div class="carousel-caption">
                                     <p>GOES View of Hurricane Sandy</p>
@@ -192,10 +192,10 @@
 
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#dataset2" data-toggle="tab"><img src="images/data2.png" width="270" height="116" alt="Glider Day from Superstorm Sandy" title="Glider Day from Superstorm Sandy"></a>
+                            <a href="#dataset2" data-toggle="tab"><img src="images/data2.png" width="270" height="116" alt="Glider Data from Superstorm Sandy" title="Glider Data from Superstorm Sandy"></a>
 
                             <div class="caption">
-                                <a href="#dataset2" data-toggle="tab">Glider Day from Superstorm Sandy</a>
+                                <a href="#dataset2" data-toggle="tab">Glider Data from Superstorm Sandy</a>
                             </div>
                         </div>
                     </div>
@@ -300,13 +300,13 @@
             <div class="tab-pane" id="dataset2">
                 <!--                     <button type="button" class="btn btn-success btn-success-green" data-toggle="tab" data-target="exploration" onclick="jQuery('#llb2 li:eq(0) a').tab('show');">Return to Exploration</button> -->
 
-                <h3>Glider Day from Superstorm Sandy</h3>
+                <h3>Glider Data from Superstorm Sandy</h3>
 
                 <p></p>
 
                 <div class="clearfix">
                     <center>
-                        <a href="images/data2.png"><img src="images/data2.png" width="886px" alt="Glider Day from Superstorm Sandy"></a>
+                        <a href="images/data2.png"><img src="images/data2.png" width="886px" alt="Glider Data from Superstorm Sandy"></a>
                     </center>
                 </div>
 
@@ -492,6 +492,8 @@
         </div><!-- /.tab-content -->
     </div><!-- /.tabbable -->
 </div>
+
+<p class="text-right"><a href="guide.php">Instructor Notes</a></p>
 
 <?php 
   $scripts[] = "../navtabs.js";
