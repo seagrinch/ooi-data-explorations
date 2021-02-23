@@ -141,7 +141,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#dataset0" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_NotOverHigher_140109.png" width="270" height="116" alt="Gliders: Sea-going drones" title="Gliders: Sea-going drones"></a>
+                            <a href="#dataset0" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_NotOverHigher_140109.png" width="270" height="116" alt="Average Allelic Richness by Fish Grouping (Seabreams, Tunas, & Flounders)" title="Average Allelic Richness by Fish Grouping (Seabreams, Tunas, & Flounders)"></a>
 
                             <div class="caption">
                                 <a href="#dataset0" data-toggle="tab">Average Allelic Richness by Fish Grouping (Seabreams, Tunas, & Flounders)</a>
@@ -151,7 +151,7 @@
 
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#dataset1" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_NoDif_140110_0.png" width="270" height="116" alt="Glider Data from Hurricane Irene" title="Glider Data from Hurricane Irene"></a>
+                            <a href="#dataset1" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_NoDif_140110_0.png" width="270" height="116" alt="Average Allelic Richness by Fish Grouping (Rockfishes, Groupers, & Snappers)" title="Average Allelic Richness by Fish Grouping (Rockfishes, Groupers, & Snappers)"></a>
 
                             <div class="caption">
                                 <a href="#dataset1" data-toggle="tab">Average Allelic Richness by Fish Grouping (Rockfishes, Groupers, & Snappers)</a>
@@ -161,7 +161,7 @@
 
                     <div class="col-md-4">
                         <div class="thumbnail">
-                            <a href="#dataset2" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_All_140109.png" width="270" height="116" alt="Glider Data from Superstorm Sandy" title="Glider Data from Superstorm Sandy"></a>
+                            <a href="#dataset2" data-toggle="tab"><img src="images_sm/AverageAllelicRichnessbyFishGrouping_All_140109.png" width="270" height="116" alt="Average Allelic Richness by Fish Grouping (All Fish Groupings)" title="Average Allelic Richness by Fish Grouping (All Fish Groupings)"></a>
 
                             <div class="caption">
                                 <a href="#dataset2" data-toggle="tab">Average Allelic Richness by Fish Grouping (All Fish Groupings)</a>
@@ -178,15 +178,13 @@
 
                 <h3>Average Allelic Richness by Fish Grouping (Seabreams, Tunas, & Flounders)</h3>
 
-                <p></p>
-
                 <div class="clearfix">
                     <center>
                         <a href="images/AverageAllelicRichnessbyFishGrouping_NotOverHigher_140109.png"><img src="images/AverageAllelicRichnessbyFishGrouping_NotOverHigher_140109.png" width="886px" alt="The average allelic richness, with standard error, for overfished and not overfished fish populations within Subset A fish groupings: Pagrus (Seabreams), Scombridae (Tunas), and Pleuronectidae (Flounders)."></a>
                     </center>
                 </div>
 
-                <p></p>
+                <p>&nbsp;</p>
 
                 <div class="well well-sm">
                   <p>This data visualization represents the average allelic richness for overfished and not overfished species within three fish groupings (Seabreams, Tunas, and Flounders) with the standard error.</p>
@@ -211,15 +209,13 @@
 
                 <h3>Average Allelic Richness by Fish Grouping (Rockfishes, Groupers, & Snappers)</h3>
 
-                <p></p>
-
                 <div class="clearfix">
                     <center>
                         <a href="images/AverageAllelicRichnessbyFishGrouping_NoDif_140110_0.png"><img src="images/AverageAllelicRichnessbyFishGrouping_NoDif_140110_0.png" width="886px" alt="The average allelic richness, with standard error, for overfished and not overfished fish populations within Subset B fish groupings: Sebastes (Rockfishes), Serranidae (Groupers), and Lutjanus (Snappers)."></a>
                     </center>
                 </div>
 
-                <p></p>
+                <p>&nbsp;</p>
 
                 <div class="well well-sm">
                     <p>This data visualization represents the average allelic richness for overfished and not overfished species within three fish groupings (Rockfishes, Groupers, and Snappers) with the standard error.</p>
@@ -243,15 +239,13 @@
 
                 <h3>Average Allelic Richness by Fish Grouping (All Fish Groupings)</h3>
 
-                <p></p>
-
                 <div class="clearfix">
                     <center>
                         <a href="images/AverageAllelicRichnessbyFishGrouping_All_140109.png"><img src="images/AverageAllelicRichnessbyFishGrouping_All_140109.png" width="886px" alt="The average allelic richness, with standard error, for overfished and not overfished fish populations within each of the twelve fish groupings analyzed."></a>
                     </center>
                 </div>
 
-                <p></p>
+                <p>&nbsp;</p>
 
                 <div class="well well-sm">
                     <p>This data visualization represents the average allelic richness for overfished and not overfished species within all twelve fish groupings with the standard error. The fish groupings analyzed include: Seabreams, Tunas, Flounders, Herrings, Drums, Cods, Turbots, Rockfishes, Groupers, Snappers, Jack Mackerels, and Smelts.</p>
