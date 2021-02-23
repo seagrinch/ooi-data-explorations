@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Irene Storm Data</title>
+  <title>Weather Conditions During Sandy (2012)</title>
 </head>
 
 <body>
@@ -31,7 +31,8 @@
 </p>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="../../js/dygraph-combined-dev.js"></script>
+<script type="text/javascript" src="../../js/dygraph-2.1.0/dygraph.js"></script>
+<link rel="stylesheet" href="../../js/dygraph-2.1.0/dygraph.css" />
 <script src="storm2.js"></script>
 
 </body>
