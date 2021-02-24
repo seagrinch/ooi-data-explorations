@@ -34,8 +34,9 @@
 
 <h4>Resources</h4>
 <ul>
-  <li><a href="http://earthobservatory.nasa.gov/NaturalHazards/event.php?id=79504">Earth Observatory Natural Hazards</a></li>
-  <li><a href="http://www.nnvl.noaa.gov/SandyGallery.php">NOAA Environmental Laboratory Hurricane Sandy Gallery</a></li>
+  <li><a href="IntroOcean_HurricaneExercise_updated.docx">Example Worksheet for an Introduction to Oceanography course</a>, written by S. Severmann</li>
+  <li><a href="https://earthobservatory.nasa.gov/images/event/79504">NASA Earth Observatory Hurricane Sandy Gallery</a></li>
+  <li><a href="https://www.nesdis.noaa.gov/search/content/sandy">NOAA Environmental Laboratory Hurricane Sandy Collection</a></li>
 </ul>
 
 

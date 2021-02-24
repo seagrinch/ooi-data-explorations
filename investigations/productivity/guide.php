@@ -35,7 +35,7 @@
 
 <h4>Resources</h4>
 <ul>
-  <li><a href="http://rucool.marine.rutgers.edu/">RU COOL</a> is a source for a wider array of both real time and older ocean data.</li>
+  <li><a href="http://rucool.marine.rutgers.edu/">RU COOL</a> is a source for a wide array of both real-time and older ocean data.</li>
 </ul>
 
 
