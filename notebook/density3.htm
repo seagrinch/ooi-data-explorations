@@ -138,7 +138,7 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
 
   var xAxis1 = d3.axisBottom().scale(x1).ticks(5)
   var xAxis2 = d3.axisBottom().scale(x2).ticks(5)
-  var xAxis3 = d3.axisBottom().scale(x3).ticks(4)
+  var xAxis3 = d3.axisBottom().scale(x3).ticks(4,'f')
   var yAxis = d3.axisLeft().scale(y).ticks(7)
 
   graph1.append("g")
@@ -172,7 +172,7 @@ d3.csv("data/monthly_profiles_cp_ga.csv", parseData, function(data) {
       .attr("text-anchor", "middle")
       .attr("x", width2/2)
       .attr("y", height2 + 32)
-      .text("Density (kg/m^3)");
+      .text("Density (kg/m³)");
   yLabel = graph1.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
