@@ -16,14 +16,14 @@
   <div class="col-xs-6">
     <p class="text-right"><strong>Show:</strong> 
       <label style="font-weight: normal;"><input type="checkbox" id="0" onclick="toggle_lines(this)" checked> 
-        Measured Pressure</label>
+        Measured Water Pressure</label>
       <label style="font-weight: normal;"><input type="checkbox" id="1" onclick="toggle_lines(this)" checked> 
         Calculated Depth</label>
     </p>
   </div>
   <div class="col-xs-5">
     <p class="text-right"><strong>Zoom:</strong> 
-      <button class="btn btn-primary btn-sm" onclick="graph_range('eruption')">Eruption</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('eruption')">April Event</button>
       <button class="btn btn-primary btn-sm" onclick="graph_range('all')">All Data</button>
     </p>
   </div>
@@ -39,6 +39,7 @@
 
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+
 <style type="text/css">
   
   .dygraph-title {
@@ -60,6 +61,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/crosshair.js"></script>
 
 <script type="text/javascript">
 // OOI Data Labs Notebook
@@ -89,8 +91,13 @@ $(document).ready(function () {
       'Depth (m)': {axis: 'y2', color:'#DBA53A', showInRangeSelector: false},
     },
     visibility: [1,1,0],
+    valueRange: [2260,2250],
+    plugins: [
+      new Dygraph.Plugins.Crosshair({
+        direction: "vertical"
+      })
+    ]
   });
-
 }); //End document.ready
 
 
