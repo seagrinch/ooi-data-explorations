@@ -14,7 +14,7 @@ new Dygraph(document.getElementById("chart1"), "data/productivity3a.csv", {
   highlightCircleSize: 6,
   showRangeSelector: true,
   axes: {
-    y: {valueRange: [0, 5]}
+    y: {valueRange: [0, 15]}
   },
   series: {
     'Coastal Endurance': {showInRangeSelector: true},

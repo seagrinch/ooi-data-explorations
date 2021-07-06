@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Waves Lab #2</title>
+    <title>Waves Lab #4A</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
-
+  
   .dygraph-title {
     font-size: 18px;
   }
@@ -26,7 +26,7 @@
     left: 544px !important;
   }
   
-  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-ylabel {color:#800080;}
   #chart1 .dygraph-y2label {color:#008100;}
 
 </style>
@@ -39,14 +39,14 @@
 // Written by Sage Lichtenwalner, 3/4/2020 - Revised 7/6/21
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart1"), "data/airsea_2018.csv", {
+  g = new Dygraph(document.getElementById("chart1"), "data/airsea_2019.csv", {
     title: 'Coastal Pioneer Array - Central Surface Mooring',
-    ylabel: 'Significant Wave Height (m) ',
+    ylabel: 'Baro. Pres. (mbar)',
     y2label: 'Wind Speed (m/s)',
     labelsSeparateLines: true,
     labelsUTC : true,
-    strokeWidth: 2,
-    drawPoints: true,
+    strokeWidth: 3,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: true,
@@ -54,10 +54,10 @@ $(document).ready(function () {
       y2: {axisLabelWidth: 70}
     },
     series: {
-      'Significant Wave Height': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Barometric Pressure': {axis: 'y', color:'#800080', showInRangeSelector: true},
       'Wind Speed': {axis: 'y2', color:'#008100'},
     },
-    visibility: [1,0,0,0,0,0,0,0,1,0],
+    visibility: [1,0,1,0,0,0,0,0,0,0],
   });
 
 }); //document.ready

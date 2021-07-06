@@ -35,14 +35,14 @@
 
 <script type="text/javascript">
 // OOI Data Labs Notebook
-// Written by Sage Lichtenwalner, 3/4/2020
+// Written by Sage Lichtenwalner, 3/4/2020 - Revised 7/6/21
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart1"), "../2019/data/airsea.csv", {
+  g = new Dygraph(document.getElementById("chart1"), "data/airsea_2018.csv", {
     title: 'Coastal Pioneer Array - Central Surface Mooring',
     ylabel: 'Baro. Pres. (mbar)',
     labelsSeparateLines: true,
-    labelsUTC : false,
+    labelsUTC : true,
     strokeWidth: 2,
     drawPoints: true,
     pointSize: 2,
@@ -51,7 +51,7 @@ $(document).ready(function () {
     series: {
       'Barometric Pressure': {axis: 'y', color:'#800080', showInRangeSelector: true}
     },
-    visibility: [0,0,0,0,1,0,0],
+    visibility: [0,0,1,0,0,0,0,0,0,0],
   });
 
 }); //document.ready

@@ -187,6 +187,15 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle")
     .style('font-weight','bold')
+  svg.selectAll("legendDots2")
+    .data(months)
+    .enter()
+    .append("circle")
+      .attr("cx", legendX + 20)
+      .attr("cy", function(d,i){ return margin1.top + 25 + i*25})
+      .attr("r", 7)
+      .style("fill", "none")
+      .style('stroke','grey')
   svg.selectAll("legendDots")
     .data(months)
     .enter()
@@ -197,6 +206,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .style("fill", function(d){ return color(d)})
       .style('stroke','grey')
       .attr("class", function(d){ return 'line'+d })
+      .style('cursor','pointer')
       .on("click", function(d){
         // is the element currently visible ?
         currentOpacity = d3.selectAll(".line" + d).style("opacity")
@@ -215,6 +225,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .attr("text-anchor", "left")
       .style("alignment-baseline", "middle")
       .style('font-weight','bold')
+      .style('cursor','pointer')
       .on("click", function(d){
         // is the element currently visible ?
         currentOpacity = d3.selectAll(".line" + d).style("opacity")
@@ -255,6 +266,8 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
     var mouseleave = function(d) {
       Tooltip
         .style("opacity", 0)
+        .style('left',0)
+        .style('top',0)
     }
 
     // Add the points

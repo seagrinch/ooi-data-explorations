@@ -54,21 +54,21 @@ var parameters = [
   {title:"Temperature (&deg;C)"},
   {title:"Chlorophyll (&micro;g/L)"},
   {title:"Nitrate (&micro;mol/L)"},
-  {title:"Longwave Irradiance (W/m^2)"},
-  {title:"Shortwave Irradiance (W/m^2)"},
+  {title:"Longwave Irradiance (W/m<sup>2</sup>)"},
+  {title:"Shortwave Irradiance (W/m<sup>2</sup>)"},
 ];
 
 var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A"];
 
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart"), "data/production2019.csv", {
+  g = new Dygraph(document.getElementById("chart"), "data/production_2019.csv", {
     title: 'Coastal Pioneer Array - Offshore Surface Mooring Riser',
     ylabel: 'Chlorophyll (&micro;g/L)',
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always',
     labelsSeparateLines: true,
-    labelsUTC : true,
+    labelsUTC : false,
     colors : colors,
     strokeWidth: 2,
     drawPoints: true,
@@ -82,7 +82,7 @@ $(document).ready(function () {
     series: {
       'Chlorophyll_a': {axis: 'y', showInRangeSelector: true},
     },
-    visibility: [0,0,1,0,0,0],
+    visibility: [0,0,1,0,0,0,0],
   });
 
 }); //document.ready

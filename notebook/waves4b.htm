@@ -2,18 +2,19 @@
 
 <html>
 <head>
-    <title>Waves Lab #2</title>
+    <title>Waves Lab #4B</title>
 </head>
 
 <body>
 
 <!-- DATA CHART -->
-<div id="chart1" style="width:800px; height: 320px;"></div>
+<div id="chart1" style="width:800px; height: 280px;"></div>
+<div id="chart2" style="width:800px; height: 240px; margin-top: 10px;"></div>
 
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
-
+  
   .dygraph-title {
     font-size: 18px;
   }
@@ -26,27 +27,30 @@
     left: 544px !important;
   }
   
-  #chart1 .dygraph-ylabel {color:#00457C;}
+  #chart1 .dygraph-ylabel {color:#800080;}
   #chart1 .dygraph-y2label {color:#008100;}
+  #chart2 .dygraph-ylabel {color:#00457C;}
+  #chart2 .dygraph-y2label {color:#DBA53A;}
 
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
 
 <script type="text/javascript">
 // OOI Data Labs Notebook
 // Written by Sage Lichtenwalner, 3/4/2020 - Revised 7/6/21
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart1"), "data/airsea_2018.csv", {
+  g1 = new Dygraph(document.getElementById("chart1"), "data/airsea_2019.csv", {
     title: 'Coastal Pioneer Array - Central Surface Mooring',
-    ylabel: 'Significant Wave Height (m) ',
+    ylabel: 'Baro. Pres. (mbar)',
     y2label: 'Wind Speed (m/s)',
     labelsSeparateLines: true,
     labelsUTC : true,
-    strokeWidth: 2,
-    drawPoints: true,
+    strokeWidth: 3,
+    drawPoints: false,
     pointSize: 2,
     highlightCircleSize: 6,
     showRangeSelector: true,
@@ -54,11 +58,37 @@ $(document).ready(function () {
       y2: {axisLabelWidth: 70}
     },
     series: {
-      'Significant Wave Height': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Barometric Pressure': {axis: 'y', color:'#800080', showInRangeSelector: true},
       'Wind Speed': {axis: 'y2', color:'#008100'},
     },
-    visibility: [1,0,0,0,0,0,0,0,1,0],
+    visibility: [1,0,1,0,0,0,0,0,0,0],
   });
+
+  g2 = new Dygraph(document.getElementById("chart2"), "data/airsea_2019.csv", {
+    ylabel: 'Significant Wave Height (m) ',
+    y2label: 'Significant Wave Period (s)',
+    labelsSeparateLines: true,
+    labelsUTC : true,
+    strokeWidth: 2,
+    drawPoints: true,
+    pointSize: 2,
+    highlightCircleSize: 6,
+    showRangeSelector: false,
+    axes: {
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'Significant Wave Height': {axis: 'y', color:'#00457C', showInRangeSelector: true},
+      'Significant Wave Period': {axis: 'y2', color:'#DBA53A'},
+    },
+    visibility: [0,0,0,0,0,0,0,0,1,1],
+  });
+
+    var sync = Dygraph.synchronize(g1, g2, {
+      selection: true,
+      zoom: true,
+      range: false
+    });
 
 }); //document.ready
   
