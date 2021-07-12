@@ -1,0 +1,223 @@
+﻿Number,Volcano Name,Country,Location,Latitude,Longitude,Elevation (m),Type,Status,Last Known Eruption
+1200-02-,Alligator Lake,Canada,Canada,60.42,-135.42,2217,Volcanic field,Holocene,U
+1200-17-,Bridge River Cones,Canada,Canada,50.8,-123.4,2500,Volcanic field,Holocene,U
+1200-11-,Crow Lagoon,Canada,Canada,54.7,-130.23,335,Pyroclastic cone,Holocene,U
+1200-06-,Edziza,Canada,Canada,57.72,-130.63,2786,Stratovolcano,Radiocarbon,D6
+1200-01-,Fort Selkirk,Canada,Canada,62.93,-137.38,1239,Volcanic field,Holocene,U
+1200-19-,Garibaldi Lake,Canada,Canada,49.92,-123.03,2316,Volcanic field,Holocene,U
+1200-20-,"Garibaldi, Mt.",Canada,Canada,49.85,-123,2678,Stratovolcano,Radiocarbon,D7
+1200-04-,Heart Peaks,Canada,Canada,58.6,-131.97,2012,Shield volcano,Holocene,U
+1200-08-,Hoodoo Mountain,Canada,Canada,56.78,-131.28,1820,Subglacial volcano,Holocene,U
+1200-09-,Iskut-Unuk River Cones,Canada,Canada,56.58,-130.55,1880,Cinder cone,Radiocarbon,D3
+1200-05-,Level Mountain,Canada,Canada,58.42,-131.35,2190,Shield volcano,Holocene,U
+1200-18-,Meager,Canada,Canada,50.63,-123.5,2680,Complex volcano,Radiocarbon,D7
+1200-12-,Milbanke Sound Group,Canada,Canada,52.5,-128.73,335,Cinder cone,Holocene,U
+1200-14-,Nazko,Canada,Canada,52.9,-123.73,1230,Cinder cone,Radiocarbon,D7
+1200-03-,Ruby Mountain,Canada,Canada,59.68,-133.32,1523,Cinder cone,Historical,D3
+1200-13-,Satah Mountain,Canada,Canada,52.47,-124.7,1921,Volcanic field,Holocene,U
+1200-16-,Silverthrone,Canada,Canada,51.43,-126.3,3160,Caldera,Holocene,U
+1200-07-,Spectrum Range,Canada,Canada,57.43,-130.68,2430,Shield volcano,Holocene,U
+1200-10-,Tseax River Cone,Canada,Canada,55.12,-128.9,609,Pyroclastic cone,Radiocarbon,D4
+1200-031,Tuya Volc Field,Canada,Canada,59.367,-130.583,2123,Volcanic field,Holocene,U
+1200-15-,Wells Gray-Clearwater,Canada,Canada,52.33,-120.57,2015,Cinder cone,Dendrochronology,D5
+0805-07=,Akan,Japan,Hokkaido-Japan,43.38,144.02,1499,Caldera,Historical,D1
+0805-06=,Daisetsu,Japan,Hokkaido-Japan,43.68,142.88,2290,Stratovolcano,Tephrochronology,D6
+0805-011,E-san,Japan,Hokkaido-Japan,41.8,141.17,618,Stratovolcano,Historical,D3
+0805-02=,Komaga-take,Japan,Hokkaido-Japan,42.07,140.68,1140,Stratovolcano,Historical,D1
+0805-08=,Kutcharo,Japan,Hokkaido-Japan,43.55,144.43,1000,Caldera,Tephrochronology,D6
+0805-034,Kuttara,Japan,Hokkaido-Japan,42.5,141.18,581,Stratovolcano,Tephrochronology,D3
+0805-081,Mashu,Japan,Hokkaido-Japan,43.57,144.57,855,Caldera,Radiocarbon,D6
+0805-031,Niseko,Japan,Hokkaido-Japan,42.88,140.63,1154,Stratovolcano,Holocene,U
+0805-01=,Oshima-Oshima,Japan,Hokkaido-Japan,41.5,139.37,737,Stratovolcano,Historical,D4
+0805-082,Rausu,Japan,Hokkaido-Japan,44.073,145.125,1660,Stratovolcano,Tephrochronology,D3
+0805-041,Rishiri,Japan,Hokkaido-Japan,45.18,141.25,1719,Stratovolcano,Radiocarbon,D7
+0805-062,Shikaribetsu Group,Japan,Hokkaido-Japan,43.28,143.08,1430,Lava dome,Holocene,U
+0805-04=,Shikotsu,Japan,Hokkaido-Japan,42.7,141.33,1320,Caldera,Historical,D1
+0805-09=,Shiretoko-Iwo-zan,Japan,Hokkaido-Japan,44.13,145.17,1563,Stratovolcano,Historical,D2
+0805-05=,Tokachi,Japan,Hokkaido-Japan,43.42,142.68,2077,Stratovolcano,Historical,D1
+0805-03=,Usu,Japan,Hokkaido-Japan,42.53,140.83,731,Stratovolcano,Historical,D1
+0805-032,Yotei,Japan,Hokkaido-Japan,42.83,140.82,1893,Stratovolcano,Radiocarbon,D7
+0803-001,Abu,Japan,Honshu-Japan,34.5,131.6,571,Shield volcano,Holocene,Unknown
+0803-17=,Adatara,Japan,Honshu-Japan,37.62,140.28,1718,Stratovolcano,Historical,D1
+0803-13=,Akagi,Japan,Honshu-Japan,36.53,139.18,1828,Stratovolcano,Historical,D6
+0803-23=,Akita-Komaga-take,Japan,Honshu-Japan,39.75,140.8,1637,Stratovolcano,Historical,D1
+0803-26=,Akita-Yake-yama,Japan,Honshu-Japan,39.97,140.77,1366,Complex volcano,Historical,D1
+0803-11=,Asama,Japan,Honshu-Japan,36.4,138.53,2560,Complex volcano,Historical,D1
+0803-18=,Azuma,Japan,Honshu-Japan,37.73,140.25,2024,Stratovolcano,Historical,D1
+0803-16=,Bandai,Japan,Honshu-Japan,37.6,140.08,1819,Stratovolcano,Historical,D3
+0803-22=,Chokai,Japan,Honshu-Japan,39.08,140.03,2237,Stratovolcano,Historical,D1
+0803-03=,Fuji,Japan,Honshu-Japan,35.35,138.73,3776,Stratovolcano,Historical,D4
+0803-25=,Hachimantai,Japan,Honshu-Japan,39.95,140.85,1614,Stratovolcano,Holocene,Unknown
+0803-28=,Hakkoda Group,Japan,Honshu-Japan,40.65,140.88,1585,Stratovolcano,Holocene,U
+0803-02=,Hakone,Japan,Honshu-Japan,35.22,139.02,1438,Complex volcano,Radiocarbon,D7
+0803-05=,Haku-san,Japan,Honshu-Japan,36.15,136.78,2702,Stratovolcano,Historical,D5
+0803-122,Haruna,Japan,Honshu-Japan,36.47,138.88,1449,Stratovolcano,Anthropology,D6
+0803-191,Hijiori,Japan,Honshu-Japan,38.6,140.18,516,Caldera,Radiocarbon,D7
+0803-131,Hiuchi,Japan,Honshu-Japan,36.95,139.28,2346,Stratovolcano,Historical,D5
+0803-27=,Iwaki,Japan,Honshu-Japan,40.65,140.3,1625,Stratovolcano,Historical,D3
+0803-24=,Iwate,Japan,Honshu-Japan,39.85,141,2041,Complex volcano,Historical,D2
+0803-01=,Izu-Tobu,Japan,Honshu-Japan,34.92,139.12,1406,Pyroclastic cone,Historical,D1
+0803-21=,Kurikoma,Japan,Honshu-Japan,38.95,140.78,1628,Stratovolcano,Historical,D2
+0803-12=,Kusatsu-Shirane,Japan,Honshu-Japan,36.62,138.55,2176,Stratovolcano,Historical,D1
+0803-262,Megata,Japan,Honshu-Japan,39.95,139.73,291,Maar,Tephrochronology,D7
+0803-10=,Myoko,Japan,Honshu-Japan,36.88,138.12,2446,Stratovolcano,Radiocarbon,D7
+0803-141,Nantai,Japan,Honshu-Japan,36.77,139.5,2484,Stratovolcano,Holocene,U
+0803-20=,Narugo,Japan,Honshu-Japan,38.73,140.73,462,Caldera,Historical,D6
+0803-15=,Nasu,Japan,Honshu-Japan,37.12,139.97,1917,Stratovolcano,Historical,D2
+0803-09=,Niigata-Yake-yama,Japan,Honshu-Japan,36.92,138.03,2400,Lava dome,Historical,D1
+0803-14=,Nikko-Shirane,Japan,Honshu-Japan,36.8,139.38,2578,Shield volcano,Historical,D3
+0803-06=,Norikura,Japan,Honshu-Japan,36.12,137.55,3026,Stratovolcano,Radiocarbon,D7
+0803-151,Numazawa,Japan,Honshu-Japan,37.43,139.58,1100,Shield volcano,Radiocarbon,D7
+0803-003,Oki-Dogo,Japan,Honshu-Japan,36.17,133.33,151,Shield volcano,Anthropology,U
+0803-142,Omanago Group,Japan,Honshu-Japan,36.78,139.5,2367,Lava dome,Holocene,U
+0803-04=,On-take,Japan,Honshu-Japan,35.9,137.48,3063,Complex volcano,Historical,D1
+0803-29=,Osore-yama,Japan,Honshu-Japan,41.32,141.08,879,Stratovolcano,Historical,D4
+0803-002,Sanbe,Japan,Honshu-Japan,35.13,132.62,1126,Caldera,Radiocarbon,D7
+0803-121,Shiga,Japan,Honshu-Japan,36.7,138.52,2036,Shield volcano,Holocene,U
+0803-143,Takahara,Japan,Honshu-Japan,36.9,139.78,1795,Stratovolcano,Holocene,U7
+0803-08=,Tate-yama,Japan,Honshu-Japan,36.57,137.6,2621,Stratovolcano,Historical,D3
+0803-031,Tateshina,Japan,Honshu-Japan,36.1,138.3,2530,Stratovolcano,Holocene,U
+0803-271,Towada,Japan,Honshu-Japan,40.47,140.92,1159,Caldera,Historical,D6
+0803-071,Washiba-Kumonotaira,Japan,Honshu-Japan,36.4,137.5,2924,Shield volcano,Tephrochronology,D7
+0803-07=,Yake-dake,Japan,Honshu-Japan,36.22,137.58,2455,Stratovolcano,Historical,D1
+0803-19=,Zao,Japan,Honshu-Japan,38.15,140.45,1841,Complex volcano,Historical,D2
+0804-06=,Aoga-shima,Japan,Izu Is-Japan,32.45,139.77,423,Stratovolcano,Historical,D4
+0804-07=,Bayonnaise Rocks,Japan,Izu Is-Japan,31.92,139.92,10,Submarine volcano,Historical,D1
+0804-095,Doyo Seamount,Japan,Izu Is-Japan,27.683,140.8,-860,Submarine volcano,Fumarolic,U
+0804-05=,Hachijo-jima,Japan,Izu Is-Japan,33.13,139.77,854,Stratovolcano,Historical,D5
+0804-03=,Kozu-shima,Japan,Izu Is-Japan,34.22,139.15,574,Lava dome,Historical,D6
+0804-042,Kurose Hole,Japan,Izu Is-Japan,33.4,139.683,-107,Submarine volcano,Holocene?,?
+0804-041,Kurose Hole,Japan,Izu Is-Japan,33.4,139.68,-107,Submarine volcano,Holocene,Unknown
+0804-04=,Miyake-jima,Japan,Izu Is-Japan,34.08,139.53,815,Stratovolcano,Historical,D1
+0804-094,Mokuyo Seamount,Japan,Izu Is-Japan,28.317,140.567,-920,Submarine volcano,Fumarolic,U
+0804-061,Myojun Knoll,Japan,Izu Is-Japan,32.1,139.85,360,Submarine volcano,Holocene,Unknown
+0804-02=,Nii-jima,Japan,Izu Is-Japan,34.37,139.27,432,Lava dome,Historical,D6
+0804-091,Omachi Seamount,Japan,Izu Is-Japan,29.22,140.8,-1700,Submarine volcano,Uncertain,Unknown
+0804-01=,Oshima,Japan,Izu Is-Japan,34.73,139.38,758,Stratovolcano,Historical,D1
+0804-08=,Smith Rock,Japan,Izu Is-Japan,31.32,140.05,136,Submarine volcano,Historical,D2
+0804-011,To-shima,Japan,Izu Is-Japan,34.52,139.28,508,Stratovolcano,Holocene,Unknown
+0804-09=,Tori-shima,Japan,Izu Is-Japan,30.48,140.32,403,Stratovolcano,Historical,D1
+0805-061,Nipesotsu-Upepesanke,Japan,Japan,43.45,143.03,2013,Lava dome,Historical,D3
+0900-39=,Alaid,Russia,Kuril Is,50.858,155.55,2339,Stratovolcano,Historical,D1
+0900-05=,Atsonupuri,Russia,Kuril Is,44.804,147.13,1205,Stratovolcano,Historical,D2
+0900-08=,Baransky,Russia,Kuril Is,45.1,148.02,1132,Stratovolcano,Historical,D2
+0900-04=,Berutarube,Russia,Kuril Is,44.47,146.93,1220,Stratovolcano,Holocene,U
+0900-06-,Bogatyr Ridge,Russia,Kuril Is,44.83,147.37,1634,Stratovolcano,Holocene,U
+0900-36=,Chikurachki,Russia,Kuril Is,50.325,155.458,1816,Stratovolcano,Historical,D1
+0900-26=,Chirinkotan,Russia,Kuril Is,48.98,153.48,724,Stratovolcano,Historical,D1
+0900-09=,Chirip,Russia,Kuril Is,45.38,147.92,1589,Stratovolcano,Historical,D3
+0900-15=,Chirpoi,Russia,Kuril Is,46.525,150.875,742,Caldera,Historical,D1
+0900-11-,Demon,Russia,Kuril Is,45.5,148.85,1205,Stratovolcano,Holocene,U
+0900-38=,Ebeko,Russia,Kuril Is,50.68,156.02,1156,Somma volcano,Historical,D1
+0900-27=,Ekarma,Russia,Kuril Is,48.958,153.93,1170,Stratovolcano,Historical,D1
+0900-34=,Fuss Peak,Russia,Kuril Is,50.27,155.25,1772,Stratovolcano,Historical,D3
+0900-091,Golets-Tornyi Group,Russia,Kuril Is,45.25,148.35,442,Pyroclastic cone,Holocene,Unknown
+0900-01=,Golovnin,Russia,Kuril Is,43.85,145.53,541,Caldera,Historical,D3
+0900-17=,Goriaschaia Sopka,Russia,Kuril Is,46.83,151.75,891,Stratovolcano,Historical,D2
+0900-07=,Grozny Group,Russia,Kuril Is,45.02,147.87,1211,Complex volcano,Historical,D1
+0900-111,Ivao Group,Russia,Kuril Is,45.77,149.68,1426,Cinder cone,Holocene,U
+0900-35=,Karpinsky Group,Russia,Kuril Is,50.13,155.37,1345,Cone,Historical,D2
+0900-20=,Ketoi,Russia,Kuril Is,47.35,152.475,1172,Stratovolcano,Historical,D2
+0900-30=,Kharimkotan,Russia,Kuril Is,49.12,154.508,1145,Stratovolcano,Historical,D2
+0900-12=,Kolokol Group,Russia,Kuril Is,46.042,150.05,1328,Somma volcano,Historical,D1
+0900-351,Lomonosov Group,Russia,Kuril Is,50.25,155.43,1681,Cinder cone,Holocene,U
+0900-041,Lvinaya Past,Russia,Kuril Is,44.62,147,528,Stratovolcano,Radiocarbon,D7
+0900-10=,Medvezhia,Russia,Kuril Is,45.38,148.83,1124,Somma volcano,Historical,D1
+0900-02=,Mendeleev,Russia,Kuril Is,43.98,145.7,887,Stratovolcano,Historical,D3
+0900-161,Milne,Russia,Kuril Is,46.82,151.78,1540,Somma volcano,Holocene,U
+0900-32=,Nemo Peak,Russia,Kuril Is,49.57,154.808,1018,Caldera,Historical,D2
+0900-19=,Prevo Peak,Russia,Kuril Is,47.02,152.12,1360,Stratovolcano,Historical,D3
+0900-25=,Raikoke,Russia,Kuril Is,48.292,153.25,551,Stratovolcano,Historical,D2
+0900-22=,Rasshua,Russia,Kuril Is,47.77,153.02,956,Stratovolcano,Historical,D2
+0900-112,Rudakov,Russia,Kuril Is,45.88,149.83,542,Stratovolcano,Holocene,Unknown
+0900-24=,Sarychev Peak,Russia,Kuril Is,48.092,153.2,1496,Stratovolcano,Historical,D1
+0900-331,Shirinki,Russia,Kuril Is,50.2,154.98,761,Stratovolcano,Holocene,U
+0900-29=,Sinarka,Russia,Kuril Is,48.875,154.175,934,Stratovolcano,Historical,D3
+0900-021,Smirnov,Russia,Kuril Is,44.43,146.13,1189,Stratovolcano,Holocene,U
+0900-211,Srednii,Russia,Kuril Is,47.6,152.92,36,Submarine volcano,Holocene,U
+0900-31=,Tao-Rusyr Caldera,Russia,Kuril Is,49.35,154.7,1325,Stratovolcano,Historical,D2
+0900-03=,Tiatia,Russia,Kuril Is,44.358,146.27,1819,Stratovolcano,Historical,D1
+0900-113,Tri Sestry,Russia,Kuril Is,45.93,149.92,998,Stratovolcano,Holocene,Unknown
+0900-16-,Unnamed,Russia,Kuril Is,46.47,151.28,-502,Submarine volcano,Hydrophonic,D1
+0900-23=,Unnamed,Russia,Kuril Is,48.08,153.33,-150,Submarine volcano,Historical,D2
+0900-13-,Unnamed,Russia,Kuril Is,46.1,150.5,-100,Submarine volcano,Uncertain,Unknown
+0900-061,Unnamed,Russia,Kuril Is,45.03,147.208,-930,Submarine volcano,Uncertain,Unknown
+0900-191,Urataman,Russia,Kuril Is,47.12,152.23,678,Somma volcano,Holocene,U
+0900-21=,Ushishur,Russia,Kuril Is,47.52,152.8,401,Caldera,Historical,D3
+0900-37-,Vernadskii Ridge,Russia,Kuril Is,50.55,155.97,1183,Cinder cone,Holocene,U
+0900-18=,Zavaritzki Caldera,Russia,Kuril Is,46.925,151.95,624,Caldera,Historical,D2
+0802-11=,Aso,Japan,Kyushu-Japan,32.88,131.1,1592,Caldera,Historical,D1
+0802-091,Fukue-jima,Japan,Kyushu-Japan,32.653,128.851,317,Shield volcanoes,Tephrochronology,D7
+0802-07=,Ibusuki Volc Field,Japan,Kyushu-Japan,31.22,130.57,922,Caldera,Historical,D6
+0802-09=,Kirishima,Japan,Kyushu-Japan,31.93,130.87,1700,Shield volcano,Historical,D1
+0802-12=,Kuju Group,Japan,Kyushu-Japan,33.08,131.25,1788,Stratovolcano,Historical,D1
+0802-08=,Sakura-jima,Japan,Kyushu-Japan,31.58,130.67,1117,Stratovolcano,Historical,D1
+0802-081,Sumiyoshi-ike,Japan,Kyushu-Japan,31.768,130.594,100,Maar,Radiocarbon,D7
+0802-13=,Tsurumi,Japan,Kyushu-Japan,33.28,131.43,1584,Lava dome,Historical,D6
+0802-10=,Unzen,Japan,Kyushu-Japan,32.75,130.3,1500,Complex volcano,Historical,D1
+0802-022,Akuseki-jima,Japan,Ryukyu Is,29.461,129.597,584,Stratovolcanoes,Holocene?,?
+0802-021,Akuseki-jima,Japan,Ryukyu Is,29.45,129.6,586,Stratovolcano,Holocene,U
+0802-01=,Iriomote-jima,Japan,Ryukyu Is,24.558,124,-200,Submarine volcano,Historical,D2
+0802-02=,Iwo-Tori-shima,Japan,Ryukyu Is,27.85,128.25,217,Complex volcano,Historical,D1
+0802-06=,Kikai,Japan,Ryukyu Is,30.78,130.28,717,Caldera,Historical,D1
+0802-043,Kuchino-shima,Japan,Ryukyu Is,29.964,129.928,628,Stratovolcanoes,Radiocarbon,D6
+0802-041,Kuchino-shima,Japan,Ryukyu Is,29.97,129.93,627,Stratovolcano,Holocene,D7
+0802-05=,Kuchinoerabu-jima,Japan,Ryukyu Is,30.43,130.22,649,Stratovolcano,Historical,D1
+0802-04=,Nakano-shima,Japan,Ryukyu Is,29.85,129.87,979,Stratovolcano,Historical,D2
+0802-03=,Suwanose-jima,Japan,Ryukyu Is,29.53,129.72,799,Stratovolcano,Historical,D1
+1203-20-,Amboy,United States,US-California,34.55,-115.78,288,Cinder cone,Holocene,U
+1203-04-,Big Cave,United States,US-California,40.955,-121.365,1259,Shield volcano,Holocene,Unknown
+1203-03-,Brushy Butte,United States,US-California,41.178,-121.443,1174,Shield volcano,Holocene,Unknown
+1203-10-,Clear Lake,United States,US-California,38.97,-122.77,1439,Volcanic field,Holocene,U
+1203-18-,Coso Volc Field,United States,US-California,36.03,-117.82,2400,Lava dome,Holocene,Unknown
+1203-09-,Eagle Lake Field,United States,US-California,40.63,-120.83,1652,Fissure vent,Holocene,Unknown
+1203-17-,Golden Trout Creek,United States,US-California,36.358,-118.32,2886,Volcanic field,Tephrochronology,D7
+1203-13-,Inyo Craters,United States,US-California,37.692,-119.02,2629,Lava dome,Radiocarbon,D6
+1203-08-,Lassen Volc Center,United States,US-California,40.492,-121.508,3187,Stratovolcano,Historical,D2
+1203-19-,Lavic Lake,United States,US-California,34.75,-116.625,1495,Volcanic field,Holocene,U
+1203-02-,Medicine Lake,United States,US-California,41.58,-121.57,2412,Shield volcano,Radiocarbon,D6
+1203-12-,Mono Craters,United States,US-California,37.88,-119,2796,Lava dome,Radiocarbon,D6
+1203-11-,Mono Lake Volc Field,United States,US-California,38,-119.03,2121,Cinder cone,Tephrochronology,D4
+1203-15-,Red Cones,United States,US-California,37.58,-119.05,2748,Cinder cone,Holocene,U
+1203-01-,Shasta,United States,US-California,41.42,-122.2,4317,Stratovolcano,Historical,D4
+1203-06-,Tumble Buttes,United States,US-California,40.68,-121.55,2191,Cinder cone,Holocene,Unknown
+1203-05-,Twin Buttes,United States,US-California,40.78,-121.6,1631,Cinder cone,Holocene,Unknown
+1203-16-,Ubehebe Craters,United States,US-California,37.02,-117.45,752,Maar,Holocene,U
+1202-09-,Bachelor,United States,US-Oregon,43.979,-121.688,2763,Stratovolcano,Tephrochronology,D7
+1202-06-,Belknap,United States,US-Oregon,44.285,-121.841,2095,Shield volcano,Radiocarbon,D6
+1202-03-,Blue Lake Crater,United States,US-Oregon,44.42,-121.77,1230,Maar,Radiocarbon,D7
+1202-15-,Cinnamon Butte,United States,US-Oregon,43.241,-122.108,1956,Cinder cone,Holocene,Unknown
+1202-16-,Crater Lake,United States,US-Oregon,42.93,-122.12,2487,Caldera,Radiocarbon,D7
+1202-10-,Davis Lake,United States,US-Oregon,43.57,-121.82,2163,Volcanic field,Radiocarbon,D7
+1202-12-,Devils Garden,United States,US-Oregon,43.512,-120.861,1698,Volcanic field,Holocene,Unknown
+1202-17-,Diamond Craters,United States,US-Oregon,43.1,-118.75,1435,Volcanic field,Holocene,Unknown
+1202-14-,Four Craters Lava Field,United States,US-Oregon,43.361,-120.669,1501,Volcanic field,Holocene,Unknown
+1202-01-,Hood,United States,US-Oregon,45.374,-121.694,3426,Stratovolcano,Historical,D3
+1202-02-,Jefferson,United States,US-Oregon,44.692,-121.8,3199,Stratovolcano,Varve Count,D6
+1202-19-,Jordan Craters,United States,US-Oregon,43.03,-117.42,1473,Volcanic field,Holocene,U
+1202-11-,Newberry Volcano,United States,US-Oregon,43.722,-121.229,2434,Shield volcano,Radiocarbon,D6
+1202-07-,North Sister Field,United States,US-Oregon,44.17,-121.77,3074,Complex volcano,Radiocarbon,D6
+1202-04-,Sand Mountain Field,United States,US-Oregon,44.38,-121.93,1664,Cinder cone,Radiocarbon,D7
+1202-08-,South Sister,United States,US-Oregon,44.1,-121.77,3157,Complex volcano,Radiocarbon,D7
+1202-13-,Squaw Ridge Field,United States,US-Oregon,43.472,-120.754,1711,Volcanic field,Holocene,Unknown
+1201-04-,Adams,United States,US-Washington,46.206,-121.49,3742,Stratovolcano,Tephrochronology,D6
+1201-01=,Baker,United States,US-Washington,48.786,-121.82,3285,Stratovolcano,Historical,D3
+1201-02-,Glacier Peak,United States,US-Washington,48.112,-121.113,3213,Stratovolcano,Tephrochronology,D4
+1201-07-,Indian Heaven,United States,US-Washington,45.93,-121.82,1513,Shield volcano,Radiocarbon,D7
+1201-03-,Rainier,United States,US-Washington,46.87,-121.758,4392,Stratovolcano,Dendrochronology,D3
+1201-05-,St. Helens,United States,US-Washington,46.2,-122.18,2549,Stratovolcano,Historical,D1
+1201-06-,West Crater,United States,US-Washington,45.88,-122.08,1329,Volcanic field,Radiocarbon,D7
+0804-137,Daikoku,Japan,Volcano Is-Japan,21.324,144.194,-323,Submarine volcano,Fumarolic,U
+0804-133,Fukujin,Japan,Volcano Is-Japan,21.925,143.442,-217,Submarine volcano,Historical,D1
+0804-13=,Fukutoku-okanoba,Japan,Volcano Is-Japan,24.28,141.52,-14,Submarine volcano,Historical,D1
+0804-12=,Iwo-jima,Japan,Volcano Is-Japan,24.75,141.33,161,Caldera,Historical,D1
+0804-097,Kaikata Seamount,Japan,Volcano Is-Japan,26.667,141,-162,Submarine volcano,Fumarolic,U
+0804-10=,Kaitoku Seamount,Japan,Volcano Is-Japan,26.122,141.102,-10,Submarine volcano,Historical,D1
+0804-134,Kasuga,Japan,Volcano Is-Japan,21.77,143.72,-558,Submarine volcano,Uncertain,Unknown
+0804-121,Kita-Fukutokutai,Japan,Volcano Is-Japan,24.414,141.419,-73,Submarine volcano,Holocene,U1
+0804-11=,Kita-Iwo-jima,Japan,Volcano Is-Japan,25.43,141.23,792,Stratovolcano,Historical,D2
+0804-131,Minami-Hiyoshi,Japan,Volcano Is-Japan,23.507,141.905,-30,Submarine volcano,Historical,D1
+0804-132,Nikko,Japan,Volcano Is-Japan,23.075,142.308,-391,Submarine volcano,Uncertain,Unknown
+0804-096,Nishino-shima,Japan,Volcano Is-Japan,27.274,140.882,38,Caldera,Historical,D2
+0804-101,Unnamed,Japan,Volcano Is-Japan,26.133,144.483,-3200,Submarine volcano?,Uncertain,?
+0804-093,Unnamed,Japan,Volcano Is-Japan,26.13,144.48,-3200,Submarine volcano,Uncertain,Unknown

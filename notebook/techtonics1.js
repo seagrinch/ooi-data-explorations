@@ -29,7 +29,7 @@ var mainscript = (function () {
 
   // Basemap
   var myMap = L.map(container).setView(mapcenter, zoomlevel);
-  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+    var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     // maxZoom: 12,
     // minZoom: 2.6,
     attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
@@ -42,7 +42,7 @@ var mainscript = (function () {
   }).addTo(myMap);
   
   // Overlay Minimap
-  var osm2 = new L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  var osm2 = new L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     maxZoom: 13,
     minZoom: 0,
     attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
