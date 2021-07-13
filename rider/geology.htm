@@ -121,7 +121,7 @@
   }).setView(mapcenter, zoomlevel);
   
   // Basemap
-  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     layers: 'topo',
     format: 'image/png',
     transparent: true,
