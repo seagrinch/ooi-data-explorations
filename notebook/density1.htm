@@ -311,6 +311,13 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
   dots1.attr("clip-path", "url(#clip)")
   dots2.attr("clip-path", "url(#clip)")
 
+  // Hide selected months to start
+  for (let d = 4; d <= 12; d++) { 
+    d3.selectAll(".line" + d).transition().style("opacity", 0) //Hide line
+    d3.selectAll(".circle" + d).transition().style("display", "none") //Remove circles so tooltip works on earlier dots
+  }
+
+
 })
 
 </script>
