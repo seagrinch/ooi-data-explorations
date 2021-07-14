@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Primary Production Lab #2</title>
+    <title>Primary Production Lab #2 Extended</title>
 </head>
 
 <body>
@@ -22,9 +22,9 @@
   </div>
   <div class="row" style="margin-top:10px;">
     <div class="col-xs-3">
-      <p class="text-right">Select a second parameter:</p>
     </div>
-    <div class="col-xs-9">
+    <div class="col-xs-4">
+      <p><strong>Select a second parameter</strong></p>
       <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
         Temperature</label><br>
       <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" > 
@@ -38,12 +38,12 @@
       <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
         None</label>
     </div>
-  </div>
-  <div class="row" style="margin-top:10px;">
-    <div class="col-xs-3">
-    </div>
-    <div class="col-xs-9">
-      <label style="font-weight: normal;"><input type="checkbox" id="seasons" onclick="toggle_seasons()"> Color Seasons</label>
+    <div class="col-xs-4">
+      <p><strong>Highlight Seasons</strong></p>
+      <label style="font-weight: normal;"><input type="checkbox" id="winter" onclick="toggle_seasons()"> Winter (Dec-Feb)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="spring" onclick="toggle_seasons()"> Spring (Mar-May)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="summer" onclick="toggle_seasons()"> Summer (Jun-Aug)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="fall" onclick="toggle_seasons()"> Fall (Sep-Nov)</label>
     </div>
   </div>
   <p class="text-right"><small>&copy; 2020 Rutgers University <a href="https://datalab.marine.rutgers.edu">Ocean Data Labs Project</a></small></p>
@@ -163,7 +163,7 @@ function toggle_radio(el) {
 }
 
 function toggle_seasons() {
-  if ($('#seasons').is(':checked')) {
+  if ($('#winter').is(':checked') || $('#spring').is(':checked') || $('#summer').is(':checked') || $('#fall').is(':checked')) {
     g.updateOptions({underlayCallback: function(canvas, area, g) {
       fill_rects(canvas, area, g)
     }})
@@ -179,16 +179,26 @@ var fill_rects = function(canvas, area, g) {
     var canvas_width = canvas_right_x - canvas_left_x;
     canvas.fillRect(canvas_left_x, area.y, canvas_width, area.h);
   }
-  canvas.fillStyle = "rgba(65, 105, 225, 0.3)"; //#4169E1 /* RoyalBlue (web colors) */
-  highlight_period(new Date('2019-01-01T00:00'), new Date('2019-03-01T00:00'))
-  canvas.fillStyle = "rgba(0, 128, 128, 0.3)"; // #008080 /* Teal (web colors) */
-  highlight_period(new Date('2019-03-01T00:00'), new Date('2019-06-01T00:00'))
-  canvas.fillStyle = "rgba(255, 69, 0, 0.3)";  //#FF4500 /* OrangeRed (web colors) */
-  highlight_period(new Date('2019-06-01T00:00'), new Date('2019-09-01T00:00'))
-  canvas.fillStyle = "rgba(255, 165, 0, 0.3)";  // #FFA500 /* Orange (web colors) */
-  highlight_period(new Date('2019-09-01T00:00'), new Date('2019-12-01T00:00'))
-  canvas.fillStyle = "rgba(65, 105, 225, 0.3)";
-  highlight_period(new Date('2019-12-01T00:00'), new Date('2019-12-31T00:00'))
+  if ($('#winter').is(':checked')) {
+    canvas.fillStyle = "rgba(65, 105, 225, 0.3)"; //#4169E1 /* RoyalBlue (web colors) */
+    highlight_period(new Date('2019-01-01T00:00'), new Date('2019-03-01T00:00'))    
+  }
+  if ($('#spring').is(':checked')) {
+    canvas.fillStyle = "rgba(0, 128, 128, 0.3)"; // #008080 /* Teal (web colors) */
+    highlight_period(new Date('2019-03-01T00:00'), new Date('2019-06-01T00:00'))
+  }
+  if ($('#summer').is(':checked')) {
+    canvas.fillStyle = "rgba(255, 69, 0, 0.3)";  //#FF4500 /* OrangeRed (web colors) */
+    highlight_period(new Date('2019-06-01T00:00'), new Date('2019-09-01T00:00'))
+  }
+  if ($('#fall').is(':checked')) {
+    canvas.fillStyle = "rgba(255, 165, 0, 0.3)";  // #FFA500 /* Orange (web colors) */
+    highlight_period(new Date('2019-09-01T00:00'), new Date('2019-12-01T00:00'))
+  }
+  if ($('#winter').is(':checked')) {
+    canvas.fillStyle = "rgba(65, 105, 225, 0.3)";
+    highlight_period(new Date('2019-12-01T00:00'), new Date('2019-12-31T00:00'))
+  }
 }
 
 </script>
