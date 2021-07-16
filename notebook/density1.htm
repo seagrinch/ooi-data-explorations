@@ -133,7 +133,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
       .attr("transform", "rotate(-90)")
       .attr("y", -30)
       .attr("x", 0)
-      .text("Pressure (dbar)")
+      .text("Depth (m)")
 
   // color palette
   var months = profiles.map(function(d){ return +d.key })
@@ -255,7 +255,7 @@ d3.csv("data/chem_CP04OSPM_profiles.csv", function(data) {
     }
     var mousemove = function(d) {
       Tooltip
-        .html("Month: " + d.month + '<br> Pressure: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
+        .html("Month: " + d.month + '<br> Depth: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
         .style("left", (event.pageX) + 10 + "px")
         .style("top",(event.pageY) + "px")
         //.style("left", legendX + 20 + "px")
