@@ -88,7 +88,7 @@ $(document).ready(function() {
     var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
       // maxZoom: 12,
       // minZoom: 2.6,
-      attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.9',
+      attribution: 'Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
       layers: 'topo',
       format: 'image/png',
       transparent: true,

@@ -52,7 +52,7 @@
   // Basemap
 //  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
   var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
-    attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
+    attribution: 'Topography data from Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
     layers: 'topo',
     format: 'image/png',
     transparent: true,
@@ -64,7 +64,7 @@
   var osm2 = new L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     maxZoom: 13,
     minZoom: 0,
-    attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
+    attribution: 'Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
     layers: 'topo',
     format: 'image/png',
     transparent: true,
