@@ -39,7 +39,7 @@
         None</label>
     </div>
   </div>
-  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+  <p class="text-right small">&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 </div>
 
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
@@ -88,7 +88,7 @@ var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A"];
 
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart"), "../notebook/data/production2019.csv", {
+  g = new Dygraph(document.getElementById("chart"), "../notebook/data/production_2019.csv", {
     title: 'Coastal Pioneer Array Data',
     ylabel: 'Chlorophyll (&micro;g/L)',
     y2label: '',
@@ -117,7 +117,7 @@ $(document).ready(function () {
       'Nitrate': {axis: 'y2'},
       'Shortwave Irradiance': {axis: 'y2'},
     },
-    visibility: [0,0,1,0,0,0],
+    visibility: [0,0,1,0,0,0,0],
   });
 
 }); //document.ready

@@ -3,7 +3,7 @@
 <html>
 <head>
   
-  <title>Seafloor Geology Data Lab - Rider University</title>
+  <title>Tectonic Plate Boundaries Data Lab - Rider University</title>
     
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -35,7 +35,7 @@
     <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>, 
     <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>, 
     <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>, 
-    <a class='' onclick="zoomTo(36.386719, -120.959473, 5)">Western US</a>, 
+    <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>, 
     <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Equatorial Atlantic</a>, 
     <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>, 
     <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>, 
@@ -50,7 +50,7 @@
       <h4>Toggle Layers</h4>
       <div id="custom-map-controls"></div>
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <h4>Legend</h4>
       <p><strong>Earthquake Depths</strong></p>
       <p>
@@ -73,27 +73,30 @@
           <circle cx="6" cy="6" r="5" stroke="#888" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#F5F5F5" fill-opacity="0.8" fill-rule="evenodd" />
         </svg> Volcano
       </p>
-      <p><strong>Bathymetry/Topography</strong></p>
-      <img src="data/gmrt_legend.png" width="100px">
     </div>
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <img src="data/seafloorage_legend_1_8.png">
     </div>
+    <div class="col-md-2">
+      <p><strong>Bathymetry/Topography</strong></p>
+      <img src="data/bathy-topo-scale.png" width="80px">
+    </div>
   </div>
-  
-  <div class="row">
-    <div class="col-md-8">    
-      <h5>Data Sources:</h5>
+
+      <h5>Data Sources</h5>
       <ul>
         <li>Bathymetry and topography from Global Multi-Resolution Topography Data Synthesis (<a href="https://www.gmrt.org" target="_blank">GMRT</a>). </li>
         <li>Seafloor Age (Muller et al, 1997). Provided by <a href="https://serc.carleton.edu/sp/library/google_earth/examples/49004.html" target="_blank">SERC</a>.</li>
         <!-- <li>Tectonic plate boundary types from <a href="http://www-udc.ig.utexas.edu/external/plates/data.htm" target="_blank">The University of Texas Institute for Geophysics</a>. </li> -->
         <li>Plate boundaries from Peter Bird (2003), Geochemistry Geophysics Geosystems.  Available on <a href="https://github.com/fraxen/tectonicplates/" target="_blank">GitHub</a>.</li>
         <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/" target="_blank">NCEI Volcano Location Database</a>. </li>
-        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  Large earthquakes dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021. All earthquakes dataset includes quakes greater than magnitude 0 from January, 2021 only.</li>
+        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  
+          <ul>
+            <li>Large earthquakes dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021.</li>
+            <li> All earthquakes dataset includes quakes greater than magnitude 0 from January, 2021 only.</li>
+          </ul>
+        </li>
       </ul>
-    </div>
-  </div>
 
   <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 
@@ -247,13 +250,13 @@
         },
         style: function(feature) {
           if (feature.properties.depth<30) {
-            return {fillColor: "#DC143C", fillOpacity:0.4}; /* Crimson (web colors) */
+            return {fillColor: "#DC143C"}; /* Crimson (web colors) */
           } else if (feature.properties.depth<70) {
-            return {fillColor: "#FFA500", fillOpacity:0.4}; /* Orange (web colors) */
+            return {fillColor: "#FFA500"}; /* Orange (web colors) */
           } else if (feature.properties.depth<300) {
-            return {fillColor: "#2E8B57", fillOpacity:0.4}; /* SeaGreen (web colors) */
+            return {fillColor: "#2E8B57"}; /* SeaGreen (web colors) */
           } else {
-            return {fillColor: "#00008B", fillOpacity:0.4}; /* DarkBlue (web colors) */
+            return {fillColor: "#00008B"}; /* DarkBlue (web colors) */
           }
         },         
         onEachFeature: function (feature, layer) {
@@ -307,6 +310,7 @@
 		gauge.innerHTML = 'Zoom level: ' + myMap.getZoom() + '<br> Center: ' + myMap.getCenter();
 	})
 */
+
   
 </script>
 

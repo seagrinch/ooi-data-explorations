@@ -18,8 +18,8 @@
     small {
       color: #808080;
     }
-    .myCircle:hover {
-      opacity: 1;
+    .dot:hover {
+      opacity:1;
     }
   </style>
 </head>
@@ -38,7 +38,7 @@
       </div>
     </div>
     <p align="center">These profiles were collected on June 1-2, 2019.  You can also view a <a href="profiles_map.htm">map of profile locations</a>.</p>
-    <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+    <p class="text-right small">&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
   </div>
 </body>
 
@@ -65,9 +65,9 @@ var svg = d3.select("#chart").append("svg")
       .attr("height",500);
 
 // Specify coordinates for each graph
-var margin1 = {top: 30, right: 540, bottom: 40, left: 40},
-    margin2 = {top: 30, right: 280, bottom: 40, left: 300},
-    margin3 = {top: 30, right: 20, bottom: 40, left: 560},
+var margin1 = {top: 50, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 50, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 50, right: 20, bottom: 40, left: 560},
     width1 = +svg.attr("width") - margin1.left - margin1.right,
     width2 = +svg.attr("width") - margin2.left - margin2.right,
     width3 = +svg.attr("width") - margin3.left - margin3.right,
@@ -135,8 +135,11 @@ d3.csv("data/profiles.csv", parseData, function(data) {
 
   var xAxis1 = d3.axisBottom().scale(x1).ticks(5)
   var xAxis2 = d3.axisBottom().scale(x2).ticks(5)
-  var xAxis3 = d3.axisBottom().scale(x3).ticks(4)
-  var yAxis = d3.axisLeft().scale(y).ticks(7)
+  var xAxis3 = d3.axisBottom().scale(x3).ticks(4,'f')
+  var yAxis = d3.axisLeft().scale(y).ticks(7,'f')
+  var xAxis1t = d3.axisTop().scale(x1).ticks(5)
+  var xAxis2t = d3.axisTop().scale(x2).ticks(5)
+  var xAxis3t = d3.axisTop().scale(x3).ticks(4,'f')
 
   var dataNest = d3.nest()
         .key(function(d) {return d.site;})
@@ -148,19 +151,30 @@ d3.csv("data/profiles.csv", parseData, function(data) {
 
   graph1.append("g")
     .attr("transform", "translate(0," + height1 + ")")
-    .attr("class","myXaxis1")
+    .attr("class","xAxis1")
   graph2.append("g")
     .attr("transform", "translate(0," + height2 + ")")
-    .attr("class","myXaxis2")
+    .attr("class","xAxis2")
   graph3.append("g")
     .attr("transform", "translate(0," + height3 + ")")
-    .attr("class","myXaxis3")
+    .attr("class","xAxis3")
+    
   graph1.append("g")
-    .attr("class","myYaxis1")
+    .attr("class","yAxis1")
   graph2.append("g")
-    .attr("class","myYaxis2")
+    .attr("class","yAxis2")
   graph3.append("g")
-    .attr("class","myYaxis3")
+    .attr("class","yAxis3")
+
+  graph1.append("g")
+    .attr("transform", "translate(0,0)")
+    .attr("class","xAxis1t")
+  graph2.append("g")
+    .attr("transform", "translate(0,0)")
+    .attr("class","xAxis2t")
+  graph3.append("g")
+    .attr("transform", "translate(0,0)")
+    .attr("class","xAxis3t")
 
   // Add labels
   xLabel1 = graph1.append("text")
@@ -177,7 +191,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
       .attr("text-anchor", "middle")
       .attr("x", width2/2)
       .attr("y", height2 + 32)
-      .text("Potential Density (kg/m^3)");
+      .text("Density (kg/m^3)");
   yLabel = graph1.append("text")
       .attr("text-anchor", "end")
       .attr("transform", "rotate(-90)")
@@ -189,7 +203,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
       .attr("font-weight", "bold")
       .attr("font-size", "16px")
       .attr("x", width1/2)
-      .attr("y", -10)
+      .attr("y", -25)
       .text("North Atlantic Argo Float CTD Profiles");
 
   // Create a tooltip div
@@ -238,17 +252,26 @@ d3.csv("data/profiles.csv", parseData, function(data) {
         
     var t = d3.transition().duration(1000)
     
-    x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
-    graph1.selectAll(".myXaxis1").transition(t).call(xAxis1);
-    x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
-    graph2.selectAll(".myXaxis2").transition(t).call(xAxis2);
-    x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
-    graph3.selectAll(".myXaxis3").transition(t).call(xAxis3);
+    //x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
+    x1.domain([0,27])
+    graph1.selectAll(".xAxis1").transition(t).call(xAxis1);
+    graph1.selectAll(".xAxis1t").transition(t).call(xAxis1t);
+
+    //x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
+    x2.domain([34.5,36.7])
+    graph2.selectAll(".xAxis2").transition(t).call(xAxis2);
+    graph2.selectAll(".xAxis2t").transition(t).call(xAxis2t);
+
+    //x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
+    x3.domain([1023.8,1028])
+    graph3.selectAll(".xAxis3").transition(t).call(xAxis3);
+    graph3.selectAll(".xAxis3t").transition(t).call(xAxis3t);
     
-    y.domain([0, d3.max(dataSelected, function(d) { return d.pressure }) ]);
-    graph1.selectAll(".myYaxis1").transition(t).call(yAxis);
-    graph2.selectAll(".myYaxis2").transition(t).call(yAxis);
-    graph3.selectAll(".myYaxis3").transition(t).call(yAxis);
+    //y.domain([0, d3.max(dataSelected, function(d) { return d.pressure }) ]);
+    y.domain([0, 2000])
+    graph1.selectAll(".yAxis1").transition(t).call(yAxis);
+    graph2.selectAll(".yAxis2").transition(t).call(yAxis);
+    graph3.selectAll(".yAxis3").transition(t).call(yAxis);
 
     // Update the lines
     function updateLine(graph,xvar,yvar) {
@@ -272,6 +295,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
           .attr("fill", "none")
           .attr("stroke", function(d){ return color(d.key) })
           .attr("stroke-width", 3)
+          .attr("clip-path", "url(#clip)") // Add Clip-path
           .attr("d", function(d) {
             return d3.line()
               .x(xvar)
@@ -291,17 +315,16 @@ d3.csv("data/profiles.csv", parseData, function(data) {
         .attr('class','dot')
         .attr("cx", xvar )
         .attr("cy", yvar )
-        .attr("r", 4)
-        //.style("stroke", "white")
-        //.style("stroke-width", 1)
-        //.style("fill", "69b3a2")
-        .attr('opacity',0) //Hide the dots!
+        .attr("r", 5)
+        .style("stroke", "black")
+        .style("stroke-width", 1)
+        .style("fill", "black")
+        .attr('opacity',0) //Hide the dots, except on hover!
         .on("mouseover", mouseover)
         .on("mousemove", mousemove)
         .on("mouseleave", mouseleave)
+        .attr("clip-path", "url(#clip)") // Add Clip-path
       dots.exit().remove()
-      // Add Clip-paths
-      dots.attr("clip-path", "url(#clip)")
 
     }
     

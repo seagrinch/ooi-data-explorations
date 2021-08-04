@@ -24,7 +24,7 @@
 <div style="width: 720px; margin:20px">
   <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
 
-  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+  <p class="text-right small">&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 
 </div>
 </body>
@@ -51,7 +51,7 @@
   }).setView(mapcenter, zoomlevel);
   
   // Basemap
-  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     layers: 'topo',
     format: 'image/png',
     transparent: true,
@@ -64,9 +64,9 @@
     icon: 'glyphicon-star',
     markerColor: 'darkred',
   });    
-  L.marker([53.66086,-38.72479333], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Near Polar (54&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/6902811" target="_blank">6902811</a> <br>Cycle: 67');
-  L.marker([35.73336411,-55.79385376], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Temperate (36&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/4902393" target="_blank">4902393</a> <br>Cycle: 77');
-  L.marker([11.984,-31.966], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Tropics (12&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/3901635" target="_blank">3901635</a> <br>Cycle: 66');
+  L.marker([53.66086,-38.72479333], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Near Polar (54&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/6902811" target="_blank">6902811</a> <br>Cycle: 67 - June 2, 2019');
+  L.marker([35.73336411,-55.79385376], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Temperate (36&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/4902393" target="_blank">4902393</a> <br>Cycle: 77 - June 1, 2019');
+  L.marker([11.984,-31.966], {icon: redMarker}).addTo(myMap).bindPopup('<strong>Tropics (12&deg;N)</strong><br>Argo Float: <a href="https://fleetmonitoring.euro-argo.eu/float/3901635" target="_blank">3901635</a> <br>Cycle: 66 - June 1, 2019');
   
   // Add Scale Bar
   L.control.scale ({maxWidth:240, metric:true, imperial:false, position:'bottomleft'}).addTo(myMap);

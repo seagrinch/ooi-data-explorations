@@ -3,7 +3,7 @@
 <html>
 <head>
   
-  <title>Tides Data Lab Map - Rider University</title>
+  <title>Coastal Tides Data Lab Map - Rider University</title>
     
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
@@ -24,7 +24,7 @@
 <div style="width: 720px; margin:20px">
   <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
 
-  <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
+  <p class="text-right small">&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 
 </div>
 </body>
@@ -51,7 +51,7 @@
   }).setView(mapcenter, zoomlevel);
   
   // Basemap
-  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     layers: 'topo',
     format: 'image/png',
     transparent: true,
