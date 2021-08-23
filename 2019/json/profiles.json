@@ -1,0 +1,17 @@
+[
+  {
+    "title": "OOI Array Locations",
+    "file": "OOI-Station-Map_Cabled_Array_2015-01-121_EnduranceHighlighted.jpg",
+    "caption": " The <a href=\"https://oceanobservatories.org\">Ocean Observatories Initiative</a> (OOI) has hundreds of instruments collecting data every minute of every day from seven locations (arrays) throughout the Pacific and Atlantic Oceans. Some of the data in this activity was collected from the OOI Cabled Array, located in the northeastern area of the Pacific Ocean (red box)."
+  },
+  {
+    "title": "OOI Cabled Array",
+    "file": "Cabled_Array_Map_2014-12-02_Axial_v2.jpg",
+    "caption": "This is a detailed view of the OOI Cabled Array, which includes several undersea nodes connected to the shore by an electro-fiber optic cable.  The data in this activity was collected at Axial Base (3A in the red box), which is about 300 miles off the coast of Oregon."
+  },
+  {
+    "title": "Shallow Profiler",
+    "file": "profileroutofthedock_axial_r1842_00035.jpg",
+    "caption": "The data in this activity was collectd by the <a href=\"https://interactiveoceans.washington.edu/research-sites/axial-base/\">Axial Base</a> shallow profiler.  The instruments (including <a href=\"https://oceanobservatories.org/instrument-class/ctd/\">CTD</a>, <a href=\"https://oceanobservatories.org/instrument-class/do2/\">dissolved oxygen</a> and <a href=\"https://oceanobservatories.org/instrument-class/fluor/\">fluorometer</a>) are attached to a winched profiler on a mooring platform that sits at about 200m.  (<a href=\"https://interactiveoceans.washington.edu/research-sites/axial-base\">Image credit</a>: NSF/OOI/UW/ISS; Dive R1842; V15.)"
+  }
+]
