@@ -158,7 +158,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore... ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore how earthquake data helps explain changes in the topography of an underwater volcano</small></h2>
 </div>
 
 <p>&nbsp;</p>

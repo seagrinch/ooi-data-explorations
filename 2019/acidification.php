@@ -180,7 +180,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>SHORT DESCRIPTION</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore oceanographic conditions that negatively impact shellfish populations</small></h2>
 </div>
 
 <p>&nbsp;</p>
