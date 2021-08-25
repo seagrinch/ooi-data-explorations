@@ -17,12 +17,12 @@
       <p class="text-right">Select variables to show:</p>
     </div>
     <div class="col-xs-9">
-      <label style="font-weight: normal;"><input type="checkbox" name="pressure" value=0 onclick="toggle(this)" checked> 
-        Barometric Pressure (mbar)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" name="waves" value=2 onclick="toggle(this)" checked> 
+        Significant Wave Height (m)</label><br>
       <label style="font-weight: normal;"><input type="checkbox" name="winds" value=1 onclick="toggle(this)" > 
         Wind Speed (m/s)</label><br>
-      <label style="font-weight: normal;"><input type="checkbox" name="waves" value=2 onclick="toggle(this)" > 
-        Significant Wave Height (m)</label>
+      <label style="font-weight: normal;"><input type="checkbox" name="pressure" value=0 onclick="toggle(this)" > 
+        Barometric Pressure (mbar)</label>
     </div>
   </div>
 
@@ -65,13 +65,13 @@
     font-size: 16px;
   }
   
-  .dygraph-ylabel {
+  .dygraph-y2label {
     font-size: 14px;
     font-weight: bold;
     color:008100;
   }
 
-  .dygraph-y2label {
+  .dygraph-ylabel {
     font-size: 14px;
     font-weight: bold;
     color:#555;
@@ -99,8 +99,8 @@ $(document).ready(function () {
 
   g = new Dygraph(document.getElementById("chart"), "data/waves.csv", {
     title: 'Coastal Pioneer Central Surface Mooring',
-    ylabel: 'Barometric Pressure (mbar)',
-    y2label: 'Winds (m/s) & Waves (m)',
+    y2label: 'Barometric Pressure (mbar)',
+    ylabel: 'Wave Height (m) & Wind Speed (m/s)',
     //labels : ["Date","Endurance","Pioneer"],
     legend: 'always',
     labelsSeparateLines: true,
@@ -120,11 +120,11 @@ $(document).ready(function () {
       y2: {axisLabelWidth: 70}
     },
     series: {
-      'Barometric Pressure': {axis: 'y', showInRangeSelector: true},
-      'Wind Speed': {axis: 'y2'},
-      'Significant Wave Height': {axis: 'y2'},
+      'Barometric Pressure': {axis: 'y2'},
+      'Wind Speed': {axis: 'y'},
+      'Significant Wave Height': {axis: 'y', showInRangeSelector: true},
     },
-    visibility: [1,0,0],
+    visibility: [0,0,1],
     plugins: [
       new Dygraph.Plugins.Crosshair({
         direction: "vertical"
