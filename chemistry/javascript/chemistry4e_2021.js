@@ -17,15 +17,15 @@ var svg = d3.select("#chart").append("svg")
 var parseDate = d3.utcParse("%Y-%m-%d %H:%M:%S");
 
 var x1 = d3.scaleLinear().range([0, width1]),
-    x2 = d3.scaleUtc().range([0, width2]),
-    x3 = d3.scaleUtc().range([0, width3]),
+    x2 = d3.scaleUtc().range([0, width2]).nice(),
+    x3 = d3.scaleUtc().range([0, width3]).nice(),
     y1 = d3.scaleLinear().range([height1, 0]), //Regular y-axis
     y2 = d3.scaleLinear().range([height2, 0]),
     y3 = d3.scaleLinear().range([height3, 0]),
     color = d3.scaleSequential(d3.interpolateRainbow); //Alternate: interpolateViridis
 
 var xAxis1 = d3.axisBottom(x1),
-    xAxis2 = d3.axisBottom(x2).ticks(d3.timeMonth, 1).tickFormat(d3.timeFormat('%b')),
+    xAxis2 = d3.axisBottom(x2).ticks(d3.timeMonth, 1).tickFormat(d3.timeFormat('%b')),  //Be careful, with out .ticks() the months are off by 1
     xAxis3 = d3.axisBottom(x3).ticks(d3.timeMonth, 1).tickFormat(d3.timeFormat('%b')),
     yAxis1 = d3.axisLeft(y1),
     yAxis2 = d3.axisLeft(y2),
@@ -68,8 +68,8 @@ var graph3 = svg.append("g")
 graph1.append("text")
     .attr("class", "label")
     .attr("dy", "2.3em")
-    .attr("transform", "translate(" + (width1) + "," + (height1) + "), rotate(0)")
-    .attr("text-anchor", "end")
+    .attr("transform", "translate(" + (width1/2) + "," + (height1) + "), rotate(0)")
+    .attr("text-anchor", "middle")
     .style("font-size", "12px")    
     .style("font-weight", "normal")
     .text("pH");
@@ -99,19 +99,19 @@ graph3.append("text")
     .text("pCO2");
 
 
-d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
+d3.csv("data/chemistry4_2021_CE02.csv", type, function(error, data) {
   if (error) throw error;
 
   //x1.domain(d3.extent(data, function(d) { return d.ph; }));
   x1.domain([7.5,8.5]);
   //y1.domain(d3.extent(data, function(d) { return d.pco2; }));
-  y1.domain([0,800]);
+  y1.domain([0,900]);
   x2.domain(d3.extent(data, function(d) { return d.date; }));
   //y2.domain(d3.extent(data, function(d) { return d.ph; }));
   y2.domain([7.5,8.5]);
   x3.domain(d3.extent(data, function(d) { return d.date; }));
   //y3.domain(d3.extent(data, function(d) { return d.pco2; }));
-  y3.domain([0,800]);
+  y3.domain([0,900]);
   color.domain(d3.extent(data, function(d) {return d.date}));
 
   var dots1 = graph1.append("g");
@@ -142,10 +142,17 @@ d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
         .attr("cx", function(d) { return x2(d.date); })
         .attr("cy", function(d) { return y2(d.ph); })
         .style("fill", function(d) {return color(d.date)});
-  graph2.append("g")
+  var test2 = graph2.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height2 + ")")
       .call(xAxis2);
+
+  test2.selectAll(".tick").each(function(d) {
+    //if (this.textContent === d3.timeFormat("%B")(d)) {
+      d3.select(this).select("text").text(d3.timeFormat("%b")(d))
+    //}
+  })
+
   graph2.append("g")
       .attr("class", "axis axis--y")
       .call(yAxis2);
@@ -181,6 +188,7 @@ d3.csv("data/chemistry4_CE02SHSM.csv", type, function(error, data) {
       .call(brush3)
       //.call(brush3.move, x3.range()); //Default to all time
 */
+
 });
 
 function brushed2() {
@@ -211,7 +219,7 @@ function brushed3() {
 
 function type(d) {
   d.date = parseDate(d.date);
-  d.pco2 = +d['pCO2'];
-  d.ph = +d['pH'];
+  d.pco2 = +d['partial_pressure_co2_ssw'];
+  d.ph = +d['phsen_abcdef_ph_seawater'];
   return d;
 }

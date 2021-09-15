@@ -5,8 +5,8 @@ var svg = d3.select("#chart").append("svg")
       .attr("width",800)
       .attr("height",400),
     margin1 = {top: 20, right: 410, bottom: 30, left: 40},
-    margin2 = {top: 20, right: 20, bottom: 225, left: 430},
-    margin3 = {top: 215, right: 20, bottom: 30, left: 430},
+    margin2 = {top: 20, right: 20, bottom: 225, left: 440},
+    margin3 = {top: 215, right: 20, bottom: 30, left: 440},
     width1 = +svg.attr("width") - margin1.left - margin1.right,
     width2 = +svg.attr("width") - margin2.left - margin2.right,
     width3 = +svg.attr("width") - margin3.left - margin3.right,
@@ -187,8 +187,8 @@ drawGraph = function(dataset) {
         xAxis2.ticks(8).tickFormat(d3.timeFormat("%b %e"));
         xAxis3.ticks(8).tickFormat(d3.timeFormat("%b %e"));  
     } else {
-        xAxis2.ticks(10).tickFormat(d3.timeFormat("%b"));
-        xAxis3.ticks(10).tickFormat(d3.timeFormat("%b"));  
+        xAxis2.ticks(d3.timeMonth, 1).tickFormat(d3.timeFormat("%b"));
+        xAxis3.ticks(d3.timeMonth, 1).tickFormat(d3.timeFormat("%b"));
     }
 
 

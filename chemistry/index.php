@@ -35,7 +35,7 @@
     <a href="activity3.php"><img class="media-object thumbnail" src="screenshots/Activity3_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity3.php">Changes in pH with Depth</a></h4>
+    <h4 class="media-heading"><a href="activity3.php">Changes in pH with Depth</a> <small>(updated 9/2021)</small></h4>
     <p>Explore and analyze patterns in how seawater pH changes with depth.</p>
   </div>
 </div>
@@ -44,7 +44,7 @@
     <a href="activity4.php"><img class="media-object thumbnail" src="screenshots/Activity4_sm.jpg" alt="" width="250" height="150"></a>
   </div>
   <div class="media-body">
-    <h4 class="media-heading"><a href="activity4.php">Changes in pH and pCO<sub>2</sub></a></h4>
+    <h4 class="media-heading"><a href="activity4.php">Changes in pH and pCO<sub>2</sub></a> <small>(updated 9/2021)</small></h4>
     <p>Explore and analyze patterns in seawater pH and pCO<sub>2</sub> over time.</p>
   </div>
 </div>

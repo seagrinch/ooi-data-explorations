@@ -17,7 +17,7 @@
 </ol>
 
 <!-- INDIVIDUAL ACTIVITY -->
-<?php if (in_array($level, array('exploration','application'))): ?>
+<?php if (in_array($level, array('exploration','application','exploration21'))): ?>
 
 <div class="page-header">
 <h2><?= $lesson_title ?> <small><?= $level_title ?></small></h2>
@@ -25,7 +25,7 @@
 
 <h3>Your Objective</h3>
 
-<?php if ($level=='exploration'): ?>
+<?php if (($level=='exploration') || ($level=='exploration21')): ?>
 <p>Use pH and pCO<sub>2</sub> data from the surface from the North Pacific Ocean to look if there are patterns over time.</p>
 <ul>
   <li>Make a prediction about what changes in pH at the ocean surface you may observe as pCO<sub>2</sub> of the water changes over time.</li>
@@ -41,16 +41,18 @@
 <!-- DATA CHART -->
 <div id="chart"></div>
 
-<?php if ($level=='exploration'): ?>
 <?php 
   $scripts[] = "https://d3js.org/d3.v4.min.js";
-  $scripts[] = "javascript/chemistry4e.js";
+  if ($level=='exploration'): 
+    $scripts[] = "javascript/chemistry4e.js";
+  elseif ($level=='exploration21'): 
+    $scripts[] = "javascript/chemistry4e_2021.js";
+  elseif ($level=='application'): 
+    $scripts[] = "javascript/chemistry4a.js";
 ?>  
-<?php elseif ($level=='application'): ?>
-<?php 
-  $scripts[] = "https://d3js.org/d3.v4.min.js";
-  $scripts[] = "javascript/chemistry4a.js";
-?>  
+<?php endif; ?>
+
+<?php   if ($level=='application'): ?>
 <p class="text-center">Select a Site:
 <select name="dataset" onchange="updateGraph(this.value)">
   <option value="CE02SHSM">CE02SHSM</option>
@@ -60,16 +62,22 @@
 </p>
 <?php endif; ?>
 
+<?php if ($level=='exploration'): ?>
+<p class="text-right">Data is from October 7, 2015 to October 1, 2016.</p>
+<?php elseif ($level=='exploration21'): ?>
+<p class="text-right">Data is from July 10, 2020 to August 31, 2021.</p>
+<?php endif; ?>
+
 
 <h3>Data Tips</h3>
 
-<?php if ($level=='exploration'): ?>
-<p>When the site loads, you are able to see the full dataset (September 2015-August 2016) of pH and pCO<sub>2</sub> data from the Oregon Shelf Surface Mooring in the Coastal Endurance Array. You can see each variable plotted against time in the stacked plots on the right, as well as the variables plotted against one another in the scatter plot on the left. You can interact with the data by: </p>
+<?php if (($level=='exploration') || ($level=='exploration21')): ?>
+<p>When the site loads, you are able to see a full year of pH and pCO<sub>2</sub> data from the <strong>Oregon Shelf Surface Mooring</strong>, which is bart of the <strong>Coastal Endurance Array</strong>. On the right, you can see each variable plotted against time.  On the left, the two variables are plotted against one another in a scatterplot. You can interact with the graphs in the following ways: </p>
 <ul>
-  <li>Selecting a different time period to explore the data in ways that interest you by selecting a section of data in the pH graph (top right) to draw a box over the data points and then moving the highlighted box to the right or left. </li>
-  <li>Zooming in and out of the data to look at different time scales that interest you by changing the width of your highlighted box section in the pH graph (top right).</li>
+  <li>Select a specific time period to explore that interests you by selecting a range of data in the pH graph (top right). Click to to draw a box over the data points. You can then move the highlighted box to the right or left. </li>
+  <li>Zoom in and out of the data to look at different time scales that interest you by changing the width of your highlighted box section in the pH graph (top right).</li>
 </ul>
-<p>As a note, the color denotes the time of year the pH data are from (light purple/pink are from September 2015 through blue/dark purple from August 2016).</p>
+<p>As a note, the color denotes the time of year the pH data are from (light purple/pink are from the early part of the record, while blue/dark purple are from the later part.</p>
 
 <?php elseif ($level=='application'): ?>
 <p>Select different datasets from Washington (CE07) or off Chile (GS01) against the Oregon dataset (CE02). Drag the time slider to select a time period on the top right pH graph to compare changes in pH and pCO<sub>2</sub> over time across all the graphs among the datasets. Select another time period on the top right pH graph, to explore the data in ways that interest you. </p>
@@ -79,7 +87,7 @@
 
 <h3>Questions for Thought</h3>
 
-<?php if ($level=='exploration'): ?>
+<?php if (($level=='exploration') || ($level=='exploration21')): ?>
 <div class="row">
   <div class="col-md-6">
     <strong>Orientation Questions</strong>
@@ -110,7 +118,7 @@
 <h3>Background Information</h3>
 <p>Click on the images below to learn more about where and how the dataset above was collected.</p>
 <?php
-  if ($level=='exploration') {
+  if (($level=='exploration') || ($level=='exploration21')) {
     $json_file = file_get_contents('images_json/chemistry4e.json');  
   } elseif ($level=='application') {
     $json_file = file_get_contents('images_json/chemistry4a.json');
@@ -128,7 +136,7 @@
 
 <h4>Dataset Information</h4>
 
-<?php if ($level=='exploration'): ?>
+<?php if (($level=='exploration') || ($level=='exploration21')): ?>
 
 <p>The data for this activity was obtained from the following instruments:</p>
 <ul>
@@ -142,17 +150,20 @@
 
 <p>Data for this activity were adapted from the following instruments:</p>
 <ul>
-  <li>Coastal Endurance:
+  <li>Coastal Endurance, Oregon Shelf Surface Mooring
   <ul>
-    <li>Oregon Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE02SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
-    <li>Oregon Shelf Surface Mooring, Surface Buoy, pCO<sub>2</sub> Air-Sea (CE02SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
-    <li>Washington Shelf Surface Mooring, Near Surface Instrument Frame, Seawater pH (CE07SHSM-RID26-06-PHSEND000), telemetered phsen_abcdef_dcl_instrument</li>
-    <li>Washington Shelf Surface Mooring, Surface Buoy, pCO<sub>2</sub> Air-Sea (CE07SHSM-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_water</li>
+    <li>Near Surface Instrument Frame, Seawater pH (CE02SHSM-RID26-06-PHSEND000)<!-- , telemetered phsen_abcdef_dcl_instrument --></li>
+    <li>Surface Buoy, pCO<sub>2</sub> Air-Sea (CE02SHSM-SBD12-04-PCO2AA000)<!-- , telemetered pco2a_a_dcl_instrument_water --></li>
+  </ul></li>
+  <li>Coastal Endurance, Washington Shelf Surface Mooring
+    <ul>
+    <li>Near Surface Instrument Frame, Seawater pH (CE07SHSM-RID26-06-PHSEND000)<!-- , telemetered phsen_abcdef_dcl_instrument --></li>
+    <li>Surface Buoy, pCO<sub>2</sub> Air-Sea (CE07SHSM-SBD12-04-PCO2AA000)<!-- , telemetered pco2a_a_dcl_instrument_water --></li>
   </ul></li>
   <li>Global Southern Ocean: 
   <ul>
-    <li>Apex Surface Mooring, Mooring Riser, Seawater pH (100 m) (GS01SUMO-RII11-02-PHSENE042), telemetered phsen_abcdef_imodem_instrument</li>
-    <li>Apex Surface Mooring, Surface Buoy, pCO<sub>2</sub> Air-Sea (GS01SUMO-SBD12-04-PCO2AA000), telemetered pco2a_a_dcl_instrument_air</li>
+    <li>Apex Surface Mooring, Mooring Riser, Seawater pH (100 m) (GS01SUMO-RII11-02-PHSENE042)<!-- , telemetered phsen_abcdef_imodem_instrument --></li>
+    <li>Apex Surface Mooring, Surface Buoy, pCO<sub>2</sub> Air-Sea (GS01SUMO-SBD12-04-PCO2AA000)<!-- , telemetered pco2a_a_dcl_instrument_air --></li>
   </ul></li>
 </ul>
 
@@ -166,22 +177,26 @@
 <h2><?= $lesson_title ?><br><small>Explore and analyze patterns in seawater pH and pCO<sub>2</sub> over time.</small></h2>
 </div>
 
-<p>&nbsp;</p>
+<div class="alert alert-info" role="alert">
+  <p>This activity was updated in September 2021 with a newer dataset.  The original 2017 versions are also still available.</p>
+</div>
 
 <div class="row">
   <div class="col-md-6">
     <p>This activity has the following variations:</p>
     <div class="list-group">
       <a href="activity4.php?level=exploration" class="list-group-item">
-        <h4 class="list-group-item-heading">Exploration</h4>
+        <h4 class="list-group-item-heading">Exploration (2017 version)</h4>
         <p class="list-group-item-text">Use pH and pCO<sub>2</sub> data from the surface from the North Pacific Ocean to look if there are patterns over time.</p>
       </a>
-<!--
+      <a href="activity4.php?level=exploration21" class="list-group-item">
+        <h4 class="list-group-item-heading">Exploration (2021 version)</h4>
+        <p class="list-group-item-text">Use pH and pCO<sub>2</sub> data from the surface from the North Pacific Ocean to look if there are patterns over time.</p>
+      </a>
       <a href="activity4.php?level=application" class="list-group-item">
-        <h4 class="list-group-item-heading">Application</h4>
+        <h4 class="list-group-item-heading">Application (prototype from 2017)</h4>
         <p class="list-group-item-text">How does the relationship between pH and pCO<sub>2</sub> depth vary across the ocean and over time?</p>
       </a>
--->
     </div>
   </div>
   <div class="col-md-6">

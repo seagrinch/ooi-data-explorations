@@ -14,7 +14,7 @@ var svg = d3.select("#chart").append("svg")
     height2 = +svg.attr("height") - margin2.top - margin2.bottom,
     height3 = +svg.attr("height") - margin3.top - margin3.bottom;
 
-var parseDate = d3.utcParse("%Y-%m-%d %H:%M");
+var parseDate = d3.utcParse("%Y-%m-%dT%H:%M:%SZ");
 
 var x1 = d3.scaleLinear().range([0, width1]),
     x2 = d3.scaleLinear().range([0, width2]),
@@ -96,7 +96,7 @@ focus2.append("text")
     .attr("text-anchor", "middle")
     .style("font-size", "12px")
     .style("font-weight", "normal")
-    .text("Depth (m))")
+    .text("Depth (m)")
 focus2.append("text")
     .attr("class", "title")
     .attr("dy", "-.4em")
@@ -106,16 +106,18 @@ focus2.append("text")
     .style("font-weight", "bold")
     .text("Oregon Slope Base");
 
-d3.csv("data/chemistry3.csv", type, function(error, data) {
+d3.csv("data/chemistry3_2021.csv", type, function(error, data) {
   if (error) throw error;
 
   //x1.domain(d3.extent(data, function(d) { return d.ph; }));
+  //y1.domain(d3.extent(data, function(d) { return d.depth; })).nice();
   x1.domain([7.5,8.5]);
-  y1.domain(d3.extent(data, function(d) { return d.pressure; }));
+  y1.domain([0,200]);
   //x2.domain(d3.extent(data, function(d) { return d.ph; }));
+  //y2.domain(d3.extent(data, function(d) { return d.depth; })).nice();
   x2.domain([7.5,8.5]);
-  y2.domain(d3.extent(data, function(d) { return d.pressure; }));
-  x3.domain(d3.extent(data, function(d) { return d.date; }));
+  y2.domain([0,200]);
+  x3.domain(d3.extent(data, function(d) { return d.date; })).nice();
   y3.domain(d3.extent(data, function(d) { return d.ph; }));
   color.domain(d3.extent(data, function(d) {return d.date}));
 
@@ -128,7 +130,7 @@ d3.csv("data/chemistry3.csv", type, function(error, data) {
         .attr("class", "dot")
         .attr("r", 2.5)
         .attr("cx", function(d) { return x1(d.ph); })
-        .attr("cy", function(d) { return y1(d.pressure); })
+        .attr("cy", function(d) { return y1(d.depth); })
         .style("fill", function(d) {return color(d.date)});
 
   var dots2 = focus2.append("g");
@@ -140,7 +142,7 @@ d3.csv("data/chemistry3.csv", type, function(error, data) {
         .attr("class", "dot")
         .attr("r", 2.5)
         .attr("cx", function(d) { return x1(d.ph); })
-        .attr("cy", function(d) { return y1(d.pressure); })
+        .attr("cy", function(d) { return y1(d.depth); })
         .style("fill", function(d) {return color(d.date)});
 
   var dots3 = context.append("g");
@@ -203,10 +205,9 @@ function brushed() {
 }
 
 function type(d) {
-  d.date = parseDate(d.date);
-  d.pressure = +d.pressure;
-  d.ph = +d.pH;
-  d.index = +d.index;
+  d.date = parseDate(d.time);
+  d.depth = +d.depth;
+  d.ph = +d.ph_seawater;
   d.site = d.site;
   return d;
 }

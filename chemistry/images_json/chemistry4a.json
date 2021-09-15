@@ -31,17 +31,17 @@
   },
   {
     "title": "What is on the South Pacific Moorings?",
-    "file": "placeholder.png",
+    "file": "GS01SUMO_Southern_Apex_Surface_Mooring_highlighted.jpg",
     "caption": "There are many moorings, multiple instruments connected to a wire cable and attached to the seafloor, in the OOI system. The instrument that collected data in this activity is included in the Mooring Riser (highlighted in red), which is attached to the cable 100m below the water surface, and the Surface Buoy (highlighted in blue). Multiple instruments, which are collecting data about many different oceanographic variables, are included in the Near Surface Instrument Frame. Data for this activity were collected using the Seawater pH and the pCO2 Air-Sea."
   },
   {
     "title": "How does a pH instrument work?",
-    "file": "placeholder.png",
-    "caption": "The Seawater pH measures the concentration of hydrogen ions in a solution (i.e., ocean water) so that you can determine the pH of the solution. The specific pH sensor is the Sunburst SAMI-pH."
+    "file": "ph_epe.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/instrument-class/phsen/\">Seawater pH</a> instrument measures the concentration of hydrogen ions in the ocean water that passes by the sensor so that scientists can calculate the pH of the water. The specific pH sensor is the <a href=\"http://www.sunburstsensors.com/products/oceanographic-ph-sensor.html\">Sunburst SAMI-pH</a>. This is an image of the pH scale with the average global surface ocean pH stared for comparisons of these data."
   },
   {
-    "title": "The pCO2 Air-Sea measures the partial pressure of carbon dioxide (pCO2) in both the atmosphere and ocean. This enables scientists to calculate the amount of CO2 in the ocean and atmosphere as well as the movement (flux) between the two. The specific pCO2 sensor is the Pro-Oceanus pCO2-pro Model.",
-    "file": "placeholder.png",
-    "caption": "How does a pCO2 instrument work?"
+    "title": "How does a pCO<sub>2</sub> instrument work?",
+    "file": "air-sea_co2_flux.jpg",
+    "caption": "The <a href=\"http://oceanobservatories.org/instrument-class/pco2a/\">pCO<sub>2</sub> Air-Sea</a> measures atmospheric and oceanic partial pressure of carbon dioxide (pCO<sub>2</sub>), so scientists can calculate the amount of CO<sub>2</sub> in the ocean, atmosphere, and movement (flux; this activity only uses oceanic data). The specific pCO<sub>2</sub> sensor is the <a href=\"http://www.pro-oceanus.com/co2-pro-atmosphere.php\">Pro-Oceanus pCO<sub>2</sub>-pro Model</a>. This is an image of various ways CO<sub>2</sub> is exchanged between the atmosphere, surface ocean, and deep ocean."
   }
 ]
