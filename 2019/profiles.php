@@ -163,7 +163,7 @@
 
 <?php endif; ?>
 
-<p><strong>Activity Citation:</strong> Anders, T., Long, J., Nuester, J., Weislogel., A, Williams, A., &amp; Lichtenwalner, C. S. (2019). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
+<p><strong>Activity Citation:</strong> Anders, T., Long, J., Nuester, J., Weislogel., A, Williams, A., &amp; Lichtenwalner, C. S. (2021). <?= $lesson_title ?>. <em>OOI Data Labs Collection</em>.</p>
 
 
 <?php 

@@ -16,7 +16,7 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Published ???, 2019</small></h2>
+    <small>Published February 16, 2020  </small></h2>
 </div>
 
 <h3>Summary</h3>

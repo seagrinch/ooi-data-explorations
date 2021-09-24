@@ -16,11 +16,11 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Drafted January, 2020</small></h2>
+    <small>Published February 16, 2020</small></h2>
 </div>
 
 <h3>Summary</h3>
-<a href="acidification.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="acidification.php"><img src="screenshots/acidification_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise is a case study that, if used in full, takes students through the entire learning cycle from invitation to reflection. Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Students are invited to learn about the importance of shellfish aquaculture in the Pacific Northwest and how changing ocean conditions are threatening the success of the industry. </li>
@@ -99,7 +99,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="acidification.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="acidification.php?level=exploration"><img src="screenshots/acidification_e_sm.png" alt="Ocean Acidification Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Give students 3-5 minutes to free write on what they know about ocean acidification. Students will use their free writes at the end of class to reflect on their learning. </li>
       <li>Complete the Exploration section of this activity. Have students complete the activity questions, then discuss as a group.</li>
@@ -159,7 +159,7 @@
     <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="acidification.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="acidification.php?level=application"><img src="screenshots/acidification_a_sm.png" alt="Ocean Acidification Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Complete the Application section of this activity. Have students answer the questions and discuss as a group. </li>
       <li>Group discussion questions: 

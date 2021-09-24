@@ -16,11 +16,11 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Drafted January, 2020</small></h2>
+    <small>Published November 2, 2020</small></h2>
 </div>
 
 <h3>Summary</h3>
-<a href="density.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="density.php"><img src="screenshots/density_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This activity explores three data sets consisting of density, salinity, and temperature from four different marine stations: Station Papa, the Coastal Endurance Array, the Coastal Pioneer Array, and the Global Irminger Sea Array.  Pieces of the exercise can be used as appropriate for the instructor goals.</p>
 <ul>
   <li>Several ideas are given for having students access their previous learning on Temperature, Salinity and Density, or give students enough background knowledge to start the exercise (invitation).</li>
@@ -76,7 +76,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="density.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="density.php?level=exploration"><img src="screenshots/density_e_sm.png" alt="Drivers of Seawater Density Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Have students (preferably in pairs or small groups) examine the data sets from the three locations. And, based on the patterns they observe, make predictions and cite what evidence they are using to support their prediction about which factor (salinity or temperature) will be most important in determining density.</li>
       <li>Working in groups, have students use the widget to explore and perform the numerical experiment in which one parameter (temperature or salinity) is fixed at the mean value and density is recalculated. Students should discuss the results of the experiment and share their interpretations. </li>
@@ -91,8 +91,9 @@
     <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="density.php?level=invention"><img src="screenshots/density_ci_sm.png" alt="Drivers of Seawater Density Concept Invention Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
-      <li>Have students discuss (preferably with a partner or small group) how the three stations (locations) differered geographically as well as in terms of physical parameters and what factors led to these differences. Then lead a whole group discussion about their ideas and add information, clarify as needed. You might decide to share some of the following information if it doesn’t arise from the student discussion.
+      <li>Have students discuss (preferably with a partner or small group) how the three stations (locations) differed geographically as well as in terms of physical parameters and what factors led to these differences. Then lead a whole group discussion about their ideas and add information, clarify as needed. You might decide to share some of the following information if it doesn't arise from the student discussion.
         <ul>
           <li>Comparing the three locations of this study. The Station Papa site is an open ocean location compared to the Coastal Endurance Array that is influenced by coastal dynamics of the ocean. The Global Irminger Sea location represents a more polar water mass where ice melt dynamics play an important role.  </li>
         </ul>
@@ -118,7 +119,7 @@
     <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="density.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="density.php?level=application"><img src="screenshots/density_a_sm.png" alt="Drivers of Seawater Density Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Discuss the limitation of moored CTD observation versus a CTD profile in evaluating density variations.</li>
       <li>Consider the implications for marine productivity if temperature continues to increase and water becomes more density stratified, reducing mixing that brings nutrient rich waters to the surface. (May require some additional background either introduced here or prior to this exercise.)</li>

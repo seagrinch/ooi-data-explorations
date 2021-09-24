@@ -16,14 +16,14 @@
 
 <div class="page-header">
   <h2><?= $page_title?><br>
-    <small>Drafted January, 2020</small></h2>
+    <small>Published October 19, 2020</small></h2>
 </div>
 
 <h3>Summary</h3>
-<a href="seasonal.php"><img data-src="holder.js/250x150?text=<?=$lesson_title?>" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
+<a href="seasonal.php"><img src="screenshots/seasonal_sm.png" alt="<?=$lesson_title?>" width="250" height="150" class="pull-right thumbnail"></a>
 <p>This exercise is designed to facilitate learning about surface mixing in the ocean. Pieces of the exercise can be used as appropriate for the instructor goals. The collection consists of 3 sets of activities. Part One is focused on data exploration activities, to be used during the Exploration phase of the Learning Cycle. Part Two is focused on the Concept Invention phase of the Learning Cycle. Part Three is focused on the Application phase of the Learning Cycle.</p>
 <p>These activities were developed to assist with students' understanding of mixed layer dynamics, in part because surface ocean dynamics are foundational in Oceanography and cut across numerous Ocean Literacy principles, and also because wind-driven surface mixing in particular is widespread, easily observed in a variety of systems and with tractable dynamics that make it suitable for introductory oceanography instruction. We have also focused the data lab on a location distant from the coast, and specifically on temperature variations that are driven by mechanical surface mixing (due to wind) and solar irradiance. The influence of salinity on mixed layer dynamics (due to buoyancy) is not considered.  </p>
-<p>The Exploration phase introduces students to time-series data and allows for the interpretation of data patterns, focusing on wind, solar irradiation and water temperature at a single station in the North Atlantic Ocean. The Concept Invention phase helps students to come to a deeper understanding of the interaction of wind and solar irradiance and the consequences for water temperature at different depths. There are two Application phase experiences: Application #1 asks students to consider the same atmospheric data types and predict the resulting water temperature patterns for a location in the North Pacific. The use of a different location prompts the student to find patterns and make connections between the various parameters. Application #2 asks the students to connect the physical processes that they’ve explored in the Exploration and Concept Invention phase to primary production.  </p>
+<p>The Exploration phase introduces students to time-series data and allows for the interpretation of data patterns, focusing on wind, solar irradiation and water temperature at a single station in the North Atlantic Ocean. The Concept Invention phase helps students to come to a deeper understanding of the interaction of wind and solar irradiance and the consequences for water temperature at different depths. There are two Application phase experiences: Application #1 asks students to consider the same atmospheric data types and predict the resulting water temperature patterns for a location in the North Pacific. The use of a different location prompts the student to find patterns and make connections between the various parameters. Application #2 asks the students to connect the physical processes that they've explored in the Exploration and Concept Invention phase to primary production.  </p>
 <p>This data exploration takes students from a very basic introduction to time-series data, through more complex examinations of ocean/atmospheric connections, and eventually application of the conceptual model they have developed at other locations, and to other processes.</p>
 
 <h3>Learning Goals</h3>
@@ -85,7 +85,7 @@
     <h3 class="panel-title"><strong>Exploration:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="seasonal.php?level=exploration"><img data-src="holder.js/250x150?text=Exploration" alt="Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="seasonal.php?level=exploration"><img src="screenshots/seasonal_e_sm.png" alt="Seasonal Variability Exploration Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <ul>
       <li>Have the students examine a map of the data collection locations at the Irminger array. Talk through some of the special considerations about this location - latitude, proximity to Greenland, overall climate, etc.  For example, something like <a href="https://upload.wikimedia.org/wikipedia/commons/6/60/Global_Annual_10m_Average_Wind_Speed.png">this wind speed picture</a>, to emphasize how unique the wind climate is at this location might be useful.</li>
       <li>Have the students examine stacked wind observations and solar irradiation data for the Irminger array, and in particular guide them towards recognizing the clear seasonal pattern by paying attention to the time labels on the x-axis.</li>
@@ -103,6 +103,7 @@
     <h3 class="panel-title"><strong>Concept Invention:</strong></h3>
   </div>
   <div class="panel-body">
+    <a href="seasonal.php?level=invention"><img src="screenshots/seasonal_ci_sm.png" alt="Seasonal Variability Concept Invention Widget" width="250" height="150" class="pull-right thumbnail"></a>
     <p>This phase of the investigation asks students to dive more deeply into the same data used in the Exploration, but with different questions.</p>
     <ul>
       <li>Have students consider whether the patterns they identify reveal something about the mixed layer dynamics throughout the season?  Overall stratification of the water column?</li>
@@ -123,10 +124,10 @@
     <h3 class="panel-title"><strong>Application:</strong></h3>
   </div>
   <div class="panel-body">
-    <a href="seasonal.php?level=application"><img data-src="holder.js/250x150?text=Application" alt="Application Widget" width="250" height="150" class="pull-right thumbnail"></a>
+    <a href="seasonal.php?level=application"><img src="screenshots/seasonal_a1_sm.png" alt="Seasonal Variability Application Widget #1" width="250" height="150" class="pull-right thumbnail"></a>
     <p><strong>Application #1</strong></p>
     <ul>
-      <li>The overall idea behind this step is to encourage students to examine a wind/solar irradiance time-series from a different location (Station Papa in the North Pacific Ocean), and make predictions about temperature patterns at different depths based on what they’ve learned from the North Atlantic.</li>
+      <li>The overall idea behind this step is to encourage students to examine a wind/solar irradiance time-series from a different location (Station Papa in the North Pacific Ocean), and make predictions about temperature patterns at different depths based on what they've learned from the North Atlantic.</li>
       <li>Use the widget to examine and describe the relationship between wind speed and solar irradiance at this site.  Discuss correlations between these variables, and in particular if there are any notable differences between the patterns here and at the Irminger Array.</li>
       <li>Encourage students to apply their conceptual model developed in the concept invention phase to predict temperature patterns.</li>  
 
@@ -134,6 +135,7 @@
       <li>You could prompt students to think about deepwater formation and thermohaline circulation as it relates to full water column mixing in winter at Irminger but not Papa.</li>
       <li>As an extension, you could also choose to have students discuss similar data from the Southern Ocean Array published in <a href="https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2017GL076909">Ogle et al, 2018</a></li>
     </ul>
+    <a href="seasonal.php?level=application2"><img src="screenshots/seasonal_a2_sm.png" alt="Seasonal Variability Application Widget #2" width="250" height="150" class="pull-right thumbnail"></a>
     <p><strong>Application #2</strong></p>
     <ul>
       <li>In the application step students will be asked to combine insights from this activity, and background information on primary production controls (top-down, bottom-up etc.) </li>

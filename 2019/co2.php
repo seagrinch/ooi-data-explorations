@@ -245,7 +245,7 @@
 <?php else: ?>
 
 <div class="page-header">
-<h2><?= $lesson_title ?><br><small>Explore... ???</small></h2>
+<h2><?= $lesson_title ?><br><small>Explore the exchange of CO<sub>2</sub> between the ocean and atmosphere</small></h2>
 </div>
 
 <p>&nbsp;</p>

@@ -114,7 +114,7 @@
   <div class="media-body">
     <h4 class="media-heading"><a href="magma.php">Magma Movement and the Shape of the Seafloor</a> <br><small>July 2019</small></h4>
     <p>Explore how earthquake data helps explain changes in the topography of an underwater volcano</p>
-    <p><a href="magma_guide.php">Instructor Guide</a></p>
+<!--     <p><a href="magma_guide.php">Instructor Guide</a></p> -->
   </div>
 </div>
 
