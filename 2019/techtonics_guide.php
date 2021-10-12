@@ -44,6 +44,18 @@
 
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Plate-Tectonics-and-the-Seafloor.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Plate-Tectonics-and-the-Seafloor.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>In addition to a basic understanding of plate tectonic theory, students should know the basic, physical layers of the earth and their characteristics (lithosphere, asthenosphere, mesosphere, outer core, inner core).  It might also be helpful to familiarize students with the basic concept of earthquakes and their causes (see the Invitation section below).  If you are going to have the students work through all of the steps or activities, then it would be helpful to the students to also know of the connection between earthquakes and tsunamis, and to be familiar with the concept of a natural hazard.  They should also know what it means to form a hypothesis.</p>
 <p>To help students understand the connections between the seafloor, natural hazards, and plate tectonic processes as presented in this exercise...</p>
 

@@ -40,6 +40,18 @@
 <p>These data explorations were designed for implementation in an introductory oceanography course (majors and/or non-majors). These activities would be appropriate for use in learning how to read graphs and interpret the data within graphs, as well as examining patterns of primary productivity in the Southern Ocean and understanding the abiotic factors that affect primary production.</p>
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Primary-Production-Learning-Cycle-Correlation-Chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Primary-Production-Learning-Cycle-Correlation-Chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students will need to be familiar with concepts and terms from earlier in the semester including: the definition of primary productivity, use of chlorophyll a concentration as a proxy for primary production, nitrate is one of multiple nutrients required for primary production.</p>
 <p>In upper division courses (300/400-level college courses) student knowledge may be enhanced with an introduction to how a fluorometer collects chl a data, the use of chl a as a proxy for primary production, and the caveats for this type of proxy. Students may also benefit from information on the different forms of nitrogen in the ocean and their bioavailability to different organisms. Students may want to explore variations in other nutrients, such as phosphate, that are not included in this dataset. Students' broader understanding of these concepts could be extended by looking at vertical profiles of these factors.</p>
 <p>The Data Exploration activities require access to an internet-ready computer or tablet. Ideally each student group would have a computer or tablet to use to engage with the activity together. Alternatively, if no internet access is available for students, graphs of the specific time periods of interest and variables could be printed onto plastic overlays for each student or group of students.</p>

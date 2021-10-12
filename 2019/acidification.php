@@ -201,9 +201,15 @@
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_EA.png" alt="Learning Cycle Diagram" usemap="#lcmap"/>
   </div>
 </div>
+
+<map name="lcmap">
+  <area shape="rect" coords="244,36,379,129" href="acidification.php?level=exploration" alt="Exploration">
+<!--   <area shape="rect" coords="257,152,392,245" href="acidification.php?level=invention" alt="Invention"> -->
+  <area shape="rect" coords="116,211,251,304" href="acidification.php?level=application" alt="Application">
+</map>
 
 <div class="row">
   <div class="col-md-3">

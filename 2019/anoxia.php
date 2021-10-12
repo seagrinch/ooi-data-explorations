@@ -161,17 +161,23 @@
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" usemap="#lcmap" />
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-3">
+<map name="lcmap">
+  <area shape="rect" coords="244,36,379,129" href="anoxia.php?level=exploration" alt="Exploration">
+<!--   <area shape="rect" coords="257,152,392,245" href="anoxia.php?level=invention" alt="Invention"> -->
+<!--   <area shape="rect" coords="116,211,251,304" href="anoxia.php?level=application" alt="Application"> -->
+</map>
+
+<h4>Instructors' Corner</h4>
+<p>If you are a professor or teacher interested in additional information on how to integrate these Data Explorations in your courses, check out the Instructor's Guide and Learning Cycle Sequence for more guidance.</p>
+<div class="text-center">
+  <p>
     <a href="anoxia_guide.php" class="btn btn-primary">Instructor's Guide</a>
-  </div>
-  <div class="col-md-9">
-    <p>If you are a professor and are interested in more information about ways to utilize these Data Explorations, check out the Instructor's Guide for these activities.</p>
-  </div>
+    <a href="learningcycle/Anoxic-Events-Learning-Cycle-chart.pdf" class="btn btn-primary">Learning Cycle Sequence</a>
+  </p>
 </div>
 
 <?php endif; ?>

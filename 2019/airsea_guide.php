@@ -40,6 +40,18 @@
 
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Dynamic-Air-Sea-Learning-Cycle-Chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Dynamic-Air-Sea-Learning-Cycle-Chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students will need to be familiar with concepts from earlier in the semester including: wave properties, surface currents, barometric pressure, low pressure zones, and potential causes of these processes.</p>
 
 <p>At any level, this activity requires synthesis of a variety of concepts that may not have been considered together previously. While the hope is to guide students to a more accurate scientific understanding, the broader learning goal is to make these connections.</p>

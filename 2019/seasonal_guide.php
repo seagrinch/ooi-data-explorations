@@ -50,6 +50,18 @@
 
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Seasonal-Variability-in-Mixed-Layer-Learning-Cycle-chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Seasonal-Variability-in-Mixed-Layer-Learning-Cycle-chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students may benefit from familiarity with ancillary concepts, notably:</p>
 <ul>
   <li>The processes that lead to variation in density in ocean water (perhaps using the <a href="">Drivers of Seawater Density</a> Data Exploration, </li>

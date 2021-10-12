@@ -56,6 +56,18 @@
 
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Chlorophyll-a-Learning-Cycle-Chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Chlorophyll-a-Learning-Cycle-Chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students will need to be familiar with concepts from earlier in the semester including: density stratification; the vertical distribution of oxygen, carbon dioxide, and nutrients, and what affects them; Ekman Transport and upwelling.</p>
 <p>At any level, this activity requires synthesis of a variety of concepts that may not have been considered together previously. While the hope is to guide students to a more scientifically accurate understanding, the broader learning goal is in making these connections. </p>
 <p>The Data Exploration activities require access to an internet-ready computer or tablet. Ideally each student or pairs of students would have a computer or tablet to use to engage with the activity. Alternatively, if no internet access is available for each student or pairs of students, graphs of the specific time periods of interest and variables could be printed onto plastic overlays for each student or group of students. Note, the Data Explorations use authentic raw data. Many of the datasets have been downsampled for simplicity and to ensure that the interactives load quickly in your browser.</p>

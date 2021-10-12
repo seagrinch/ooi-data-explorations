@@ -41,6 +41,18 @@
 
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Thermohaline-Learning-Cycle-Chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Thermohaline-Learning-Cycle-Chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students will need to be familiar with concepts from earlier in the semester including: water properties (temperature and density) and basics of the thermohaline circulation.  Advanced students will benefit from a knowledge of latent heat exchange across the air sea interface.</p>
 <p>At the lower level, this activity requires synthesis of a variety of concepts (temperature, density, ocean circulation, surface winds) that may not have been considered together previously. At the upper level students can begin to <em>visualize</em> the process of deep convection.</p>
 <p>While the hope is to guide students to a more accurate understanding of the concept, the broader learning goal is in making these connections. After the activity is over, discussion could center around how climate change affects the ocean, and the potential for disruption of the global thermohaline circulation.</p>

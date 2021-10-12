@@ -146,9 +146,16 @@
   </div>
   <div class="col-md-6">
     <h4 class="text-center">Learning Cycle Phases Supported</h4>
-    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" />
+    <img src="../images/Learning_Cycle_E.png" alt="Learning Cycle Diagram" usemap="#lcmap"/>
   </div>
 </div>
+
+<map name="lcmap">
+  <area shape="rect" coords="244,36,379,129" href="profiles.php?level=exploration" alt="Exploration">
+<!--   <area shape="rect" coords="257,152,392,245" href="profiles.php?level=invention" alt="Invention"> -->
+<!--   <area shape="rect" coords="116,211,251,304" href="profiles.php?level=application" alt="Application"> -->
+</map>
+
 
 <!--
 <div class="row">

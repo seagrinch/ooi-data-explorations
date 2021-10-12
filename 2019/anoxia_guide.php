@@ -42,6 +42,18 @@
 <p>This exercise could be used for either lower level or upper level students depending on the way it is set up and scaffolded. For an introductory course, the activity could be used repeatedly throughout the semester as a "challenge question" that is revisited as new knowledge is gained, resulting in final conclusions by the end of the semester. For upper level courses such as a Physical Oceanography class, it might be a more stand-alone activity late in the semester, although students may still need to be reminded of some of the background knowledge required to piece the story together.</p>
 
 <h3>Teaching Notes</h3>
+
+<div class="thumbnail pull-right text-center" style="width:300px; margin-left: 16px;">
+  <h4>Learning Cycle Sequence</h4>
+  <a href="learningcycle/Anoxic-Events-Learning-Cycle-chart.pdf">
+    <img src="../images/Learning-Cycle-Chart.png" alt="Learning Cycle Chart" width="300" height="169" />
+  </a>
+  <div class="caption">
+    <p class="text-muted">Check out the <a href="learningcycle/Anoxic-Events-Learning-Cycle-chart.pdf">suggested sequence of activities</a> for this Data Exploration.</p>
+    <p class="text-muted">For an overview of this activity and additional tips, you can also check out the <a href="https://datalab.marine.rutgers.edu/webinars/">webinar recording</a>.</p>
+  </div>
+</div>
+
 <p>Students will need to be familiar with concepts from earlier in the semester including: dead zones; dissolved oxygen, where it comes from and where we expect DO levels to be high and low; Ekman Transport; upwelling/downwelling and potential causes of these processes. </p>
 <p>At any level, this activity requires synthesis of a variety of concepts that may not have been considered together previously. While the hope is to guide students to the correct answer, the broader learning goal is in making these connections. The context of dying crabs provides a motivation for students to make this effort. After the activity is over, discussion could center around how climate change affects the ocean, and how life in the ocean could be affected.</p>
 
