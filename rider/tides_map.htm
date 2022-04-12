@@ -8,13 +8,13 @@
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css"
     integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ=="
-    crossorigin=""/>   
+    crossorigin=""/>
   <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"
     integrity="sha512-A7vV8IFfih/D732iSSKi20u/ooOfj/AGehOKq0f4vLT1Zr2Y+RX7C+w8A1gaSasGtRUZpF/NZgzSAu4/Gc41Lg=="
     crossorigin=""></script>
   <!-- Leaflet.awesome-markers -->
-  <link rel="stylesheet" href="../js/awesome-markers/leaflet.awesome-markers.css">
-  <script src="../js/awesome-markers/leaflet.awesome-markers.js"></script>
+  <link rel="stylesheet" href="js/awesome-markers/leaflet.awesome-markers.css">
+  <script src="js/awesome-markers/leaflet.awesome-markers.js"></script>
 
 </head>
 
@@ -29,7 +29,7 @@
 </div>
 </body>
 		
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -40,14 +40,14 @@
   // Setup Map
   var container = L.DomUtil.get('map');
   var zoomlevel = 2;
-  var mapcenter = [39.2,-94.2]; 
+  var mapcenter = [39.2,-94.2];
   var myMap = L.map(container, {
     //crs: L.CRS.EPSG3857,
      crs: L.CRS.EPSG4326,
     maxBounds: [[-80, -180], [85, 180]],
     minZoom: 1,
     maxZoom: 8,
-    //preferCanvas: true    
+    //preferCanvas: true
   }).setView(mapcenter, zoomlevel);
   
   // Basemap
@@ -63,7 +63,7 @@
   var redMarker = L.AwesomeMarkers.icon({
     icon: 'glyphicon-star',
     markerColor: 'darkred',
-  });    
+  });
   L.marker([46.9859, -124.566], {icon: redMarker}).addTo(myMap).bindPopup('OOI Endurance Array <br>Washington Shelf Surface Mooring');
   L.marker([40.3619, -70.8783], {icon: redMarker}).addTo(myMap).bindPopup('OOI Pioneer Array <br>Inshore Surface Mooring');
   L.marker([30.405, -87.212], {icon: redMarker}).addTo(myMap).bindPopup('Pensacola, FL NOS <br>Station #8729840');

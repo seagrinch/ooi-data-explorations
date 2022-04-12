@@ -27,21 +27,21 @@
   <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
 <!--   <div id="mapinfo"></div> -->
   
-  <p><strong>Zoom to:</strong> 
-    <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>, 
-    <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>, 
-    <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">Sandwich Islands</a>, 
-    <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>, 
-    <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>, 
-    <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>, 
-    <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>, 
-    <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>, 
-    <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Equatorial Atlantic</a>, 
-    <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>, 
-    <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>, 
-    <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>, 
-    <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>, 
-    <a class='' onclick="zoomTo(30.27832, 84.594727, 4)">Himalayas</a>, 
+  <p><strong>Zoom to:</strong>
+    <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>,
+    <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>,
+    <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">Sandwich Islands</a>,
+    <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>,
+    <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>,
+    <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>,
+    <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>,
+    <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>,
+    <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Equatorial Atlantic</a>,
+    <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>,
+    <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>,
+    <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>,
+    <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>,
+    <a class='' onclick="zoomTo(30.27832, 84.594727, 4)">Himalayas</a>,
     <a class='' onclick="zoomTo(-14.677734, 68.598633, 4)">Central Indian Ocean</a>
   </p>
 
@@ -90,7 +90,7 @@
         <!-- <li>Tectonic plate boundary types from <a href="http://www-udc.ig.utexas.edu/external/plates/data.htm" target="_blank">The University of Texas Institute for Geophysics</a>. </li> -->
         <li>Plate boundaries from Peter Bird (2003), Geochemistry Geophysics Geosystems.  Available on <a href="https://github.com/fraxen/tectonicplates/" target="_blank">GitHub</a>.</li>
         <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/" target="_blank">NCEI Volcano Location Database</a>. </li>
-        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.  
+        <li>Earthquakes from <a href=" https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.
           <ul>
             <li>Large earthquakes dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021.</li>
             <li> All earthquakes dataset includes quakes greater than magnitude 0 from January, 2021 only.</li>
@@ -103,7 +103,7 @@
 </div>
 </body>
 		
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
@@ -114,13 +114,13 @@
   // Setup Map
   var container = L.DomUtil.get('map');
   var zoomlevel = 1;
-  var mapcenter = [10,-90]; 
+  var mapcenter = [10,-90];
   var myMap = L.map(container, {
     crs: L.CRS.EPSG4326,
     maxBounds: [[-80, -180], [85, 180]],
     minZoom: 0,
     maxZoom: 8,
-    //preferCanvas: true    
+    //preferCanvas: true
   }).setView(mapcenter, zoomlevel);
   
   // Basemap
@@ -168,9 +168,9 @@
     .then(res => res.text())
     .then(data => {
       var geoLayer = L.geoCsv(data, {
-        firstLineTitles: true, 
-        fieldSeparator: ',', 
-        latitudeTitle:'Latitude', 
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle:'Latitude',
         longitudeTitle:'Longitude',
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, volcanoMarker);
@@ -202,9 +202,9 @@
     .then(res => res.text())
     .then(data => {
       var geoLayer = L.geoCsv(data, {
-        firstLineTitles: true, 
-        fieldSeparator: ',', 
-        latitudeTitle:'latitude', 
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle:'latitude',
         longitudeTitle:'longitude',
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, earthquakeMarker)
@@ -220,7 +220,7 @@
           } else {
             return {fillColor: "#00008B"}; /* DarkBlue (web colors) */
           }
-        },         
+        },
         onEachFeature: function (feature, layer) {
           if (feature.properties && feature.properties.mag) {
             layer.bindPopup(
@@ -240,9 +240,9 @@
     .then(res => res.text())
     .then(data => {
       var geoLayer = L.geoCsv(data, {
-        firstLineTitles: true, 
-        fieldSeparator: ',', 
-        latitudeTitle:'latitude', 
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle:'latitude',
         longitudeTitle:'longitude',
         pointToLayer: function (feature, latlng) {
           return L.circleMarker(latlng, earthquakeMarker)
@@ -258,7 +258,7 @@
           } else {
             return {fillColor: "#00008B"}; /* DarkBlue (web colors) */
           }
-        },         
+        },
         onEachFeature: function (feature, layer) {
           if (feature.properties && feature.properties.mag) {
             layer.bindPopup(
@@ -279,12 +279,12 @@
   
   // Add measuring tool
   L.control.polylineMeasure({
-    position:'topleft', 
-    unit:'metres', 
-    showBearings:false, 
-    clearMeasurementsOnStop:false, 
-    showClearControl:true, 
-    showUnitControl:false, 
+    position:'topleft',
+    unit:'metres',
+    showBearings:false,
+    clearMeasurementsOnStop:false,
+    showClearControl:true,
+    showUnitControl:false,
     fixedLine:{color:'#111',weight:3}
   }).addTo(myMap);
 
@@ -321,16 +321,16 @@
 Seafloor age KML from https://serc.carleton.edu/sp/library/google_earth/examples/49004.html
 Alternative: https://www.ngdc.noaa.gov/mgg/ocean_age/ocean_age_2008.html
 
-Volcanoes: https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/ 
+Volcanoes: https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/
 Alternative: https://volcano.si.edu
 
 Earthquakes: https://earthquake.usgs.gov/earthquakes/map/
 Alternative: https://www.ngdc.noaa.gov/hazel/view/hazards/earthquake/search
 
-Plate Boundaries: 
+Plate Boundaries:
 https://github.com/fraxen/tectonicplates/blob/master/GeoJSON/
 http://www-udc.ig.utexas.edu/external/plates/data.htm
-Alternative: https://www.usgs.gov/media/files/plate-boundaries-kmz-file 
+Alternative: https://www.usgs.gov/media/files/plate-boundaries-kmz-file
   from https://www.usgs.gov/natural-hazards/earthquake-hazards/google-earth-kml-files
 More Info: https://www.gislounge.com/find-tectonic-plate-gis-data/
 

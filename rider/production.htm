@@ -16,7 +16,7 @@
       <p class="text-right">Include Chlorophyll-a?</p>
     </div>
     <div class="col-xs-9">
-      <label style="font-weight: normal;"><input type="checkbox" id="chlorophyll" onclick="toggle_chl(this)" checked> 
+      <label style="font-weight: normal;"><input type="checkbox" id="chlorophyll" onclick="toggle_chl(this)" checked>
         Chlorophyll-a</label>
     </div>
   </div>
@@ -25,21 +25,21 @@
     </div>
     <div class="col-xs-4">
       <p><strong>Select a second parameter</strong></p>
-      <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" > 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="1" onclick="toggle_radio(this)" >
         Temperature</label><br>
 <!--
-      <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" > 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="0" onclick="toggle_radio(this)" >
         Salinity</label><br>
 -->
-      <label style="font-weight: normal;"><input type="radio" name="second" value="5" onclick="toggle_radio(this)" > 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="5" onclick="toggle_radio(this)" >
         Irradiance</label><br>
-      <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" >
         Nitrate</label><br>
 <!--
-      <label style="font-weight: normal;"><input type="radio" name="second" value="6" onclick="toggle_radio(this)" > 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="6" onclick="toggle_radio(this)" >
         Wind Speed</label><br>
 -->
-      <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
+      <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked>
         None</label>
     </div>
     <div class="col-xs-4">
@@ -55,8 +55,8 @@
   <p class="text-right small">&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></p>
 </div>
 
-<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="js/dygraph-2.1.0/dygraph.css" />
 <style type="text/css">
   
   .dygraph-title {
@@ -82,7 +82,7 @@
 </style>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="js/dygraph-2.1.0/dygraph.js"></script>
 
 <script type="text/javascript">
 // OOI Data Labs Notebook
@@ -102,7 +102,7 @@ var colors = ["#00457C","#d3596d","#008100","#00839C","#000000","#DBA53A","#8000
 
 $(document).ready(function () {
 
-  g = new Dygraph(document.getElementById("chart"), "../notebook/data/production_2019.csv", {
+  g = new Dygraph(document.getElementById("chart"), "data/production_2019.csv", {
     title: 'Coastal Pioneer Array Data',
     ylabel: 'Chlorophyll (&micro;g/L)',
     y2label: '',
@@ -187,7 +187,7 @@ var fill_rects = function(canvas, area, g) {
   }
   if ($('#winter').is(':checked')) {
     canvas.fillStyle = "rgba(65, 105, 225, 0.3)"; //#4169E1 /* RoyalBlue (web colors) */
-    highlight_period(new Date('2019-01-01T00:00'), new Date('2019-03-01T00:00'))    
+    highlight_period(new Date('2019-01-01T00:00'), new Date('2019-03-01T00:00'))
   }
   if ($('#spring').is(':checked')) {
     canvas.fillStyle = "rgba(0, 128, 128, 0.3)"; // #008080 /* Teal (web colors) */

@@ -4,7 +4,7 @@
 <html>
 <head>
   <title>Profiles Data Lab - Rider University</title>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   <style format="text/css">
     body {
       font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -34,7 +34,7 @@
       <div class="col-xs-9">
         <label style="color: #4e79a7"><input type="checkbox" class="siteBox" value=1 > Near Polar (54&deg;N)</label> &nbsp;&nbsp;&nbsp;
         <label style="color: #edc949"><input type="checkbox" class="siteBox" value=2 checked> Temperate (36&deg;N)</label> &nbsp;&nbsp;&nbsp;
-        <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (12&deg;N)</label> 
+        <label style="color: #e15759"><input type="checkbox" class="siteBox" value=3 > Tropics (12&deg;N)</label>
       </div>
     </div>
     <p align="center">These profiles were collected on June 1-2, 2019.  You can also view a <a href="profiles_map.htm">map of profile locations</a>.</p>
@@ -221,7 +221,7 @@ d3.csv("data/profiles.csv", parseData, function(data) {
     
   // Tooltip mouseover functions
   var mouseover = function(d) {
-    Tooltip.style("opacity", 1)      
+    Tooltip.style("opacity", 1)
   }
   var mousemove = function(d) {
     Tooltip
