@@ -1,8 +1,8 @@
-<?php 
+<?php
   $page = 'instructors';
-  $page_title = 'Instructor\'s Guide';
+  $page_title = 'Properties of Seawater Instructor\'s Guide';
   $base_url = '../';
-  include_once('../header.php'); 
+  include_once('../header.php');
 ?>
 
 <ol class="breadcrumb">
@@ -23,7 +23,8 @@
 <h3>Learning Goals</h3>
 <p>After engaging with the Data Exploration(s) a student will be able to: </p>
 <ul>
-  <li>Interpret the provided data</li>  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
+  <li>Interpret the provided data</li>
+  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
   <li>Engage with the interactive data widget to support learning</li>
 </ul>
 
@@ -32,7 +33,9 @@
 
 <h3>Teaching Notes</h3>
 <p>The Data Explorations require access to an internet-ready computer or tablet.</p>
-<p>Note, the Data Explorations use authentic raw data. Many of the datasets have been downsampled for simplicity and to ensure that the interactives load quickly in your browser. However, this means that many of the datasets retain their natural variability and some sampling side-effects.  The goal of these activities is for students to analyze authentic data, not smooth averages. have been taken to maintain as much of the data and to keep the variation of the data as true as possible of any data. There has been no resampling, averaging, or selective reduction of the data. Therefore, the amount of data over time varies within the interactive based on the original data and similarly some data is missing.</p><p>There are 7 different sets of Data Explorations to choose from within this collection:</p>
+<p>Note, the Data Explorations use authentic raw data. Many of the datasets have been downsampled for simplicity and to ensure that the interactives load quickly in your browser. However, this means that many of the datasets retain their natural variability and some sampling side-effects.  The goal of these activities is for students to analyze authentic data, not smooth averages. have been taken to maintain as much of the data and to keep the variation of the data as true as possible of any data. There has been no resampling, averaging, or selective reduction of the data. Therefore, the amount of data over time varies within the interactive based on the original data and similarly some data is missing.</p>
+
+<p>There are 7 different sets of Data Explorations to choose from within this collection:</p>
 
 
 <div class="panel panel-primary">
@@ -112,7 +115,8 @@
   </div>
 </div>
 
-<h3>Subject / Topics</h3>
+
+<h3>Subject / Topics</h3>
 <ul>
   <li>Introduction to Oceanography</li>
   <li>Water Column Properties (salinity, pH variation with depth, Halocline)</li>
@@ -131,6 +135,6 @@
 </ul>
 <p>For more information on using quantitative skills in higher ed, please see: <a href="http://serc.carleton.edu/quantskills/issues/issues.html">Teaching Quantitative Skills in the Geosciences</a></p>
 
-<?php 
-  include_once('../footer.php'); 
+<?php
+  include_once('../footer.php');
 ?>

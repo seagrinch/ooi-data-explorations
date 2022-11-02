@@ -1,8 +1,8 @@
-<?php 
+<?php
   $page = 'instructors';
-  $page_title = 'Instructor\'s Guide';
+  $page_title = 'Primary Production Instructor\'s Guide';
   $base_url = '../';
-  include_once('../header.php'); 
+  include_once('../header.php');
 ?>
 
 <ol class="breadcrumb">
@@ -23,7 +23,8 @@
 <h3>Learning Goals</h3>
 <p>After engaging with the Data Exploration(s) a student will be able to: </p>
 <ul>
-  <li>Interpret the provided data</li>  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
+  <li>Interpret the provided data</li>
+  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
   <li>Engage with the interactive data widget to support learning</li>
 </ul>
 
@@ -31,7 +32,11 @@
 <p>These Data Explorations are appropriate to use in an Introduction to Oceanography course that is learning about primary production. The ability to interpret and use data is integral to oceanography.</p>
 
 <h3>Teaching Notes</h3>
-<p>The Data Explorations require access to an internet-ready computer or tablet. </p><p>Note, the Data Explorations use authentic raw data. There is no downsampling of any data, thus the amount of data over time varies within the interactive based on the original data and similarly some data is missing.</p><p>There are 7 different activities to choose from within this collection:</p>
+<p>The Data Explorations require access to an internet-ready computer or tablet. </p>
+
+<p>Note, the Data Explorations use authentic raw data. There is no downsampling of any data, thus the amount of data over time varies within the interactive based on the original data and similarly some data is missing.</p>
+
+<p>There are 7 different activities to choose from within this collection:</p>
 
 
 <div class="panel panel-primary">
@@ -133,7 +138,8 @@
   </div>
 </div>
 
-<h3>Subject / Topics</h3>
+
+<h3>Subject / Topics</h3>
 <p>Introduction to Oceanography / Primary Production</p>
 
 <h3>Grade Level</h3>
@@ -144,6 +150,6 @@
 <p>For more information, on using quantitative skills in higher ed, see:</p>
 <blockquote><small>Using the American Mathematical Association of Two Year Colleges, in their document <a href="http://www.imacc.org/standards/index.html">Crossroads in Mathematics: Standards for introductory college mathematics before calculus</a>. (<a href="http://serc.carleton.edu/resources/22730.html">more info</a>) intellectual skills and content skills. Content Standards: Number Sense, Symbolism and Algebra, Geometry, Function, Discrete Mathematics, Probability and Statistics, Deductive Proof. Intellectual Development standards: Problem solving, Modeling, Reasoning, Connecting with Other Disciplines, Communicating, Using Technology, Developing Mathematical Power</small></blockquote>
 
-<?php 
-  include_once('../footer.php'); 
+<?php
+  include_once('../footer.php');
 ?>

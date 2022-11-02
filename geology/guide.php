@@ -1,8 +1,8 @@
-<?php 
+<?php
   $page = 'instructors';
-  $page_title = 'Instructor\'s Guide';
+  $page_title = 'Tectonics & Seamounts Instructor\'s Guide';
   $base_url = '../';
-  include_once('../header.php'); 
+  include_once('../header.php');
 ?>
 
 <ol class="breadcrumb">
@@ -23,7 +23,8 @@
 <h3>Learning Goals</h3>
 <p>After engaging with the Data Exploration(s) a student will be able to: </p>
 <ul>
-  <li>Interpret the provided data</li>  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
+  <li>Interpret the provided data</li>
+  <li>Articulate the concept being presented by answering the Interpretation & Analysis Questions</li>
   <li>Engage with the interactive data widget to support learning</li>
 </ul>
 
@@ -74,7 +75,7 @@
         <li>Have students create a, or revise a previous, concept map of features of plate boundaries, or</li>
         <li>Something else that you are doing already</li>
       </ul></li>
-    </ul>  
+    </ul>
   </div>
 </div>
 
@@ -137,7 +138,7 @@
       </ul></li>
       <li><strong>Concept Invention:</strong> You could...
       <ul>
-        <li>Engage in a discussion about what goes in to predicting when eruption events may occur along mid-ocean ridges, including basic information like: 
+        <li>Engage in a discussion about what goes in to predicting when eruption events may occur along mid-ocean ridges, including basic information like:
         <ul>
           <li>Between eruptions some volcanoes inflate somewhat like a balloon, except with magma instead of air, and during inflation the ground elevation gradually rises.</li>
           <li>During eruptions these volcanoes quickly deflate and the ground elevation suddenly subsides. Eruptions occur when the subsurface magma reservoir can no longer hold the increasing pressure from inflation and magma escapes to the surface to erupt, lowering the pressure in the reservoir.</li>
@@ -149,7 +150,7 @@
       <li><strong>Application:</strong> You could...
       <ul>
         <li>Use the <a href="activity3.php?level=application">Seamount Diking-Eruption Event Science - Application</a> activity to use historical patterns of tracking diking-eruption events to make a prediction of the next event following the 2015 diking-eruption event, or</li>
-        <li>Have the students calculate inflation (uplift) rates from the data (either visually or mathematically). For example, there is a four-fold change in rates between pre-2011 and post-2011 data, evident from the different slopes on the plot. Calculating rates for different time periods can lead to questions like: 
+        <li>Have the students calculate inflation (uplift) rates from the data (either visually or mathematically). For example, there is a four-fold change in rates between pre-2011 and post-2011 data, evident from the different slopes on the plot. Calculating rates for different time periods can lead to questions like:
         <ul>
           <li>Has the rate of inflation changed with time, and if so when?</li>
           <li>What does a change of inflation imply about the rate of magma supply? <small>[ANSWER: inflation is caused by magma being supplied to the subsurface reservoir. If the rate of inflation increases it's because the rate of magma supply has increased.]</small></li>
@@ -202,7 +203,8 @@
   </div>
 </div>
 
-<h3>Subject / Topics</h3>
+
+<h3>Subject / Topics</h3>
 <ul>
   <li>Introduction to Oceanography</li>
   <li>Earthquakes and Seismicity</li>
@@ -230,6 +232,6 @@
 </ul>
 <p>For more information on using quantitative skills in higher ed, please see: <a href="http://serc.carleton.edu/quantskills/issues/issues.html">Teaching Quantitative Skills in the Geosciences</a></p>
 
-<?php 
-  include_once('../footer.php'); 
+<?php
+  include_once('../footer.php');
 ?>
