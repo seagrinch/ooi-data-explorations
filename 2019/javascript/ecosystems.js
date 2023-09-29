@@ -1,6 +1,6 @@
 /* Ecosystems Widget
   OOI Data Labs 2019
-  Written by Sage Lichtenwalner, Rutgers Univeristy
+  Written by Sage Lichtenwalner, Rutgers University
   Revised 8/20/2021
 */
 
@@ -109,7 +109,7 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
     .text(function (d) { return d.title; })
     .attr("value", function (d) { return d.id; })
 
-  // Reformat dataset  
+  // Reformat dataset
   var dataNest = d3.nest()
         .key(function(d) {return d.site;})
         .entries(data);
@@ -146,7 +146,6 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
     
   graph1.append("g")
     .attr("class","yAxis1")
-
   graph2.append("g")
     .attr("class","yAxis2")
   graph3.append("g")
@@ -213,9 +212,10 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
     
   // Tooltip mouseover functions
   var mouseover = function(d) {
-    Tooltip.style("opacity", 1)      
+    Tooltip.style("opacity", 1)
   }
   var mousemove = function(d,mousevar) {
+    // console.log(mousevar)
     Tooltip
       .html('Depth: ' + d.depth + '<br>Value: ' + d[mousevar])
       .style("left", (event.pageX) + 10 + "px")
@@ -230,7 +230,7 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
   }
 
   // Function to update graph with specified options
-  function updageGraph() {
+  function updateGraph() {
     
     var var1 = d3.select("#selectVar1").property("value")
     label1 = varNames.find(el => el.id==var1).label;
@@ -270,7 +270,7 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
     graph3.selectAll(".xAxis3t").transition(t).call(xAxis3t);
 
     var selectedDepth = d3.select("#selectDepth").property("value");
-    console.log(selectedDepth)
+    // console.log(selectedDepth)
     if (selectedDepth==='2') {
       y.domain([50,200]);
     } else if (selectedDepth==='3') {
@@ -313,9 +313,12 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
           })
       lines.exit().remove();
 
+      // Remove all dots first to fix bug where mouseover doesn't update on existing dots
+      graph.selectAll('.dot').remove();
+
       // Add dots for tooltips
       var dots = graph.selectAll('.dot')
-        .data(dataSelected)
+        .data(dataSelected);
       dots.transition(t)
         .attr("cx", xvar )
         .attr("cy", yvar )
@@ -345,19 +348,19 @@ d3.csv("data/ecosystem_profiles.csv", parseData, function(data) {
   }
   
   // Set default form fields
-  d3.select('#selectVar1').property('value', 'par');  
-  d3.select('#selectVar2').property('value', 'chl');  
-  d3.select('#selectVar3').property('value', 'dissolved_oxygen');  
-  d3.select('#selectDepth').property('value', 1); 
+  d3.select('#selectVar1').property('value', 'par');
+  d3.select('#selectVar2').property('value', 'chl');
+  d3.select('#selectVar3').property('value', 'dissolved_oxygen');
+  d3.select('#selectDepth').property('value', 1);
 
   // Initialize graph
-  updageGraph()
+  updateGraph()
 
   // Add pull-down watchers
-  d3.selectAll(".siteBox").on("change",updageGraph);
-  d3.select("#selectVar1").on("change", updageGraph);
-  d3.select("#selectVar2").on("change", updageGraph);
-  d3.select("#selectVar3").on("change", updageGraph);
-  d3.select("#selectDepth").on("change", updageGraph);
+  d3.selectAll(".siteBox").on("change",updateGraph);
+  d3.select("#selectVar1").on("change", updateGraph);
+  d3.select("#selectVar2").on("change", updateGraph);
+  d3.select("#selectVar3").on("change", updateGraph);
+  d3.select("#selectDepth").on("change", updateGraph);
   
 })
