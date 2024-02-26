@@ -1,7 +1,7 @@
-/* 
+/*
   Techtonics and Plate Movement - Exploration Widget
   OOI Data Labs 2019
-  Written by Sage Lichtenwalner, Rutgers Univeristy 
+  Written by Sage Lichtenwalner, Rutgers Univeristy
   
 This code was adapted from the following references
 http://bl.ocks.org/tnightingale/4718717
@@ -22,12 +22,13 @@ https://observablehq.com/search?query=earthquakes
 var mainscript = (function () {
   var container = L.DomUtil.get('map');
   var zoomlevel = (container.dataset.zoom) ? container.dataset.zoom : 5;
-  var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128]; 
+  var mapcenter = (container.dataset.center) ? JSON.parse(container.dataset.center) : [44, -128];
   var selected_days =  (container.dataset.days) ? container.dataset.days : 30;
 
   // Basemap
   var myMap = L.map(container).setView(mapcenter, zoomlevel);
-  var baseMap = L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  // Old layer https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&
+  var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     // maxZoom: 12,
     // minZoom: 2.6,
     attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
@@ -40,7 +41,7 @@ var mainscript = (function () {
   }).addTo(myMap);
   
   // Overlay Minimap
-  var osm2 = new L.tileLayer.wms('https://maps.oceanobservatories.org/mapserv?map=/public/mgg/web/gmrt.marine-geo.org/htdocs/services/map/wms_merc.map&', {
+  var osm2 = new L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
     maxZoom: 13,
     minZoom: 0,
     attribution: 'Global Multi-Resolution Topography (GMRT), Version 3.2',
@@ -80,7 +81,7 @@ var mainscript = (function () {
   });
 
   // Dataset boundary
-  var data_bounds = (function(dataset) {  
+  var data_bounds = (function(dataset) {
     switch(dataset) {
       case 'data/usgs_gordo.csv':
         return [[40.188, -127.423], [43.3113, -124.5978333]]; // Gordo
@@ -92,7 +93,7 @@ var mainscript = (function () {
   })(container.dataset.source);
 
   var data_rect = L.rectangle(data_bounds, {
-    color: 'grey', 
+    color: 'grey',
     weight: 2,
     fill: false
   }).addTo(myMap);
@@ -232,7 +233,7 @@ var mainscript = (function () {
             .openOn(map);
 
     });
-  }  
+  }
 */
 
   function timeseries_chart() {
@@ -402,7 +403,7 @@ var mainscript = (function () {
     var extent = d3.brushSelection(brush_box.node()) || x.range();
     var min_date = x.invert(extent[0]);
     var max_date = d3.timeHour.offset(min_date,days*24);
-    brush_box.call(brush.move,[x(min_date),x(max_date)]);  
+    brush_box.call(brush.move,[x(min_date),x(max_date)]);
   }
   
   return {
