@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>Density Lab Activity #1</title>
+    <style format="text/css">
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+      }
+      h3 {
+        margin: 0px;
+        color: #494949;
+        font-size: 16px;
+      }
+      small {
+        color: #808080;
+      }
+      .myCircle:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div style="width: 800px; margin: 10px">
+      <div id="chart"></div>
+      <div class="row form-inline">
+        <div class="col-md-9">
+          <p>Drag the circles on the density graph to estimate the shape of the density profile. Then click the button to check your answer.</p>
+        </div>
+        <div class="col-md-3">
+          <button id="toggleDensity" class="btn btn-primary">Show Density</button>
+        </div>
+      </div>
+      <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    </div>
+  </body>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs Notebook - 2025 Edition
+// Design by Sage Lichtenwalner, 1/16/2025
+//
+// References:
+// https://www.d3-graph-gallery.com/graph/line_filter.html
+// Draggable line https://bl.ocks.org/denisemauldin/538bfab8378ac9c3a32187b4d7aed2c2
+// You-draw-it example https://observablehq.com/@cjdd3b/you-draw-it-example
+// Interactive Line Chart https://observablehq.com/@sergeyobodovskiy/interactive-line-chart
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",800)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 24, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 24, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 24, right: 20, bottom: 40, left: 560},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    width2 = +svg.attr("width") - margin2.left - margin2.right,
+    width3 = +svg.attr("width") - margin3.left - margin3.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom,
+    height3 = +svg.attr("height") - margin3.top - margin3.bottom;
+
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+var graph2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+var graph3 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "#EBEBEB")
+graph2.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height2)
+    .attr("width", width2)
+    .style("fill", "#EBEBEB")
+graph3.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height3)
+    .attr("width", width3)
+    .style("fill", "#EBEBEB")
+
+function parseData(d){
+  return {
+    pressure_bin: +d.depth,
+    seawater_temperature: +d.temperature,
+    practical_salinity: +d.salinity,
+    density: +d.density
+  };
+}
+
+// Read the data
+d3.csv("data/lab6_ce09ospm_ctd.csv", parseData, function(data) {
+  // Filter out blank values
+  data = data.filter(d => d.pressure_bin && d.seawater_temperature && d.practical_salinity && d.density);
+  
+  // Sort data by pressure_bin
+  data.sort((a, b) => a.pressure_bin - b.pressure_bin);
+  
+  // Initialize the axes
+  var x1 = d3.scaleLinear().range([ 0, width1 ])
+  var x2 = d3.scaleLinear().range([ 0, width2 ])
+  var x3 = d3.scaleLinear().range([ 0, width3 ])
+  var y = d3.scaleLinear().range([ 0, height1 ]) // Flip axis
+
+  var xAxis1 = d3.axisBottom().scale(x1).ticks(5)
+  var xAxis2 = d3.axisBottom().scale(x2).ticks(5)
+  var xAxis3 = d3.axisBottom().scale(x3).ticks(4,'f')
+  var yAxis = d3.axisLeft().scale(y).ticks(7)
+
+  graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .attr("class","myXaxis1")
+  graph2.append("g")
+    .attr("transform", "translate(0," + height2 + ")")
+    .attr("class","myXaxis2")
+  graph3.append("g")
+    .attr("transform", "translate(0," + height3 + ")")
+    .attr("class","myXaxis3")
+  graph1.append("g")
+    .attr("class","myYaxis1")
+  graph2.append("g")
+    .attr("class","myYaxis2")
+  graph3.append("g")
+    .attr("class","myYaxis3")
+
+  // Add labels
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 36)
+      .text("Temperature (C)");
+  xLabel2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 36)
+      .text("Salinity (psu)");
+  xLabel3 = graph3.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 36)
+      .text("Density (kg/m³)");
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Depth (m)")
+  title2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("font-weight", "bold")
+      .attr("font-size", "16px")
+      .attr("x", width1/2)
+      .attr("y", -10)
+      .text("Site");
+
+  // Initialize lines
+  var line1 = graph1.append('g')
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+  var line2 = graph2.append('g')
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+  var line3 = graph3.append('g')
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
+    .attr("stroke-width", 3)
+  var line4 = graph3.append('g')
+    .append("path")
+    .attr("class", "line")
+    .attr("fill", "none")
+    .attr("stroke", "#696969") /* DimGray (web colors) */
+    .attr("stroke-width", 3)
+    .attr("stroke-dasharray","5,5")
+
+  // This allows to find the closest index of the mouse
+  var bisect = d3.bisector(function(d) { return d.pressure_bin; }).left;
+  
+  // Specify decimal format
+  var f = d3.format(".2f");
+
+  // Create the circle that travels along the curve of chart
+  var focus1 = graph1
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+  var focus2 = graph2
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+  var focus3 = graph3
+    .append('g')
+    .append('circle')
+      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText1 = graph1
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "end")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 200).attr("y", height1-10)
+  var focusText2 = graph2
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10)
+  var focusText3 = graph3
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10)
+
+  // Create a rect on top of the svg area: this rectangle recovers mouse position
+  var g1 = graph1
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width1)
+    .attr('height', height1)
+  var g2 = graph2
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width2)
+    .attr('height', height2)
+  var g3 = graph3
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width3)
+    .attr('height', height3)
+  
+  // Function to update graph with specified options
+  function updateGraph(showDensity) {
+    
+    var dataSelected = data;
+    
+    x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
+    graph1.selectAll(".myXaxis1").transition().call(xAxis1);
+    x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
+    graph2.selectAll(".myXaxis2").transition().call(xAxis2);
+    x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
+    graph3.selectAll(".myXaxis3").transition().call(xAxis3);
+    
+    y.domain([0, d3.max(dataSelected, function(d) { return d.pressure_bin }) ]);
+    graph1.selectAll(".myYaxis1").transition().call(yAxis);
+    graph2.selectAll(".myYaxis2").transition().call(yAxis);
+    graph3.selectAll(".myYaxis3").transition().call(yAxis);
+
+    // Update the lines
+    line1
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x1(d.seawater_temperature) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+    line2
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x2(d.practical_salinity) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+    line3
+      .datum(dataSelected)
+      .transition()
+      .attr("d", d3.line()
+        .x(function(d) { return x3(d.density) })
+        .y(function(d) { return y(d.pressure_bin) })
+      )
+    if (showDensity) {
+      line3.attr('opacity',1)
+    } else {
+      line3.attr('opacity',0)
+    }
+    
+    // Graph Title
+    title2.text('Coastal Endurance Washington Offshore Profiler from 2024-04-19')
+  
+    // Setup mouseovers to show data values
+    g1
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+    g2
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+    g3
+      .on('mouseover', mouseover)
+      .on('mousemove', mousemove)
+      .on('mouseout', mouseout);
+
+    function mouseover() {
+      focus1.style("opacity", 1)
+      focusText1.style("opacity",1)
+      focus2.style("opacity", 1)
+      focusText2.style("opacity",1)
+      if (showDensity){
+        focus3.style("opacity", 1)
+        focusText3.style("opacity",1)
+      }
+    }
+  
+    function mousemove() {
+      // recover coordinate we need
+      var y0 = y.invert(d3.mouse(this)[1]);
+      var i = bisect(dataSelected, y0);
+      if (i >= dataSelected.length) i = dataSelected.length - 1;
+      dataPoint = dataSelected[i]
+      focus1
+        .attr("cx", x1(dataPoint.seawater_temperature) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText1
+        .html("Temperature: " + f(dataPoint.seawater_temperature))
+      focus2
+        .attr("cx", x2(dataPoint.practical_salinity) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText2
+        .html("Salinity: " + f(dataPoint.practical_salinity))
+      focus3
+        .attr("cx", x3(dataPoint.density) )
+        .attr("cy", y(dataPoint.pressure_bin) )
+      focusText3
+        .html("Density: " + f(dataPoint.density))
+      }
+  
+    function mouseout() {
+      focus1.style("opacity", 0)
+      focusText1.style("opacity", 0)
+      focus2.style("opacity", 0)
+      focusText2.style("opacity", 0)
+      focus3.style("opacity", 0)
+      focusText3.style("opacity", 0)
+    }
+
+  graph3.selectAll('.drawCircle')
+    .transition()
+    .attr('cx', function(d) { return x3(d[1]);  })
+    .attr('cy', function(d) { return y(d[0]); })
+  line4
+    .transition()
+    .attr("d", drawline)
+
+  }
+
+  // Initialize graph with default settings
+  updateGraph(false)
+  
+  // Default points for draggable line
+  let minPressure = d3.min(data, function(d) { return d.pressure_bin; });
+  let maxPressure = d3.max(data, function(d) { return d.pressure_bin; });
+  let points = d3.range(minPressure, maxPressure, 50).map(function(i) {return [i,1027]});
+
+  // Draggable Line
+  var drawline = d3.line()
+    .x(function(d) { return x3(d[1]); })
+    .y(function(d) { return y(d[0]); })
+    .curve(d3.curveMonotoneY); //curveNatural
+
+  line4
+    .datum(points)
+    .transition()
+    .attr("d", drawline)
+
+  graph3.selectAll('.drawCircle')
+    .data(points)
+    .enter()
+    .append('circle')
+    .attr("class", "drawCircle")
+    .attr('r', 5.0)
+    .attr('cx', function(d) { return x3(d[1]);  })
+    .attr('cy', function(d) { return y(d[0]); })
+    .style('cursor', 'pointer')
+    .style('fill', 'steelblue');
+
+  function clamp(a, b, c){ return Math.max(a, Math.min(b, c)) }
+
+  function dragged(d) {
+    d[1] = clamp(x3.domain()[0],x3.domain()[1], x3.invert(d3.event.x));
+    d3.select(this)
+        .attr('cx', x3(d[1]))
+        .attr('cy', y(d[0]))
+    line4.attr('d', drawline);
+  }
+
+  let drag = d3.drag()
+    .on('drag', dragged)
+
+  graph3.selectAll('.drawCircle')
+        .call(drag);
+
+  // Add callbacks
+  var showDensity = false;
+  d3.select("#toggleDensity").on("click", function(d) {
+    showDensity = !showDensity;
+    d3.select("#toggleDensity").text(showDensity ? "Hide Density" : "Show Density");
+    updateGraph(showDensity);
+  })
+
+})
+
+</script>
+
+</html>

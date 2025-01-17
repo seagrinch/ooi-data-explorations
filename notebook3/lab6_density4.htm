@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<html>
+  <head>
+    <title>Density Lab Activity #4</title>
+    <style format="text/css">
+      body {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 12px;
+      }
+      h3 {
+        margin: 0px;
+        color: #494949;
+        font-size: 16px;
+      }
+      small {
+        color: #808080;
+      }
+      .myCircle:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h3>Monthly averaged profiles from the Coastal Pioneer Offshore Profiler Mooring </h3>
+    <div id="chart"></div>
+    <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+  </body>
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-format.v1.min.js"></script>
+
+<script>
+// OOI Data Labs Notebook - 2025 Edition
+// Design by Sage Lichtenwalner, 1/16/2025
+// 
+// Adapted from the following examples
+// https://www.d3-graph-gallery.com/graph/line_several_group.html
+// https://www.d3-graph-gallery.com/graph/connectedscatter_legend.html
+// https://www.d3-graph-gallery.com/graph/connectedscatter_tooltip.html
+
+// Setup initial SVG
+var svg = d3.select("#chart").append("svg")
+      .attr("width",800)
+      .attr("height",500);
+
+// Specify coordinates for each graph
+var margin1 = {top: 24, right: 540, bottom: 40, left: 40},
+    margin2 = {top: 24, right: 280, bottom: 40, left: 300},
+    margin3 = {top: 24, right: 20, bottom: 40, left: 560},
+    width1 = +svg.attr("width") - margin1.left - margin1.right,
+    width2 = +svg.attr("width") - margin2.left - margin2.right,
+    width3 = +svg.attr("width") - margin3.left - margin3.right,
+    height1 = +svg.attr("height") - margin1.top - margin1.bottom,
+    height2 = +svg.attr("height") - margin2.top - margin2.bottom,
+    height3 = +svg.attr("height") - margin3.top - margin3.bottom;
+    
+var graph1 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin1.left + "," + margin1.top + ")");
+var graph2 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+var graph3 = svg.append("g")
+    .attr("class", "focus")
+    .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");
+
+svg.append("defs").append("clipPath")
+    .attr("id", "clip")
+  .append("rect")
+    .attr("width", width1)
+    .attr("height", height1);
+
+// Add the grey background that makes ggplot2 famous
+graph1.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height1)
+    .attr("width", width1)
+    .style("fill", "#EBEBEB")
+graph2.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height2)
+    .attr("width", width2)
+    .style("fill", "#EBEBEB")
+graph3.append("rect")
+    .attr("x",0)
+    .attr("y",0)
+    .attr("height", height3)
+    .attr("width", width3)
+    .style("fill", "#EBEBEB")
+
+//Read the data
+d3.csv("../notebook/data/chem_CP04OSPM_profiles.csv", function(data) {
+
+  var profiles = d3.nest()
+    .key(function(d) { return d.month;})
+    .entries(data);
+
+  // Setup axis calculations
+  var x1 = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return +d.seawater_temperature; }))
+    //.domain([0,30])
+    .range([ 0, width1 ])
+  var x2 = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return +d.practical_salinity; }))
+    //.domain([0,30])
+    .range([ 0, width2 ])
+  var x3 = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return +d.density; }))
+    .range([ 0, width3 ])
+  var y = d3.scaleLinear()
+    //.domain(d3.extent(data, function(d) { return +d.pressure_bins; }).reverse())
+    .domain([400,0])
+    .range([ height1, 0 ])
+
+  // Add Graph Axes
+  var xAxis1 = graph1.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .call(d3.axisBottom(x1).ticks(5));
+  var xAxis2 = graph2.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .call(d3.axisBottom(x2).ticks(5));
+  var xAxis3 = graph3.append("g")
+    .attr("transform", "translate(0," + height1 + ")")
+    .call(d3.axisBottom(x3).ticks(4));
+  var yAxis1 = graph1.append("g")
+    .call(d3.axisLeft(y));
+  var yAxis2 = graph2.append("g")
+    .call(d3.axisLeft(y));
+  var yAxis3 = graph3.append("g")
+    .call(d3.axisLeft(y));
+
+  // Add labels
+  xLabel1 = graph1.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width1/2)
+      .attr("y", height1 + 32)
+      .text("Temperature (C)");
+  xLabel2 = graph2.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width2/2)
+      .attr("y", height2 + 32)
+      .text("Salinity (psu)");
+  xLabel3 = graph3.append("text")
+      .attr("text-anchor", "middle")
+      .attr("x", width3/2)
+      .attr("y", height3 + 32)
+      .text("Density (kg/m³)")
+  yLabel = graph1.append("text")
+      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", -30)
+      .attr("x", 0)
+      .text("Depth (m)")
+
+  // color palette
+  var months = [2, 5, 8, 11];
+  var color = d3.scaleOrdinal(d3.schemeCategory10);
+  
+  // Draw the line
+  var lines1 = graph1.selectAll(".line")
+      .data(profiles)
+      .enter()
+      .append("path")
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 2)
+        .attr("class", function(d){ return 'line'+d.key })
+        .attr("d", function(d){
+          return d3.line()
+            .x(function(d) { return x1(+d.seawater_temperature); })
+            .y(function(d) { return y(+d.pressure_bins); })
+            (d.values)
+        })
+
+  var lines2 = graph2.selectAll(".line")
+      .data(profiles)
+      .enter()
+      .append("path")
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 2)
+        .attr("class", function(d){ return 'line'+d.key })
+        .attr("d", function(d){
+          return d3.line()
+            .x(function(d) { return x2(+d.practical_salinity); })
+            .y(function(d) { return y(+d.pressure_bins); })
+            (d.values)
+        })
+
+  var lines3 = graph3.selectAll(".line")
+      .data(profiles)
+      .enter()
+      .append("path")
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color(d.key) })
+        .attr("stroke-width", 2)
+        .attr("class", function(d){ return 'line'+d.key })
+        .attr("d", function(d){
+          return d3.line()
+            .x(function(d) { return x3(+d.density); })
+            .y(function(d) { return y(+d.pressure_bins); })
+            (d.values)
+        })
+
+  // Add Clip-paths
+  lines1.attr("clip-path", "url(#clip)")
+  lines2.attr("clip-path", "url(#clip)")
+  lines3.attr("clip-path", "url(#clip)")
+
+  // Add Legend
+  var legendX = margin3.left + 4;
+  var legendY = margin1.top + height1 - 120;
+  monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  
+  svg.append("text")
+    .attr("x", legendX + 13)
+    .attr("y", legendY)
+    .text('Toggle Months')
+    .attr("text-anchor", "left")
+    .style("alignment-baseline", "middle")
+    .style('font-weight','bold')
+  svg.selectAll("legendDots2")
+    .data(months)
+    .enter()
+    .append("circle")
+      .attr("cx", legendX + 20)
+      .attr("cy", function(d,i){ return legendY + 25 + i*25})
+      .attr("r", 7)
+      .style("fill", "none")
+      .style('stroke','grey')
+  svg.selectAll("legendDots")
+    .data(months)
+    .enter()
+    .append("circle")
+      .attr("cx", legendX + 20)
+      .attr("cy", function(d,i){ return legendY + 25 + i*25})
+      .attr("r", 7)
+      .style("fill", function(d){ return color(d)})
+      .style('stroke','grey')
+      .attr("class", function(d){ return 'line'+d })
+      .style('cursor','pointer')
+      .on("click", function(d){
+        // is the element currently visible ?
+        currentOpacity = d3.selectAll(".line" + d).style("opacity")
+        // Change the opacity: from 0 to 1 or from 1 to 0
+        d3.selectAll(".line" + d).transition().style("opacity", currentOpacity == 1 ? 0:1) //Hide line
+        d3.selectAll(".circle" + d).transition().style("display", currentOpacity == 1 ? "none":"inline") //Remove circles so tooltip works on earlier dots
+      })
+  svg.selectAll("legendLabels")
+    .data(months)
+    .enter()
+    .append("text")
+      .attr("x", legendX + 35)
+      .attr("y", function(d,i){ return legendY + 25 + i*25})
+      .style("fill", function(d){ return color(d)})
+      .text(function(d){ return monthNames[d-1]})
+      .attr("text-anchor", "left")
+      .style("alignment-baseline", "middle")
+      .style('font-weight','bold')
+      .style('cursor','pointer')
+      .on("click", function(d){
+        // is the element currently visible ?
+        currentOpacity = d3.selectAll(".line" + d).style("opacity")
+        // Change the opacity: from 0 to 1 or from 1 to 0
+        d3.selectAll(".line" + d).transition().style("opacity", currentOpacity == 1 ? 0:1) //Hide line
+        d3.selectAll(".circle" + d).transition().style("display", currentOpacity == 1 ? "none":"inline") //Remove circles so tooltip works on earlier dots
+      })
+
+  // Create a tooltip div
+  var Tooltip = d3.select("#chart")
+    .append("div")
+    .style("opacity", 0)
+    .attr("class", "tooltip")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "2px")
+    .style("border-radius", "5px")
+    .style("padding", "5px")
+    .style("position", "absolute")
+    .style("display", "block")
+
+    // Three function that change the tooltip when user hover / move / leave a cell
+    var mouseover = function(d) {
+      if (d3.selectAll(".line" + d.month).style("opacity")==1){
+        Tooltip.style("opacity", 1)      
+      }
+    }
+    var mousemove = function(d) {
+      Tooltip
+        .html("Month: " + d.month + '<br> Depth: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
+        .style("left", (event.pageX) + 10 + "px")
+        .style("top",(event.pageY) + "px")
+        //.style("left", legendX + 20 + "px")
+        //.style("top","350px")
+        //.style("left", (d3.mouse(this)[0]+70) + "px")
+        //.style("top", (d3.mouse(this)[1]) + "px")
+    }
+    var mouseleave = function(d) {
+      Tooltip
+        .style("opacity", 0)
+        .style('left',0)
+        .style('top',0)
+    }
+
+    // Add the points
+    var dots1 = graph1
+      .append("g")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("class", function(d){ return 'circle'+d.month })
+        .attr("cx", function(d) { return x1(+d.seawater_temperature); } )
+        .attr("cy", function(d) { return y(+d.pressure_bins); } )
+        .attr("r", 4)
+        //.attr("stroke", "#69b3a2")
+        .attr("stroke-width", 0)
+        //.attr("fill", "white")
+        .attr('opacity',0) //Hide the dots!
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+
+    var dots2 = graph2
+      .append("g")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("class", function(d){ return 'circle'+d.month })
+        .attr("cx", function(d) { return x2(+d.practical_salinity); } )
+        .attr("cy", function(d) { return y(+d.pressure_bins); } )
+        .attr("r", 4)
+        //.attr("stroke", "#69b3a2")
+        //.attr("stroke-width", 1)
+        //.attr("fill", "white")
+        .attr('opacity',0) //Hide the dots!
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+
+    var dots3 = graph3
+      .append("g")
+      .selectAll("dot")
+      .data(data)
+      .enter()
+      .append("circle")
+        .attr("class", function(d){ return 'circle'+d.month })
+        .attr("cx", function(d) { return x3(+d.density); } )
+        .attr("cy", function(d) { return y(+d.pressure_bins); } )
+        .attr("r", 4)
+        .attr('opacity',0) //Hide the dots!
+        .on("mouseover", mouseover)
+        .on("mousemove", mousemove)
+        .on("mouseleave", mouseleave)
+
+  // Add Clip-paths
+  dots1.attr("clip-path", "url(#clip)")
+  dots2.attr("clip-path", "url(#clip)")
+  dots3.attr("clip-path", "url(#clip)")
+
+  // Hide selected months to start
+  for (let d = 1; d <= 12; d++) { 
+    if (d !== 2) {
+      d3.selectAll(".line" + d).transition().style("opacity", 0) //Hide line
+      d3.selectAll(".circle" + d).transition().style("display", "none") //Remove circles so tooltip works on earlier dots
+    }
+  }
+
+
+})
+
+</script>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Primary Production Activity #1</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">
+  <div id="chart" style="width:800px; height: 320px;"></div>
+
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-9">
+<!--
+      <label style="font-weight: normal;"><input type="checkbox" id="drawline" onclick="toggle_line(this)" checked> 
+        Draw Line</label>
+-->
+    </div>
+  </div>
+  <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+    color:008100;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+// OOI Data Labs Notebook - 2025 Edition
+// Design by Sage Lichtenwalner, 1/16/2025
+
+var parameters = [
+  {title:"Chlorophyll (&micro;g/L)"},
+  {title:"Salinity"},
+  {title:"Temperature (&deg;C)"},
+  {title:"Nitrate (&micro;mol/L)"},
+  {title:"Shortwave Irradiance (W/m<sup>2</sup>)"},
+];
+
+var colors = ["#008100","#00457C","#d3596d","#00839C","#DBA53A"];
+
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart"), "data/lab9_primary_production_2021.csv", {
+    title: 'OOI Coastal Pioneer NES Array - Central Surface Mooring',
+    ylabel: 'Chlorophyll (&micro;g/L)',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always',
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    colors : colors,
+    strokeWidth: 2,
+    drawPoints: true,
+    pointSize: 3,
+    highlightCircleSize: 6,
+    //logscale : true,
+    showRangeSelector: true,
+    //rangeSelectorPlotFillColor : "#00839C",
+    //rangeSelectorPlotStrokeColor : "#008100",
+    //animatedZooms : true,
+    series: {
+      'Chlorophyll': {axis: 'y', showInRangeSelector: true},
+    },
+    visibility: [1,0,0,0,0],
+  });
+
+}); //document.ready
+
+
+function toggle_line(el) {
+    g.updateOptions({
+      strokeWidth: (el.checked ? 2 : 0),
+    })
+}
+
+</script>
+
+
+  </body>
+</html>

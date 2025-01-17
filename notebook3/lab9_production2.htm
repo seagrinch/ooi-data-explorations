@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Primary Production Activity #2</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">
+  <div id="chart" style="width:800px; height: 320px;"></div>
+
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+      <p class="text-right">Include Chlorophyll-a?</p>
+    </div>
+    <div class="col-xs-9">
+      <label style="font-weight: normal;"><input type="checkbox" id="chlorophyll" onclick="toggle_chl(this)" checked> 
+        Chlorophyll-a</label>
+    </div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-3">
+    </div>
+    <div class="col-xs-4">
+      <p><strong>Select a second parameter</strong></p>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="2" onclick="toggle_radio(this)" > 
+        Temperature</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="4" onclick="toggle_radio(this)" > 
+        Irradiance</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="3" onclick="toggle_radio(this)" > 
+        Nitrate</label><br>
+      <label style="font-weight: normal;"><input type="radio" name="second" value="" onclick="toggle_radio(this)" checked> 
+        None</label>
+    </div>
+    <div class="col-xs-4">
+      <p><strong>Highlight Seasons</strong></p>
+      <label style="font-weight: normal;"><input type="checkbox" id="winter" onclick="toggle_seasons()"> Winter (Dec-Feb)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="spring" onclick="toggle_seasons()"> Spring (Mar-May)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="summer" onclick="toggle_seasons()"> Summer (Jun-Aug)</label><br>
+      <label style="font-weight: normal;"><input type="checkbox" id="fall" onclick="toggle_seasons()"> Fall (Sep-Nov)</label>
+    </div>
+  </div>
+
+  <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  
+  .dygraph-title {
+    font-size: 16px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+    color:008100;
+  }
+
+  .dygraph-y2label {
+    font-size: 14px;
+    font-weight: bold;
+    color:#d3596d;
+  }
+  
+  .dygraph-legend {
+    left: 544px !important;
+  }
+
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+// OOI Data Labs Notebook - 2025 Edition
+// Design by Sage Lichtenwalner, 1/16/2025
+
+var parameters = [
+  {title:"Chlorophyll (&micro;g/L)"},
+  {title:"Salinity"},
+  {title:"Temperature (&deg;C)"},
+  {title:"Nitrate (&micro;mol/L)"},
+  {title:"Shortwave Irradiance (W/m<sup>2</sup>)"},
+];
+
+var colors = ["#008100","#00457C","#d3596d","#00839C","#DBA53A"];
+
+$(document).ready(function () {
+
+  g = new Dygraph(document.getElementById("chart"), "data/lab9_primary_production_2021.csv", {
+    title: 'OOI Coastal Pioneer NES Array - Central Surface Mooring',
+    ylabel: 'Chlorophyll (&micro;g/L)',
+    y2label: '',
+    //labels : ["Date","Endurance","Pioneer"],
+    legend: 'always',
+    labelsSeparateLines: true,
+    labelsUTC : false,
+    colors : colors,
+    strokeWidth: 2,
+    drawPoints: true,
+    pointSize: 3,
+    highlightCircleSize: 6,
+    //logscale : true,
+    showRangeSelector: true,
+    //rangeSelectorPlotFillColor : "#00839C",
+    //rangeSelectorPlotStrokeColor : "#008100",
+    //animatedZooms : true,
+    axes: {
+    //   y: {valueRange: [0, null]},
+      y2: {axisLabelWidth: 70}
+    },
+    series: {
+      'Chlorophyll': {axis: 'y', showInRangeSelector: true},
+      'Salinity': {axis: 'y2'},
+      'Temperature': {axis: 'y2'},
+      'Nitrate': {axis: 'y2'},
+      'Shortwave Irradiance': {axis: 'y2'},
+    },
+    visibility: [1,0,0,0,0],
+  });
+
+}); //document.ready
+
+function toggle_chl(el) {
+  g.setVisibility(0, el.checked);
+}
+
+function toggle_radio(el) {
+  g.setVisibility(1, false);
+  g.setVisibility(2, false);
+  g.setVisibility(3, false);
+  g.setVisibility(4, false);
+  if (el.value) {
+    g.setVisibility(parseInt(el.value), el.checked);
+    g.updateOptions({
+      y2label: parameters[el.value].title,
+    })
+    var cols = document.getElementsByClassName('dygraph-y2label');
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.color = colors[el.value];
+    }
+  } else {
+    g.updateOptions({
+      y2label: '',
+    })
+    cols = document.getElementsByClassName('dygraph-axis-label-y2');
+    for(i=0; i<cols.length; i++) {
+      cols[i].style.color = '#fff';
+    }
+  }
+}
+
+function toggle_seasons() {
+  if ($('#winter').is(':checked') || $('#spring').is(':checked') || $('#summer').is(':checked') || $('#fall').is(':checked')) {
+    g.updateOptions({underlayCallback: function(canvas, area, g) {
+      fill_rects(canvas, area, g)
+    }})
+  } else {
+    g.updateOptions({underlayCallback: null})
+  }
+}
+
+var fill_rects = function(canvas, area, g) {
+  function highlight_period(x_start, x_end) {
+    var canvas_left_x = g.toDomXCoord(x_start);
+    var canvas_right_x = g.toDomXCoord(x_end);
+    var canvas_width = canvas_right_x - canvas_left_x;
+    canvas.fillRect(canvas_left_x, area.y, canvas_width, area.h);
+  }
+  if ($('#winter').is(':checked')) {
+    canvas.fillStyle = "rgba(65, 105, 225, 0.3)"; //#4169E1 /* RoyalBlue (web colors) */
+    highlight_period(new Date('2021-01-01T00:00'), new Date('2021-03-01T00:00'))    
+  }
+  if ($('#spring').is(':checked')) {
+    canvas.fillStyle = "rgba(0, 128, 128, 0.3)"; // #008080 /* Teal (web colors) */
+    highlight_period(new Date('2021-03-01T00:00'), new Date('2021-06-01T00:00'))
+  }
+  if ($('#summer').is(':checked')) {
+    canvas.fillStyle = "rgba(255, 69, 0, 0.3)";  //#FF4500 /* OrangeRed (web colors) */
+    highlight_period(new Date('2021-06-01T00:00'), new Date('2021-09-01T00:00'))
+  }
+  if ($('#fall').is(':checked')) {
+    canvas.fillStyle = "rgba(255, 165, 0, 0.3)";  // #FFA500 /* Orange (web colors) */
+    highlight_period(new Date('2021-09-01T00:00'), new Date('2021-12-01T00:00'))
+  }
+  if ($('#winter').is(':checked')) {
+    canvas.fillStyle = "rgba(65, 105, 225, 0.3)";
+    highlight_period(new Date('2021-12-01T00:00'), new Date('2021-12-31T00:00'))
+  }
+}
+
+</script>
+
+
+  </body>
+</html>
