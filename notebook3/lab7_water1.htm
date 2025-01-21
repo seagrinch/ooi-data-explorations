@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Water Masses Activity #1 - Thermohaline Exploration</title>
+</head>
+<body>
+  <div style="width: 800px;">  
+    <div id="chart1" style="width:800px; height: 240px;"></div>
+    <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
+    <div class="row" style="margin-top:10px;">
+      <div class="col-md-4">
+        <p class="text-right">Specify CTD depths to plot:</p>
+      </div>
+      <div class="col-md-8">
+        <label style="font-weight: normal;"><input type="checkbox" id="30m" onclick="toggle_lines()" checked> 
+          30m</label> &nbsp;&nbsp;
+        <label style="font-weight: normal;"><input type="checkbox" id="90m" onclick="toggle_lines()"> 
+          90m</label> &nbsp;&nbsp;
+        <label style="font-weight: normal;"><input type="checkbox" id="350m" onclick="toggle_lines()"> 
+          350m</label> &nbsp;&nbsp;
+        <label style="font-weight: normal;"><input type="checkbox" id="1000m" onclick="toggle_lines()"> 
+          1000m</label> 
+      </div>
+    </div>
+    <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+  </div>
+
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+  <style type="text/css">
+    .dygraph-title {
+      font-size: 18px;
+    }
+    .dygraph-ylabel {
+      font-size: 14px;
+      font-weight: bold;
+      /* color: #008100; */
+    }
+    .dygraph-legend {
+      left: 544px !important;
+    }
+  </style>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+  <script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+   
+  <script>
+    // OOI Data Labs Notebook - 2025 Edition
+    // Design by Sage Lichtenwalner, 1/20/2025
+
+    var colors = ["#ffd86d","#DBA53A","#7fc4fb","#00457C",
+    "#ffd86d","#DBA53A","#7fc4fb","#00457C",
+    "#ffd86d","#DBA53A","#7fc4fb","#00457C",
+    "#800000","#800000"]; //"#000080","#DC143C"
+
+    // time, temp_30m,temp_90m,temp_350m,temp_1000m, 
+    // density_30m,density_90m,density_350m,density_1000m, 
+    // potential_density_30m,potential_density_90m,potential_density_350m,potential_density_1000m, 
+    // wind_speed,air_temp
+
+    var g1, g2; // Declare g1 and g2 in the global scope
+
+    $(document).ready(function () {
+      g1 = new Dygraph(document.getElementById("chart1"), "data/lab7_thermohaline.csv", {
+        title: 'Irminger Sea Flanking Mooring B',
+        ylabel: 'Temperature (°C)',
+        //legend: 'always', //onmouseover
+        labelsSeparateLines: true,
+        labelsUTC : false,
+        colors : colors, 
+        strokeWidth: 2,
+        drawPoints: false,
+        pointSize: 2,
+        highlightCircleSize: 6,
+        showRangeSelector: true,
+        rangeSelectorHeight: 30,
+        animatedZooms : false,
+        visibility: [1,0,0,0,0,0,0,0,0,0,0,0],
+      });
+
+      g2 = new Dygraph(document.getElementById("chart2"), "data/lab7_thermohaline.csv", {
+        ylabel: 'Potential Density (kg/m^3)',
+        //legend: 'always', //onmouseover
+        labelsSeparateLines: true,
+        labelsUTC : false,
+        colors : colors, 
+        strokeWidth: 2,
+        drawPoints: false,
+        pointSize: 2,
+        highlightCircleSize: 6,
+        showRangeSelector: false,
+        animatedZooms : true,
+        visibility: [0,0,0,0,0,0,0,0,1,0,0,0],
+      });
+      
+      var sync = Dygraph.synchronize(g1, g2, {
+        selection: true,
+        zoom: true,
+        range: false
+      });
+    }); //document.ready
+
+    function toggle_lines() {
+      g1.setVisibility(0, $('#30m').is(':checked'));
+      g1.setVisibility(1, $('#90m').is(':checked'));
+      g1.setVisibility(2, $('#350m').is(':checked'));
+      g1.setVisibility(3, $('#1000m').is(':checked'));
+      g2.setVisibility(8, $('#30m').is(':checked'));
+      g2.setVisibility(9, $('#90m').is(':checked'));
+      g2.setVisibility(10, $('#350m').is(':checked'));
+      g2.setVisibility(11, $('#1000m').is(':checked'));    
+    } // End toggle_lines
+  </script>
+</body>
+</html>

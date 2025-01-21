@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html>
+<head>
+  <title>Ocean Acidification Activity #1</title>
+</head>
+<body>
+  <!-- DATA CHART -->
+  <div style="width: 800px;">
+    <div id="chart1" style="width:800px; height: 250px;"></div>
+    <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
+    <div class="row" id="div_mooring" style="margin-top:10px;">
+      <div class="col-xs-3">
+        <p class="text-right">Select location:</p>
+      </div>
+      <div class="col-xs-9">
+        <label style="font-weight: normal;">
+          <input type="radio" name="mooring" value="CE02" onclick="toggle_lines()" checked> 
+          Oregon Shelf Surface Mooring
+        </label><br>
+        <label style="font-weight: normal;">
+          <input type="radio" name="mooring" value="CP03" onclick="toggle_lines()"> 
+          Pioneer Inshore Surface Mooring
+        </label><br>  
+      </div>
+    </div>
+    <p class="text-right">
+      <small>&copy; 2025 Rutgers University 
+        <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a>
+      </small>
+    </p>
+  </div>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+  <style type="text/css">
+    /* .dygraph-title {
+      font-size: 16px;
+    }
+    .dygraph-ylabel {
+      font-size: 14px;
+      font-weight: bold;
+      color:008100;
+    }
+    .dygraph-legend {
+      left: 544px !important;
+    } */
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+  <script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+  <script type="text/javascript">
+    // OOI Data Labs Notebook - 2025 Edition
+    // Design by Sage Lichtenwalner, 1/16/2025
+    colors = ["#DAA520","#1E90FF","#a64c85"]
+    // time, pCO2 Atm, pCO2 Sea, CO2 Flux
+    $(document).ready(function () {
+      $.get("data/lab11_pCO2_CE02SHSM_CP03ISSM.csv", function(data) {
+        g1 = new Dygraph(document.getElementById("chart1"), data, {
+          title: 'Coastal Endurance Oregon Shelf Surface Mooring',
+          ylabel: 'pCO2 (ppm)',
+          //legend: 'always', //onmouseover
+          labelsSeparateLines: true,
+          labelsUTC : false,
+          colors : colors, 
+          strokeWidth: 2,
+          drawPoints: true,
+          pointSize: 2,
+          highlightCircleSize: 6,
+          showRangeSelector: true,
+          rangeSelectorHeight: 30,
+          animatedZooms : false,
+          series: {
+            'Dissolved Oxygen': { showInRangeSelector: true}
+          },
+          visibility: [1,1,0, 0,0,0],
+          axes: {
+            y: {axisLabelWidth: 80},
+          }
+        });
+        
+        g2 = new Dygraph(document.getElementById("chart2"), data, {
+          ylabel: 'CO2 Flux from Ocean (mol m-2 s-1)',
+          //legend: 'always', //onmouseover
+          labelsSeparateLines: true,
+          labelsUTC : false,
+          colors : colors, 
+          strokeWidth: 2,
+          drawPoints: true,
+          pointSize: 2,
+          highlightCircleSize: 6,
+          showRangeSelector: false,
+          animatedZooms : true,
+          visibility: [0,0,1, 0,0,0],
+          axes: {
+            y: {axisLabelWidth: 80},
+          }
+        });
+        var sync = Dygraph.synchronize(g1, g2, {
+          selection: true,
+          zoom: true,
+          range: false
+        });
+      }).fail(function() {
+        console.error("Failed to load data file.");
+      });
+    }); //document.ready
+    function toggle_lines() {
+      mooring = $('input[name=mooring]:checked').val(); 
+      if (mooring == 'CE02') {
+        g1.setVisibility([true, true, false, false, false, false]);
+        g2.setVisibility([false, false, true, false, false, false]);
+        g1.updateOptions({title:'Coastal Endurance Oregon Shelf Surface Mooring'});
+      } else if (mooring == 'CP03') {
+        g1.setVisibility([false, false, false, true, true, false]);
+        g2.setVisibility([false, false, false, false, false, true]);
+        g1.updateOptions({title:'Coastal Pioneer Inshore Surface Mooring'});
+      }
+    } // End toggle_lines
+  </script>
+</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Forest Fires Activity #2</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">  
+  <div id="chart1" style="width:800px; height: 240px;"></div>
+  <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-4">
+      <p class="text-right">Select Parameter for Graph 1:</p>
+    </div>
+    <div class="col-xs-8">
+      <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
+        <option value="0" selected>CDOM</option>
+        <option value="1">Chlorophyll_a</option>
+        <option value="2">Backscatter</option>
+        <option value="3">Dissolved Oxygen</option>
+        <option value="4">Nitrate</option>
+      </select>
+    </div>
+  </div>
+  <div class="row" style="margin-top:10px;">
+    <div class="col-xs-4">
+      <p class="text-right">Select Parameter for Graph 2:</p>
+    </div>
+    <div class="col-xs-8">
+      <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
+        <option value="0">CDOM</option>
+        <option value="1" selected>Chlorophyll_a</option>
+        <option value="2">Backscatter</option>
+        <option value="3">Dissolved Oxygen</option>
+        <option value="4">Nitrate</option>
+      </select>
+    </div>
+  </div>
+
+  <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+
+<style type="text/css">
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .dygraph-legend {
+    /* left: 544px !important; */
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+// OOI Data Labs Notebook - 2025 Edition
+// Design by Sage Lichtenwalner, 1/20/2025
+
+// time,CDOM,Chlorophyll_a,Backscatter,Dissolved Oxygen,Nitrate
+parameters = [
+  {title:"CDOM"},
+  {title:"Chlorophyll_a (ug/L)"},
+  {title:"Backscatter (1/m)"},
+  {title:"Dissolved Oxygen (micromol/L)"},
+  {title:"Nitrate (micromol/L)"},
+];
+
+colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"];
+
+$(document).ready(function () {
+  $.get("data/lab12_ce04ossm.csv", function(data) {
+    // console.log("Data loaded:", data); // Log the data to ensure it is loaded correctly
+
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      title: 'OOI Oregon Offshore Surface Mooring',
+      ylabel: 'CDOM',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : false,
+      visibility: [true, false, false, false, false, false, false],
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    g2 = new Dygraph(document.getElementById("chart2"), data, {
+      ylabel: 'Chlorophyll_a',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : true,
+      visibility: [false, true, false, false, false, false, false],
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    var sync = Dygraph.synchronize(g1, g2, {
+        selection: true,
+        zoom: true,
+        range: false
+    });
+
+  }).fail(function() {
+    console.error("Failed to load data file.");
+  });
+}); //document.ready
+
+function changeParameter(el, graphNumber) {
+  var index = parseInt(el.value);
+  var graph = graphNumber === 1 ? g1 : g2;
+  var visibility = [false, false, false, false, false];
+  visibility[index] = true;
+  graph.updateOptions({
+    visibility: visibility,
+    ylabel: parameters[index].title,
+  });
+}
+
+</script>
+
+</body>
+</html>
