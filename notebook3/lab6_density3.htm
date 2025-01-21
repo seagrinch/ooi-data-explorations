@@ -296,41 +296,44 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
     
     var dataSelected = data.filter(function(d){return ((d.site==site) & (d.date==date)) })
 
-    x1.domain(d3.extent(dataSelected, function(d) { return d.seawater_temperature }) ).nice();
-    graph1.selectAll(".myXaxis1").transition().call(xAxis1);
-    x2.domain(d3.extent(dataSelected, function(d) { return d.practical_salinity }) ).nice();
-    graph2.selectAll(".myXaxis2").transition().call(xAxis2);
-    x3.domain(d3.extent(dataSelected, function(d) { return d.density }) ).nice();
-    graph3.selectAll(".myXaxis3").transition().call(xAxis3);
-    
+    x1.domain([3, 15]);
+    x2.domain([32.5, 36]);
+    x3.domain([1025, 1038]);
     y.domain([0, d3.max(dataSelected, function(d) { return d.pressure_bin }) ]);
-    graph1.selectAll(".myYaxis1").transition().call(yAxis);
-    graph2.selectAll(".myYaxis2").transition().call(yAxis);
-    graph3.selectAll(".myYaxis3").transition().call(yAxis);
 
-    // Update the lines
-    line1
-      .datum(dataSelected)
-      .transition()
-      .attr("d", d3.line()
-        .x(function(d) { return x1(d.seawater_temperature) })
-        .y(function(d) { return y(d.pressure_bin) })
-      )
-    line2
-      .datum(dataSelected)
-      .transition()
-      .attr("d", d3.line()
-        .x(function(d) { return x2(d.practical_salinity) })
-        .y(function(d) { return y(d.pressure_bin) })
-      )
-    line3
-      .datum(dataSelected)
-      .transition()
-      .attr("d", d3.line()
-        .x(function(d) { return x3(d.density) })
-        .y(function(d) { return y(d.pressure_bin) })
-      )
-      
+    var t = d3.transition().duration(750);
+
+    graph1.selectAll(".myXaxis1").transition(t).call(xAxis1);
+    graph2.selectAll(".myXaxis2").transition(t).call(xAxis2);
+    graph3.selectAll(".myXaxis3").transition(t).call(xAxis3);
+    graph1.selectAll(".myYaxis1").transition(t).call(yAxis);
+    graph2.selectAll(".myYaxis2").transition(t).call(yAxis);
+    graph3.selectAll(".myYaxis3").transition(t).call(yAxis);
+
+    // t.on("end", function() {
+      line1
+        .datum(dataSelected)
+        .transition()
+        .attr("d", d3.line()
+          .x(function(d) { return x1(d.seawater_temperature) })
+          .y(function(d) { return y(d.pressure_bin) })
+        )
+      line2
+        .datum(dataSelected)
+        .transition()
+        .attr("d", d3.line()
+          .x(function(d) { return x2(d.practical_salinity) })
+          .y(function(d) { return y(d.pressure_bin) })
+        )
+      line3
+        .datum(dataSelected)
+        .transition()
+        .attr("d", d3.line()
+          .x(function(d) { return x3(d.density) })
+          .y(function(d) { return y(d.pressure_bin) })
+        )
+    // });
+
     title2.text(siteNames.find(el => el.id==site).title + ' - ' + dateNames.find(el => el.id==date).title)
   
     g1
