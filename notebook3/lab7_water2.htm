@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Masses Activity #2 - Gulf Stream Intrusion</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div style="width: 800px; margin: 10px">
+        <div id="plot" style="width:800px; height: 700px;"></div>
+        <p>Click and drag on any graph to select a smaller date range.  Double-click to reset to the full range.</p>
+        <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    </div>
+    
+    <script>
+        // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+        // Design by Sage Lichtenwalner, 1/27/2025
+
+        Promise.all([
+            fetch('./data/lab7_profiler_ctd.json').then(response => response.json()),
+            fetch('./data/lab7_surface_ctd.json').then(response => response.json())
+        ]).then(([profilerData, surfaceData]) => {
+            console.log(profilerData, surfaceData);
+            var trace1 = {
+                x: profilerData.date,
+                y: profilerData.depth_bin,
+                z: profilerData.temperature,
+                type: 'heatmap',
+                colorscale: [
+                    ['0.0', 'rgb(49,54,149)'],
+                    ['0.111111111111', 'rgb(69,117,180)'],
+                    ['0.222222222222', 'rgb(116,173,209)'],
+                    ['0.333333333333', 'rgb(171,217,233)'],
+                    ['0.444444444444', 'rgb(224,243,248)'],
+                    ['0.555555555556', 'rgb(254,224,144)'],
+                    ['0.666666666667', 'rgb(253,174,97)'],
+                    ['0.777777777778', 'rgb(244,109,67)'],
+                    ['0.888888888889', 'rgb(215,48,39)'],
+                    ['1.0', 'rgb(165,0,38)']
+                ],
+                colorbar: {title: 'Temperature (°C)', len:0.2, y:0.9, side: 'right'},
+            };
+
+            var trace2 = {
+                x: profilerData.date,
+                y: profilerData.depth_bin,
+                z: profilerData.salinity,
+                type: 'heatmap',
+                colorscale: 'Viridis',
+                xaxis: 'x',
+                yaxis: 'y2',
+                colorbar: {title: 'Salinity (PSU)', len: 0.2, y: 0.65, side: 'right'},
+            };
+
+            var trace3 = {
+                x: surfaceData.date,
+                y: surfaceData.temperature,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Temperature',
+                xaxis: 'x',
+                yaxis: 'y3',
+                line: {color: '#1f77b4'}
+            };
+
+            var trace4 = {
+                x: surfaceData.date,
+                y: surfaceData.salinity,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Salinity',
+                xaxis: 'x',
+                yaxis: 'y4',
+                line: {color: '#ff7f0e'}
+            };
+
+            var trace5 = {
+                x: surfaceData.date,
+                y: surfaceData.density,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Density',
+                xaxis: 'x',
+                yaxis: 'y5',
+            };
+
+            var layout = {
+                title: 'CP13NOPM Profiler and Surface Buoy CTD Data',
+                grid: {rows: 4, columns: 1, subplots: [['xy'], ['xy2'], ['xy3'], ['xy5']]},
+                yaxis: {title: 'Depth (m)', autorange: 'reversed'},
+                yaxis2: {title: 'Depth (m)', autorange: 'reversed'},
+                yaxis3: {title: 'Temperature (°C)', side: 'left', titlefont: {color: '#1f77b4'}},
+                yaxis4: {title: 'Salinity (PSU)', overlaying: 'y3', side: 'right', titlefont: {color: '#ff7f0e'}},
+                yaxis5: {title: 'Density (kg/m³)', side: 'left', titlefont: {color: 'purple'}},
+                margin: {l: 50, r: 50, t: 50, b: 50},
+                showlegend: false
+            };
+
+            var data = [trace1, trace2, trace3, trace4, trace5];
+
+            Plotly.newPlot('plot', data, layout);
+        });
+    </script>
+</body>
+</html>

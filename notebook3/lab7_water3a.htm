@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Masses Activity #3 - Temperature Salinity Diagram</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div style="width: 800px; margin: 10px">
+        <div id="plot" style="width:800px; height: 600px;"></div>
+        <div class="row">
+            <div class="col-md-6 text-right">
+                <p>Click on the graph to add and remove your own dots.</p>
+            </div>
+            <div class="col-md-6 text-left">
+                <button id="clear-dots">Clear All Dots</button>
+            </div>
+        </div>
+        <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    </div>
+    <script>
+        // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+        // Design by Sage Lichtenwalner, 1/27/2025
+        
+        fetch('data/lab7_ts_diagram.json')
+            .then(response => response.json())
+            .then(data => {
+                const trace = {
+                    x: data.salinity,
+                    y: data.temperature,
+                    z: data.density,
+                    type: 'contour',
+                    contours: {
+                        coloring: 'heatmap',
+                        showlabels: true,
+                    },
+                    colorscale: 'YlGnBu',
+                    colorbar: {
+                        title: {
+                            text: 'Potential Density (kg/m³)',
+                            side: 'right',
+                            font: {
+                                size: 16
+                            }
+                        }
+                    },
+                    hoverinfo: 'none'
+                };
+
+                const layout = {
+                    title: 'Temperature Salinity Diagram',
+                    xaxis: { 
+                        title: 'Salinity (PSU)',
+                        titlefont: { size: 16 },
+                        tickfont: { size: 14 }
+                    },
+                    yaxis: { 
+                        title: 'Temperature (°C)',
+                        titlefont: { size: 16 },
+                        tickfont: { size: 14 }
+                    },
+                    hoverdistance: 1
+                };
+
+                Plotly.newPlot('plot', [trace], layout);
+
+                const dots = {
+                    x: [],
+                    y: [],
+                    mode: 'lines+markers',
+                    type: 'scatter',
+                    marker: { color: 'red', size: 12, line: { width: 2, color: 'black' } },
+                    hoverinfo: 'x+y'
+                };
+
+                Plotly.addTraces('plot', dots);
+
+                document.getElementById('plot').on('plotly_click', function(data) {
+                    const point = data.points[0];
+                    const x = point.x;
+                    const y = point.y;
+
+                    const existingIndex = dots.x.findIndex((px, i) => px === x && dots.y[i] === y);
+
+                    if (existingIndex === -1) {
+                        dots.x.push(x);
+                        dots.y.push(y);
+                    } else {
+                        dots.x.splice(existingIndex, 1);
+                        dots.y.splice(existingIndex, 1);
+                    }
+                    console.log(dots);
+
+                    Plotly.redraw('plot');
+                });
+
+                document.getElementById('clear-dots').addEventListener('click', function() {
+                    dots.x = [];
+                    dots.y = [];
+                    Plotly.update('plot', { x: [dots.x], y: [dots.y] }, {}, [1]);
+                });
+            });
+    </script>
+</body>
+</html>
