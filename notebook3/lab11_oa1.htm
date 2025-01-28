@@ -48,12 +48,12 @@
   <script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
   <script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
   <script type="text/javascript">
-    // OOI Data Labs Notebook - 2025 Edition
+    // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
     // Design by Sage Lichtenwalner, 1/16/2025
     colors = ["#DAA520","#1E90FF","#a64c85"]
     // time, pCO2 Atm, pCO2 Sea, CO2 Flux
     $(document).ready(function () {
-      $.get("data/lab11_pCO2_CE02SHSM_CP03ISSM.csv", function(data) {
+      $.get("data/lab11_pco2_ce02shsm_cp03issm.csv", function(data) {
         g1 = new Dygraph(document.getElementById("chart1"), data, {
           title: 'Coastal Endurance Oregon Shelf Surface Mooring',
           ylabel: 'pCO2 (ppm)',
