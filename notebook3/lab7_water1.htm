@@ -40,6 +40,13 @@
     }
     .dygraph-legend {
       left: 544px !important;
+      border: 1px solid #000;
+      border-radius: 6px;
+      padding: 4px;
+    }
+    #chart2 .dygraph-legend {
+      bottom: 20px !important;
+      top: auto !important;
     }
   </style>
   
@@ -79,6 +86,7 @@
         rangeSelectorHeight: 30,
         animatedZooms : false,
         visibility: [1,0,0,0,0,0,0,0,0,0,0,0],
+        valueRange: [3,11],
       });
 
       g2 = new Dygraph(document.getElementById("chart2"), "data/lab7_thermohaline.csv", {
@@ -94,6 +102,7 @@
         showRangeSelector: false,
         animatedZooms : true,
         visibility: [0,0,0,0,0,0,0,0,1,0,0,0],
+        valueRange: [26.5,28],
       });
       
       var sync = Dygraph.synchronize(g1, g2, {

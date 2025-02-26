@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Masses Activity #2 - Gulf Stream Intrusion</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div style="width: 800px; margin: 10px">
+        <div id="plot" style="width:800px; height: 500px;"></div>
+        <p>Click and drag on any graph to select a smaller date range.  Double-click to reset to the full range.</p>
+        <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    </div>
+    
+    <script>
+        // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+        // Design by Sage Lichtenwalner, 1/27/2025
+
+        Promise.all([
+            fetch('./data/lab7_NES_profiler_ctd.json').then(response => response.json()),
+            fetch('./data/lab7_NES_surface_ctd.json').then(response => response.json())
+        ]).then(([profilerData, surfaceData]) => {
+            // console.log(profilerData, surfaceData);
+
+            var trace2 = {
+                x: profilerData.date,
+                y: profilerData.depth_bin,
+                z: profilerData.salinity,
+                type: 'heatmap',
+                colorscale: 'Viridis',
+                xaxis: 'x',
+                yaxis: 'y2',
+                colorbar: {title: 'Salinity (PSU)', len: 0.5, y: 0.8, side: 'right'},
+                hovertemplate: 'Date: %{x}<br>Depth: %{y}m<br>Salinity: %{z}<extra></extra>',
+                title: 'Pioneer NES Array - Central Offshore Profiler'
+            };
+
+            var trace3 = {
+                x: surfaceData.date,
+                y: surfaceData.temperature,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Temperature',
+                xaxis: 'x',
+                yaxis: 'y3',
+                line: {color: '#1f77b4'},
+                title: 'Pioneer NES Array - Offshore Surface Buoy'
+            };
+
+            var trace4 = {
+                x: surfaceData.date,
+                y: surfaceData.salinity,
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Salinity',
+                xaxis: 'x',
+                yaxis: 'y4',
+                line: {color: '#ff7f0e'},
+            };
+
+            var layout = {
+                title: {
+                    text: 'OOI Pioneer NES Array - Profiler and Surface Buoy CTD data',
+                    font: {size: 16},
+                },
+                grid: {rows: 2, columns: 1, subplots: [['xy2'], ['xy3']]},
+                yaxis2: {title: 'Depth (m)', autorange: 'reversed'},
+                yaxis3: {title: 'Temperature (°C)', side: 'left', titlefont: {color: '#1f77b4'}},
+                yaxis4: {title: 'Salinity (PSU)', overlaying: 'y3', side: 'right', titlefont: {color: '#ff7f0e'}},
+                margin: {l: 50, r: 50, t: 50, b: 50},
+                showlegend: false
+            };
+
+            var data = [trace2, trace3, trace4];
+
+            Plotly.newPlot('plot', data, layout);
+        });
+    </script>
+</body>
+</html>
