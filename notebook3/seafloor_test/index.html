@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- ...existing code... -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        /* #map { height: 600px; } */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .dropdowns {
+            margin-top: 1em;
+        }
+        .colorbar {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+<body>
+    <!-- ...existing code... -->
+    <h1 style="text-align: center;">Seafloor Age Map Variations</h1>
+    <div class="center">
+        <div style="display: flex; align-items: center;">
+            <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
+            <img id="colorbar" class="colorbar" style="height: 400px;" src="leaflet_seafloor_age_colorbar_inferno.png" alt="Colorbar" />
+        </div>
+        <div class="dropdowns">
+            <label for="colormapSelector">Colormap:</label> 
+            <select id="colormapSelector">
+                <option value="inferno">Inferno</option>
+                <option value="jet">Jet</option>
+                <option value="viridis">Viridis</option>
+                <option value="plasma">Plasma</option>
+                <option value="magma">Magma</option>
+                <option value="rainbow">Rainbow</option>
+            </select> 
+            <label for="directionSelector">Style:</label> 
+            <select id="directionSelector">
+                <option value="regular">Regular</option>
+                <option value="reversed">Reversed</option>
+            </select> 
+            <label for="resolutionSelector">Resolution:</label> 
+            <select id="resolutionSelector">
+                <option value="low">Low Resolution</option>
+                <option value="high">High Resolution</option>
+            </select>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Setup Map
+        var container = L.DomUtil.get('map');
+        var zoomlevel = 1;
+        var mapcenter = [10, -90];
+        var myMap = L.map(container, {
+            crs: L.CRS.EPSG4326,
+            maxBounds: [[-90, -180], [90, 180]],
+            minZoom: 0,
+            maxZoom: 8,
+            //preferCanvas: true
+        }).setView(mapcenter, zoomlevel);
+        
+        // Basemap
+        var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
+            layers: 'topo',
+            format: 'image/png',
+            transparent: true,
+            attribution: 'Topography data from Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
+            //noWrap: true,
+        }).addTo(myMap);
+
+        // Add Layer Control Box
+        var baselayers = { 'GMRT Topography': baseMap };
+        var overlays = {};
+        var myMapControl = L.control.layers(baselayers, overlays, { 'collapsed': false, 'hideSingleBase': true }).addTo(myMap);
+
+        // Seafloor Age
+        var imageUrl = 'leaflet_seafloor_age_map_inferno.png',
+            imageBounds = [[-76.1499, -180], [90, 180]];
+        var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7, 'noWrap': false }).addTo(myMap);
+        myMapControl.addOverlay(seafloor_age1, 'Seafloor Age');
+
+        function updateMap() {
+            var colormap = document.getElementById('colormapSelector').value;
+            var direction = document.getElementById('directionSelector').value;
+            var resolution = document.getElementById('resolutionSelector').value;
+            var directionSuffix = direction === 'reversed' ? '_r' : '';
+            var resolutionSuffix = resolution === 'high' ? '2' : '';
+            var selectedMap = `leaflet_seafloor_age_map_${colormap}${directionSuffix}${resolutionSuffix}.png`;
+            seafloor_age1.setUrl(selectedMap);
+
+            var selectedColorbar = `leaflet_seafloor_age_colorbar_${colormap}${directionSuffix}${resolutionSuffix}.png`;
+            document.getElementById('colorbar').src = selectedColorbar;
+        }
+
+        document.getElementById('colormapSelector').addEventListener('change', updateMap);
+        document.getElementById('directionSelector').addEventListener('change', updateMap);
+        document.getElementById('resolutionSelector').addEventListener('change', updateMap);
+    </script>
+</body>
+</html>
