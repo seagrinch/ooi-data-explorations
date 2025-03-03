@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+  <title>Tectonics Activity #1 - Plate Boundaries</title>
+  
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+  <!-- Leaflet.PolylineMeasure -->
+  <link rel="stylesheet" href="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.css" />
+  <script src="https://ppete2.github.io/Leaflet.PolylineMeasure/Leaflet.PolylineMeasure.js"></script>
+  <!-- Leaflet GeoCSV -->
+  <script src="../rider/js/leaflet.geocsv-src.js"></script>
+
+  <style>
+    .plate-label {
+      color: #f5f5f5; /* Off-white */
+      text-shadow: 1px 1px 2px #000; /* Drop shadow */
+      font-weight: bold;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div style="width: 720px; margin:20px">
+    <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
+    <p><strong>Zoom to:</strong>
+      <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>,
+      <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>,
+      <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">Sandwich Islands</a>,
+      <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>,
+      <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>,
+      <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>,
+      <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>,
+      <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>,
+      <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Equatorial Atlantic</a>,
+      <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>,
+      <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>,
+      <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>,
+      <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>,
+      <a class='' onclick="zoomTo(30.27832, 84.594727, 4)">Himalayas</a>,
+      <a class='' onclick="zoomTo(-14.677734, 68.598633, 4)">Central Indian Ocean</a>
+    </p>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <h4>Toggle Layers</h4>
+        <div id="custom-map-controls"></div>
+      </div>
+      <div class="col-sm-3">
+        <h4>Legend</h4>
+        <p><strong>Earthquake Depths</strong></p>
+        <p>
+          <svg height="12" width="12">
+            <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#DC143C" fill-opacity="0.8" fill-rule="evenodd" />
+          </svg> &lt;30 km<br>
+          <svg height="12" width="12">
+            <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#FFA500" fill-opacity="0.8" fill-rule="evenodd" />
+          </svg> 30-70 km <br>
+          <svg height="12" width="12">
+            <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#2E8B57" fill-opacity="0.8" fill-rule="evenodd" />
+          </svg> 70-300 km<br>
+          <svg height="12" width="12">
+            <circle cx="6" cy="6" r="5" stroke="#555" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#00008B" fill-opacity="0.8" fill-rule="evenodd" />
+          </svg> 300+ km
+        </p>
+        <p><strong>Volcanoes </strong></p>
+        <p>
+          <svg height="12" width="12">
+            <circle cx="6" cy="6" r="5" stroke="#888" stroke-opacity="1" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" fill="#F5F5F5" fill-opacity="0.8" fill-rule="evenodd" />
+          </svg> Volcano
+        </p>
+        <p><strong>Plate Boundaries </strong></p>
+        <p>
+          <svg height="12" width="12">
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#FF6347" stroke-opacity="1" stroke-width="2" />
+          </svg> Convergent Boundary<br>
+          <svg height="12" width="12">
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#4682B4" stroke-opacity="1" stroke-width="2" />
+          </svg> Transform Boundary<br>
+          <svg height="12" width="12">
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#32CD32" stroke-opacity="1" stroke-width="2" />
+          </svg> Divergent Boundary<br>
+          <svg height="12" width="12">
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#333" stroke-opacity="1" stroke-width="2" />
+          </svg> Other Boundary
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <p><strong>Seafloor Age</strong></p>
+        <p class="small">Millions of Years</p>
+        <img src="data/leaflet_seafloor_age_colorbar_inferno_10my_sm.png" width="80px">
+      </div>
+      <div class="col-md-2">
+        <p><strong>Bathymetry/Topography</strong></p>
+        <img src="../rider/data/bathy-topo-scale.png" width="80px">
+      </div>
+    </div>
+
+    <h5>Data Sources</h5>
+    <ul>
+      <li>Bathymetry and topography from Global Multi-Resolution Topography Data Synthesis (<a href="https://www.gmrt.org" target="_blank">GMRT</a>).</li>
+      <li>Seafloor age is adapted from data available on <a href="https://www.earthbyte.org/age-spreading-rates-and-spreading-asymmetry-of-the-worlds-ocean-crust/" target="_blank">EarthByte</a>.</li>
+      <li>Plate boundaries from <a href="https://www.usgs.gov/programs/earthquake-hazards/google-earthtmkml-files" target="_blank">USGS Tectonic Plate Boundaries</a>, with names adapted from <a href="https://serc.carleton.edu/sp/library/google_earth/examples/49004.html" target="_blank">SERC</a>.</li>
+      <li>Volcanoes from <a href="https://www.ngdc.noaa.gov/hazel/view/hazards/volcano/loc-search/" target="_blank">NCEI Volcano Location Database</a>.</li>
+      <li>Earthquakes from <a href="https://earthquake.usgs.gov/earthquakes/map/" target="_blank">USGS Earthquakes</a>.
+        <ul>
+          <li>Large earthquakes dataset includes quakes greater than magnitude 5.5 from 1/1/2001 to 1/1/2021.</li>
+          <li>All earthquakes dataset includes quakes greater than magnitude 0 from January, 2021 only.</li>
+        </ul>
+      </li>
+    </ul>
+
+    <p class="text-right"><small>&copy; 2021 Rutgers University, Rider University <a href="index.html">IUSE Project</a></small></p>
+  </div>
+</body>
+
+<link rel="stylesheet" type="text/css" href="../rider/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+  // OOI Data Labs - Rider Widgets
+  // Written by Sage Lichtenwalner, 1/13/2021
+  // Revised March 3, 2025
+
+  // Setup Map
+  var container = L.DomUtil.get('map');
+  var zoomlevel = 1;
+  var mapcenter = [10, -90];
+  var myMap = L.map(container, {
+    crs: L.CRS.EPSG4326,
+    maxBounds: [[-80, -180], [85, 180]],
+    minZoom: 0,
+    maxZoom: 8,
+  }).setView(mapcenter, zoomlevel);
+
+  // Basemap
+  var baseMap = L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
+    layers: 'topo',
+    format: 'image/png',
+    transparent: true,
+    attribution: 'Topography data from Global Multi-Resolution Topography (<a href="https://www.gmrt.org">GMRT</a>)',
+//noWrap: true,
+  }).addTo(myMap);
+
+  // Add Layer Control Box
+  var baselayers = { 'GMRT Topography': baseMap };
+  var overlays = {};
+  var myMapControl = L.control.layers(baselayers, overlays, { 'collapsed': false, 'hideSingleBase': true }).addTo(myMap);
+
+  // Seafloor Age
+  var imageUrl = 'data/leaflet_seafloor_age_map_inferno_10my.png',
+    imageBounds = [[-76.1499, -180], [90, 180]];
+  var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7 });
+  imageBounds = [[-76.1499, -180 - 360], [90, 180 - 360]];
+  var seafloor_age2 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7 });
+  seafloor_age = L.layerGroup([seafloor_age1, seafloor_age2]);
+  myMapControl.addOverlay(seafloor_age, 'Seafloor Age');
+
+  // Plate Boundaries
+  var plate_boundaries2 = L.layerGroup();
+  fetch('data/plate_boundaries_usgs.geojson')
+    .then(res => res.json())
+    .then(plates => {
+      var boundaryColors = {
+        'Convergent Boundary': '#FF6347', // Tomato
+        'Transform Boundary': '#4682B4', // SteelBlue
+        'Divergent Boundary': '#32CD32', // LimeGreen
+        'Other': '#333' // Default color
+      };
+
+      L.geoJSON(plates, {
+        style: function (feature) {
+          var boundaryType = feature.properties.boundary_type;
+          return {
+            color: boundaryColors[boundaryType] || boundaryColors['default'],
+            weight: 3
+          };
+        }
+      }).addTo(plate_boundaries2);
+    })
+  myMapControl.addOverlay(plate_boundaries2, 'Plate Boundaries');
+
+  // Plate Labels
+  var plateLabels = L.layerGroup();
+  fetch('data/plate_labels.geojson')
+    .then(res => res.json())
+    .then(labels => {
+      L.geoJSON(labels, {
+        pointToLayer: function (feature, latlng) {
+          return L.marker(latlng, {
+            icon: L.divIcon({
+              className: 'plate-label',
+              html: feature.properties.name,
+              iconSize: [100, 20],
+              iconAnchor: [50, 10] // Center the label
+            })
+          });
+        }
+      }).addTo(plateLabels);
+    });
+  myMapControl.addOverlay(plateLabels, 'Plate Names');
+
+  // Volcanoes
+  var volcanoMarker = {
+    radius: 4,
+    fillColor: "#F5F5F5", /* WhiteSmoke (web colors) */
+    color: "#888",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  fetch('../rider/data/volcanoes_20210113.csv')
+    .then(res => res.text())
+    .then(data => {
+      var geoLayer = L.geoCsv(data, {
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle: 'Latitude',
+        longitudeTitle: 'Longitude',
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, volcanoMarker);
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.volcano_name) {
+            layer.bindPopup('<h4>' + feature.properties.volcano_name + '</h4>' +
+              '<p><b>Country</b>: ' + feature.properties.country + '<br>' +
+              '<b>Elevation</b>: ' + feature.properties.elevation_m + '<br>' +
+              '<b>Type</b>: ' + feature.properties.type + '<br>' +
+              '<b>Status</b>: ' + feature.properties.status + '</p>');
+          }
+        }
+      })
+      myMapControl.addOverlay(geoLayer, 'Volcanoes');
+    })
+
+  // Earthquakes
+  var earthquakeMarker = {
+    radius: 4,
+    fillColor: "#00FF7F", /* SpringGreen (web colors) */
+    color: "#555",
+    weight: 1,
+    opacity: 1,
+    fillOpacity: 0.8
+  };
+  fetch('../rider/data/earthquakes_20210128_55.csv')
+    .then(res => res.text())
+    .then(data => {
+      var geoLayer = L.geoCsv(data, {
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle: 'latitude',
+        longitudeTitle: 'longitude',
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, earthquakeMarker)
+        },
+        style: function (feature) {
+          if (feature.properties.depth < 30) {
+            return { fillColor: "#DC143C" }; /* Crimson (web colors) */
+          } else if (feature.properties.depth < 70) {
+            return { fillColor: "#FFA500" }; /* Orange (web colors) */
+          } else if (feature.properties.depth < 300) {
+            return { fillColor: "#2E8B57" }; /* SeaGreen (web colors) */
+          } else {
+            return { fillColor: "#00008B" }; /* DarkBlue (web colors) */
+          }
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.mag) {
+            layer.bindPopup(
+              '<p><b>Time</b>: ' + feature.properties.time + '<br>' +
+              '<b>Location</b>: ' + feature.geometry.coordinates[0] + 'E, ' + feature.geometry.coordinates[1] + 'N<br>' +
+              '<b>Depth</b>: ' + feature.properties.depth + '<br>' +
+              '<b>Magnitude</b>: ' + feature.properties.mag + '</p>');
+          }
+        }
+      })
+      myMapControl.addOverlay(geoLayer, 'Large Earthquakes, 5.5+, 20 years');
+    })
+
+  // 2nd Earthquake Layer
+  fetch('../rider/data/earthquakes_2021-01.csv')
+    .then(res => res.text())
+    .then(data => {
+      var geoLayer = L.geoCsv(data, {
+        firstLineTitles: true,
+        fieldSeparator: ',',
+        latitudeTitle: 'latitude',
+        longitudeTitle: 'longitude',
+        pointToLayer: function (feature, latlng) {
+          return L.circleMarker(latlng, earthquakeMarker)
+        },
+        style: function (feature) {
+          if (feature.properties.depth < 30) {
+            return { fillColor: "#DC143C" }; /* Crimson (web colors) */
+          } else if (feature.properties.depth < 70) {
+            return { fillColor: "#FFA500" }; /* Orange (web colors) */
+          } else if (feature.properties.depth < 300) {
+            return { fillColor: "#2E8B57" }; /* SeaGreen (web colors) */
+          } else {
+            return { fillColor: "#00008B" }; /* DarkBlue (web colors) */
+          }
+        },
+        onEachFeature: function (feature, layer) {
+          if (feature.properties && feature.properties.mag) {
+            layer.bindPopup(
+              '<p><b>Time</b>: ' + feature.properties.time + '<br>' +
+              '<b>Location</b>: ' + feature.geometry.coordinates[0] + 'E, ' + feature.geometry.coordinates[1] + 'N<br>' +
+              '<b>Depth</b>: ' + feature.properties.depth + '<br>' +
+              '<b>Magnitude</b>: ' + feature.properties.mag + '</p>');
+          }
+        }
+      })
+      myMapControl.addOverlay(geoLayer, 'All Earthquakes, 0+, 30 days');
+    })
+
+  // Add Scale Bar
+  L.control.scale({ maxWidth: 240, metric: true, imperial: false, position: 'bottomleft' }).addTo(myMap);
+
+  // Add measuring tool
+  L.control.polylineMeasure({
+    position: 'topleft',
+    unit: 'metres',
+    showBearings: false,
+    clearMeasurementsOnStop: false,
+    showClearControl: true,
+    showUnitControl: false,
+    fixedLine: { color: '#111', weight: 3 }
+  }).addTo(myMap);
+
+  // Zoom Buttons
+  function zoomTo(latitude, longitude, zoomlevel) {
+    myMap.setView([latitude, longitude], zoomlevel, { animate: true, duration: 1 });
+  }
+
+  // Hack to move controls outside of map
+  $(document).ready(function () {
+    var newParent = document.getElementById('custom-map-controls');
+    var oldParent = document.getElementsByClassName("leaflet-top leaflet-right")
+    while (oldParent[0].childNodes.length > 0) {
+      newParent.appendChild(oldParent[0].childNodes[0]);
+    }
+  });
+</script>
+
+</html>

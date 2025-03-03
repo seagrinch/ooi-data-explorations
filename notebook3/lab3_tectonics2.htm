@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Tectonics Activity #2 - Pacific Northwest Earthquakes</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+        integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+        crossorigin=""/>
+    <link rel="stylesheet" href="../js/leaflet-draw/leaflet.draw.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <style type="text/css">
+        .circle { visibility: hidden; }
+        .circle.selected { visibility: visible; }
+        .axis path, .axis line {
+            fill: none;
+            stroke: #000;
+            shape-rendering: crispEdges;
+        }
+        .info {
+            padding: 6px 8px;
+            font: 14px/16px Arial, Helvetica, sans-serif;
+            background: white;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
+            border-radius: 5px;
+        }
+        .info h4 {
+            margin: 0 0 5px;
+            color: #777;
+        }
+        .legend {
+            line-height: 18px;
+            color: #555;
+        }
+        .legend i {
+            width: 18px;
+            height: 18px;
+            float: left;
+            margin-right: 8px;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 800px; margin:20px">
+        <div id="map" style="height: 365px; width: 720px; margin-bottom: 1em;" data-source="data/usgs_earthquakes_20250228.csv" data-zoom="5" data-days="365"></div>
+        <div id="chart"></div>
+        <p class='small'><em>Note, colors represent earthquake depths. Red is shallow (0-10km), yellow/green is mid-range (10-30km) and blue is deep (>30km). Most quakes are approximately 10km below the seafloor. Circles in the map are sized by earthquake magnitude, which range from 2.5-7.0. The box denotes the regions where earthquakes are available for plotting.</em></p>
+        <div class="row" style="margin-top:10px;">
+            <div class="col-xs-6">
+                <p>Automatically select: 
+                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(180)">6 Months</button>
+                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(365)">1 Year</button>
+                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(365*3)">3 Years</button>
+                </p>
+                <p>Animate earthquakes: <button class="btn btn-warning btn-sm" id="playPauseButton">Play</button></p>
+            </div>
+            <div class="col-xs-6">
+                <label style="font-weight: normal;"><input type="checkbox" id="eqShallow" onclick="toggle_dots('eqShallow')"> Show Shallow Earthquakes</label><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="eqMid" onclick="toggle_dots('eqMid')"> Show Mid-depth Earthquakes</label><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="eqDeep" onclick="toggle_dots('eqDeep')"> Show Deep Earthquakes</label><br><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="volcanoToggle"> Show Volcanoes</label>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
+    <script src='../js/leaflet-draw/leaflet.draw.js'></script>
+    <script src="../rider/js/leaflet.geocsv-src.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script type="text/javascript" src="lab3_tectonics2.js"></script>
+</body>
+</html>
