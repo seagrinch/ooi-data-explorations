@@ -25,7 +25,7 @@
     <div class="center">
         <div style="display: flex; align-items: center;">
             <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
-            <img id="colorbar" class="colorbar" style="height: 400px;" src="leaflet_seafloor_age_colorbar_inferno.png" alt="Colorbar" />
+            <img id="colorbar" class="colorbar" style="height: 400px;" src="leaflet_seafloor_age_colorbar_inferno_30my.png" alt="Colorbar" />
         </div>
         <div class="dropdowns">
             <label for="colormapSelector">Colormap:</label> 
@@ -44,8 +44,9 @@
             </select> 
             <label for="resolutionSelector">Resolution:</label> 
             <select id="resolutionSelector">
-                <option value="low">Low Resolution</option>
-                <option value="high">High Resolution</option>
+                <option value="30my">Low (30my)</option>
+                <option value="10my">Medium (10my)</option>
+                <option value="full">Full</option>
             </select>
         </div>
     </div>
@@ -78,7 +79,7 @@
         var myMapControl = L.control.layers(baselayers, overlays, { 'collapsed': false, 'hideSingleBase': true }).addTo(myMap);
 
         // Seafloor Age
-        var imageUrl = 'leaflet_seafloor_age_map_inferno.png',
+        var imageUrl = 'leaflet_seafloor_age_map_inferno_30my.png',
             imageBounds = [[-76.1499, -180], [90, 180]];
         var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7, 'noWrap': false }).addTo(myMap);
         myMapControl.addOverlay(seafloor_age1, 'Seafloor Age');
@@ -88,11 +89,11 @@
             var direction = document.getElementById('directionSelector').value;
             var resolution = document.getElementById('resolutionSelector').value;
             var directionSuffix = direction === 'reversed' ? '_r' : '';
-            var resolutionSuffix = resolution === 'high' ? '2' : '';
-            var selectedMap = `leaflet_seafloor_age_map_${colormap}${directionSuffix}${resolutionSuffix}.png`;
+            var resolutionSuffix = resolution;
+            var selectedMap = `leaflet_seafloor_age_map_${colormap}${directionSuffix}_${resolutionSuffix}.png`;
             seafloor_age1.setUrl(selectedMap);
 
-            var selectedColorbar = `leaflet_seafloor_age_colorbar_${colormap}${directionSuffix}${resolutionSuffix}.png`;
+            var selectedColorbar = `leaflet_seafloor_age_colorbar_${colormap}${directionSuffix}_${resolutionSuffix}.png`;
             document.getElementById('colorbar').src = selectedColorbar;
         }
 
