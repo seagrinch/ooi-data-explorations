@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Masses Activity #3 - Temperature Salinity Diagram</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
 <body>
     <div style="width: 800px; margin: 10px">
@@ -34,34 +34,32 @@
                     type: 'contour',
                     contours: {
                         coloring: 'heatmap',
-                        showlabels: true,
+                        showlabels: true
                     },
                     colorscale: 'YlGnBu',
                     colorbar: {
                         title: {
                             text: 'Potential Density (kg/m³)',
                             side: 'right',
-                            font: {
-                                size: 16
-                            }
+                            font: {size: 16}
                         }
                     },
                     hoverinfo: 'none'
                 };
 
                 const layout = {
-                    title: 'Temperature Salinity Diagram',
+                    title: {text: 'Temperature Salinity Diagram', font:{size: 24}},
                     xaxis: { 
-                        title: 'Salinity (PSU)',
-                        titlefont: { size: 16 },
-                        tickfont: { size: 14 }
+                        title: {text: 'Salinity (PSU)', font: {size: 16}},
+                        tickfont: {size: 14}
                     },
                     yaxis: { 
-                        title: 'Temperature (°C)',
-                        titlefont: { size: 16 },
-                        tickfont: { size: 14 }
+                        title: {text: 'Temperature (°C)', font: {size: 16}},
+                        tickfont: {size: 14}
                     },
-                    hoverdistance: 1
+                    hoverdistance: 1,
+                    margin: {t: 50, b: 50, l: 50, r: 50},
+
                 };
 
                 Plotly.newPlot('plot', [trace], layout);
@@ -71,7 +69,7 @@
                     y: [],
                     mode: 'lines+markers',
                     type: 'scatter',
-                    marker: { color: 'red', size: 12, line: { width: 2, color: 'black' } },
+                    marker: {color: 'red', size: 12, line: {width: 2, color: 'black'}},
                     hoverinfo: 'x+y'
                 };
 
@@ -99,7 +97,7 @@
                 document.getElementById('clear-dots').addEventListener('click', function() {
                     dots.x = [];
                     dots.y = [];
-                    Plotly.update('plot', { x: [dots.x], y: [dots.y] }, {}, [1]);
+                    Plotly.update('plot', {x: [dots.x], y: [dots.y]}, {}, [1]);
                 });
             });
     </script>

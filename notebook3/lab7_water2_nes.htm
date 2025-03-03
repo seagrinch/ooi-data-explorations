@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Masses Activity #2 - Gulf Stream Intrusion</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
 <body>
     <div style="width: 800px; margin: 10px">
         <div id="plot" style="width:800px; height: 500px;"></div>
-        <p>Click and drag on any graph to select a smaller date range.  Double-click to reset to the full range.</p>
+        <p>Click and drag on any graph to select a smaller date range. Double-click to reset to the full range.</p>
         <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
     
@@ -32,9 +32,13 @@
                 colorscale: 'Viridis',
                 xaxis: 'x',
                 yaxis: 'y2',
-                colorbar: {title: 'Salinity (PSU)', len: 0.5, y: 0.8, side: 'right'},
+                colorbar: {
+                    title: {text: 'Salinity (PSU)', side: 'right'},
+                    len: 0.5,
+                    y: 0.8
+                },
                 hovertemplate: 'Date: %{x}<br>Depth: %{y}m<br>Salinity: %{z}<extra></extra>',
-                title: 'Pioneer NES Array - Central Offshore Profiler'
+                title: {text: 'Pioneer NES Array - Central Offshore Profiler'}
             };
 
             var trace3 = {
@@ -46,7 +50,7 @@
                 xaxis: 'x',
                 yaxis: 'y3',
                 line: {color: '#1f77b4'},
-                title: 'Pioneer NES Array - Offshore Surface Buoy'
+                title: {text: 'Pioneer NES Array - Offshore Surface Buoy'}
             };
 
             var trace4 = {
@@ -57,18 +61,18 @@
                 name: 'Salinity',
                 xaxis: 'x',
                 yaxis: 'y4',
-                line: {color: '#ff7f0e'},
+                line: {color: '#ff7f0e'}
             };
 
             var layout = {
                 title: {
                     text: 'OOI Pioneer NES Array - Profiler and Surface Buoy CTD data',
-                    font: {size: 16},
+                    font: {size: 16}
                 },
                 grid: {rows: 2, columns: 1, subplots: [['xy2'], ['xy3']]},
-                yaxis2: {title: 'Depth (m)', autorange: 'reversed'},
-                yaxis3: {title: 'Temperature (°C)', side: 'left', titlefont: {color: '#1f77b4'}},
-                yaxis4: {title: 'Salinity (PSU)', overlaying: 'y3', side: 'right', titlefont: {color: '#ff7f0e'}},
+                yaxis2: {title: {text: 'Depth (m)'}, autorange: 'reversed'},
+                yaxis3: {title: {text: 'Temperature (°C)', font: {color: '#1f77b4'}}, side: 'left'},
+                yaxis4: {title: {text: 'Salinity (PSU)', font: {color: '#ff7f0e'}}, overlaying: 'y3', side: 'right'},
                 margin: {l: 50, r: 50, t: 50, b: 50},
                 showlegend: false
             };

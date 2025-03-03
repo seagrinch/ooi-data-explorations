@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Masses Activity #3 - TS Diagram with CTD Data</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
 <body>
     <div style="width: 800px; margin: 10px">
@@ -35,9 +35,7 @@
                         title: {
                             text: 'Potential Density (kg/m³)',
                             side: 'right',
-                            font: {
-                                size: 16
-                            }
+                            font: { size: 16 }
                         },
                         len: 0.7, // Reduce the colorbar length
                         y: 0.35 // Adjust the colorbar position
@@ -46,18 +44,17 @@
                 };
 
                 const layout = {
-                    title: 'Temperature Salinity Diagram',
+                    title: { text: 'Temperature Salinity Diagram', font: { size: 24 } },
                     xaxis: { 
-                        title: 'Salinity (PSU)',
-                        titlefont: { size: 16 },
+                        title: { text: 'Salinity (PSU)', font: { size: 16 } },
                         tickfont: { size: 14 }
                     },
                     yaxis: { 
-                        title: 'Temperature (°C)',
-                        titlefont: { size: 16 },
+                        title: { text: 'Temperature (°C)', font: { size: 16 } },
                         tickfont: { size: 14 }
                     },
-                    hoverdistance: 1
+                    hoverdistance: 1,
+                    margin: { t: 50, b: 50, l: 50, r: 50 },
                 };
 
                 Plotly.newPlot('plot', [trace], layout);

@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Water Masses Activity #2 - Gulf Stream Intrusion</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
 <body>
     <div style="width: 800px; margin: 10px">
         <div id="plot" style="width:800px; height: 700px;"></div>
-        <p>Click and drag on any graph to select a smaller date range.  Double-click to reset to the full range.</p>
+        <p>Click and drag on any graph to select a smaller date range. Double-click to reset to the full range.</p>
         <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
     
@@ -22,7 +22,6 @@
             fetch('./data/lab7_MAB_profiler_ctd.json').then(response => response.json()),
             fetch('./data/lab7_MAB_surface_ctd.json').then(response => response.json())
         ]).then(([profilerData, surfaceData]) => {
-            // console.log(profilerData, surfaceData);
             var trace1 = {
                 x: profilerData.date,
                 y: profilerData.depth_bin,
@@ -40,7 +39,11 @@
                     ['0.888888888889', 'rgb(215,48,39)'],
                     ['1.0', 'rgb(165,0,38)']
                 ],
-                colorbar: {title: 'Temperature (°C)', len:0.2, y:0.9, side: 'right'},
+                colorbar: {
+                    title: {text: 'Temperature (°C)', side: 'right'}, 
+                    len: 0.2, 
+                    y: 0.9
+                },
                 hovertemplate: 'Date: %{x}<br>Depth: %{y}m<br>Temperature: %{z}°C<extra></extra>'
             };
 
@@ -52,7 +55,11 @@
                 colorscale: 'Viridis',
                 xaxis: 'x',
                 yaxis: 'y2',
-                colorbar: {title: 'Salinity (PSU)', len: 0.2, y: 0.65, side: 'right'},
+                colorbar: {
+                    title: {text: 'Salinity (PSU)', side: 'right'},
+                    len: 0.2, 
+                    y: 0.65
+                },
                 hovertemplate: 'Date: %{x}<br>Depth: %{y}m<br>Salinity: %{z}<extra></extra>'
             };
 
@@ -85,20 +92,20 @@
                 mode: 'lines',
                 name: 'Density',
                 xaxis: 'x',
-                yaxis: 'y5',
+                yaxis: 'y5'
             };
 
             var layout = {
                 title: {
                     text: 'OOI Pioneer MAB Array - Northern Profiler Mooring (CP13NOPM)<br>Profiler and surface buoy CTD data',
-                    font: {size: 16},
+                    font: {size: 16}
                 },
                 grid: {rows: 4, columns: 1, subplots: [['xy'], ['xy2'], ['xy3'], ['xy5']]},
-                yaxis: {title: 'Depth (m)', autorange: 'reversed'},
-                yaxis2: {title: 'Depth (m)', autorange: 'reversed'},
-                yaxis3: {title: 'Temperature (°C)', side: 'left', titlefont: {color: '#1f77b4'}},
-                yaxis4: {title: 'Salinity (PSU)', overlaying: 'y3', side: 'right', titlefont: {color: '#ff7f0e'}},
-                yaxis5: {title: 'Density (kg/m³)', side: 'left', titlefont: {color: 'purple'}},
+                yaxis: {title: {text: 'Depth (m)'}, autorange: 'reversed'},
+                yaxis2: {title: {text: 'Depth (m)'}, autorange: 'reversed'},
+                yaxis3: {title: {text: 'Temperature (°C)', font: {color: '#1f77b4'}}, side: 'left'},
+                yaxis4: {title: {text: 'Salinity (PSU)', font: {color: '#ff7f0e'}}, overlaying: 'y3', side: 'right'},
+                yaxis5: {title: {text: 'Density (kg/m³)', font: {color: 'purple'}}, side: 'left'},
                 margin: {l: 50, r: 50, t: 50, b: 50},
                 showlegend: false
             };
