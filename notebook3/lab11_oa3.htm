@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ocean Acidification Activity #3</title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+      font-size: 12px;
+    }
+    h3 {
+      margin: 0px;
+      color: #494949;
+      font-size: 16px;
+    }
+    small {
+      color: #808080;
+    }
+    .myCircle:hover {
+      opacity: 1;
+    }
+  </style>
+  <script src="https://d3js.org/d3.v4.js"></script>
+  <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+  <script src="https://d3js.org/d3-format.v1.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+</head>
+<body>
+  <div class="container" style="max-width: 900px;">
+    <p>
+      Look at the dissolved oxygen and carbon dioxide data below. Then choose the Nitrate and pH value for each depth that you think is best.
+    </p>
+    <div id="chart"></div>
+    <div class="row">
+      <div class="col-md-8">
+        <p class="text-center">
+          <small>&copy; 2025 Rutgers University 
+            <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a>
+          </small>
+        </p>
+      </div>
+      <div class="col-md-4">
+        <p class="text-right">
+          <button id="reset-button" class="btn btn-sm btn-primary float-right">Reset</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <script>
+    const data = [
+      {
+        ctd_depth: 1000.429,
+        discrete_oxygen: 20.990012,
+        discrete_pco2: 1017.25,
+        discrete_nitrate: 41.7737,
+        calculated_ph: 7.631,
+        nitrate_message: "Deep water has higher nitrate due to decomposition.",
+        ph_message: "Deep water has lower pH due to CO2 accumulation."
+      },
+      {
+        ctd_depth: 352.152,
+        discrete_oxygen: 76.859172,
+        discrete_pco2: 908.14,
+        discrete_nitrate: 37.3617,
+        calculated_ph: 7.702,
+        nitrate_message: "Mid-depth nitrate is moderate due to mixing.",
+        ph_message: "Mid-depth pH is moderate due to partial mixing."
+      },
+      {
+        ctd_depth: 2.448,
+        discrete_oxygen: 297.566915,
+        discrete_pco2: 344.38,
+        discrete_nitrate: 9.494,
+        calculated_ph: 8.095,
+        nitrate_message: "Photosynthesis near the surface lowers nitrate.",
+        ph_message: "Surface water has higher pH due to photosynthesis."
+      }
+    ];
+
+    const variables = [
+      { key: "discrete_oxygen", label: "Dissolved Oxygen O2  (µmol/kg)" },
+      { key: "discrete_pco2", label: "Carbon Dioxide pCO2 (µatm)" },
+      { key: "discrete_nitrate", label: "Nitrate NO3 (µmol/L)" },
+      { key: "calculated_ph", label: "pH" }
+    ];
+
+    const svg = d3.select("#chart").append("svg")
+      .attr("width", 900) // Increased width to fit all graphs
+      .attr("height", 500);
+
+    const margin = { top: 24, right: 40, bottom: 40, left: 60 }, // Increased right margin for spacing
+          width = (+svg.attr("width") - margin.left - margin.right - (variables.length - 1) * 20) / variables.length, // Added spacing between graphs
+          height = +svg.attr("height") - margin.top - margin.bottom;
+
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+    function drawGraph() {
+      svg.selectAll("*").remove(); // Clear the SVG for reset
+
+      variables.forEach((v, i) => {
+        const graph = svg.append("g")
+          .attr("transform", `translate(${margin.left + i * (width + 20)},${margin.top})`); // Added spacing between graphs
+
+        graph.append("rect")
+          .attr("x", 0)
+          .attr("y", 0)
+          .attr("width", width)
+          .attr("height", height)
+          .style("fill", "#EBEBEB")
+          .style("stroke", "black") // Add border
+          .style("stroke-width", 1);
+
+        const xLimits = {
+          discrete_oxygen: [0, 350],
+          discrete_pco2: [300, 1200],
+          discrete_nitrate: [0, 50],
+          calculated_ph: [7, 8.5]
+        };
+
+        const x = d3.scaleLinear()
+          .domain(xLimits[v.key]) // Set specific x-axis limits
+          .range([0, width]);
+
+        const y = d3.scaleLinear()
+          .domain([-50, 1100]) // Hard set y-axis to 0–1200
+          .range([0, height]);
+
+        graph.append("g")
+          .attr("transform", `translate(0,${height})`)
+          .call(d3.axisBottom(x).ticks(5))
+          .selectAll("line")
+          .clone()
+          .attr("y2", -height) // Add dashed lines for major x-ticks
+          .style("stroke", "#ccc")
+          .style("stroke-dasharray", "4,4");
+
+        const yAxis = graph.append("g")
+          .call(d3.axisLeft(y).ticks(5));
+
+        if (i !== 0) {
+          yAxis.selectAll("text").remove(); // Remove y-tick text for all but the first graph
+        }
+
+        if (i === 0) {
+          graph.append("text")
+            .attr("text-anchor", "middle")
+            .attr("transform", "rotate(-90)")
+            .attr("y", -40)
+            .attr("x", -height / 2)
+            .text("Depth (m)"); // Add y-axis label only for the first graph
+        }
+
+        graph.append("text")
+          .attr("text-anchor", "middle")
+          .attr("x", width / 2)
+          .attr("y", -10)
+          .text(v.label);
+
+        if (i < 2) {
+          // Show actual data for the first two graphs and connect dots with lines
+          const line = d3.line()
+            .x(d => x(d[v.key]))
+            .y(d => y(d.ctd_depth));
+
+          graph.append("path")
+            .datum(data)
+            .attr("fill", "none")
+            .attr("stroke", color(v.key))
+            .attr("stroke-width", 2)
+            .attr("d", line);
+
+          graph.selectAll(".dot")
+            .data(data)
+            .enter()
+            .append("circle")
+            .attr("cx", d => x(d[v.key]))
+            .attr("cy", d => y(d.ctd_depth))
+            .attr("r", 8)
+            .style("fill", color(v.key));
+        } else {
+          // Interactive dots for the 3rd and 4th graphs
+          const lineData = data.map(d => ({ x: x(d[v.key]), y: y(d.ctd_depth) })); // Precompute line data
+          const line = d3.line()
+            .x(d => d.x)
+            .y(d => d.y);
+
+          const linePath = graph.append("path") // Add the line initially as invisible
+            .datum(lineData)
+            .attr("fill", "none")
+            .attr("stroke", color(v.key))
+            .attr("stroke-width", 2)
+            .style("opacity", 0) // Make it invisible initially
+            .attr("d", line);
+
+          let selectedCount = 0; // Track the number of selected points
+
+          data.forEach((d, depthIndex) => {
+            const points = [...data.map(p => p[v.key])]; // Start with actual data points
+            points.sort((a, b) => a - b);
+            const largestGapIndex = points.reduce((maxIdx, _, idx, arr) => 
+              idx < arr.length - 1 && (arr[idx + 1] - arr[idx] > arr[maxIdx + 1] - arr[maxIdx]) ? idx : maxIdx, 0);
+            const midPoint = (points[largestGapIndex] + points[largestGapIndex + 1]) / 2;
+            points.splice(largestGapIndex + 1, 0, midPoint); // Add midpoint to fill the largest gap
+
+            const correctValue = d[v.key];
+            const correctIndex = points.indexOf(correctValue);
+
+            const dots = graph.selectAll(`.interactive-dot-${depthIndex}`)
+              .data(points)
+              .enter()
+              .append("circle")
+              .attr("cx", p => x(p))
+              .attr("cy", y(d.ctd_depth))
+              .attr("r", 8)
+              .style("fill", "white")
+              .style("stroke", "black")
+              .style("cursor", "pointer")
+              .on("click", function (p, idx) {
+                dots.remove(); // Remove all options
+                graph.append("circle")
+                  .attr("cx", x(correctValue))
+                  .attr("cy", y(d.ctd_depth))
+                  .attr("r", 8)
+                  .style("fill", color(v.key)); // Use the chart's color for the correct dot
+                if (idx !== correctIndex) {
+                  graph.append("text") // Add an "X" for incorrect selection
+                    .attr("x", x(p))
+                    .attr("y", y(d.ctd_depth) + 4) // Center the "X" vertically
+                    .attr("text-anchor", "middle")
+                    .style("font-size", "16px")
+                    .style("fill", "#ff6666") // Light red for the "X"
+                    .text("X");
+                }
+
+                selectedCount++; // Increment the selected count
+                if (selectedCount === 3) {
+                  linePath.style("opacity", 1); // Make the line visible after all points are selected
+                }
+
+                const isAbove = d.ctd_depth > 900; // Show text box above for dots at 1000m
+                const boxY = isAbove ? y(d.ctd_depth) - 65 : y(d.ctd_depth) + 25;
+                const textY = isAbove ? y(d.ctd_depth) - 45 : y(d.ctd_depth) + 45;
+
+                graph.append("rect") // Add a white box for the message
+                  .attr("x", width * 0.1) // Centered horizontally (10% margin on each side)
+                  .attr("y", boxY) // Position above or below the dots
+                  .attr("width", width * 0.8) // 80% of the graph width
+                  .attr("height", 50) // Height for wrapping text
+                  .style("fill", "white")
+                  .style("stroke", "black")
+                  .style("stroke-width", 1);
+
+                graph.append("foreignObject") // Add a foreignObject for wrapping text
+                  .attr("x", width * 0.1 + 5) // Add padding inside the box
+                  .attr("y", textY - 15) // Adjust position inside the box
+                  .attr("width", width * 0.8 - 10) // Adjust width for padding
+                  .attr("height", 50) // Adjust height for wrapping
+                  .append("xhtml:div") // Use an XHTML div for styling
+                  .style("font-family", "Verdana, Geneva, Tahoma, sans-serif") 
+                  .style("line-height", "normal")
+                  .style("font-size", "12px")
+                  .style("text-align", "center")
+                  .style("color", "black")
+                  .style("overflow", "hidden")
+                  .style("white-space", "normal") // Enable text wrapping
+                  .text(i === 2 ? d.nitrate_message : d.ph_message); // Use custom message
+              });
+          });
+        }
+      });
+    }
+
+    drawGraph();
+
+    document.getElementById("reset-button").addEventListener("click", drawGraph); // Add reset functionality
+  </script>
+</body>
+</html>
