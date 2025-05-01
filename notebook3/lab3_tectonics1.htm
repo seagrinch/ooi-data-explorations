@@ -155,13 +155,23 @@
   var myMapControl = L.control.layers(baselayers, overlays, { 'collapsed': false, 'hideSingleBase': true }).addTo(myMap);
 
   // Seafloor Age
-  var imageUrl = 'data/leaflet_seafloor_age_map_inferno_10my.png',
-    imageBounds = [[-76.1499, -180], [90, 180]];
-  var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7 });
-  imageBounds = [[-76.1499, -180 - 360], [90, 180 - 360]];
-  var seafloor_age2 = L.imageOverlay(imageUrl, imageBounds, { 'opacity': .7 });
+  var imageUrl = 'data/leaflet_seafloor_age_map_inferno_10my.png';
+  var imageBounds1 = [[-76.1499, -180], [90, 180]];
+  var seafloor_age1 = L.imageOverlay(imageUrl, imageBounds1, { 'opacity': .7 });
+  var imageBounds2 = [[-76.1499, -180 - 360], [90, 180 - 360]];
+  var seafloor_age2 = L.imageOverlay(imageUrl, imageBounds2, { 'opacity': .7 });
   seafloor_age = L.layerGroup([seafloor_age1, seafloor_age2]);
   myMapControl.addOverlay(seafloor_age, 'Seafloor Age');
+
+
+  //  USGS Plate Boundary Image
+  // From https://www.usgs.gov/media/images/tectonic-plate-boundaries
+  // var plateUrl = 'data/PlateBoundaries.jpg';
+  // var plateBounds = [[-75, -260], [80, 100]];
+  // var plateImage = L.imageOverlay(plateUrl, plateBounds, { 'opacity': .5 });
+  // imageBounds = [[-76.1499, -180 - 360], [90, 180 - 360]];
+  // myMapControl.addOverlay(plateImage, 'Plate Boundary Image');
+
 
   // Plate Boundaries
   var plate_boundaries2 = L.layerGroup();
