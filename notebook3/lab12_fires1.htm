@@ -11,38 +11,48 @@
 <div style="width: 800px;">  
   <div id="chart1" style="width:800px; height: 240px;"></div>
   <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
-  <div class="row" style="margin-top:10px;">
-    <div class="col-xs-4">
-      <p class="text-right">Select Parameter for Graph 1:</p>
-    </div>
-    <div class="col-xs-8">
-      <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
-        <option value="0" selected>Relative Humidity (%)</option>
-        <option value="1">Air Temperature (C)</option>
-        <option value="2">Eastward Wind (m/s)</option>
-        <option value="3">Northward Wind (m/s)</option>
-        <option value="4">Net Shortwave Irradiance (W/m^2)</option>
-        <option value="5">Wind Speed (m/s)</option>
-        <option value="6">Wind Direction (deg)</option>
-      </select>
-    </div>
+  <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
+    <label for="parameterDropdown1">Select parameter for Graph 1:</label>
+    <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
+      <option value="0" selected>Relative Humidity (%)</option>
+      <option value="1">Air Temperature (C)</option>
+      <option value="2">Eastward Wind (m/s)</option>
+      <option value="3">Northward Wind (m/s)</option>
+      <option value="4">Net Shortwave Irradiance (W/m^2)</option>
+      <option value="5">Wind Speed (m/s)</option>
+      <option value="6">Wind Direction (deg)</option>
+      <option value="7">Wind Direction 360 (deg)</option>
+    </select>
+    <label for="toggleLinesCheckbox1" style="margin-left: 10px;">
+      <input type="checkbox" id="toggleLinesCheckbox1" onchange="toggleLines(1)" checked> Show Line
+    </label>
   </div>
-  <div class="row" style="margin-top:10px;">
-    <div class="col-xs-4">
-      <p class="text-right">Select Parameter for Graph 2:</p>
-    </div>
-    <div class="col-xs-8">
-      <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
-        <option value="0">Relative Humidity (%)</option>
-        <option value="1" selected>Air Temperature (C)</option>
-        <option value="2">Eastward Wind (m/s)</option>
-        <option value="3">Northward Wind (m/s)</option>
-        <option value="4">Net Shortwave Irradiance (W/m^2)</option>
-        <option value="5">Wind Speed (m/s)</option>
-        <option value="6">Wind Direction (deg)</option>
-      </select>
-    </div>
+  <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
+    <label for="parameterDropdown2">Select parameter for Graph 2:</label>
+    <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
+      <option value="0">Relative Humidity (%)</option>
+      <option value="1" selected>Air Temperature (C)</option>
+      <option value="2">Eastward Wind (m/s)</option>
+      <option value="3">Northward Wind (m/s)</option>
+      <option value="4">Net Shortwave Irradiance (W/m^2)</option>
+      <option value="5">Wind Speed (m/s)</option>
+      <option value="6">Wind Direction (deg)</option>
+      <option value="7">Wind Direction 360 (deg)</option>
+    </select>
+    <label for="toggleLinesCheckbox2" style="margin-left: 10px;">
+      <input type="checkbox" id="toggleLinesCheckbox2" onchange="toggleLines(2)" checked> Show Line
+    </label>
   </div>
+
+  <div>
+    <p class="text-right">
+      <strong>Zoom to:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('')">Full Range</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('deposition')">Deposition Event</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('post')">Post-deposition Period</button>
+    </p>
+  </div>
+
 
   <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
 </div>
@@ -82,9 +92,10 @@ parameters = [
   {title:"Net Shortwave Irradiance (W/m^2)"},
   {title:"Wind Speed (m/s)"},
   {title:"Wind Direction (deg)"},
+  {title:"Wind Direction 360 (deg)"},
 ];
 
-colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"];
+colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"];
 
 $(document).ready(function () {
   $.get("data/lab12_ce02shsm.csv", function(data) {
@@ -104,7 +115,7 @@ $(document).ready(function () {
       showRangeSelector: true,
       rangeSelectorHeight: 30,
       animatedZooms : false,
-      visibility: [true, false, false, false, false, false, false],
+      visibility: [true, false, false, false, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
@@ -122,7 +133,7 @@ $(document).ready(function () {
       highlightCircleSize: 6,
       showRangeSelector: false,
       animatedZooms : true,
-      visibility: [false, true, false, false, false, false, false],
+      visibility: [false, true, false, false, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
@@ -142,12 +153,32 @@ $(document).ready(function () {
 function changeParameter(el, graphNumber) {
   var index = parseInt(el.value);
   var graph = graphNumber === 1 ? g1 : g2;
-  var visibility = [false, false, false, false, false, false, false];
+  var visibility = [false, false, false, false, false, false, false, false];
   visibility[index] = true;
   graph.updateOptions({
     visibility: visibility,
     ylabel: parameters[index].title,
   });
+}
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season=='deposition') {
+    new_range = [new Date(2020,8,6).valueOf(), new Date(2020,8,13).valueOf()];
+  } else if (season=='post') {
+    new_range = [new Date(2020,8,13).valueOf(), new Date(2020,8,21).valueOf()];
+  } else {
+    new_range = [new Date(2020,8,6).valueOf(), new Date(2020,8,22).valueOf()];
+  }
+  //console.log(new_range);
+  g1.updateOptions({dateWindow: new_range});
+}
+
+function toggleLines(graphNumber) {
+  var showLines = document.getElementById(`toggleLinesCheckbox${graphNumber}`).checked;
+  var strokeWidth = showLines ? 2 : 0; // Set line width to 2 if checked, 0 otherwise
+  var graph = graphNumber === 1 ? g1 : g2;
+  graph.updateOptions({ strokeWidth: strokeWidth });
 }
 
 </script>
