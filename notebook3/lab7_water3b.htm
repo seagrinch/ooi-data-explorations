@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Masses Activity #3 - TS Diagram with CTD Data</title>
+    <title>Water Masses Activity #3b - TS Diagram with CTD Data</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
@@ -29,8 +29,9 @@
                         coloring: 'heatmap',
                         showlabels: true,
                     },
-                    colorscale: 'Viridis',
-                    opacity: 0.6,
+                    colorscale: 'YlGnBu',
+                    reversescale: true,
+                    opacity: 1,
                     colorbar: {
                         title: {
                             text: 'Potential Density (kg/m³)',
@@ -64,7 +65,9 @@
             .then(response => response.json())
             .then(data => {
                 const weeks = [...new Set(data.week)];
-                const week_labels = ['June 1-7', 'June 8-14', 'June 15-21', 'June 22-28', 'June 29-30'];
+                console.log(weeks);
+                const week_labels = ['June 1-2', 'June 3-9', 'June 10-16', 'June 17-23', 'June 24-30'];
+                console.log(week_labels);
                 const traces = weeks.map((week, index) => {
                     const indices = data.week.map((w, i) => w === week ? i : -1).filter(i => i !== -1);
                     return {
@@ -73,7 +76,16 @@
                         mode: 'markers',
                         type: 'scatter',
                         name: week_labels[index],
-                        marker: { size: 8 }
+                        marker: { size: 8 },
+                        hovertemplate: 
+                            'Salinity: %{x:.2f} PSU<br>' +
+                            'Temperature: %{y:.2f} °C<br>' +
+                            // 'Density: %{customdata[0]:.2f} kg/m³<br>' +
+                            'Datetime: %{customdata[1]}<extra></extra>',
+                        customdata: indices.map(i => [
+                            data.density?.[i] ?? 'N/A', 
+                            data.date?.[i] ?? 'N/A'
+                        ])
                     };
                 });
 

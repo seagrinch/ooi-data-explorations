@@ -3,21 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Water Masses Activity #3a - Temperature Salinity Diagram</title>
+    <title>Water Masses Activity #3 - Temperature Salinity Diagram</title>
     <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
     <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
 </head>
 <body>
     <div style="width: 800px; margin: 10px">
         <div id="plot" style="width:800px; height: 600px;"></div>
-        <div class="row">
-            <div class="col-md-6 text-right">
-                <p>Click on the graph to add and remove your own dots.</p>
-            </div>
-            <div class="col-md-6 text-left">
-                <button id="clear-dots">Clear All Dots</button>
-            </div>
-        </div>
         <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
     <script>
@@ -45,7 +37,23 @@
                             font: {size: 16}
                         }
                     },
-                    hoverinfo: 'none',
+                    hovertemplate: 
+                        'Salinity: %{x} PSU<br>' +
+                        'Temperature: %{y} °C<br>' +
+                        'Density: %{z} g/m³<extra></extra>', // Custom hover labels
+                };
+
+                const labeledDots = {
+                    x: [32, 36.5],
+                    y: [8.4, 23.8],
+                    mode: 'markers+text',
+                    type: 'scatter',
+                    marker: {color: 'red', size: 12, line: {width: 2, color: 'black'}},
+                    text: ['Point A', 'Point B'],
+                    textposition: 'top center',
+                    hovertemplate: 
+                        'Salinity: %{x} PSU<br>' +
+                        'Temperature: %{y} °C<extra></extra>', // Custom hover labels
                 };
 
                 const layout = {
@@ -88,63 +96,7 @@
                     margin: {t: 50, b: 50, l: 50, r: 50},
                 };
 
-                Plotly.newPlot('plot', [trace], layout);
-
-                const dots = {
-                    x: [],
-                    y: [],
-                    mode: 'lines+markers',
-                    type: 'scatter',
-                    marker: {color: 'red', size: 12, line: {width: 2, color: 'black'}},
-                    hovertemplate: 
-                        'Salinity: %{x} PSU<br>' +
-                        'Temperature: %{y} °C<br>' +
-                        'Density: %{customdata} g/m³<extra></extra>', // Custom hover labels
-                    customdata: [], // Placeholder for density values
-                };
-
-                Plotly.addTraces('plot', dots);
-
-                document.getElementById('plot').on('plotly_click', function(data) {
-                    const point = data.points[0];
-                    const x = point.x;
-                    const y = point.y;
-
-                    const existingIndex = dots.x.findIndex((px, i) => px === x && dots.y[i] === y);
-
-                    if (existingIndex === -1) {
-                        dots.x.push(x);
-                        dots.y.push(y);
-
-                        // Retrieve density value from the z data of the contour plot
-                        const density = getDensityFromContour(data.points[0]);
-                        dots.customdata.push(density);
-                    } else {
-                        dots.x.splice(existingIndex, 1);
-                        dots.y.splice(existingIndex, 1);
-                        dots.customdata.splice(existingIndex, 1);
-                    }
-                    console.log(dots);
-
-                    Plotly.redraw('plot');
-                });
-
-                function getDensityFromContour(point) {
-                    // Example logic to retrieve density from the contour plot
-                    const xIndex = data.salinity.findIndex(s => s === point.x);
-                    const yIndex = data.temperature.findIndex(t => t === point.y);
-                    if (xIndex !== -1 && yIndex !== -1) {
-                        return data.density[yIndex][xIndex].toFixed(2); // Assuming density is a 2D array
-                    }
-                    return 'N/A';
-                }
-
-                document.getElementById('clear-dots').addEventListener('click', function() {
-                    dots.x = [];
-                    dots.y = [];
-                    dots.customdata = [];
-                    Plotly.update('plot', {x: [dots.x], y: [dots.y], customdata: [dots.customdata]}, {}, [1]);
-                });
+                Plotly.newPlot('plot', [trace, labeledDots], layout);
             });
     </script>
 </body>
