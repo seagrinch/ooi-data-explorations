@@ -307,10 +307,10 @@ $(document).ready(function() {
     }
 
     function getColor(d) {
-        return d > 30 ? '#00008B' : // DarkBlue (web colors)
-            d > 20 ? '#2E8B57' : // SeaGreen (web colors)
-            d > 10 ? '#FFA500' : // Orange (web colors)
-            '#DC143C'; // Crimson (web colors)
+        return d > 30 ? '#00008B' : // Dark Blue
+            d > 20 ? '#87CEEB' : // Light Blue
+            d > 10 ? '#FFA500' : // Orange
+            '#DC143C'; // Crimson
     }
 
     function eqClass(d) {
