@@ -15,16 +15,22 @@
     <label for="parameterDropdown1">Select parameter for Graph 1:</label>
     <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
       <option value="0" selected>Eastward Wind</option>
-      <option value="1">CDOM Fluorescence</option>
-      <option value="2">Fluorescence Backscatter</option>
+      <option value="1">Fluorometric CDOM</option>
+      <option value="2">Optical Backscatter</option>
+      <option value="3">Net Shortwave Irradiance</option>
+      <option value="4">Sea Surface Temperature</option>
+      <option value="5">Air Temperature</option>
     </select>
   </div>
   <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
     <label for="parameterDropdown2">Select parameter for Graph 2:</label>
     <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
       <option value="0">Eastward Wind</option>
-      <option value="1" selected>CDOM Fluorescence</option>
-      <option value="2">Fluorescence Backscatter</option>
+      <option value="1" selected>Fluorometric CDOM</option>
+      <option value="2">Optical Backscatter</option>
+      <option value="3">Net Shortwave Irradiance</option>
+      <option value="4">Sea Surface Temperature</option>
+      <option value="5">Air Temperature</option>
     </select>
   </div>
 
@@ -66,18 +72,19 @@
 // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
 // Design by Sage Lichtenwalner, 1/20/2025
 
-// time,Eastward Wind,CDOM Fluorescence,Fluorescence Backscatter
 parameters = [
   {title:"Eastward Wind (m/s)"},
-  {title:"CDOM Fluorescence"},
-  {title:"Fluorescence Backscatter"},
+  {title:"Fluorometric CDOM (ppm)"},
+  {title:"Optical Backscatter (1/m)"},
+  {title:"Net Shortwave Irradiance (W/m²)"},
+  {title:"Sea Surface Temperature (°C)"},
+  {title:"Air Temperature (°C)"}
 ];
 
-colors = ["555", "#1f77b4", "#2ca02c"];
+colors = ["#555", "#1f77b4", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b"];
 
 $(document).ready(function () {
   $.get("data/lab12_ce_combined.csv", function(data) {
-    // console.log("Data loaded:", data); // Log the data to ensure it is loaded correctly
 
     g1 = new Dygraph(document.getElementById("chart1"), data, {
       title: 'OOI Oregon Offshore Surface Mooring',
@@ -93,7 +100,7 @@ $(document).ready(function () {
       showRangeSelector: true,
       rangeSelectorHeight: 30,
       animatedZooms : false,
-      visibility: [true, false, false],
+      visibility: [true, false, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
@@ -111,7 +118,7 @@ $(document).ready(function () {
       highlightCircleSize: 6,
       showRangeSelector: false,
       animatedZooms : true,
-      visibility: [false, true, false],
+      visibility: [false, true, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
@@ -131,7 +138,7 @@ $(document).ready(function () {
 function changeParameter(el, graphNumber) {
   var index = parseInt(el.value);
   var graph = graphNumber === 1 ? g1 : g2;
-  var visibility = [false, false, false];
+  var visibility = [false, false, false, false, false, false]; 
   visibility[index] = true;
   graph.updateOptions({
     visibility: visibility,
