@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Forest Fires Activity #3</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">  
+  <div id="chart1" style="width:800px; height: 240px;"></div>
+  <div id="chart2" style="width:800px; height: 180px; margin-top: 20px;"></div>
+  <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
+    <label for="parameterDropdown1">Select parameter for Graph 1:</label>
+    <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
+      <option value="0" selected>Eastward Wind</option>
+      <option value="1">CDOM Fluorescence</option>
+      <option value="2">Fluorescence Backscatter</option>
+    </select>
+  </div>
+  <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
+    <label for="parameterDropdown2">Select parameter for Graph 2:</label>
+    <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
+      <option value="0">Eastward Wind</option>
+      <option value="1" selected>CDOM Fluorescence</option>
+      <option value="2">Fluorescence Backscatter</option>
+    </select>
+  </div>
+
+  <div>
+    <p class="text-right">
+      <strong>Zoom to:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('')">Full Range</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('deposition')">Deposition Event</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('post')">Post-deposition Period</button>
+    </p>
+  </div>
+
+  <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+
+<style type="text/css">
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .dygraph-legend {
+    /* left: 544px !important; */
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+// Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+// Design by Sage Lichtenwalner, 1/20/2025
+
+// time,Eastward Wind,CDOM Fluorescence,Fluorescence Backscatter
+parameters = [
+  {title:"Eastward Wind (m/s)"},
+  {title:"CDOM Fluorescence"},
+  {title:"Fluorescence Backscatter"},
+];
+
+colors = ["555", "#1f77b4", "#2ca02c"];
+
+$(document).ready(function () {
+  $.get("data/lab12_ce_combined.csv", function(data) {
+    // console.log("Data loaded:", data); // Log the data to ensure it is loaded correctly
+
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      title: 'OOI Oregon Offshore Surface Mooring',
+      ylabel: 'Eastward Wind (m/s)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : false,
+      visibility: [true, false, false],
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    g2 = new Dygraph(document.getElementById("chart2"), data, {
+      ylabel: 'CDOM Fluorescence',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : true,
+      visibility: [false, true, false],
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    var sync = Dygraph.synchronize(g1, g2, {
+        selection: true,
+        zoom: true,
+        range: false
+    });
+
+  }).fail(function() {
+    console.error("Failed to load data file.");
+  });
+}); //document.ready
+
+function changeParameter(el, graphNumber) {
+  var index = parseInt(el.value);
+  var graph = graphNumber === 1 ? g1 : g2;
+  var visibility = [false, false, false];
+  visibility[index] = true;
+  graph.updateOptions({
+    visibility: visibility,
+    ylabel: parameters[index].title,
+  });
+}
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season == 'deposition') {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 13).valueOf()];
+  } else if (season == 'post') {
+    new_range = [new Date(2020, 8, 13).valueOf(), new Date(2020, 8, 21).valueOf()];
+  } else {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 22).valueOf()];
+  }
+  // Update both graphs with the new date range
+  g1.updateOptions({ dateWindow: new_range });
+  g2.updateOptions({ dateWindow: new_range });
+}
+
+</script>
+
+</body>
+</html>
