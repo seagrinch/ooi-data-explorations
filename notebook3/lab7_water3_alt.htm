@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Masses Activity #3 - Temperature Salinity Diagram</title>
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <script src="https://cdn.plot.ly/plotly-3.0.1.min.js"></script>
+</head>
+<body>
+    <div style="width: 800px; margin: 10px">
+        <div id="plot" style="width:800px; height: 600px;"></div>
+        <div style="margin-top: 10px;">
+            <label for="contour-mode">Contour Mode:</label>
+            <select id="contour-mode">
+                <option value="heatmap">Smooth Heatmap</option>
+                <option value="none">Lines</option>
+                <option value="lines">Colored Lines</option>
+                <option value="fill">Filled Contours</option>
+            </select>
+        </div>
+        <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    </div>
+    <script>
+        // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+        // Design by Sage Lichtenwalner, 1/27/2025
+
+        function updatePlot(contourMode) {
+            fetch('data/lab7_ts_diagram.json')
+                .then(response => response.json())
+                .then(data => {
+                    const trace = {
+                        x: data.salinity,
+                        y: data.temperature,
+                        z: data.density,
+                        type: 'contour',
+                        contours: {
+                            coloring: contourMode,
+                            showlabels: true,
+                        },
+                        line: {
+                                width: (contourMode === 'none' || contourMode === 'lines') ? 4 : undefined // Thicker lines for "none" or "lines" mode
+                        },
+                        colorscale: 'YlGnBu',
+                        reversescale: true,
+                        colorbar: {
+                            title: {
+                                text: 'Density (g/m³)',
+                                side: 'right',
+                                font: {size: 16}
+                            }
+                        },
+                        hovertemplate: 
+                            'Salinity: %{x} PSU<br>' +
+                            'Temperature: %{y} °C<br>' +
+                            'Density: %{z} g/m³<extra></extra>', // Custom hover labels
+                    };
+
+                    const labeledDots = {
+                        x: [32, 36.5],
+                        y: [8.4, 23.8],
+                        mode: 'markers+text',
+                        type: 'scatter',
+                        marker: {color: 'red', size: 12, line: {width: 2, color: 'black'}},
+                        text: ['Point A', 'Point B'],
+                        textposition: 'top center',
+                        hovertemplate: 
+                            'Salinity: %{x} PSU<br>' +
+                            'Temperature: %{y} °C<extra></extra>', // Custom hover labels
+                    };
+
+                    const layout = {
+                        title: {text: 'Temperature Salinity Diagram', font:{size: 24}},
+                        xaxis: { 
+                            title: {text: 'Salinity (PSU)', font: {size: 16}},
+                            tickfont: {size: 14},
+                            dtick: 1, // Major ticks
+                            showgrid: true,
+                            gridcolor: 'black',
+                            gridwidth: 1,
+                            ticklabelposition: 'inside right',
+                            ticks: '',
+                            layer: 'above traces',
+                            minor: {
+                                showgrid: true,
+                                gridcolor: 'lightgrey',
+                                gridwidth: 0.5,
+                                dtick: 0.25 // Minor ticks
+                            },
+                        },
+                        yaxis: { 
+                            title: {text: 'Temperature (°C)', font: {size: 16}},
+                            tickfont: {size: 14},
+                            dtick: 5, // Major ticks
+                            showgrid: true,
+                            gridcolor: 'black',
+                            gridwidth: 1,
+                            ticklabelposition: 'inside top',
+                            ticks: '',
+                            layer: 'above traces',
+                            minor: {
+                                showgrid: true,
+                                gridcolor: 'lightgrey',
+                                gridwidth: 0.5,
+                                dtick: 1 // Minor ticks
+                            }
+                        },
+                        hoverdistance: 1,
+                        margin: {t: 50, b: 50, l: 50, r: 50},
+                    };
+
+                    Plotly.newPlot('plot', [trace, labeledDots], layout);
+                });
+        }
+
+        document.getElementById('contour-mode').addEventListener('change', (event) => {
+            updatePlot(event.target.value);
+        });
+
+        // Initial plot
+        updatePlot('heatmap');
+    </script>
+</body>
+</html>
