@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Forest Fires Activity #1</title>
+    <title>Forest Fires Activity 12.3 - Air/Water Combo</title>
 </head>
 
 <body>
@@ -14,34 +14,24 @@
   <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
     <label for="parameterDropdown1">Select parameter for Graph 1:</label>
     <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
-      <option value="0" selected>Relative Humidity (%)</option>
-      <option value="1">Air Temperature (C)</option>
-      <option value="2">Eastward Wind (m/s)</option>
-      <option value="3">Northward Wind (m/s)</option>
-      <option value="4">Net Shortwave Irradiance (W/m^2)</option>
-      <option value="5">Wind Speed (m/s)</option>
-      <option value="6">Wind Direction (deg)</option>
-      <option value="7">Wind Direction 360 (deg)</option>
+      <option value="0" selected>Eastward Wind (m/s)</option>
+      <option value="1">Fluorometric CDOM (ppm)</option>
+      <option value="2">Optical Backscatter (1/m)</option>
+      <option value="3">Net Shortwave Irradiance (W/m^2)</option>
+      <option value="4">Sea Surface Temperature (C)</option>
+      <option value="5">Air Temperature (C)</option>
     </select>
-    <label for="toggleLinesCheckbox1" style="margin-left: 10px;">
-      <input type="checkbox" id="toggleLinesCheckbox1" onchange="toggleLines(1)" checked> Show Line
-    </label>
   </div>
   <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
     <label for="parameterDropdown2">Select parameter for Graph 2:</label>
     <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
-      <option value="0">Relative Humidity (%)</option>
-      <option value="1" selected>Air Temperature (C)</option>
-      <option value="2">Eastward Wind (m/s)</option>
-      <option value="3">Northward Wind (m/s)</option>
-      <option value="4">Net Shortwave Irradiance (W/m^2)</option>
-      <option value="5">Wind Speed (m/s)</option>
-      <option value="6">Wind Direction (deg)</option>
-      <option value="7">Wind Direction 360 (deg)</option>
+      <option value="0">Eastward Wind (m/s)</option>
+      <option value="1" selected>Fluorometric CDOM (ppm)</option>
+      <option value="2">Optical Backscatter (1/m)</option>
+      <option value="3">Net Shortwave Irradiance (W/m^2)</option>
+      <option value="4">Sea Surface Temperature (C)</option>
+      <option value="5">Air Temperature (C)</option>
     </select>
-    <label for="toggleLinesCheckbox2" style="margin-left: 10px;">
-      <input type="checkbox" id="toggleLinesCheckbox2" onchange="toggleLines(2)" checked> Show Line
-    </label>
   </div>
 
   <div>
@@ -52,7 +42,6 @@
       <button class="btn btn-primary btn-sm" onclick="graph_range('post')">Post-deposition Period</button>
     </p>
   </div>
-
 
   <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
 </div>
@@ -83,27 +72,23 @@
 // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
 // Design by Sage Lichtenwalner, 1/20/2025
 
-// time,relative_humidity,air_temperature,eastward_wind,northward_wind,netsirr,wind_speed,wind_direction
 parameters = [
-  {title:"Relative Humidity (%)"},
-  {title:"Air Temperature (C)"},
   {title:"Eastward Wind (m/s)"},
-  {title:"Northward Wind (m/s)"},
+  {title:"Fluorometric CDOM (ppm)"},
+  {title:"Optical Backscatter (1/m)"},
   {title:"Net Shortwave Irradiance (W/m^2)"},
-  {title:"Wind Speed (m/s)"},
-  {title:"Wind Direction (deg)"},
-  {title:"Wind Direction 360 (deg)"},
+  {title:"Sea Surface Temperature (C)"},
+  {title:"Air Temperature (C)"}
 ];
 
-colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"];
+colors = ["#555", "#1f77b4", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b"];
 
 $(document).ready(function () {
-  $.get("data/lab12_ce02shsm.csv", function(data) {
-    // console.log("Data loaded:", data); // Log the data to ensure it is loaded correctly
+  $.get("data/lab12_ce_combined.csv", function(data) {
 
     g1 = new Dygraph(document.getElementById("chart1"), data, {
-      title: 'OOI Oregon Shelf Surface Mooring',
-      ylabel: 'Relative Humidity (%)',
+      title: 'OOI Oregon Shelf/Offshore Surface Moorings',
+      ylabel: 'Eastward Wind (m/s)',
       legend: 'always',
       labelsSeparateLines: true,
       labelsUTC : false,
@@ -115,14 +100,14 @@ $(document).ready(function () {
       showRangeSelector: true,
       rangeSelectorHeight: 30,
       animatedZooms : false,
-      visibility: [true, false, false, false, false, false, false, false],
+      visibility: [true, false, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
     });
 
     g2 = new Dygraph(document.getElementById("chart2"), data, {
-      ylabel: 'Air Temperature (C)',
+      ylabel: 'Fluorometric CDOM (ppm)',
       legend: 'always',
       labelsSeparateLines: true,
       labelsUTC : false,
@@ -133,7 +118,7 @@ $(document).ready(function () {
       highlightCircleSize: 6,
       showRangeSelector: false,
       animatedZooms : true,
-      visibility: [false, true, false, false, false, false, false, false],
+      visibility: [false, true, false, false, false, false],
       axes: {
         y: {axisLabelWidth: 70},
       }
@@ -153,7 +138,7 @@ $(document).ready(function () {
 function changeParameter(el, graphNumber) {
   var index = parseInt(el.value);
   var graph = graphNumber === 1 ? g1 : g2;
-  var visibility = [false, false, false, false, false, false, false, false];
+  var visibility = [false, false, false, false, false, false]; 
   visibility[index] = true;
   graph.updateOptions({
     visibility: visibility,
@@ -163,22 +148,16 @@ function changeParameter(el, graphNumber) {
 
 function graph_range(season) {
   // Remember, months must be specified between 0 and 11
-  if (season=='deposition') {
-    new_range = [new Date(2020,8,6).valueOf(), new Date(2020,8,13).valueOf()];
-  } else if (season=='post') {
-    new_range = [new Date(2020,8,13).valueOf(), new Date(2020,8,21).valueOf()];
+  if (season == 'deposition') {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 13).valueOf()];
+  } else if (season == 'post') {
+    new_range = [new Date(2020, 8, 13).valueOf(), new Date(2020, 8, 21).valueOf()];
   } else {
-    new_range = [new Date(2020,8,6).valueOf(), new Date(2020,8,22).valueOf()];
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 22).valueOf()];
   }
-  //console.log(new_range);
-  g1.updateOptions({dateWindow: new_range});
-}
-
-function toggleLines(graphNumber) {
-  var showLines = document.getElementById(`toggleLinesCheckbox${graphNumber}`).checked;
-  var strokeWidth = showLines ? 2 : 0; // Set line width to 2 if checked, 0 otherwise
-  var graph = graphNumber === 1 ? g1 : g2;
-  graph.updateOptions({ strokeWidth: strokeWidth });
+  // Update both graphs with the new date range
+  g1.updateOptions({ dateWindow: new_range });
+  g2.updateOptions({ dateWindow: new_range });
 }
 
 </script>

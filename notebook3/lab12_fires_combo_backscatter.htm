@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Forest Fires Activity 12.3 - Backscatter</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">  
+  <div id="chart1" style="width:800px; height: 240px;"></div>
+
+  <div class="row" style="margin-top:20px;">
+    <div class="col-md-3 text-right">
+      <input type="checkbox" id="toggleLinesCheckbox1" onclick="toggleLines()" checked>
+      <label for="toggleLinesCheckbox1">Show Lines</label>
+    </div>
+    <div class="col-md-9">
+      <p class="text-right">
+        <strong>Zoom to:</strong> 
+        <button class="btn btn-primary btn-sm" onclick="graph_range('')">Full Range</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range('deposition')">Deposition Event</button>
+        <button class="btn btn-primary btn-sm" onclick="graph_range('post')">Post-deposition Period</button>
+      </p>
+    </div>
+  </div>
+
+  <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+
+<style type="text/css">
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+
+<script type="text/javascript">
+// Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+// Design by Sage Lichtenwalner, 1/20/2025
+
+parameters = [
+  {title:"Eastward Wind (m/s)"},
+  {title:"Fluorometric CDOM (ppm)"},
+  {title:"Optical Backscatter (1/m)"},
+  {title:"Net Shortwave Irradiance (W/m^2)"},
+  {title:"Sea Surface Temperature (C)"},
+  {title:"Air Temperature (C)"}
+];
+
+colors = ["#555", "#1f77b4", "#2ca02c", "#ff7f0e", "#9467bd", "#8c564b"];
+
+$(document).ready(function () {
+  $.get("data/lab12_ce_combined.csv", function(data) {
+
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      title: 'OOI Oregon Shelf/Offshore Surface Moorings',
+      ylabel: 'Optical Backscatter (1/m)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : false,
+      visibility: [false, false, true, false, false, false], // Backscatter only
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+  }).fail(function() {
+    console.error("Failed to load data file.");
+  });
+}); //document.ready
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season == 'deposition') {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 13).valueOf()];
+  } else if (season == 'post') {
+    new_range = [new Date(2020, 8, 13).valueOf(), new Date(2020, 8, 21).valueOf()];
+  } else {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 22).valueOf()];
+  }
+  // Update both graphs with the new date range
+  g1.updateOptions({ dateWindow: new_range });
+}
+
+function toggleLines() {
+  var showLines = document.getElementById('toggleLinesCheckbox1').checked;
+  g1.updateOptions({ strokeWidth: showLines ? 2 : 0 });
+}
+
+</script>
+
+</body>
+</html>

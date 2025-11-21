@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Forest Fires Activity #2</title>
+    <title>Forest Fires Activity 12.5 - Water Data</title>
 </head>
 
 <body>
@@ -14,21 +14,21 @@
   <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
     <label for="parameterDropdown1">Select parameter for Graph 1:</label>
     <select id="parameterDropdown1" onchange="changeParameter(this, 1)">
-      <option value="0" selected>Fluorometric CDOM</option>
-      <option value="1">Chlorophyll-a</option>
-      <option value="2">Optical Backscatter</option>
-      <option value="3">Dissolved Oxygen</option>
-      <option value="4">Nitrate</option>
+      <option value="0" selected>Fluorometric CDOM (ppm)</option>
+      <option value="1">Chlorophyll-a (ug/L)</option>
+      <option value="2">Optical Backscatter (1/m)</option>
+      <option value="3">Dissolved Oxygen (micromol/L)</option>
+      <option value="4">Nitrate (micromol/L)</option>
     </select>
   </div>
   <div style="width: 800px; margin-left: 70px; margin-top: 10px;">
     <label for="parameterDropdown2">Select parameter for Graph 2:</label>
     <select id="parameterDropdown2" onchange="changeParameter(this, 2)">
-      <option value="0">Fluorometric CDOM</option>
-      <option value="1" selected>Chlorophyll-a</option>
-      <option value="2">Optical Backscatter</option>
-      <option value="3">Dissolved Oxygen</option>
-      <option value="4">Nitrate</option>
+      <option value="0">Fluorometric CDOM (ppm)</option>
+      <option value="1" selected>Chlorophyll-a (ug/L)</option>
+      <option value="2">Optical Backscatter (1/m)</option>
+      <option value="3">Dissolved Oxygen (micromol/L)</option>
+      <option value="4">Nitrate (micromol/L)</option>
     </select>
   </div>
 
@@ -87,7 +87,7 @@ $(document).ready(function () {
 
     g1 = new Dygraph(document.getElementById("chart1"), data, {
       title: 'OOI Oregon Offshore Surface Mooring',
-      ylabel: 'CDOM',
+      ylabel: 'Fluorometric CDOM (ppm)',
       legend: 'always',
       labelsSeparateLines: true,
       labelsUTC : false,
@@ -106,7 +106,7 @@ $(document).ready(function () {
     });
 
     g2 = new Dygraph(document.getElementById("chart2"), data, {
-      ylabel: 'Chlorophyll_a',
+      ylabel: 'Chlorophyll-a (ug/L)',
       legend: 'always',
       labelsSeparateLines: true,
       labelsUTC : false,

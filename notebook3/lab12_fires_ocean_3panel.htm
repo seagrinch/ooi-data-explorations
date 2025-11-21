@@ -1,0 +1,150 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Forest Fires Activity 12.4 - Water 3 Panel</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div style="width: 800px;">  
+  <div id="chart1" style="width:800px; height: 200px;"></div>
+  <div id="chart2" style="width:800px; height: 200px; margin-top: 20px;"></div>
+  <div id="chart3" style="width:800px; height: 200px; margin-top: 20px;"></div>
+
+  <div style="margin-top:20px">
+    <p class="text-right">
+      <strong>Zoom to:</strong> 
+      <button class="btn btn-primary btn-sm" onclick="graph_range('')">Full Range</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('deposition')">Deposition Event</button>
+      <button class="btn btn-primary btn-sm" onclick="graph_range('post')">Post-deposition Period</button>
+    </p>
+  </div>
+
+  <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+
+<style type="text/css">
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+// Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+// Design by Sage Lichtenwalner, 1/20/2025
+
+// time,CDOM,Chlorophyll_a,Backscatter,Dissolved Oxygen,Nitrate
+parameters = [
+  {title:"Fluorometric CDOM (ppm)"},
+  {title:"Chlorophyll-a (ug/L)"},
+  {title:"Optical Backscatter (1/m)"},
+  {title:"Dissolved Oxygen (micromol/L)"},
+  {title:"Nitrate (micromol/L)"},
+];
+
+colors = ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2"];
+
+$(document).ready(function () {
+  $.get("data/lab12_ce04ossm.csv", function(data) {
+    // console.log("Data loaded:", data); // Log the data to ensure it is loaded correctly
+
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      title: 'OOI Oregon Offshore Surface Mooring',
+      ylabel: 'Chlorophyll-a (ug/L)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : false,
+      visibility: [false, true, false, false, false], // Chlorophyll-a
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    g2 = new Dygraph(document.getElementById("chart2"), data, {
+      ylabel: 'Dissolved Oxygen (micromol/L)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: false,
+      animatedZooms : false,
+      visibility: [false, false, false, true, false], // Dissolved Oxygen
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    g3 = new Dygraph(document.getElementById("chart3"), data, {
+      ylabel: 'Optical Backscatter (1/m)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC : false,
+      colors : colors,
+      strokeWidth: 2,
+      drawPoints: true,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      showRangeSelector: true,
+      rangeSelectorHeight: 30,
+      animatedZooms : true,
+      visibility: [false, false, true, false, false], // Backscatter
+      axes: {
+        y: {axisLabelWidth: 70},
+      }
+    });
+
+    var sync = Dygraph.synchronize(g1, g2, g3, {
+        selection: true,
+        zoom: true,
+        range: false
+    });
+
+  }).fail(function() {
+    console.error("Failed to load data file.");
+  });
+}); //document.ready
+
+function graph_range(season) {
+  // Remember, months must be specified between 0 and 11
+  if (season == 'deposition') {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 13).valueOf()];
+  } else if (season == 'post') {
+    new_range = [new Date(2020, 8, 13).valueOf(), new Date(2020, 8, 21).valueOf()];
+  } else {
+    new_range = [new Date(2020, 8, 6).valueOf(), new Date(2020, 8, 22).valueOf()];
+  }
+  // Update all graphs with the new date range
+  g1.updateOptions({ dateWindow: new_range });
+  g2.updateOptions({ dateWindow: new_range });
+  g3.updateOptions({ dateWindow: new_range });
+}
+
+</script>
+
+</body>
+</html>
