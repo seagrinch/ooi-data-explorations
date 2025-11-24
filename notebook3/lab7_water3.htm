@@ -32,7 +32,7 @@
                     reversescale: true,
                     colorbar: {
                         title: {
-                            text: 'Density (g/m³)',
+                            text: 'Density (kg/m³)',
                             side: 'right',
                             font: {size: 16}
                         }
@@ -40,7 +40,7 @@
                     hovertemplate: 
                         'Salinity: %{x} PSU<br>' +
                         'Temperature: %{y} °C<br>' +
-                        'Density: %{z} g/m³<extra></extra>', // Custom hover labels
+                        'Density: %{z} kg/m³<extra></extra>', // Custom hover labels
                 };
 
                 const labeledDots = {
@@ -49,7 +49,7 @@
                     mode: 'markers+text',
                     type: 'scatter',
                     marker: {color: 'red', size: 12, line: {width: 2, color: 'black'}},
-                    text: ['Point A', 'Point B'],
+                    text: ['Before Intrusion', 'Gulf Stream Intrusion'],
                     textposition: 'top center',
                     hovertemplate: 
                         'Salinity: %{x} PSU<br>' +

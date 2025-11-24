@@ -40,7 +40,7 @@
                     reversescale: true,
                     colorbar: {
                         title: {
-                            text: 'Density (g/m³)',
+                            text: 'Density (kg/m³)',
                             side: 'right',
                             font: {size: 16}
                         }
@@ -90,6 +90,9 @@
 
                 Plotly.newPlot('plot', [trace], layout);
 
+                const minSal = Math.min(...data.salinity);
+                const minTemp = Math.min(...data.temperature);
+
                 const dots = {
                     x: [],
                     y: [],
@@ -99,14 +102,49 @@
                     hovertemplate: 
                         'Salinity: %{x} PSU<br>' +
                         'Temperature: %{y} °C<br>' +
-                        'Density: %{customdata} g/m³<extra></extra>', // Custom hover labels
+                        'Density: %{customdata} kg/m³<extra></extra>', // Custom hover labels
                     customdata: [], // Placeholder for density values
                 };
 
                 Plotly.addTraces('plot', dots);
 
-                document.getElementById('plot').on('plotly_click', function(data) {
-                    const point = data.points[0];
+                // Hover crosshair helpers
+                function updateHoverCrosshair(x, y) {
+                  Plotly.relayout('plot', {
+                    shapes: [
+                      { // horizontal to y-axis
+                        type: 'line',
+                        x0: minSal,
+                        x1: x,
+                        y0: y,
+                        y1: y,
+                        line: {color: 'red', width: 1, dash: 'dot'}
+                      },
+                      { // vertical to x-axis
+                        type: 'line',
+                        x0: x,
+                        x1: x,
+                        y0: minTemp,
+                        y1: y,
+                        line: {color: 'red', width: 1, dash: 'dot'}
+                      }
+                    ]
+                  });
+                }
+                function removeHoverCrosshair() {
+                  Plotly.relayout('plot', {shapes: []});
+                }
+
+                document.getElementById('plot').on('plotly_hover', function(evt) {
+                  const p = evt.points[0];
+                  updateHoverCrosshair(p.x, p.y);
+                });
+                document.getElementById('plot').on('plotly_unhover', function() {
+                  removeHoverCrosshair();
+                });
+
+                document.getElementById('plot').on('plotly_click', function(dataClick) {
+                    const point = dataClick.points[0];
                     const x = point.x;
                     const y = point.y;
 
@@ -117,7 +155,7 @@
                         dots.y.push(y);
 
                         // Retrieve density value from the z data of the contour plot
-                        const density = getDensityFromContour(data.points[0]);
+                        const density = getDensityFromContour(dataClick.points[0]);
                         dots.customdata.push(density);
                     } else {
                         dots.x.splice(existingIndex, 1);
@@ -126,7 +164,7 @@
                     }
                     console.log(dots);
 
-                    Plotly.redraw('plot');
+                    Plotly.redraw('plot'); // preserves current hover crosshair until unhover
                 });
 
                 function getDensityFromContour(point) {

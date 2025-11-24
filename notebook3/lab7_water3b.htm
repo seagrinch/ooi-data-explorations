@@ -10,87 +10,94 @@
 <body>
     <div style="width: 800px; margin: 10px">
         <div id="plot" style="width:800px; height: 600px;"></div>
-        <p>Click on the dates in the legend (top right) to toggle the display of each week on or off.</p>
+        <p>
+          <label>Y-Axis Minimum:</label>
+          <input type="radio" name="yMin" value="0" checked onchange="setYMin(this.value)"> 0°C
+          <input type="radio" name="yMin" value="20" onchange="setYMin(this.value)"> 20°C
+        </p>
+        <p><em>Click on the dates in the legend (top right) to toggle the display of each week on or off.</em></p>
         <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
     <script>
         // Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
         // Design by Sage Lichtenwalner, 1/20/2025
 
-        fetch('data/lab7_ts_diagram.json')
-            .then(response => response.json())
-            .then(data => {
-                const trace = {
-                    x: data.salinity,
-                    y: data.temperature,
-                    z: data.density,
+        (async function init() {
+            try {
+                const [r1, r2] = await Promise.all([
+                    fetch('data/lab7_ts_diagram.json'),
+                    fetch('data/lab7_ts_ctd.json')
+                ]);
+                if (!r1.ok || !r2.ok) throw new Error('Network response was not ok');
+                const base = await r1.json();
+                const ctd = await r2.json();
+
+                const traceContour = {
+                    x: base.salinity,
+                    y: base.temperature,
+                    z: base.density,
                     type: 'contour',
-                    contours: {
-                        coloring: 'heatmap',
-                        showlabels: true,
-                    },
+                    contours: { coloring: 'heatmap', showlabels: true },
                     colorscale: 'YlGnBu',
                     reversescale: true,
                     opacity: 1,
                     colorbar: {
-                        title: {
-                            text: 'Density (g/m³)',
-                            side: 'right',
-                            font: { size: 16 }
-                        },
-                        len: 0.7, // Reduce the colorbar length
-                        y: 0.35 // Adjust the colorbar position
+                        title: { text: 'Density (kg/m³)', side: 'right', font: { size: 16 } },
+                        len: 0.7,
+                        y: 0.35
                     },
                     hoverinfo: 'none'
                 };
 
                 const layout = {
                     title: { text: 'Temperature Salinity Diagram', font: { size: 24 } },
-                    xaxis: { 
-                        title: { text: 'Salinity (PSU)', font: { size: 16 } },
-                        tickfont: { size: 14 }
-                    },
-                    yaxis: { 
+                    xaxis: { title: { text: 'Salinity (PSU)', font: { size: 16 } }, tickfont: { size: 14 } },
+                    yaxis: {
                         title: { text: 'Temperature (°C)', font: { size: 16 } },
-                        tickfont: { size: 14 }
+                        tickfont: { size: 14 },
+                        range: [0, 30],
+                        autorange: false,
+                        fixedrange: true // prevents zoom from altering range (remove if zoom desired)
                     },
                     hoverdistance: 1,
-                    margin: { t: 50, b: 50, l: 50, r: 50 },
+                    margin: { t: 50, b: 50, l: 50, r: 50 }
                 };
 
-                Plotly.newPlot('plot', [trace], layout);
-            });
+                const weeks = [...new Set(ctd.week)];
+                const weekLabelsDefault = ['June 1-2','June 3-9','June 10-16','June 17-23','June 24-30'];
+                const weekLabels = weeks.length === weekLabelsDefault.length ? weekLabelsDefault : weeks.map(w => 'Week ' + w);
 
-        fetch('data/lab7_ts_ctd.json')
-            .then(response => response.json())
-            .then(data => {
-                const weeks = [...new Set(data.week)];
-                console.log(weeks);
-                const week_labels = ['June 1-2', 'June 3-9', 'June 10-16', 'June 17-23', 'June 24-30'];
-                console.log(week_labels);
-                const traces = weeks.map((week, index) => {
-                    const indices = data.week.map((w, i) => w === week ? i : -1).filter(i => i !== -1);
+                const ctdTraces = weeks.map((w, idx) => {
+                    const indices = ctd.week.map((wk, i) => wk === w ? i : -1).filter(i => i !== -1);
                     return {
-                        x: indices.map(i => data.salinity[i]),
-                        y: indices.map(i => data.temperature[i]),
+                        x: indices.map(i => ctd.salinity[i]),
+                        y: indices.map(i => ctd.temperature[i]),
                         mode: 'markers',
                         type: 'scatter',
-                        name: week_labels[index],
-                        marker: { size: 8 },
-                        hovertemplate: 
+                        name: weekLabels[idx] ?? ('Week ' + (idx + 1)),
+                        marker: { size: 8, line: { color: 'lightgrey', width: .5 }, opacity: 0.9 },
+                        hovertemplate:
                             'Salinity: %{x:.2f} PSU<br>' +
                             'Temperature: %{y:.2f} °C<br>' +
                             // 'Density: %{customdata[0]:.2f} kg/m³<br>' +
                             'Datetime: %{customdata[1]}<extra></extra>',
                         customdata: indices.map(i => [
-                            data.density?.[i] ?? 'N/A', 
-                            data.date?.[i] ?? 'N/A'
+                            ctd.density?.[i] ?? 'N/A',
+                            ctd.date?.[i] ?? 'N/A'
                         ])
                     };
                 });
 
-                Plotly.addTraces('plot', traces);
-            });
+                Plotly.newPlot('plot', [traceContour, ...ctdTraces], layout);
+            } catch (err) {
+                console.error('Failed to initialize plot:', err);
+            }
+        })();
+
+        function setYMin(val) {
+          const min = Number(val);
+          Plotly.relayout('plot', {'yaxis.range': [min, 30], 'yaxis.fixedrange': true});
+        }
     </script>
 </body>
 </html>
