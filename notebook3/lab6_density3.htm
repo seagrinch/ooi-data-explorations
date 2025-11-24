@@ -27,8 +27,7 @@
     <div style="width: 800px; margin: 10px">
       <div id="chart"></div>
       <div style="margin: 14px;" align="center" class="form-inline">
-        <label>Select a Site: <select id="selectSite" class="form-control"></select></label> &nbsp;&nbsp;&nbsp;&nbsp;
-        <label>And a Date: <select id="selectDate" class="form-control"></select></label>
+        <label>Select a Site: <select id="selectSite" class="form-control"></select></label>
       </div>
       <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
@@ -117,22 +116,21 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
   data = data.filter(d => d.pressure_bin && d.seawater_temperature && d.practical_salinity && d.density);
   
   // Setup selector options
-  var siteNames = [{'id':'CP','title':'Coastal Pioneer'},{'id':'GI','title':'Global Irminger'}];
-  var dateNames = [{'id':'2020-08-31','title':'August 31, 2020'},{'id':'2021-01-31','title':'January 31, 2021'}];
+  var siteNames = [
+    {'id':'CP', 'title':'Coastal Pioneer', 'titleLong':'Coastal Pioneer NES: Offshore Profiler Mooring'},
+    {'id':'GI', 'title':'Global Irminger', 'titleLong':'Global Irminger Sea: Apex Profiler Mooring'}
+  ];
+  var dateNames = [
+    {'id':'2020-08-31','title':'August 31, 2020', 'color':'#1f77b4', 'short':'8/31'},
+    {'id':'2021-01-31','title':'January 31, 2021', 'color':'#d62728', 'short':'1/31'}
+  ];
 
-  // Add options to the buttons
+  // Add options to site selector only
   d3.select("#selectSite")
     .selectAll('myOptions')
-   	.data(siteNames)
+    .data(siteNames)
     .enter()
-  	.append('option')
-    .text(function (d) { return d.title; })
-    .attr("value", function (d) { return d.id; })
-  d3.select("#selectDate")
-    .selectAll('myOptions')
-   	.data(dateNames)
-    .enter()
-  	.append('option')
+    .append('option')
     .text(function (d) { return d.title; })
     .attr("value", function (d) { return d.id; })
 
@@ -193,28 +191,33 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
       .attr("y", -10)
       .text("Site");
 
-  // Initialize lines
-  var line1 = graph1.append('g')
-    //.attr("clip-path", "url(#clip)")
-    .append("path")
-    .attr("class", "line")
-    .attr("fill", "none")
-    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
-    .attr("stroke-width", 3)
-  var line2 = graph2.append('g')
-    //.attr("clip-path", "url(#clip)")
-    .append("path")
-    .attr("class", "line")
-    .attr("fill", "none")
-    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
-    .attr("stroke-width", 3)
-  var line3 = graph3.append('g')
-    //.attr("clip-path", "url(#clip)")
-    .append("path")
-    .attr("class", "line")
-    .attr("fill", "none")
-    .attr("stroke", "#00008B") /* DarkBlue (web colors) */
-    .attr("stroke-width", 3)
+  // Remove single-line initialization; create line groups for each date
+  var lineGroup1 = graph1.append('g');
+  var lineGroup2 = graph2.append('g');
+  var lineGroup3 = graph3.append('g');
+
+  // Add legend to graph3 (top-right)
+  var legend = graph3.append('g')
+    .attr('class', 'legend')
+    .attr('transform', 'translate(' + (width3 - 10) + ', 10)');
+
+  dateNames.forEach(function(dateObj, i) {
+    var legendRow = legend.append('g')
+      .attr('transform', 'translate(0, ' + (i * 20) + ')');
+    
+    legendRow.append('rect')
+      .attr('x', -12)
+      .attr('width', 12)
+      .attr('height', 12)
+      .attr('fill', dateObj.color);
+    
+    legendRow.append('text')
+      .attr('x', -18)
+      .attr('y', 10)
+      .attr('text-anchor', 'end')
+      .style('font-size', '11px')
+      .text(dateObj.title);
+  });
 
   // This allows to find the closest index of the mouse
   var bisect = d3.bisector(function(d) { return d.pressure_bin; }).left;
@@ -222,54 +225,103 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
   // Specify decimal format
   var f = d3.format(".2f");
 
-  // Create the circle that travels along the curve of chart
-  var focus1 = graph1
-    .append('g')
-    .append('circle')
-      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+  // Create focus circles and text for EACH date (2 per graph)
+  var focus1_date1 = graph1.append('g').append('circle')
+      .style("fill", dateNames[0].color)
       .attr("stroke", "black")
       .attr("stroke-width", 1)
       .attr('r', 6)
-      .style("opacity", 0)
-  var focus2 = graph2
-    .append('g')
-    .append('circle')
-      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
+      .style("opacity", 0);
+  var focus1_date2 = graph1.append('g').append('circle')
+      .style("fill", dateNames[1].color)
       .attr("stroke", "black")
       .attr("stroke-width", 1)
       .attr('r', 6)
-      .style("opacity", 0)
-  var focus3 = graph3
-    .append('g')
-    .append('circle')
-      .style("fill", "#48D1CC") /* MediumTurquoise (web colors) */
-      .attr("stroke", "black")
-      .attr("stroke-width", 1)
-      .attr('r', 6)
-      .style("opacity", 0)
+      .style("opacity", 0);
 
-  // Create the text that travels along the curve of chart
-  var focusText1 = graph1
-    .append('g')
-    .append('text')
+  var focus2_date1 = graph2.append('g').append('circle')
+      .style("fill", dateNames[0].color)
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0);
+  var focus2_date2 = graph2.append('g').append('circle')
+      .style("fill", dateNames[1].color)
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0);
+
+  var focus3_date1 = graph3.append('g').append('circle')
+      .style("fill", dateNames[0].color)
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0);
+  var focus3_date2 = graph3.append('g').append('circle')
+      .style("fill", dateNames[1].color)
+      .attr("stroke", "black")
+      .attr("stroke-width", 1)
+      .attr('r', 6)
+      .style("opacity", 0);
+
+  // Create the text for each date
+  var focusText1_date1 = graph1.append('g').append('text')
       .style("opacity", 0)
-      .attr("text-anchor", "end")
+      .style("fill", dateNames[0].color)
+      .attr("text-anchor", "start")
       .attr("alignment-baseline", "middle")
-      .attr("x", 200).attr("y", height1-10)
-  var focusText2 = graph2
-    .append('g')
-    .append('text')
+      .attr("x", 10).attr("y", height1-25);
+  var focusText1_date2 = graph1.append('g').append('text')
       .style("opacity", 0)
-      .attr("text-anchor", "left")
+      .style("fill", dateNames[1].color)
+      .attr("text-anchor", "start")
       .attr("alignment-baseline", "middle")
-      .attr("x", 10).attr("y", height1-10)
-  var focusText3 = graph3
-    .append('g')
-    .append('text')
+      .attr("x", 10).attr("y", height1-10);
+  var focusText1_depth = graph1.append('g').append('text')
       .style("opacity", 0)
-      .attr("text-anchor", "left")
+      .style("fill", "black")
+      .attr("text-anchor", "start")
       .attr("alignment-baseline", "middle")
-      .attr("x", 10).attr("y", height1-10)
+      .attr("x", 10).attr("y", height1-40);
+
+  var focusText2_date1 = graph2.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", dateNames[0].color)
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-25);
+  var focusText2_date2 = graph2.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", dateNames[1].color)
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10);
+  var focusText2_depth = graph2.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", "black")
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-40);
+
+  var focusText3_date1 = graph3.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", dateNames[0].color)
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-25);
+  var focusText3_date2 = graph3.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", dateNames[1].color)
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-10);
+  var focusText3_depth = graph3.append('g').append('text')
+      .style("opacity", 0)
+      .style("fill", "black")
+      .attr("text-anchor", "start")
+      .attr("alignment-baseline", "middle")
+      .attr("x", 10).attr("y", height1-40);
 
   // Create a rect on top of the svg area: this rectangle recovers mouse position
   var g1 = graph1
@@ -291,18 +343,20 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
     .attr('width', width3)
     .attr('height', height3)
 
-  // Function to update graph with specified options
-  function updateGraph(site, date) {
-    
-    var dataSelected = data.filter(function(d){return ((d.site==site) & (d.date==date)) })
+  // Function to update graph with specified site
+  function updateGraph(site) {
+    var dataByDate = {};
+    dateNames.forEach(function(dateObj) {
+      dataByDate[dateObj.id] = data.filter(function(d){return d.site==site && d.date==dateObj.id});
+    });
 
     x1.domain([3, 15]);
     x2.domain([32.5, 36]);
     x3.domain([1025, 1038]);
-    y.domain([0, d3.max(dataSelected, function(d) { return d.pressure_bin }) ]);
+    var allSiteData = data.filter(d => d.site==site);
+    y.domain([0, d3.max(allSiteData, function(d) { return d.pressure_bin }) ]);
 
     var t = d3.transition().duration(750);
-
     graph1.selectAll(".myXaxis1").transition(t).call(xAxis1);
     graph2.selectAll(".myXaxis2").transition(t).call(xAxis2);
     graph3.selectAll(".myXaxis3").transition(t).call(xAxis3);
@@ -310,32 +364,62 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
     graph2.selectAll(".myYaxis2").transition(t).call(yAxis);
     graph3.selectAll(".myYaxis3").transition(t).call(yAxis);
 
-    // t.on("end", function() {
-      line1
-        .datum(dataSelected)
-        .transition()
+    // Clear old lines
+    lineGroup1.selectAll("path").remove();
+    lineGroup2.selectAll("path").remove();
+    lineGroup3.selectAll("path").remove();
+
+    // Draw line for each date
+    dateNames.forEach(function(dateObj) {
+      var ds = dataByDate[dateObj.id];
+      lineGroup1.append("path")
+        .datum(ds)
+        .attr("fill", "none")
+        .attr("stroke", dateObj.color)
+        .attr("stroke-width", 3)
         .attr("d", d3.line()
           .x(function(d) { return x1(d.seawater_temperature) })
           .y(function(d) { return y(d.pressure_bin) })
-        )
-      line2
-        .datum(dataSelected)
-        .transition()
+        );
+      lineGroup2.append("path")
+        .datum(ds)
+        .attr("fill", "none")
+        .attr("stroke", dateObj.color)
+        .attr("stroke-width", 3)
         .attr("d", d3.line()
           .x(function(d) { return x2(d.practical_salinity) })
           .y(function(d) { return y(d.pressure_bin) })
-        )
-      line3
-        .datum(dataSelected)
-        .transition()
+        );
+      lineGroup3.append("path")
+        .datum(ds)
+        .attr("fill", "none")
+        .attr("stroke", dateObj.color)
+        .attr("stroke-width", 3)
         .attr("d", d3.line()
           .x(function(d) { return x3(d.density) })
           .y(function(d) { return y(d.pressure_bin) })
-        )
-    // });
+        );
+    });
 
-    title2.text(siteNames.find(el => el.id==site).title + ' - ' + dateNames.find(el => el.id==date).title)
-  
+    // Conditionally adjust text anchor for graphs 1 and 3 based on site
+    if (site === 'CP') {
+      focusText1_date1.attr("text-anchor", "end").attr("x", width1 - 10);
+      focusText1_date2.attr("text-anchor", "end").attr("x", width1 - 10);
+      focusText1_depth.attr("text-anchor", "end").attr("x", width1 - 10);
+      focusText3_date1.attr("text-anchor", "end").attr("x", width3 - 10);
+      focusText3_date2.attr("text-anchor", "end").attr("x", width3 - 10);
+      focusText3_depth.attr("text-anchor", "end").attr("x", width3 - 10);
+    } else {
+      focusText1_date1.attr("text-anchor", "start").attr("x", 10);
+      focusText1_date2.attr("text-anchor", "start").attr("x", 10);
+      focusText1_depth.attr("text-anchor", "start").attr("x", 10);
+      focusText3_date1.attr("text-anchor", "start").attr("x", 10);
+      focusText3_date2.attr("text-anchor", "start").attr("x", 10);
+      focusText3_depth.attr("text-anchor", "start").attr("x", 10);
+    }
+
+    title2.text(siteNames.find(el => el.id==site).titleLong);
+
     g1
       .on('mouseover', mouseover)
       .on('mousemove', mousemove)
@@ -351,64 +435,64 @@ d3.csv("data/lab6_profiles.csv", parseData, function(data) {
 
     // What happens when the mouse move -> show the annotations at the right positions.
     function mouseover() {
-      focus1.style("opacity", 1)
-      focusText1.style("opacity",1)
-      focus2.style("opacity", 1)
-      focusText2.style("opacity",1)
-      focus3.style("opacity", 1)
-      focusText3.style("opacity",1)
+      focus1_date1.style("opacity", 1); focus1_date2.style("opacity", 1);
+      focusText1_date1.style("opacity",1); focusText1_date2.style("opacity",1);
+      focusText1_depth.style("opacity",1);
+      focus2_date1.style("opacity", 1); focus2_date2.style("opacity", 1);
+      focusText2_date1.style("opacity",1); focusText2_date2.style("opacity",1);
+      focusText2_depth.style("opacity",1);
+      focus3_date1.style("opacity", 1); focus3_date2.style("opacity", 1);
+      focusText3_date1.style("opacity",1); focusText3_date2.style("opacity",1);
+      focusText3_depth.style("opacity",1);
     }
-  
     function mousemove() {
-      // recover coordinate we need
       var y0 = y.invert(d3.mouse(this)[1]);
-      var i = bisect(dataSelected, y0);
-      dataPoint = dataSelected[i]
-      focus1
-        .attr("cx", x1(dataPoint.seawater_temperature) )
-        .attr("cy", y(dataPoint.pressure_bin) )
-      focusText1
-        .html("Temperature: " + f(dataPoint.seawater_temperature))
-      focus2
-        .attr("cx", x2(dataPoint.practical_salinity) )
-        .attr("cy", y(dataPoint.pressure_bin) )
-      focusText2
-        .html("Salinity: " + f(dataPoint.practical_salinity))
-      focus3
-        .attr("cx", x3(dataPoint.density) )
-        .attr("cy", y(dataPoint.pressure_bin) )
-      focusText3
-        .html("Density: " + f(dataPoint.density))
-      }
-  
-    function mouseout() {
-      focus1.style("opacity", 0)
-      focusText1.style("opacity", 0)
-      focus2.style("opacity", 0)
-      focusText2.style("opacity", 0)
-      focus3.style("opacity", 0)
-      focusText3.style("opacity", 0)
-    }
+      var data_date1 = dataByDate[dateNames[0].id];
+      var data_date2 = dataByDate[dateNames[1].id];
+      var i1 = bisect(data_date1, y0);
+      if (i1 >= data_date1.length) i1 = data_date1.length - 1;
+      var i2 = bisect(data_date2, y0);
+      if (i2 >= data_date2.length) i2 = data_date2.length - 1;
+      var dp1 = data_date1[i1];
+      var dp2 = data_date2[i2];
 
+      focus1_date1.attr("cx", x1(dp1.seawater_temperature)).attr("cy", y(dp1.pressure_bin));
+      focus1_date2.attr("cx", x1(dp2.seawater_temperature)).attr("cy", y(dp2.pressure_bin));
+      focusText1_date1.html(dateNames[0].short + " " + f(dp1.seawater_temperature));
+      focusText1_date2.html(dateNames[1].short + " " + f(dp2.seawater_temperature));
+      focusText1_depth.html("" + f(dp1.pressure_bin) + "m");
+
+      focus2_date1.attr("cx", x2(dp1.practical_salinity)).attr("cy", y(dp1.pressure_bin));
+      focus2_date2.attr("cx", x2(dp2.practical_salinity)).attr("cy", y(dp2.pressure_bin));
+      focusText2_date1.html(dateNames[0].short + " " + f(dp1.practical_salinity));
+      focusText2_date2.html(dateNames[1].short + " " + f(dp2.practical_salinity));
+      focusText2_depth.html("" + f(dp1.pressure_bin) + "m");
+
+      focus3_date1.attr("cx", x3(dp1.density)).attr("cy", y(dp1.pressure_bin));
+      focus3_date2.attr("cx", x3(dp2.density)).attr("cy", y(dp2.pressure_bin));
+      focusText3_date1.html(dateNames[0].short + " " + f(dp1.density));
+      focusText3_date2.html(dateNames[1].short + " " + f(dp2.density));
+      focusText3_depth.html("" + f(dp1.pressure_bin) + "m");
+    }
+    function mouseout() {
+      focus1_date1.style("opacity", 0); focus1_date2.style("opacity", 0);
+      focusText1_date1.style("opacity", 0); focusText1_date2.style("opacity", 0);
+      focusText1_depth.style("opacity", 0);
+      focus2_date1.style("opacity", 0); focus2_date2.style("opacity", 0);
+      focusText2_date1.style("opacity", 0); focusText2_date2.style("opacity", 0);
+      focusText2_depth.style("opacity", 0);
+      focus3_date1.style("opacity", 0); focus3_date2.style("opacity", 0);
+      focusText3_date1.style("opacity", 0); focusText3_date2.style("opacity", 0);
+      focusText3_depth.style("opacity", 0);
+    }
   }
 
-  updateGraph('CP','2020-08-31')
-  
+  updateGraph('CP');
+
   d3.select("#selectSite").on("change", function(d) {
-    var site = d3.select("#selectSite").property("value")
-    var date = d3.select("#selectDate").property("value")
-    console.log(site,date)
-    updateGraph(site,date)
-  })
-  d3.select("#selectDate").on("change", function(d) {
-    var site = d3.select("#selectSite").property("value")
-    var date = d3.select("#selectDate").property("value")
-    console.log(site,date)
-    updateGraph(site,date)
-  })
-
-})
-
+    updateGraph(d3.select("#selectSite").property("value"));
+  });
+});
 </script>
 
 </html>

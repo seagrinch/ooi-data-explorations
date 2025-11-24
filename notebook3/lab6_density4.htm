@@ -26,6 +26,7 @@
   <body>
     <h3>Monthly averaged profiles from the Coastal Pioneer Offshore Profiler Mooring </h3>
     <div id="chart"></div>
+    <p><em>These monthly averaged profiles were calculated from data collected in 2019.</em></p>
     <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
   </body>
 
@@ -162,6 +163,8 @@ d3.csv("../notebook/data/chem_CP04OSPM_profiles.csv", function(data) {
   // color palette
   var months = [2, 5, 8, 11];
   var color = d3.scaleOrdinal(d3.schemeCategory10);
+  var monthNamesShort = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  var monthNamesLong = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   
   // Draw the line
   var lines1 = graph1.selectAll(".line")
@@ -217,7 +220,6 @@ d3.csv("../notebook/data/chem_CP04OSPM_profiles.csv", function(data) {
   // Add Legend
   var legendX = margin3.left + 4;
   var legendY = margin1.top + height1 - 120;
-  monthNames = ["January","February","March","April","May","June","July","August","September","October","November","December"];
   
   svg.append("text")
     .attr("x", legendX + 13)
@@ -260,7 +262,7 @@ d3.csv("../notebook/data/chem_CP04OSPM_profiles.csv", function(data) {
       .attr("x", legendX + 35)
       .attr("y", function(d,i){ return legendY + 25 + i*25})
       .style("fill", function(d){ return color(d)})
-      .text(function(d){ return monthNames[d-1]})
+      .text(function(d){ return monthNamesLong[d-1]})
       .attr("text-anchor", "left")
       .style("alignment-baseline", "middle")
       .style('font-weight','bold')
@@ -294,7 +296,7 @@ d3.csv("../notebook/data/chem_CP04OSPM_profiles.csv", function(data) {
     }
     var mousemove = function(d) {
       Tooltip
-        .html("Month: " + d.month + '<br> Depth: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
+        .html("Month: " + monthNamesShort[d.month-1] + '<br> Depth: ' + d.pressure_bins + '<br>Temperature: ' + d.seawater_temperature + '<br>Salinity: ' + d.practical_salinity)
         .style("left", (event.pageX) + 10 + "px")
         .style("top",(event.pageY) + "px")
         //.style("left", legendX + 20 + "px")

@@ -36,10 +36,31 @@
       </div>
       <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
+
+    <!-- Bootstrap Modal -->
+    <div class="modal fade" id="densityConfirmModal" tabindex="-1" role="dialog" aria-labelledby="densityConfirmLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="densityConfirmLabel">Show Density?</h4>
+          </div>
+          <div class="modal-body">
+            Are you confident in your answer and ready to show the actual measured observations?<br><br>
+            If you haven't made a prediction yet, please click "Cancel" and drag the dots on the density graph to make your prediction on the graph before showing the results.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="densityCancelBtn">Cancel</button>
+            <button type="button" class="btn btn-primary" id="densityConfirmBtn">Show Density</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 
 <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
@@ -447,10 +468,26 @@ d3.csv("data/lab6_ce09ospm_ctd.csv", parseData, function(data) {
   // Add callbacks
   var showDensity = false;
   d3.select("#toggleDensity").on("click", function(d) {
+    if (!showDensity) {
+      $('#densityConfirmModal').modal('show');
+      return;
+    }
     showDensity = !showDensity;
     d3.select("#toggleDensity").text(showDensity ? "Hide Density" : "Show Density");
     updateGraph(showDensity);
-  })
+  });
+
+  // Modal button handlers
+  $('#densityConfirmBtn').on('click', function() {
+    $('#densityConfirmModal').modal('hide');
+    showDensity = true;
+    d3.select("#toggleDensity").text("Hide Density");
+    updateGraph(showDensity);
+  });
+  $('#densityCancelBtn').on('click', function() {
+    // Just close modal, do nothing
+    $('#densityConfirmModal').modal('hide');
+  });
 
 })
 
