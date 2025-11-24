@@ -27,8 +27,8 @@
 </head>
 <body>
   <div class="container" style="max-width: 900px;">
-    <p>
-      Look at the dissolved oxygen and carbon dioxide data below. Then choose the Nitrate and pH value for each depth that you think is best.
+    <p class="lead text-center">
+      Look at the dissolved oxygen and carbon dioxide data below. Then choose the pH value for each depth that you think best matches the pattern.
     </p>
     <div id="chart"></div>
     <div class="row">
@@ -46,6 +46,27 @@
       </div>
     </div>
   </div>
+
+  <!-- Bootstrap Modal for incorrect answer -->
+  <div class="modal fade" id="incorrectModal" tabindex="-1" role="dialog" aria-labelledby="incorrectModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="incorrectModalLabel">Not Quite!</h4>
+        </div>
+        <div class="modal-body">
+          Think about how CO2 and pH relate and try again.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Try Again</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   <script>
     const data = [
       {
@@ -80,7 +101,7 @@
     const variables = [
       { key: "discrete_oxygen", label: "Dissolved Oxygen O2  (µmol/kg)" },
       { key: "discrete_pco2", label: "Carbon Dioxide pCO2 (µatm)" },
-      { key: "discrete_nitrate", label: "Nitrate NO3 (µmol/L)" },
+      // { key: "discrete_nitrate", label: "Nitrate NO3 (µmol/L)" }, // Nitrate graph removed
       { key: "calculated_ph", label: "pH" }
     ];
 
@@ -113,8 +134,7 @@
         const xLimits = {
           discrete_oxygen: [0, 350],
           discrete_pco2: [300, 1200],
-          discrete_nitrate: [0, 50],
-          calculated_ph: [7, 8.5]
+          calculated_ph: [7.4, 8.2]
         };
 
         const x = d3.scaleLinear()
@@ -178,7 +198,7 @@
             .attr("r", 8)
             .style("fill", color(v.key));
         } else {
-          // Interactive dots for the 3rd and 4th graphs
+          // Interactive pH graph
           const lineData = data.map(d => ({ x: x(d[v.key]), y: y(d.ctd_depth) })); // Precompute line data
           const line = d3.line()
             .x(d => d.x)
@@ -192,7 +212,7 @@
             .style("opacity", 0) // Make it invisible initially
             .attr("d", line);
 
-          let selectedCount = 0; // Track the number of selected points
+            let correctCount = 0; // number of depths correctly answered
 
           data.forEach((d, depthIndex) => {
             const points = [...data.map(p => p[v.key])]; // Start with actual data points
@@ -204,66 +224,57 @@
 
             const correctValue = d[v.key];
             const correctIndex = points.indexOf(correctValue);
+            let solved = false;
 
-            const dots = graph.selectAll(`.interactive-dot-${depthIndex}`)
+            const dotsSel = graph.selectAll(`.interactive-dot-${depthIndex}`)
               .data(points)
               .enter()
               .append("circle")
+              .attr("class", `interactive-dot-${depthIndex}`)
               .attr("cx", p => x(p))
               .attr("cy", y(d.ctd_depth))
               .attr("r", 8)
               .style("fill", "white")
               .style("stroke", "black")
               .style("cursor", "pointer")
-              .on("click", function (p, idx) {
-                dots.remove(); // Remove all options
+              .on("click", function(p, idx) {
+                if (solved) return; // already solved for this depth
+                if (idx !== correctIndex) {
+                  $('#incorrectModal').modal('show');
+                  return;
+                }
+                // Correct selection
+                solved = true;
+                graph.selectAll(`.interactive-dot-${depthIndex}`).remove();
                 graph.append("circle")
                   .attr("cx", x(correctValue))
                   .attr("cy", y(d.ctd_depth))
                   .attr("r", 8)
-                  .style("fill", color(v.key)); // Use the chart's color for the correct dot
-                if (idx !== correctIndex) {
-                  graph.append("text") // Add an "X" for incorrect selection
-                    .attr("x", x(p))
-                    .attr("y", y(d.ctd_depth) + 4) // Center the "X" vertically
-                    .attr("text-anchor", "middle")
-                    .style("font-size", "16px")
-                    .style("fill", "#ff6666") // Light red for the "X"
-                    .text("X");
-                }
+                  .style("fill", color(v.key))
+                  .style("stroke", "black");
 
-                selectedCount++; // Increment the selected count
-                if (selectedCount === 3) {
-                  linePath.style("opacity", 1); // Make the line visible after all points are selected
-                }
+                const isAbove = d.ctd_depth > 900;
+                const msgY = isAbove ? y(d.ctd_depth) - 15 : y(d.ctd_depth) + 18;
 
-                const isAbove = d.ctd_depth > 900; // Show text box above for dots at 1000m
-                const boxY = isAbove ? y(d.ctd_depth) - 65 : y(d.ctd_depth) + 25;
-                const textY = isAbove ? y(d.ctd_depth) - 45 : y(d.ctd_depth) + 45;
-
-                graph.append("rect") // Add a white box for the message
-                  .attr("x", width * 0.1) // Centered horizontally (10% margin on each side)
-                  .attr("y", boxY) // Position above or below the dots
-                  .attr("width", width * 0.8) // 80% of the graph width
-                  .attr("height", 50) // Height for wrapping text
-                  .style("fill", "white")
-                  .style("stroke", "black")
-                  .style("stroke-width", 1);
-
-                graph.append("foreignObject") // Add a foreignObject for wrapping text
-                  .attr("x", width * 0.1 + 5) // Add padding inside the box
-                  .attr("y", textY - 15) // Adjust position inside the box
-                  .attr("width", width * 0.8 - 10) // Adjust width for padding
-                  .attr("height", 50) // Adjust height for wrapping
-                  .append("xhtml:div") // Use an XHTML div for styling
-                  .style("font-family", "Verdana, Geneva, Tahoma, sans-serif") 
-                  .style("line-height", "normal")
+                const label = graph.append("text")
+                  .attr("x", x(correctValue))
+                  .attr("y", msgY)
+                  .attr("text-anchor", "middle")
                   .style("font-size", "12px")
-                  .style("text-align", "center")
-                  .style("color", "black")
-                  .style("overflow", "hidden")
-                  .style("white-space", "normal") // Enable text wrapping
-                  .text(i === 2 ? d.nitrate_message : d.ph_message); // Use custom message
+                  .style("font-weight", "bold")
+                  .style("fill", "#2c7a2c")
+                  .text("Correct!");
+                // Fade out after delay
+                label.transition()
+                  .delay(2000)
+                  .duration(800)
+                  .style("opacity", 0)
+                  .remove();
+
+                correctCount++;
+                if (correctCount === data.length) {
+                  linePath.style("opacity", 1);
+                }
               });
           });
         }

@@ -1,16 +1,29 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
 <html>
 <head>
-  <title>Ocean Acidification Activity #4</title>
-  <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <title>Ocean Acidification Activity #4</title>
 </head>
+
 <body>
   <!-- DATA CHART -->
-  <div style="width: 800px; margin: 12px">
+  <div class="container" style="width: 800px; margin-top:20px; margin-bottom:20px;">
     <div id="chart"></div>
     <p>Click and drag on the pH timeseries (upper right) to select a date range. Once selected you can move the box around to view other time periods, or click outside the box to reset.</p>
+
+    <div class="instructions" style="margin:12px 0;">
+      <h5 style="font-weight:bold; margin-bottom:6px;">Tips on Interacting with these graphs:</h5>
+      <ul style="padding-left:18px; margin:0;">
+        <li>Select a specific time period by drawing a box over data in the pH graph (top right). You can then drag the highlighted box left or right.</li>
+        <li>Zoom in or out by resizing the highlighted box width in the pH graph (top right).</li>
+        <li>The point color denotes time of year (light purple/pink = early record; blue/dark purple = later record).</li>
+      </ul>
+    </div>
+
     <p class="text-center"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
-  </div>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -92,6 +105,15 @@ graph1.append("text")
 var graph2 = svg.append("g")
     .attr("class", "focus")
     .attr("transform", "translate(" + margin2.left + "," + margin2.top + ")");
+  // Added annotation for interaction instructions (top-right graph)
+  graph2.append("text")
+      .attr("x", width2 - 4)
+      .attr("y", -6)
+      .attr("text-anchor", "end")
+      .style("font-size", "11px")
+      .style("fill", "#555")
+      .text("Click & drag on this graph to select a time range");
+
 var graph3 = svg.append("g")
     .attr("class", "context")
     .attr("transform", "translate(" + margin3.left + "," + margin3.top + ")");

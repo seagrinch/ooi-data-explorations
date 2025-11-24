@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+
+<html>
+<head>
+    <title>Ocean Acidification Activity #5</title>
+</head>
+
+<body>
+
+<!-- DATA CHART -->
+<div class="container" style="width: 800px;">  
+  <div id="chart1" style="width:800px; height: 200px;"></div>
+  <div id="chart2" style="width:800px; height: 200px; margin-top: 20px;"></div>
+  <div id="chart3" style="width:800px; height: 200px; margin-top: 20px;"></div>
+
+  <p class="text-right" style="margin-top: 10px;"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+</div>
+
+<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../js/dygraph-2.1.0/dygraph.css" />
+<style type="text/css">
+  .dygraph-title {
+    font-size: 18px;
+  }
+  
+  .dygraph-ylabel {
+    font-size: 14px;
+    font-weight: bold;
+  }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/dygraph.js"></script>
+<script type="text/javascript" src="../js/dygraph-2.1.0/synchronizer.js"></script>
+
+<script type="text/javascript">
+// Ocean Data Labs: OOI Lab Manual Widgets - 2025 Edition
+// Design by Sage Lichtenwalner, 11/24/2025
+
+// Colors: chlorophyll, daily wind, pCO2, pH, weekly wind
+colors = ["#77dd77", "#cfcfcf", "#ff6961", "#cdb5cd", "#779ecb"]; 
+
+$(document).ready(function () {
+  $.get("data/lab11_ce02shsm_daily.csv", function(data) {
+    g1 = new Dygraph(document.getElementById("chart1"), data, {
+      title: 'OOI Oregon Shelf Surface Mooring - Daily averages',
+      ylabel: 'Northward Wind (m/s)',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC: false,
+      colors: colors,
+      drawPoints: true,
+      pointSize: 2,
+      highlightCircleSize: 6,
+      strokeWidth: 2,
+      visibility: [false, true, false, false, true], // daily + weekly wind
+      series: {
+        'Northward Wind Speed': { strokeWidth: 1, pointSize: 1 },
+        'Weekly Northward Wind Speed': { strokeWidth: 1, pointSize: 0, color: '#000' }
+      },
+      underlayCallback: function(ctx, area, g) {
+        const labels = g.getLabels();
+        const weeklyName = ['Weekly Northward Wind Speed','northward_wind_weekly']
+          .find(n => labels.indexOf(n) >= 0);
+        if (!weeklyName) return;
+        const weeklyIdx = labels.indexOf(weeklyName) - 1; // subtract time column
+        const baseY = g.toDomYCoord(0);
+        const xRange = g.xAxisRange();
+        const rows = g.numRows();
+
+        // Helper to push point list with optional interpolation at zero crossing
+        function addSegment(pointsArray, currentSegment) {
+          if (currentSegment.length > 0) pointsArray.push(currentSegment.slice());
+        }
+
+        function buildSegments(signWanted) {
+          const segments = [];
+          let seg = [];
+          for (let i = 0; i < rows; i++) {
+            const yVal = g.getValue(i, weeklyIdx + 1);
+            if (yVal == null) continue;
+            const xVal = g.getValue(i, 0);
+            if (xVal < xRange[0] || xVal > xRange[1]) continue;
+            const xDom = g.toDomXCoord(xVal);
+            const yDom = g.toDomYCoord(yVal);
+            const signNow = yVal >= 0 ? 1 : -1;
+
+            if (seg.length === 0) {
+              if (signNow === signWanted) {
+                seg.push({x: xDom, y: yDom, yVal});
+              }
+              continue;
+            }
+
+            const prev = seg[seg.length - 1];
+            if ((signNow === signWanted)) {
+              seg.push({x: xDom, y: yDom, yVal});
+            } else {
+              // Interpolate zero crossing between prev and current
+              const t = (0 - prev.yVal) / (yVal - prev.yVal);
+              const xCrossData = g.getValue(i - 1, 0) + t * (xVal - g.getValue(i - 1, 0));
+              const xCrossDom = g.toDomXCoord(xCrossData);
+              seg.push({x: xCrossDom, y: baseY, yVal: 0});
+              addSegment(segments, seg);
+              seg = []; // reset
+              // Start new segment only if new sign matches
+              if (signNow === signWanted) {
+                seg.push({x: xCrossDom, y: baseY, yVal: 0});
+                seg.push({x: xDom, y: yDom, yVal});
+              }
+            }
+          }
+          // Close last segment (may need zero crossing back to baseline)
+          if (seg.length > 0) {
+            const last = seg[seg.length - 1];
+            if (last.y !== baseY) {
+              seg.push({x: last.x, y: baseY, yVal: 0});
+            }
+            addSegment(segments, seg);
+          }
+          return segments;
+        }
+
+        function drawFilled(segments, fillStyle) {
+          ctx.fillStyle = fillStyle;
+            segments.forEach(seg => {
+              ctx.beginPath();
+              // Move to baseline at first x
+              ctx.moveTo(seg[0].x, baseY);
+              // Up along data/top boundary
+              for (let i = 0; i < seg.length; i++) {
+                ctx.lineTo(seg[i].x, seg[i].y);
+              }
+              // Ensure return to baseline (already appended)
+              ctx.closePath();
+              ctx.fill();
+            });
+        }
+
+        const posSegments = buildSegments(1);
+        const negSegments = buildSegments(-1);
+        drawFilled(posSegments, "rgba(21,122,181,0.30)");  // blue
+        drawFilled(negSegments, "rgba(217,83,79,0.30)");   // red
+      }
+    });
+
+    g2 = new Dygraph(document.getElementById("chart2"), data, {
+      ylabel: 'pCO2 (&micro;atm)',   // micro symbol fixed
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC: false,
+      colors: colors,
+      drawPoints: false,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      strokeWidth: 2,
+      visibility: [false, false, true, false, false],
+      // axes: { y: { axisLabelWidth: 70 } }
+    });
+
+    g3 = new Dygraph(document.getElementById("chart3"), data, {
+      ylabel: 'pH',
+      legend: 'always',
+      labelsSeparateLines: true,
+      labelsUTC: false,
+      colors: colors,
+      drawPoints: false,
+      pointSize: 3,
+      highlightCircleSize: 6,
+      strokeWidth: 2,
+      showRangeSelector: false,
+      visibility: [false, false, false, true, false],
+      // axes: { y: { axisLabelWidth: 70 } }
+    });
+
+    Dygraph.synchronize(g1, g2, g3, { selection: true, zoom: true, range: false });
+
+  }).fail(function() {
+    console.error("Failed to load data file.");
+  });
+}); //document.ready
+
+</script>
+
+</body>
+</html>
