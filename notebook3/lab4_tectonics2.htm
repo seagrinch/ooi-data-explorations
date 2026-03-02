@@ -2,7 +2,7 @@
 
 <html>
 <head>
-  <title>Tectonics Activity #1 - Plate Boundaries</title>
+  <title>Tectonics Lab 2 - Earthquakes & Plate Boundaries</title>
   
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
@@ -30,30 +30,33 @@
 <body>
   <div style="width: 720px; margin:20px">
     <div id="map" style="height: 400px; width: 720px; margin-bottom: 1em;"></div>
+    <!-- <div id="mapinfo" style="font-family: monospace; font-size: 12px; margin-bottom: 1em; color: #444;"></div> -->
     <p><strong>Zoom to:</strong>
-      <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>,
-      <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>,
-      <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">Sandwich Islands</a>,
-      <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>,
       <a class='' onclick="zoomTo(51.591797, -176.044922, 6)">Western Aleutian Islands</a>,
+      <a class='' onclick="zoomTo(55.942383, -157.456055, 5)">Eastern Aleutian Islands</a>,
+      <a class='' onclick="zoomTo(46.259651, -125.252037, 4)">Pacific Northwest</a>,
+      <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>,
       <a class='' onclick="zoomTo(15.490723, -95.383301, 5)">Central America West</a>,
       <a class='' onclick="zoomTo(-30.498047, -68.730469, 4)">South America West</a>,
-      <a class='' onclick="zoomTo(35.617676, -120.695801, 5)">Western US</a>,
+      <a class='' onclick="zoomTo(26.367188, -29.355469, 3)">Mid Atlantic</a>,
+      <a class='' onclick="zoomTo(55.898438, -28.740234, 3)">North Atlantic</a>,
+      <a class='' onclick="zoomTo(-57.348633, -25.026855, 5)">Sandwich Islands</a>,
       <a class='' onclick="zoomTo(-1.164551, -20.148926, 5)">Equatorial Atlantic</a>,
-      <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>,
-      <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>,
-      <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>,
-      <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>,
+      <a class='' onclick="zoomTo(13.021030, 42.556057, 4)">East African Rift</a>,
+      <a class='' onclick="zoomTo(-14.677734, 68.598633, 4)">Central Indian Ocean</a>,
       <a class='' onclick="zoomTo(30.27832, 84.594727, 4)">Himalayas</a>,
-      <a class='' onclick="zoomTo(-14.677734, 68.598633, 4)">Central Indian Ocean</a>
+      <a class='' onclick="zoomTo(-5.053711, 103.842773, 4)">Indonesia</a>,
+      <a class='' onclick="zoomTo(36.782227, 138.779297, 4)">Japan</a>,
+      <a class='' onclick="zoomTo(17.797852, 144.09668, 4)">Mariana Islands</a>,
+      <a class='' onclick="zoomTo(48.295898, 153.105469, 4)">Kuril Islands</a>
     </p>
 
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-xs-4">
         <h4>Toggle Layers</h4>
         <div id="custom-map-controls"></div>
       </div>
-      <div class="col-sm-3">
+      <div class="col-xs-4">
         <h4>Legend</h4>
         <p><strong>Earthquake Depths</strong></p>
         <p>
@@ -79,26 +82,26 @@
         <p><strong>Plate Boundaries </strong></p>
         <p>
           <svg height="12" width="12">
-            <line x1="2" y1="2" x2="10" y2="10" stroke="#D55E00" stroke-opacity="1" stroke-width="2" />
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#C88048" stroke-opacity="1" stroke-width="2" />
           </svg> Convergent Boundary<br>
           <svg height="12" width="12">
-            <line x1="2" y1="2" x2="10" y2="10" stroke="#0072B2" stroke-opacity="1" stroke-width="2" />
-          </svg> Transform Boundary<br>
-          <svg height="12" width="12">
-            <line x1="2" y1="2" x2="10" y2="10" stroke="#009E73" stroke-opacity="1" stroke-width="2" />
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#0987C1" stroke-opacity="1" stroke-width="2" />
           </svg> Divergent Boundary<br>
           <svg height="12" width="12">
-            <line x1="2" y1="2" x2="10" y2="10" stroke="#F0E442" stroke-opacity="1" stroke-width="2" />
-          </svg> Other Boundary
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#EDDF80" stroke-opacity="1" stroke-width="2" />
+          </svg> Transform Boundary<br>
+          <svg height="12" width="12">
+            <line x1="2" y1="2" x2="10" y2="10" stroke="#666666" stroke-opacity="1" stroke-width="2" />
+          </svg> Complicated Boundary
         </p>
       </div>
-      <div class="col-sm-3">
+      <div class="col-xs-2">
         <p><strong>Seafloor Age</strong></p>
         <p class="small">Millions of Years</p>
         <img src="data/leaflet_seafloor_age_colorbar_magma_r_10my_sm.png" width="80px">
       </div>
-      <div class="col-md-2">
-        <p><strong>Bathymetry/Topography</strong></p>
+      <div class="col-xs-2">
+        <p><strong>Bathymetry &amp; Topography</strong></p>
         <img src="../rider/data/bathy-topo-scale.png" width="80px">
       </div>
     </div>
@@ -117,7 +120,7 @@
       </li>
     </ul>
 
-    <p class="text-right"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+    <p class="text-right"><small>&copy; 2026 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
   </div>
 </body>
 
@@ -127,7 +130,7 @@
 <script type="text/javascript">
   // OOI Data Labs - Rider Widgets
   // Written by Sage Lichtenwalner, 1/13/2021
-  // Revised March 3, 2025
+  // Revised March 2, 2026
 
   // Setup Map
   var container = L.DomUtil.get('map');
@@ -135,7 +138,7 @@
   var mapcenter = [10, -90];
   var myMap = L.map(container, {
     crs: L.CRS.EPSG4326,
-    maxBounds: [[-80, -180], [85, 180]],
+    maxBounds: [[-80, -180-180], [85, 180]],
     minZoom: 0,
     maxZoom: 8,
   }).setView(mapcenter, zoomlevel);
@@ -179,13 +182,13 @@
     .then(res => res.json())
     .then(plates => {
       var boundaryColors = {
-        'Convergent Boundary': '#D55E00', // Vermilion (distinct and bold)
-        'Transform Boundary': '#0072B2', // Blue (good contrast on yellow/blue)
-        'Divergent Boundary': '#009E73', // Green (good contrast on yellow/blue)
-        'Other': '#F0E442' // Yellow (default)
+        'Convergent Boundary': '#C88048',
+        'Divergent Boundary': '#0987C1', 
+        'Transform Boundary': '#EDDF80', 
+        'Other': '#666666' , 
       };
 
-      L.geoJSON(plates, {
+      var geoLayerOptions = {
         style: function (feature) {
           var boundaryType = feature.properties.boundary_type;
           return {
@@ -193,16 +196,55 @@
             weight: 3
           };
         }
-      }).addTo(plate_boundaries2);
+      };
+      var baseLayer = L.geoJSON(plates, geoLayerOptions);
+      var wrappedLayer = buildWrappedVectorLayer(baseLayer, geoLayerOptions, -360);
+      wrappedLayer.addTo(plate_boundaries2);
     })
   myMapControl.addOverlay(plate_boundaries2, 'Plate Boundaries');
+
+  // Duplicate GeoJSON longitudes by an offset (e.g., -360)
+  function duplicateGeoJsonLongitudes(geojson, longitudeOffset) {
+    function shiftCoords(coords) {
+      if (!Array.isArray(coords)) return coords;
+      if (coords.length >= 2 && typeof coords[0] === 'number' && typeof coords[1] === 'number') {
+        return [coords[0] + longitudeOffset, coords[1]].concat(coords.slice(2));
+      }
+      return coords.map(shiftCoords);
+    }
+
+    var clone = JSON.parse(JSON.stringify(geojson));
+    if (clone.type === 'FeatureCollection' && Array.isArray(clone.features)) {
+      clone.features = clone.features.map(function (feature) {
+        if (feature && feature.geometry && feature.geometry.coordinates) {
+          feature.geometry.coordinates = shiftCoords(feature.geometry.coordinates);
+        }
+        return feature;
+      });
+      return clone;
+    }
+    if (clone.type === 'Feature' && clone.geometry && clone.geometry.coordinates) {
+      clone.geometry.coordinates = shiftCoords(clone.geometry.coordinates);
+      return clone;
+    }
+    if (clone.coordinates) {
+      clone.coordinates = shiftCoords(clone.coordinates);
+    }
+    return clone;
+  }
+
+  function buildWrappedVectorLayer(baseGeoJsonLayer, geoJsonOptions, longitudeOffset) {
+    var shiftedGeoJson = duplicateGeoJsonLongitudes(baseGeoJsonLayer.toGeoJSON(), longitudeOffset);
+    var shiftedLayer = L.geoJSON(shiftedGeoJson, geoJsonOptions);
+    return L.layerGroup([baseGeoJsonLayer, shiftedLayer]);
+  }
 
   // Plate Labels
   var plateLabels = L.layerGroup();
   fetch('data/plate_labels.geojson')
     .then(res => res.json())
     .then(labels => {
-      L.geoJSON(labels, {
+      var geoLayerOptions = {
         pointToLayer: function (feature, latlng) {
           return L.marker(latlng, {
             icon: L.divIcon({
@@ -213,7 +255,10 @@
             })
           });
         }
-      }).addTo(plateLabels);
+      };
+      var baseLayer = L.geoJSON(labels, geoLayerOptions);
+      var wrappedLayer = buildWrappedVectorLayer(baseLayer, geoLayerOptions, -360);
+      wrappedLayer.addTo(plateLabels);
     });
   myMapControl.addOverlay(plateLabels, 'Plate Names');
 
@@ -229,7 +274,7 @@
   fetch('../rider/data/volcanoes_20210113.csv')
     .then(res => res.text())
     .then(data => {
-      var geoLayer = L.geoCsv(data, {
+      var geoLayerOptions = {
         firstLineTitles: true,
         fieldSeparator: ',',
         latitudeTitle: 'Latitude',
@@ -246,8 +291,10 @@
               '<b>Status</b>: ' + feature.properties.status + '</p>');
           }
         }
-      })
-      myMapControl.addOverlay(geoLayer, 'Volcanoes');
+      };
+      var baseLayer = L.geoCsv(data, geoLayerOptions);
+      var wrappedLayer = buildWrappedVectorLayer(baseLayer, geoLayerOptions, -360);
+      myMapControl.addOverlay(wrappedLayer, 'Volcanoes');
     })
 
   // Earthquakes
@@ -262,7 +309,7 @@
   fetch('../rider/data/earthquakes_20210128_55.csv')
     .then(res => res.text())
     .then(data => {
-      var geoLayer = L.geoCsv(data, {
+      var geoLayerOptions = {
         firstLineTitles: true,
         fieldSeparator: ',',
         latitudeTitle: 'latitude',
@@ -290,15 +337,17 @@
               '<b>Magnitude</b>: ' + feature.properties.mag + '</p>');
           }
         }
-      })
-      myMapControl.addOverlay(geoLayer, 'Large Earthquakes, 5.5+, 20 years');
+      };
+      var baseLayer = L.geoCsv(data, geoLayerOptions);
+      var wrappedLayer = buildWrappedVectorLayer(baseLayer, geoLayerOptions, -360);
+      myMapControl.addOverlay(wrappedLayer, 'Large Earthquakes, 5.5+, 20 years');
     })
 
   // 2nd Earthquake Layer
   fetch('../rider/data/earthquakes_2021-01.csv')
     .then(res => res.text())
     .then(data => {
-      var geoLayer = L.geoCsv(data, {
+      var geoLayerOptions = {
         firstLineTitles: true,
         fieldSeparator: ',',
         latitudeTitle: 'latitude',
@@ -326,8 +375,10 @@
               '<b>Magnitude</b>: ' + feature.properties.mag + '</p>');
           }
         }
-      })
-      myMapControl.addOverlay(geoLayer, 'All Earthquakes, 0+, 30 days');
+      };
+      var baseLayer = L.geoCsv(data, geoLayerOptions);
+      var wrappedLayer = buildWrappedVectorLayer(baseLayer, geoLayerOptions, -360);
+      myMapControl.addOverlay(wrappedLayer, 'All Earthquakes, 0+, 30 days');
     })
 
   // Add Scale Bar
@@ -348,6 +399,16 @@
   function zoomTo(latitude, longitude, zoomlevel) {
     myMap.setView([latitude, longitude], zoomlevel, { animate: true, duration: 1 });
   }
+
+  // // Temporary map coordinate readout for tuning zoom locations
+  // function updateMapInfo() {
+  //   var center = myMap.getCenter();
+  //   var zoom = myMap.getZoom();
+  //   var info = 'center: ' + center.lat.toFixed(6) + ', ' + center.lng.toFixed(6) + ' | zoom: ' + zoom;
+  //   document.getElementById('mapinfo').textContent = info;
+  // }
+  // myMap.on('moveend zoomend', updateMapInfo);
+  // updateMapInfo();
 
   // Hack to move controls outside of map
   $(document).ready(function () {

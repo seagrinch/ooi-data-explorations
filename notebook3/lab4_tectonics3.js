@@ -29,17 +29,21 @@ https://codepen.io/ryshackleton/pen/NpdNjJ
 https://www.d3-graph-gallery.com/graph/bubble_template.html
 */
 
-$(document).ready(function() {
+document.addEventListener('DOMContentLoaded', function() {
     // Global objects
     var myMap, myChart, dateRangeControl, playInterval;
     var isPlaying = false;
+    var playbackDelay = 400;
     var container = L.DomUtil.get('map');
     var zoomlevel = container.dataset.zoom || 5;
-    var mapcenter = container.dataset.center ? JSON.parse(container.dataset.center) : [44, -128 + 360]; // Wrap points around Dateline
+    var mapcenter = container.dataset.center ? JSON.parse(container.dataset.center) : [44, -128];
     var selected_days = container.dataset.days || 30;
 
     d3.csv(container.dataset.source, formatData, function(error, data) {
-        if (error) throw error;
+        if (error) {
+            console.error('Unable to load earthquake data:', error);
+            return;
+        }
 
         function reformat(array) {
             return array.map(function(d, i) {
@@ -47,7 +51,7 @@ $(document).ready(function() {
                     id: i,
                     type: "Feature",
                     geometry: {
-                        coordinates: [+d.longitude + 360, +d.latitude], // Wrap points around Dateline
+                        coordinates: [+d.longitude, +d.latitude],
                         type: "Point"
                     },
                     properties: {
@@ -71,14 +75,16 @@ $(document).ready(function() {
 
         d3.select("#chart").datum(data).call(myChart);
 
+        bindUiHandlers();
         addVolcanoes();
+        addPlates();
     });
 
     function addMaps() {
         myMap = L.map(container, {
             crs: L.CRS.EPSG3857,
-            maxBounds: [[-80, 0], [85, 360]], // Center around Dateline
-            minZoom: 1,
+            maxBounds: [[20, -180], [65, -40]],
+            minZoom: 3,
             maxZoom: 8,
 //preferCanvas: true,   
       //worldCopyJump: true, 
@@ -94,7 +100,7 @@ $(document).ready(function() {
         }).addTo(myMap);
 
         // Dataset boundary
-        var data_bounds = [[40, -132 + 360], [49, -118 + 360]];
+        var data_bounds = [[40, -132], [49, -118]];
         var data_rect = L.rectangle(data_bounds, {
             color: 'grey',
             weight: 2,
@@ -142,12 +148,30 @@ $(document).ready(function() {
             clearInterval(playInterval);
             button.innerText = 'Play';
         } else {
-            playInterval = setInterval(animateGraph, 400);
+            startPlayback();
             button.innerText = 'Pause';
         }
         isPlaying = !isPlaying;
     }
-    document.getElementById('playPauseButton').addEventListener('click', togglePlayPause);
+
+    function startPlayback() {
+        clearInterval(playInterval);
+        playInterval = setInterval(animateGraph, playbackDelay);
+    }
+
+    function setPlaybackSpeed(delayMs, speedKey) {
+        playbackDelay = delayMs;
+        updateSpeedButtons(speedKey);
+        if (isPlaying) {
+            startPlayback();
+        }
+    }
+
+    function updateSpeedButtons(activeSpeed) {
+        document.getElementById('speedSlow').classList.toggle('active', activeSpeed === 'slow');
+        document.getElementById('speedMedium').classList.toggle('active', activeSpeed === 'medium');
+        document.getElementById('speedFast').classList.toggle('active', activeSpeed === 'fast');
+    }
 
     function animateGraph() {
         var brush_box = d3.select("#brush_box");
@@ -185,12 +209,12 @@ $(document).ready(function() {
 
     function addCityMarkers() {
         var cities = [
-            { name: "Seattle", coords: [47.6062, -122.3321 + 360] },
-            { name: "Portland", coords: [45.5152, -122.6784 + 360] },
-            { name: "Bend", coords: [44.0582, -121.3153 + 360] },
-            { name: "Axial Seamount", coords: [45.95, -130 + 360], isVolcano: true },
-            { name: "Vancouver", coords: [49.2827, -123.1207 + 360] },
-            { name: "Eugene", coords: [44.0521, -123.0868 + 360] }
+            { name: "Seattle", coords: [47.6062, -122.3321] },
+            { name: "Portland", coords: [45.5152, -122.6784] },
+            { name: "Bend", coords: [44.0582, -121.3153] },
+            { name: "Axial Seamount", coords: [45.95, -130], isVolcano: true },
+            { name: "Vancouver", coords: [49.2827, -123.1207] },
+            { name: "Eugene", coords: [44.0521, -123.0868] }
         ];
 
         cities.forEach(function(city) {
@@ -234,7 +258,7 @@ $(document).ready(function() {
         var featureElement = g.selectAll("path")
             .data(geoData.features)
             .enter().append("path")
-            .attr("class", function(d) { return "circle selected, " + eqClass(d.properties.depth); })
+            .attr("class", function(d) { return "circle selected " + eqClass(d.properties.depth); })
             .style('stroke', 'grey')
             .style('stroke-width', 1)
             .style('fill', function(d) { return getColor(d.properties.depth); })
@@ -244,23 +268,40 @@ $(document).ready(function() {
 
         path.pointRadius(function(d) { return radius(d.properties.mag); });
 
-        // Add Depth Legend
+        // Add Earthquake Legend
         var legend = L.control({ position: 'bottomright' });
         legend.onAdd = function(map) {
             var div = L.DomUtil.create('div', 'info legend'),
                 depths = [0, 10, 20, 30],
                 labels = [];
-            div.innerHTML = '<small>Earthquake Depth</small><br>';
+            div.innerHTML = '<svg height="12" width="12"><circle cx="6" cy="6" r="4" stroke="#888" stroke-width="1" fill="#F5F5F5" fill-opacity="0.8" /></svg><small>Volcano</small><br>';
+            div.innerHTML += '<small>Earthquake Depth</small><br>';
             // loop through and generate a label with a colored square for each interval
             for (var i = 0; i < depths.length; i++) {
                 div.innerHTML +=
                     '<i style="background:' + getColor(depths[i] + 1) + '"></i> ' +
                     depths[i] + (depths[i + 1] ? '&ndash;' + depths[i + 1] + '<br>' : '+');
             }
-            div.innerHTML += '<br><small>Earthquake Magnitude</small><br><div id="radius">';
+            div.innerHTML += '<br><small>Earthquake Magnitude</small><br><div id="radius"></div>';
             return div;
         };
         legend.addTo(myMap);
+
+        // Add Plate Boundary Legend
+        var plateLegend = L.control({ position: 'bottomleft' });
+        plateLegend.onAdd = function(map) {
+            var div = L.DomUtil.create('div', 'info legend'),
+                boundaryTypes = ['Convergent', 'Divergent', 'Transform', 'Complicated'],
+                boundaryColors = ['#C88048', '#0987C1', '#EDDF80', '#666666'];
+            div.innerHTML += '<small>Plate Boundaries</small><br>';
+            for (var i = 0; i < boundaryTypes.length; i++) {
+                div.innerHTML +=
+                    '<svg height="12" width="12"><line x1="1" y1="10" x2="11" y2="2" stroke="' + boundaryColors[i] + '" stroke-width="2" /></svg> ' +
+                    boundaryTypes[i] + '<br>';
+            }
+            return div;
+        };
+        plateLegend.addTo(myMap);
 
         // Add Magnitude Legend
         var legendsvg = d3.select("#radius").append("svg").attr('width', '120px').attr('height', '40px');
@@ -474,7 +515,7 @@ $(document).ready(function() {
         return timeseries;
     }
 
-    graph_zoom = function(days) {
+    function graph_zoom(days) {
         var brush_box = d3.select("#brush_box");
         var x = myChart.xx();
         var brush = myChart.brush();
@@ -482,9 +523,9 @@ $(document).ready(function() {
         var min_date = x.invert(extent[0]);
         var max_date = d3.timeHour.offset(min_date, days * 24);
         brush_box.call(brush.move, [x(min_date), x(max_date)]);
-    };
+    }
 
-    toggle_dots = function(depth) {
+    function toggle_dots(depth) {
         var showEarthquakes = d3.select('#' + depth).property('checked');
         var dots = d3.selectAll('.' + depth);
         if (showEarthquakes) {
@@ -494,7 +535,40 @@ $(document).ready(function() {
             dots.attr("visibility", "hidden");
             dots.attr("opacity", 0);
         }
-    };
+    }
+
+    function bindUiHandlers() {
+        document.getElementById('playPauseButton').addEventListener('click', togglePlayPause);
+        document.getElementById('zoom6m').addEventListener('click', function() {
+            graph_zoom(180);
+        });
+        document.getElementById('zoom1y').addEventListener('click', function() {
+            graph_zoom(365);
+        });
+        document.getElementById('zoom3y').addEventListener('click', function() {
+            graph_zoom(365 * 3);
+        });
+
+        document.getElementById('eqShallow').addEventListener('change', function() {
+            toggle_dots('eqShallow');
+        });
+        document.getElementById('eqMid').addEventListener('change', function() {
+            toggle_dots('eqMid');
+        });
+        document.getElementById('eqDeep').addEventListener('change', function() {
+            toggle_dots('eqDeep');
+        });
+
+        document.getElementById('speedSlow').addEventListener('click', function() {
+            setPlaybackSpeed(700, 'slow');
+        });
+        document.getElementById('speedMedium').addEventListener('click', function() {
+            setPlaybackSpeed(400, 'medium');
+        });
+        document.getElementById('speedFast').addEventListener('click', function() {
+            setPlaybackSpeed(100, 'fast');
+        });
+    }
 
     function addVolcanoes() {
         // Volcanoes
@@ -514,15 +588,6 @@ $(document).ready(function() {
                     fieldSeparator: ',',
                     latitudeTitle: 'Latitude',
                     longitudeTitle: 'Longitude',
-                    coordsToLatLng: function(coords) {
-                        var longitude = coords[0];
-                        var latitude = coords[1];
-                        if (longitude < 0) {
-                            return L.latLng(latitude, longitude + 360);
-                        } else {
-                            return L.latLng(latitude, longitude);
-                        }
-                    },
                     pointToLayer: function(feature, latlng) {
                         return L.circleMarker(latlng, volcanoMarker);
                     },
@@ -537,14 +602,66 @@ $(document).ready(function() {
                     }
                 });
 
-                $("#volcanoToggle").on('click', function() {
-                    if ($('#volcanoToggle').is(':checked')) {
+                var volcanoToggle = document.getElementById('volcanoToggle');
+                volcanoToggle.addEventListener('change', function() {
+                    if (volcanoToggle.checked) {
                         geoLayer.addTo(myMap);
                     } else {
                         geoLayer.remove();
                     }
                 });
+            })
+            .catch(error => {
+                console.error('Unable to load volcanoes:', error);
             });
+    }
+
+    function addPlates() {
+        // Plate Boundaries
+        var plate_boundaries = L.layerGroup();
+        fetch('data/plate_boundaries_usgs.geojson')
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Plate boundary fetch failed: ' + res.status + ' ' + res.statusText);
+            }
+            return res.json();
+        })
+            .then(plates => {
+            var boundaryColors = {
+                'Convergent Boundary': '#C88048',
+                'Divergent Boundary': '#0987C1', 
+                'Transform Boundary': '#EDDF80', 
+                'Other': '#666666',
+                'default': '#666666'
+            };
+
+            var geoLayerOptions = {
+                style: function (feature) {
+                var boundaryType = feature.properties.boundary_type;
+                return {
+                    color: boundaryColors[boundaryType] || boundaryColors['default'],
+                    weight: 3
+                };
+                }
+            };
+            var baseLayer = L.geoJSON(plates, geoLayerOptions);
+            plate_boundaries.addLayer(baseLayer);
+            var plateToggle = document.getElementById('plateToggle');
+            if (plateToggle.checked) {
+                plate_boundaries.addTo(myMap);
+            }
+
+            plateToggle.addEventListener('change', function() {
+                if (plateToggle.checked) {
+                    plate_boundaries.addTo(myMap);
+                } else {
+                    plate_boundaries.remove();
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Unable to load plate boundaries:', error);
+        });
     }
 
 });

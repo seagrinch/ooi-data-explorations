@@ -2,7 +2,7 @@
 
 <html>
 <head>
-    <title>Tectonics Activity #2 - Pacific Northwest Earthquakes</title>
+    <title>Tectonics Lab 3 - Pacific Northwest Earthquakes</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
         crossorigin=""/>
@@ -49,28 +49,35 @@
         <div class="row" style="margin-top:10px;">
             <div class="col-xs-6">
                 <p>Automatically select: 
-                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(180)">6 Months</button>
-                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(365)">1 Year</button>
-                    <button class="btn btn-primary btn-sm" onclick="graph_zoom(365*3)">3 Years</button>
+                    <button class="btn btn-primary btn-sm" id="zoom6m">6 Months</button>
+                    <button class="btn btn-primary btn-sm" id="zoom1y">1 Year</button>
+                    <button class="btn btn-primary btn-sm" id="zoom3y">3 Years</button>
                 </p>
-                <p>Animate earthquakes: <button class="btn btn-warning btn-sm" id="playPauseButton">Play</button></p>
+                <p><span style="white-space: nowrap;">Animate earthquakes:
+                    <button class="btn btn-warning btn-sm" id="playPauseButton">Play</button>
+                    <span class="btn-group btn-group-sm" role="group" aria-label="Animation speed">
+                        <button class="btn btn-default" id="speedSlow">Slow</button>
+                        <button class="btn btn-default active" id="speedMedium">Medium</button>
+                        <button class="btn btn-default" id="speedFast">Fast</button>
+                    </span></span>
+                </p>
             </div>
             <div class="col-xs-6">
-                <label style="font-weight: normal;"><input type="checkbox" id="eqShallow" onclick="toggle_dots('eqShallow')"> Show Shallow Earthquakes</label><br>
-                <label style="font-weight: normal;"><input type="checkbox" id="eqMid" onclick="toggle_dots('eqMid')"> Show Mid-depth Earthquakes</label><br>
-                <label style="font-weight: normal;"><input type="checkbox" id="eqDeep" onclick="toggle_dots('eqDeep')"> Show Deep Earthquakes</label><br><br>
-                <label style="font-weight: normal;"><input type="checkbox" id="volcanoToggle"> Show Volcanoes</label>
+                <label style="font-weight: normal;"><input type="checkbox" id="eqShallow"> Show Shallow Earthquakes</label><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="eqMid"> Show Mid-depth Earthquakes</label><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="eqDeep"> Show Deep Earthquakes</label><br><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="volcanoToggle"> Show Volcanoes</label><br>
+                <label style="font-weight: normal;"><input type="checkbox" id="plateToggle"> Show Plate Boundaries</label>
             </div>
         </div>
-        <p class="text-left"><small>&copy; 2025 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
+        <p class="text-left"><small>&copy; 2026 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small></p>
     </div>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
         crossorigin=""></script>
     <script src='../js/leaflet-draw/leaflet.draw.js'></script>
     <script src="../rider/js/leaflet.geocsv-src.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
-    <script type="text/javascript" src="lab3_tectonics2.js"></script>
+    <script type="text/javascript" src="lab4_tectonics3.js"></script>
 </body>
 </html>
