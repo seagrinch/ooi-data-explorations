@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ocean Features Guided Tour</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+		integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+		crossorigin="" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+		integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+		crossorigin=""></script>
+	<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+	<style>
+		body {
+			font-family: Verdana, Geneva, Tahoma, sans-serif;
+			font-size: 13px;
+			color: #333;
+		}
+
+		h3 {
+			margin-top: 10px;
+			margin-bottom: 8px;
+			font-size: 22px;
+			color: #2f4f4f;
+		}
+
+		#map {
+			height: 460px;
+			border: 1px solid #c9c9c9;
+			border-radius: 3px;
+			margin-bottom: 12px;
+		}
+
+		.panel-heading {
+			font-weight: bold;
+		}
+
+		.choice-btn {
+			margin: 4px 4px 0 0;
+			min-width: 180px;
+			text-align: left;
+		}
+
+		.choice-btn.correct {
+			background-color: #3c763d;
+			border-color: #2b542c;
+			color: #fff;
+		}
+
+		.choice-btn.incorrect {
+			background-color: #a94442;
+			border-color: #843534;
+			color: #fff;
+		}
+
+		#feedback {
+			margin-top: 10px;
+			min-height: 24px;
+			font-weight: bold;
+		}
+
+		#feature-bank a {
+			margin: 2px 4px 2px 0;
+			white-space: normal;
+		}
+
+		.feature-row {
+			margin-bottom: 8px;
+		}
+
+		.feature-label {
+			display: inline-block;
+			min-width: 170px;
+			font-weight: bold;
+			font-size: 12px;
+			margin-right: 6px;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="container" style="max-width: 1020px; margin-top: 10px;">
+		<h3>Ocean Floor Features: Guided Map Tour</h3>
+		<p class="lead" style="font-size: 16px; margin-bottom: 10px;">
+			Zoom to each location, interpret the seafloor shape, and choose the best feature label.
+		</p>
+
+		<div class="row">
+			<div class="col-md-8">
+				<div id="map"></div>
+				<div id="map-readout" class="small" style="font-family: monospace; margin-bottom: 8px; color: #555;"></div>
+				<p class="small" style="margin-bottom: 14px; color: #666;">
+					Basemap: GMRT global bathymetry and topography.
+				</p>
+			</div>
+
+			<div class="col-md-4">
+				<div class="panel panel-default">
+					<div class="panel-heading">Current Stop</div>
+					<div class="panel-body">
+						<p><strong id="stop-counter">Stop 1 of 13</strong></p>
+						<p id="stop-name" style="min-height: 38px;"></p>
+						<p id="question-text" style="min-height: 96px;"></p>
+
+						<div id="choices"></div>
+						<div id="feedback"></div>
+
+						<p style="margin-top: 12px;">
+							<button id="next-btn" class="btn btn-primary btn-sm" disabled>Next Location</button>
+							<button id="reset-btn" class="btn btn-default btn-sm">Reset</button>
+						</p>
+
+						<p class="small" style="margin-top: 8px; margin-bottom: 0;">
+							First-attempt correct: <strong id="score">0</strong>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default" id="feature-bank-panel" style="display:none;">
+			<div class="panel-heading">Feature Review</div>
+			<div class="panel-body" id="feature-bank"></div>
+		</div>
+
+		<p class="text-right">
+			<small>&copy; 2026 Rutgers University <a href="https://datalab.marine.rutgers.edu">OOI Ocean Data Labs Project</a></small>
+		</p>
+	</div>
+
+	<script>
+		var features = [
+			'Submarine canyon',
+			'Seamount',
+			'Active margin',
+			'Passive margin',
+			'Continental shelf',
+			'Shelf break',
+			'Continental slope',
+			'Continental rise',
+			'Abyssal plain',
+			'Abyssal hill',
+			'Tablemount',
+			'Mid-ocean ridge',
+			'Trench'
+		];
+
+		var stops = [
+			{
+				name: 'Offshore Oregon (OOI Endurance)',
+				center: [44.62, -124.42],
+				zoom: 8,
+				answer: 'Continental shelf',
+				question: 'Based on depth and gradient near the marker, which feature best fits this area?'
+			},
+			{
+				name: 'Mid-Atlantic (OOI Pioneer MAB)',
+				center: [35.8514, -74.8482], 
+				zoom: 7,
+				answer: 'Shelf break',
+				question: 'Based on the bathymetry at the marker, which geomorphic boundary best fits this location?'
+			},
+			{
+				name: 'Offshore Pacific Northwest',
+				center: [43.5555, -125.2050],
+				zoom: 8,
+				answer: 'Continental slope',
+				question: 'The marker sits on the steep section between shelf and deep basin. Which feature is this?'
+			},
+			{
+				name: 'Argentine margin (Southwest Atlantic)',
+				center: [-39.5, -53.5],
+				zoom: 6,
+				answer: 'Continental rise',
+				question: 'Near the base of the steep margin, the gradient decreases toward deep basin sediment. What feature is this?'
+			},
+			{
+				name: 'Monterey Bay, California',
+				center: [36.78, -122.06],
+				zoom: 9,
+				answer: 'Submarine canyon',
+				question: 'Identify the incised seafloor valley that extends offshore from the margin.'
+			},
+			{
+				name: 'Cascadia margin, Pacific Northwest',
+				center: [44.9, -127.2],
+				zoom: 6,
+				answer: 'Active margin',
+				question: 'Classify this margin using tectonic context and morphology visible in the region.'
+			},
+			{
+				name: 'Northwest Atlantic (OOI Pioneer NES)',
+				center: [39.9, -70.8],
+				zoom: 7,
+				answer: 'Passive margin',
+				question: 'Classify this margin type based on its broad morphology and regional tectonic setting.'
+			},
+			{
+				name: 'NE Pacific (OOI Cabled Array)',
+				center: [45.95, -129.98],
+				zoom: 8,
+				answer: 'Seamount',
+				question: 'Identify the isolated volcanic high rising above surrounding deep seafloor.'
+			},
+			{
+				name: 'NE Pacific (OOI Station Papa)',
+				center: [50.1, -144.9],
+				zoom: 6,
+				answer: 'Abyssal plain',
+				question: 'The marker lies on broad, deep, low-relief terrain. What feature type best fits?'
+			},
+			{
+				name: 'Irminger Sea (OOI Irminger Sea)',
+				center: [59.9, -35.6],
+				zoom: 6,
+				answer: 'Abyssal hill',
+				question: 'This seafloor shows dense, low-relief, ridge-parallel roughness. Which feature class is the best match?'
+			},
+			{
+				name: 'Great Meteor Guyot (North Atlantic)',
+				center: [29.8945, -28.4850],
+				zoom: 6,
+				answer: 'Tablemount',
+				question: 'Identify the broad, flat-topped submerged volcanic edifice near the marker.'
+			},
+			{
+				name: 'Mid-Atlantic Ocean',
+				center: [27.5, -43.5],
+				zoom: 4,
+				answer: 'Mid-ocean ridge',
+				question: 'Which long, continuous volcanic high runs through the center of this basin?'
+			},
+			{
+				name: 'Mariana Region, Western Pacific',
+				center: [14.4375, 147.2659],
+				zoom: 5,
+				answer: 'Trench',
+				question: 'Identify the narrow, elongated, very deep depression in this convergent-margin region.'
+			}
+		];
+
+		var currentStop = 0;
+		var firstTryScore = 0;
+		var answeredCurrent = false;
+		var gotCurrentOnFirstTry = false;
+		var targetMarker = null;
+
+		var myMap = L.map('map', {
+			crs: L.CRS.EPSG4326,
+			maxBounds: [[-80, -360], [85, 180]],
+			minZoom: 0,
+			maxZoom: 8
+		}).setView([22, -110], 2);
+
+		L.tileLayer.wms('https://www.gmrt.org/services/mapserver/wms_merc?', {
+			layers: 'topo',
+			format: 'image/png',
+			transparent: true,
+			attribution: 'Topography data from <a href="https://www.gmrt.org">GMRT</a>'
+		}).addTo(myMap);
+
+		L.control.scale({ maxWidth: 240, metric: true, imperial: false, position: 'bottomleft' }).addTo(myMap);
+
+		function shuffle(arr) {
+			var copy = arr.slice();
+			for (var i = copy.length - 1; i > 0; i--) {
+				var j = Math.floor(Math.random() * (i + 1));
+				var tmp = copy[i];
+				copy[i] = copy[j];
+				copy[j] = tmp;
+			}
+			return copy;
+		}
+
+		function buildChoices(correct) {
+			var distractors = features.filter(function (f) {
+				return f !== correct;
+			});
+			var picked = shuffle(distractors).slice(0, 3);
+			return shuffle([correct].concat(picked));
+		}
+
+		function updateScore() {
+			document.getElementById('score').textContent = firstTryScore;
+		}
+
+		function setFeedback(msg, color) {
+			var el = document.getElementById('feedback');
+			el.textContent = msg;
+			el.style.color = color || '#333';
+		}
+
+		function updateMapReadout(clickLatLng) {
+			var center = myMap.getCenter();
+			var zoom = myMap.getZoom();
+			var text = 'Center: ' + center.lat.toFixed(4) + ', ' + center.lng.toFixed(4) + ' | Zoom: ' + zoom;
+			if (clickLatLng) {
+				text += ' | Click: ' + clickLatLng.lat.toFixed(4) + ', ' + clickLatLng.lng.toFixed(4);
+			}
+			document.getElementById('map-readout').textContent = text;
+		}
+
+		function renderFeatureBank() {
+			var bank = document.getElementById('feature-bank');
+			bank.innerHTML = '';
+
+			var intro = document.createElement('p');
+			intro.className = 'small';
+			intro.style.marginTop = '0';
+			intro.textContent = 'Select a feature to revisit one of its mapped examples.';
+			bank.appendChild(intro);
+
+			features.forEach(function (featureName) {
+				var row = document.createElement('div');
+				row.className = 'feature-row';
+
+				var label = document.createElement('span');
+				label.className = 'feature-label';
+				label.textContent = featureName;
+				row.appendChild(label);
+
+				var matchingStops = stops.filter(function (stop) {
+					return stop.answer === featureName;
+				});
+
+				matchingStops.forEach(function (stop) {
+					var btn = document.createElement('a');
+					btn.href = '#';
+					btn.className = 'btn btn-default btn-xs';
+					btn.textContent = stop.name;
+					btn.onclick = function (evt) {
+						evt.preventDefault();
+						zoomToStop(stop);
+					};
+					row.appendChild(btn);
+				});
+
+				bank.appendChild(row);
+			});
+		}
+
+		function zoomToStop(stop) {
+			myMap.setView(stop.center, stop.zoom, { animate: true, duration: 1 });
+
+			if (!targetMarker) {
+				targetMarker = L.circleMarker(stop.center, {
+					radius: 6,
+					fillColor: '#ffd34d',
+					color: '#7a5b00',
+					weight: 2,
+					fillOpacity: 0.9
+				}).addTo(myMap);
+			}
+
+			// Keep exactly one label visible: clear any previous tooltip before applying new text.
+			targetMarker.closeTooltip();
+			targetMarker.unbindTooltip();
+			targetMarker.setLatLng(stop.center);
+			targetMarker.bindTooltip(stop.name, {
+				permanent: false,
+				direction: 'top',
+				opacity: 0.95
+			});
+			targetMarker.openTooltip();
+		}
+
+		function showReviewPanel() {
+			document.getElementById('feature-bank-panel').style.display = 'block';
+		}
+
+		function renderStop() {
+			var stop = stops[currentStop];
+			answeredCurrent = false;
+			gotCurrentOnFirstTry = false;
+
+			document.getElementById('stop-counter').textContent = 'Stop ' + (currentStop + 1) + ' of ' + stops.length;
+			document.getElementById('stop-name').textContent = stop.name;
+			document.getElementById('question-text').textContent = stop.question;
+			document.getElementById('next-btn').disabled = true;
+			setFeedback('');
+
+			zoomToStop(stop);
+
+			var choices = buildChoices(stop.answer);
+			var choicesDiv = document.getElementById('choices');
+			choicesDiv.innerHTML = '';
+
+			choices.forEach(function (choiceText) {
+				var btn = document.createElement('button');
+				btn.className = 'btn btn-default btn-sm choice-btn';
+				btn.textContent = choiceText;
+				btn.onclick = function () {
+					if (answeredCurrent) {
+						return;
+					}
+					if (choiceText === stop.answer) {
+						btn.className = 'btn btn-sm choice-btn correct';
+						setFeedback('Correct. ' + stop.answer + ' is the best interpretation for this location.', '#2b6b2f');
+						answeredCurrent = true;
+						document.getElementById('next-btn').disabled = false;
+						if (!gotCurrentOnFirstTry) {
+							firstTryScore += 1;
+							updateScore();
+						}
+						var allBtns = choicesDiv.querySelectorAll('button');
+						for (var i = 0; i < allBtns.length; i++) {
+							allBtns[i].disabled = true;
+						}
+					} else {
+						btn.className = 'btn btn-sm choice-btn incorrect';
+						btn.disabled = true;
+						gotCurrentOnFirstTry = true;
+						setFeedback('Not quite. Re-check slope, relief, and regional context, then try again.', '#8a2523');
+					}
+				};
+				choicesDiv.appendChild(btn);
+			});
+		}
+
+		function goNext() {
+			if (currentStop < stops.length - 1) {
+				currentStop += 1;
+				renderStop();
+				return;
+			}
+
+			document.getElementById('stop-counter').textContent = 'Tour Complete';
+			document.getElementById('stop-name').textContent = 'You finished all ' + stops.length + ' locations.';
+			document.getElementById('question-text').textContent = 'Use the Feature Review panel to revisit representative map examples.';
+			document.getElementById('choices').innerHTML = '';
+			document.getElementById('next-btn').disabled = true;
+			setFeedback('Final score: ' + firstTryScore + ' / ' + stops.length + ' first-attempt correct.', '#1f4f91');
+			showReviewPanel();
+		}
+
+		function resetActivity() {
+			currentStop = 0;
+			firstTryScore = 0;
+			answeredCurrent = false;
+			gotCurrentOnFirstTry = false;
+			updateScore();
+			document.getElementById('feature-bank-panel').style.display = 'none';
+			renderStop();
+		}
+
+		document.getElementById('next-btn').addEventListener('click', goNext);
+		document.getElementById('reset-btn').addEventListener('click', resetActivity);
+		myMap.on('moveend zoomend', function () {
+			updateMapReadout();
+		});
+		myMap.on('click', function (evt) {
+			updateMapReadout(evt.latlng);
+		});
+
+		renderFeatureBank();
+		resetActivity();
+		updateMapReadout();
+	</script>
+</body>
+</html>
